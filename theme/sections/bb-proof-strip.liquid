@@ -1,0 +1,41 @@
+{% comment %} Proof / outcome strip — verified counts only, no invented numbers (doc 08 §2.4). {% endcomment %}
+<section class="bb-section bb-bg-soft">
+  <div class="bb-container">
+    <ul class="bb-grid bb-grid--{{ section.blocks.size | at_most: 4 }} bb-proof" role="list" style="list-style: none; padding: 0; margin: 0;">
+      {%- for block in section.blocks -%}
+        <li class="bb-center" {{ block.shopify_attributes }}>
+          <span class="bb-display bb-h3">{{ block.settings.value }}</span>
+          <p>{{ block.settings.label }}</p>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "BB Proof Strip",
+  "tag": "section",
+  "max_blocks": 4,
+  "blocks": [
+    {
+      "type": "outcome",
+      "name": "Outcome",
+      "settings": [
+        { "type": "text", "id": "value", "label": "Value", "default": "47" },
+        { "type": "text", "id": "label", "label": "Label", "default": "podcast episodes" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "BB Proof Strip",
+      "blocks": [
+        { "type": "outcome", "settings": { "value": "47", "label": "Podcast episodes" } },
+        { "type": "outcome", "settings": { "value": "8-stage", "label": "Brand-building framework" } },
+        { "type": "outcome", "settings": { "value": "Chapters + Signals", "label": "Founder resources in one ecosystem" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

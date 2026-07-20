@@ -1,0 +1,58 @@
+/* Brand Blueprint design tokens — single source of truth (doc 08 §1).
+   Layered over Dawn; do not restate these values elsewhere. */
+:root {
+  /* Color */
+  --bb-blueprint-blue: #3978d7;
+  --bb-navy: #071e41;
+  --bb-deep-blue: #0b2d57;
+  --bb-warm-gold: #c89b2c;
+  --bb-pale-blue: #eff5ff;
+  --bb-soft-gray-blue: #f5f8fc;
+  --bb-body-gray: #4b5563;
+  --bb-white: #ffffff;
+  --bb-card-border: #e5eaf2;
+
+  /* Type scale (desktop-first; doc 08: H1 64–76, H2 40–48, H3 28–32) */
+  --bb-h1-size: 4.5rem;
+  --bb-h1-line: 1.05;
+  --bb-h2-size: 2.75rem;
+  --bb-h3-size: 1.875rem;
+  --bb-body-size: 1.125rem;
+  --bb-body-line: 1.6;
+  --bb-eyebrow-size: 0.8125rem;
+  --bb-eyebrow-tracking: 0.05em;
+
+  /* Layout */
+  --bb-max-width: 1240px;
+  --bb-gutter: 24px;
+  --bb-section-pad: 104px;
+  --bb-radius: 4px;
+
+  /* Motion */
+  --bb-transition: 180ms ease-out;
+}
+
+@media screen and (max-width: 1024px) {
+  :root {
+    --bb-h1-size: 3.5rem;
+    --bb-h2-size: 2.375rem;
+    --bb-h3-size: 1.625rem;
+    --bb-section-pad: 72px;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  :root {
+    --bb-h1-size: 2.375rem;
+    --bb-h2-size: 1.875rem;
+    --bb-h3-size: 1.5rem;
+    --bb-body-size: 1.0625rem;
+    --bb-section-pad: 52px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --bb-transition: 0ms;
+  }
+}

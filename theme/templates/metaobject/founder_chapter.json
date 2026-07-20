@@ -1,0 +1,10 @@
+{
+  "sections": {
+    "bb_chapter": {
+      "type": "bb-founder-chapter"
+    }
+  },
+  "order": [
+    "bb_chapter"
+  ]
+}

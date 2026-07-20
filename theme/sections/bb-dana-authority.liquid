@@ -1,0 +1,50 @@
+{% comment %}
+  Dana Ammons authority section (doc 08 §2.13). Copy from the dana_profile
+  metaobject singleton when present; theme settings as fallback.
+  The $115M PepsiCo figure is EXCLUDED until pepsico_claim_status = 'approved' (doc 07 §2).
+{% endcomment %}
+{%- assign profile = shop.metaobjects.dana_profile.values | first -%}
+<section class="bb-section">
+  <div class="bb-container">
+    <div class="bb-grid bb-grid--2">
+      <div>
+        {%- if section.settings.portrait -%}
+          <img
+            src="{{ section.settings.portrait | image_url: width: 800 }}"
+            alt="{{ section.settings.portrait.alt | default: 'Dana Ammons' }}"
+            width="800"
+            height="{{ 800 | divided_by: section.settings.portrait.aspect_ratio | round }}"
+            loading="lazy"
+          >
+        {%- else -%}
+          <div class="bb-callout" style="aspect-ratio: 4 / 5;" role="img" aria-label="Placeholder — Dana Ammons portrait pending (doc 05)"></div>
+        {%- endif -%}
+      </div>
+      <div>
+        <span class="bb-eyebrow">{{ section.settings.eyebrow }}</span>
+        <h2 class="bb-h2">{{ section.settings.heading }}</h2>
+        {%- if profile.positioning.value != blank -%}
+          <p>{{ profile.positioning.value }}</p>
+        {%- else -%}
+          <p>{{ section.settings.body }}</p>
+        {%- endif -%}
+        <p class="bb-mt-2"><a class="bb-btn bb-btn--secondary" href="{{ section.settings.link | default: '/pages/about' }}">About Dana Ammons</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "BB Dana Authority",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Founder & Host" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Built by an operator, for operators" },
+    { "type": "textarea", "id": "body", "label": "Fallback positioning copy", "default": "Dana Ammons brings verified brand and commercial leadership from P&G, PepsiCo and Colgate-Palmolive to founders building consumer brands. [EDITORIAL REVIEW]" },
+    { "type": "image_picker", "id": "portrait", "label": "Portrait" },
+    { "type": "url", "id": "link", "label": "About link" }
+  ],
+  "presets": [{ "name": "BB Dana Authority" }]
+}
+{% endschema %}

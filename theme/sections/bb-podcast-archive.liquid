@@ -1,0 +1,65 @@
+{% comment %}
+  Podcast landing (Phase 1 deliverable 7, doc 08 §7). Dana presented as sole
+  creator, founder and host. Latest-episode hero + archive grid on episode
+  metaobjects. Guest CTA → /pages/guest-application; NO public booking link —
+  approved guests receive the invitation-only scheduling link by email.
+{% endcomment %}
+{%- assign episodes = shop.metaobjects.episode.values -%}
+<section class="bb-section">
+  <div class="bb-container">
+    <span class="bb-eyebrow">The Brand Blueprint Podcast</span>
+    <h1 class="bb-h1">{{ section.settings.heading }}</h1>
+    <p>{{ section.settings.intro }}</p>
+
+    {%- if episodes.size > 0 -%}
+      {%- assign latest = episodes | first -%}
+      <article class="bb-card bb-mt-2">
+        <span class="bb-eyebrow">Latest episode{% if latest.episode_number.value %} · {{ latest.episode_number.value }}{% endif %}</span>
+        <h2 class="bb-h2">{{ latest.title.value }}</h2>
+        {%- if latest.summary.value != blank -%}<p>{{ latest.summary.value }}</p>{%- endif -%}
+        {%- if latest.media_url.value != blank -%}
+          <audio controls preload="none" src="{{ latest.media_url.value }}">
+            Your browser doesn't support embedded audio. <a href="{{ latest.media_url.value }}">Download the episode</a>.
+          </audio>
+        {%- endif -%}
+        {%- if latest.transcript.value != blank -%}
+          <details class="bb-mt-2"><summary>Transcript</summary><div>{{ latest.transcript.value | metafield_tag }}</div></details>
+        {%- endif -%}
+      </article>
+
+      <h2 class="bb-h2 bb-mt-2">The Capsule archive</h2>
+      <div class="bb-grid bb-grid--3">
+        {%- for episode in episodes offset: 1 -%}
+          <article class="bb-card">
+            <span class="bb-eyebrow">Episode{% if episode.episode_number.value %} {{ episode.episode_number.value }}{% endif %}</span>
+            <h3 class="bb-h3">{{ episode.title.value }}</h3>
+            {%- if episode.guest.value != blank -%}
+              <p><span class="bb-badge bb-badge--public">Founder interview</span> {{ episode.guest.value }}</p>
+            {%- endif -%}
+            {%- if episode.summary.value != blank -%}<p>{{ episode.summary.value | truncate: 140 }}</p>{%- endif -%}
+          </article>
+        {%- endfor -%}
+      </div>
+    {%- else -%}
+      <div class="bb-callout"><p>No episodes yet. Create <code>episode</code> metaobject entries — hero and archive fill automatically.</p></div>
+    {%- endif -%}
+
+    <div class="bb-callout bb-center bb-mt-2">
+      <h2 class="bb-h3">Want to join the conversation?</h2>
+      <p>Founder guests are selected by application. Approved guests receive scheduling details by email.</p>
+      <p class="bb-mt-2"><a class="bb-btn bb-btn--primary" href="/pages/guest-application" data-bb-event="route_select" data-bb-route="guest-application">Apply to Be a Guest</a></p>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "BB Podcast Landing",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Conversations with founders who build" },
+    { "type": "textarea", "id": "intro", "label": "Intro", "default": "Created and hosted by Dana Ammons — real founders, real brand-building decisions, across 47 episodes. [EDITORIAL REVIEW]" }
+  ],
+  "presets": [{ "name": "BB Podcast Landing" }]
+}
+{% endschema %}

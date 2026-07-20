@@ -1,0 +1,12 @@
+{% comment %}
+  Renders a Public / Member access badge.
+  Accepts: level (string: 'public' or 'member'), status (optional 'editorial-review')
+{% endcomment %}
+{%- if status == 'editorial-review' -%}
+  <span class="bb-badge bb-badge--review">Editorial review</span>
+{%- endif -%}
+{%- if level == 'member' -%}
+  <span class="bb-badge bb-badge--member">Member</span>
+{%- else -%}
+  <span class="bb-badge bb-badge--public">Public</span>
+{%- endif -%}

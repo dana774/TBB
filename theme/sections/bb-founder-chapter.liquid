@@ -1,0 +1,120 @@
+{% comment %}
+  Dynamic Founder Chapter (doc 08 §4). Main section of templates/metaobject/founder_chapter.json.
+  Renders only populated fields; traction metrics only when consent_metrics is true.
+  Unconsented/unpublished entries carry a visible editorial-review flag in preview.
+{% endcomment %}
+{%- assign f = metaobject -%}
+<article class="bb-section">
+  <div class="bb-container" style="max-width: 880px;">
+    <nav aria-label="Breadcrumb">
+      <a href="/pages/founders">Founder Chapters</a> <span aria-hidden="true">/</span> {{ f.name.value }}
+    </nav>
+
+    {%- unless f.status.value == 'published' and f.consent_story.value -%}
+      <p class="bb-editorial-flag">[EDITORIAL REVIEW] This chapter is awaiting founder consent and Dana's approval — not for publication.</p>
+    {%- endunless -%}
+
+    {%- if f.company.value != blank -%}<span class="bb-eyebrow">{{ f.company.value }}{% if f.role.value != blank %} · {{ f.role.value }}{% endif %}</span>{%- endif -%}
+    <h1 class="bb-h1">{{ f.chapter_title.value | default: f.name.value }}</h1>
+
+    <div class="bb-grid bb-grid--2 bb-mt-2">
+      <div>
+        {%- if f.portrait.value and f.consent_image.value -%}
+          <img src="{{ f.portrait.value | image_url: width: 800 }}" alt="{{ f.portrait.value.alt | default: f.name.value }}" width="800" height="{{ 800 | divided_by: f.portrait.value.aspect_ratio | default: 800 | round }}">
+        {%- else -%}
+          <div class="bb-callout" style="aspect-ratio: 4 / 5;" role="img" aria-label="Portrait pending founder consent"></div>
+        {%- endif -%}
+      </div>
+      <aside class="bb-card" aria-label="Founder snapshot">
+        <h2 class="bb-h3">Snapshot</h2>
+        <dl>
+          {%- if f.industry.value != blank -%}<dt><strong>Industry</strong></dt><dd>{{ f.industry.value }}</dd>{%- endif -%}
+          {%- if f.location.value != blank -%}<dt><strong>Location</strong></dt><dd>{{ f.location.value }}</dd>{%- endif -%}
+          {%- if f.stage.value != blank -%}<dt><strong>Stage</strong></dt><dd>{{ f.stage.value }}</dd>{%- endif -%}
+        </dl>
+      </aside>
+    </div>
+
+    {%- if f.founder_narrative.value != blank -%}
+      <h2 class="bb-h2">Origin story</h2>
+      <div>{{ f.founder_narrative.value | metafield_tag }}</div>
+    {%- endif -%}
+
+    {%- if f.market_problem.value != blank -%}
+      <h2 class="bb-h2">The market problem</h2>
+      <div>{{ f.market_problem.value | metafield_tag }}</div>
+    {%- endif -%}
+
+    {%- if f.turning_points.value != blank -%}
+      <h2 class="bb-h2">Strategic turning points</h2>
+      <div>{{ f.turning_points.value | metafield_tag }}</div>
+    {%- endif -%}
+
+    {%- if f.consent_metrics.value and f.milestones.value != blank -%}
+      <h2 class="bb-h2">Milestones & traction</h2>
+      <div>{{ f.milestones.value | metafield_tag }}</div>
+    {%- endif -%}
+
+    {%- if f.pull_quote.value != blank -%}
+      <blockquote class="bb-pullquote"><p>{{ f.pull_quote.value }}</p><cite>{{ f.name.value }}</cite></blockquote>
+    {%- endif -%}
+
+    {%- if f.dana_insight.value != blank -%}
+      <aside class="bb-callout">
+        <span class="bb-eyebrow">Dana's Insight</span>
+        <div>{{ f.dana_insight.value | metafield_tag }}</div>
+      </aside>
+    {%- endif -%}
+
+    {%- if f.related_episode.value -%}
+      {%- assign ep = f.related_episode.value -%}
+      <h2 class="bb-h2">Hear the conversation</h2>
+      <div class="bb-card">
+        <span class="bb-eyebrow">The Brand Blueprint Podcast{% if ep.episode_number.value %} · Episode {{ ep.episode_number.value }}{% endif %}</span>
+        <h3 class="bb-h3">{{ ep.title.value }}</h3>
+        {%- if ep.media_url.value != blank -%}
+          <audio controls preload="none" src="{{ ep.media_url.value }}">
+            Your browser doesn't support embedded audio. <a href="{{ ep.media_url.value }}">Download the episode</a>.
+          </audio>
+        {%- endif -%}
+        {%- if ep.transcript.value != blank -%}
+          <details class="bb-mt-2">
+            <summary>Transcript</summary>
+            <div>{{ ep.transcript.value | metafield_tag }}</div>
+          </details>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- if f.website.value != blank or f.social_links.value != blank -%}
+      <h2 class="bb-h3">Find {{ f.company.value | default: f.name.value }}</h2>
+      <p>
+        {%- if f.website.value != blank -%}<a href="{{ f.website.value }}" rel="noopener">Website</a>{%- endif -%}
+      </p>
+    {%- endif -%}
+
+    <div class="bb-callout bb-center bb-mt-2">
+      <h2 class="bb-h3">Ready to write your own chapter?</h2>
+      <p class="bb-mt-2"><a class="bb-btn bb-btn--primary" href="/pages/founder-intake">Complete the Founder Intake</a></p>
+    </div>
+  </div>
+</article>
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Founder Chapters", "item": {{ request.origin | append: '/pages/founders' | json }} },
+      { "@type": "ListItem", "position": 2, "name": {{ f.name.value | json }} }
+    ]
+  }
+</script>
+
+{% schema %}
+{
+  "name": "BB Founder Chapter",
+  "tag": "section",
+  "settings": []
+}
+{% endschema %}

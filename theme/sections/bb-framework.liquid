@@ -1,0 +1,59 @@
+{% comment %} The eight-stage framework — numbered editorial list (doc 08 §2.6). {% endcomment %}
+<section class="bb-section bb-bg-pale">
+  <div class="bb-container">
+    <span class="bb-eyebrow">{{ section.settings.eyebrow }}</span>
+    <h2 class="bb-h2">{{ section.settings.heading }}</h2>
+    <ol class="bb-framework">
+      {%- for block in section.blocks -%}
+        <li {{ block.shopify_attributes }}>
+          <div>
+            <h3 class="bb-h3">{{ block.settings.stage }}</h3>
+            {%- if block.settings.description != blank -%}
+              <p>{{ block.settings.description }}</p>
+            {%- endif -%}
+          </div>
+        </li>
+      {%- endfor -%}
+    </ol>
+    <p class="bb-mt-2"><a href="{{ section.settings.link | default: '/pages/founders' }}">{{ section.settings.link_label | default: 'See the stages in action' }}</a></p>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "BB Eight-Stage Framework",
+  "tag": "section",
+  "max_blocks": 8,
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The Framework" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Eight stages from vision to scale" },
+    { "type": "text", "id": "link_label", "label": "Link label", "default": "See the stages in action" },
+    { "type": "url", "id": "link", "label": "Link" }
+  ],
+  "blocks": [
+    {
+      "type": "stage",
+      "name": "Stage",
+      "settings": [
+        { "type": "text", "id": "stage", "label": "Stage name" },
+        { "type": "textarea", "id": "description", "label": "Description" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "BB Eight-Stage Framework",
+      "blocks": [
+        { "type": "stage", "settings": { "stage": "Vision" } },
+        { "type": "stage", "settings": { "stage": "Research" } },
+        { "type": "stage", "settings": { "stage": "Identity" } },
+        { "type": "stage", "settings": { "stage": "Development" } },
+        { "type": "stage", "settings": { "stage": "Marketing" } },
+        { "type": "stage", "settings": { "stage": "Distribution" } },
+        { "type": "stage", "settings": { "stage": "Funding" } },
+        { "type": "stage", "settings": { "stage": "Scaling" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

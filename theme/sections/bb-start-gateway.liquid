@@ -1,0 +1,48 @@
+{% comment %} /start gateway — one-screen 3-way router (doc 08 §5). Fires route_select. {% endcomment %}
+<section class="bb-section">
+  <div class="bb-container">
+    <h1 class="bb-h1">{{ section.settings.heading }}</h1>
+    {%- if section.settings.intro != blank -%}<p>{{ section.settings.intro }}</p>{%- endif -%}
+    <div class="bb-grid bb-grid--3 bb-mt-2">
+      {%- for block in section.blocks -%}
+        <a class="bb-card" href="{{ block.settings.link }}" data-bb-event="route_select" data-bb-route="{{ block.settings.title | handleize }}" {{ block.shopify_attributes }}>
+          <h2 class="bb-h3">{{ block.settings.title }}</h2>
+          <p>{{ block.settings.body }}</p>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "BB Start Gateway",
+  "tag": "section",
+  "max_blocks": 3,
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Start here" },
+    { "type": "textarea", "id": "intro", "label": "Intro" }
+  ],
+  "blocks": [
+    {
+      "type": "route",
+      "name": "Route",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "textarea", "id": "body", "label": "Body" },
+        { "type": "url", "id": "link", "label": "Destination" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "BB Start Gateway",
+      "blocks": [
+        { "type": "route", "settings": { "title": "I'm a founder", "body": "Complete the Founder Intake to find your pathway." } },
+        { "type": "route", "settings": { "title": "I'm an institution or partner", "body": "Programs, partnership and contributor pathways." } },
+        { "type": "route", "settings": { "title": "I want to be on the podcast", "body": "Apply to join Dana on The Brand Blueprint Podcast." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

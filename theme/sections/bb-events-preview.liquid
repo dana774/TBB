@@ -1,0 +1,42 @@
+{% comment %} Events & opportunities — event + funding_opportunity metaobjects (doc 08 §2.12). {% endcomment %}
+{%- assign events = shop.metaobjects.event.values -%}
+{%- assign funding = shop.metaobjects.funding_opportunity.values -%}
+<section class="bb-section">
+  <div class="bb-container">
+    <span class="bb-eyebrow">Events & Opportunities</span>
+    <h2 class="bb-h2">{{ section.settings.heading }}</h2>
+    {%- if events.size > 0 or funding.size > 0 -%}
+      <div class="bb-grid bb-grid--3">
+        {%- for event in events limit: 3 -%}
+          <article class="bb-card">
+            <span class="bb-eyebrow">Event{% if event.event_date.value %} · {{ event.event_date.value | date: '%b %-d, %Y' }}{% endif %}</span>
+            <h3 class="bb-h3">{{ event.title.value }}</h3>
+            {%- if event.summary.value != blank -%}<p>{{ event.summary.value }}</p>{%- endif -%}
+            {%- if event.registration_url.value != blank -%}<a href="{{ event.registration_url.value }}" rel="noopener">Register</a>{%- endif -%}
+          </article>
+        {%- endfor -%}
+        {%- for opp in funding limit: 3 -%}
+          <article class="bb-card">
+            <span class="bb-eyebrow">Funding{% if opp.deadline.value %} · closes {{ opp.deadline.value | date: '%b %-d, %Y' }}{% endif %}</span>
+            <h3 class="bb-h3">{{ opp.title.value }}</h3>
+            {%- if opp.amount_range.value != blank -%}<p><strong>{{ opp.amount_range.value }}</strong></p>{%- endif -%}
+            {%- if opp.fit_guidance.value != blank -%}<p>{{ opp.fit_guidance.value }}</p>{%- endif -%}
+          </article>
+        {%- endfor -%}
+      </div>
+    {%- else -%}
+      <div class="bb-callout"><p>No events or funding entries yet. Create <code>event</code> / <code>funding_opportunity</code> metaobjects — this section fills automatically.</p></div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "BB Events Preview",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Where founders show up next" }
+  ],
+  "presets": [{ "name": "BB Events Preview" }]
+}
+{% endschema %}

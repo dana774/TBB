@@ -1,0 +1,41 @@
+{% comment %}
+  Podcast & Capsule archive preview — latest episode large + recent (doc 08 §2.11).
+  Data: episode metaobjects. Dana is sole creator, founder and host.
+{% endcomment %}
+{%- assign episodes = shop.metaobjects.episode.values -%}
+<section class="bb-section bb-bg-soft">
+  <div class="bb-container">
+    <span class="bb-eyebrow">The Brand Blueprint Podcast</span>
+    <h2 class="bb-h2">{{ section.settings.heading }}</h2>
+    {%- if episodes.size > 0 -%}
+      <div class="bb-grid bb-grid--3">
+        {%- for episode in episodes limit: section.settings.limit -%}
+          <article class="bb-card{% if forloop.first %} bb-card--featured{% endif %}">
+            <span class="bb-eyebrow">{% if forloop.first %}Latest episode{% else %}Episode{% endif %}{% if episode.episode_number.value %} {{ episode.episode_number.value }}{% endif %}</span>
+            <h3 class="bb-h3">{{ episode.title.value }}</h3>
+            {%- if episode.summary.value != blank -%}<p>{{ episode.summary.value | truncate: 160 }}</p>{%- endif -%}
+            {%- if episode.guest.value != blank -%}
+              <p><span class="bb-badge bb-badge--public">Founder interview</span> {{ episode.guest.value }}</p>
+            {%- endif -%}
+          </article>
+        {%- endfor -%}
+      </div>
+    {%- else -%}
+      <div class="bb-callout"><p>No episodes yet. Create <code>episode</code> metaobject entries — this preview fills automatically.</p></div>
+    {%- endif -%}
+    <p class="bb-mt-2"><a href="{{ section.settings.link | default: '/pages/podcast' }}">Listen to the latest episode</a></p>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "BB Podcast Preview",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Conversations with founders who build" },
+    { "type": "range", "id": "limit", "label": "Episodes shown", "min": 1, "max": 6, "step": 1, "default": 3 },
+    { "type": "url", "id": "link", "label": "Podcast page link" }
+  ],
+  "presets": [{ "name": "BB Podcast Preview" }]
+}
+{% endschema %}

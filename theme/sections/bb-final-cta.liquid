@@ -1,0 +1,24 @@
+{% comment %} Intake-first closing CTA (doc 08 §2.15). Never Calendly. {% endcomment %}
+<section class="bb-section bb-bg-pale">
+  <div class="bb-container bb-center" style="max-width: 720px;">
+    <h2 class="bb-h2 bb-display">{{ section.settings.heading }}</h2>
+    <p class="bb-mt-2">
+      <a class="bb-btn bb-btn--primary" href="{{ section.settings.link | default: '/pages/founder-intake' }}">
+        {{- section.settings.cta | default: 'Complete the Founder Intake' -}}
+      </a>
+    </p>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "BB Final CTA",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Your brand deserves a blueprint." },
+    { "type": "text", "id": "cta", "label": "CTA label", "default": "Complete the Founder Intake" },
+    { "type": "url", "id": "link", "label": "CTA link" }
+  ],
+  "presets": [{ "name": "BB Final CTA" }]
+}
+{% endschema %}

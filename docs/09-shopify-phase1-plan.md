@@ -1,6 +1,8 @@
-# 09 — Shopify Phase 1 Build Plan (pre-code, for Dana's approval)
+# 09 — Shopify Phase 1 Build Plan
 
-**Status: awaiting Dana's approval. No code written, nothing pushed to the store, nothing published.**
+**Status 2026-07-20: Dana confirmed the dev store; theme code is built in `theme/` (Dawn 15.5.0 fork, Theme Check zero errors). Nothing pushed to the store yet — the Shopify connector needs re-authorization, then the unpublished push + metaobject setup happen per §"Store-side setup" in `theme/README.md`. Nothing published.**
+
+Dev store confirmed by Dana 2026-07-20: **`the-brand-blueprint.myshopify.com`** (password-protected; unpublished theme only).
 
 Scope source: `SHOPIFY_CODEX_PHASE_1_PROMPT.md`. Strategy and design grounding: docs 01–08 in this repo (v3.0 blueprint work). Architecture: **Brand Blueprint on Shopify (Basic, Dawn-based OS 2.0); VGP stays on Wix.** All guardrails from the prompt are treated as hard constraints: unpublished theme only, no domain changes, no Shopify Payments activation, no paid apps, no live recurring charges, no private-route exposure.
 

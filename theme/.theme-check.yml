@@ -1,0 +1,6 @@
+root: .
+
+# Dawn ships with translation keys and matching-schema conventions we inherit;
+# BB sections are English-first for the Phase 1 staging review.
+MatchingTranslations:
+  enabled: false

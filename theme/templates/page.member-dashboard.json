@@ -1,0 +1,10 @@
+{
+  "sections": {
+    "bb_dashboard": {
+      "type": "bb-member-dashboard"
+    }
+  },
+  "order": [
+    "bb_dashboard"
+  ]
+}

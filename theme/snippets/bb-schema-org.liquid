@@ -1,0 +1,32 @@
+{% comment %}
+  Sitewide + per-template JSON-LD (doc 08 §9).
+  Organization + Person on every page; PodcastSeries on the podcast page;
+  BreadcrumbList on founder chapter pages (emitted by the chapter section).
+{% endcomment %}
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "The Brand Blueprint",
+    "url": {{ shop.url | append: '/' | json }},
+    {%- if settings.logo %}
+      "logo": {{ settings.logo | image_url: width: 500 | prepend: 'https:' | json }},
+    {%- endif %}
+    "founder": {
+      "@type": "Person",
+      "name": "Dana Ammons",
+      "jobTitle": "Founder & Host, The Brand Blueprint"
+    }
+  }
+</script>
+{%- if template.suffix == 'podcast' -%}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "PodcastSeries",
+      "name": "The Brand Blueprint Podcast",
+      "url": {{ request.origin | append: page.url | json }},
+      "author": { "@type": "Person", "name": "Dana Ammons" }
+    }
+  </script>
+{%- endif -%}

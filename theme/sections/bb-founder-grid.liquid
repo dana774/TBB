@@ -1,0 +1,78 @@
+{% comment %}
+  Founder Chapters grid. Two modes:
+  - "featured" (homepage): first N published entries, no filters.
+  - "directory" (/pages/founders): all entries + stage/industry filter chips
+    (progressive enhancement in bb-intake.js; chips hidden without JS).
+  Data source: founder_chapter metaobjects. Renders a setup notice in the
+  editor when the definition has no entries yet.
+{% endcomment %}
+{%- liquid
+  assign founders = shop.metaobjects.founder_chapter.values
+  assign limit = section.settings.limit | default: 12
+-%}
+<section class="bb-section" data-bb-founder-grid>
+  <div class="bb-container">
+    {%- if section.settings.eyebrow != blank -%}
+      <span class="bb-eyebrow">{{ section.settings.eyebrow }}</span>
+    {%- endif -%}
+    <h2 class="bb-h2">{{ section.settings.heading }}</h2>
+    {%- if section.settings.intro != blank -%}
+      <p>{{ section.settings.intro }}</p>
+    {%- endif -%}
+
+    {%- if section.settings.show_filters -%}
+      {%- capture stage_chips -%}
+        {%- for founder in founders -%}
+          {%- if founder.stage.value != blank -%}{{ founder.stage.value }}|{%- endif -%}
+        {%- endfor -%}
+      {%- endcapture -%}
+      {%- assign stages = stage_chips | split: '|' | uniq -%}
+      {%- if stages.size > 0 -%}
+        <div class="bb-chips" data-bb-filter-group="stage" hidden>
+          <button type="button" class="bb-chip" aria-pressed="true" data-bb-filter="">All stages</button>
+          {%- for stage in stages -%}
+            {%- if stage != blank -%}
+              <button type="button" class="bb-chip" aria-pressed="false" data-bb-filter="{{ stage | handleize }}">{{ stage }}</button>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    {%- endif -%}
+
+    {%- if founders.size > 0 -%}
+      <div class="bb-grid bb-grid--3" data-bb-founder-cards>
+        {%- for founder in founders limit: limit -%}
+          {%- if founder.status.value == 'published' or request.design_mode or section.settings.show_unpublished -%}
+            {% render 'bb-card-founder', founder: founder %}
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- else -%}
+      <div class="bb-callout">
+        <p>No Founder Chapters yet. Create <code>founder_chapter</code> metaobject entries in Shopify admin — this grid fills automatically.</p>
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.link_label != blank -%}
+      <p class="bb-mt-2"><a href="{{ section.settings.link | default: '/pages/founders' }}">{{ section.settings.link_label }}</a></p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "BB Founder Chapters",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Founder Chapters" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Lessons from founders building real brands" },
+    { "type": "textarea", "id": "intro", "label": "Intro" },
+    { "type": "range", "id": "limit", "label": "Maximum chapters", "min": 3, "max": 24, "step": 3, "default": 3 },
+    { "type": "checkbox", "id": "show_filters", "label": "Show stage filter chips (directory mode)", "default": false },
+    { "type": "checkbox", "id": "show_unpublished", "label": "Preview unpublished entries (staging review only)", "default": false },
+    { "type": "text", "id": "link_label", "label": "Footer link label" },
+    { "type": "url", "id": "link", "label": "Footer link" }
+  ],
+  "presets": [{ "name": "BB Founder Chapters" }]
+}
+{% endschema %}

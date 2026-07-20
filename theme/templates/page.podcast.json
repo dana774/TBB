@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "bb_podcast": {
+      "type": "bb-podcast-archive"
+    },
+    "bb_newsletter": {
+      "type": "bb-newsletter"
+    }
+  },
+  "order": [
+    "bb_podcast",
+    "bb_newsletter"
+  ]
+}

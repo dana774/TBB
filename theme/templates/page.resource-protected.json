@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "bb_resource": {
+      "type": "bb-resource-body",
+      "settings": {
+        "protected": true
+      }
+    }
+  },
+  "order": [
+    "bb_resource"
+  ]
+}
