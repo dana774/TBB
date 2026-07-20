@@ -69,7 +69,7 @@
    },
    {
     "key": "status",
-    "value": "editorial-review"
+    "value": "archived-from-lineup"
    },
    {
     "key": "seo_title",
@@ -80,7 +80,9 @@
     "value": "How Sruti Baz scaled Mouma's from handmade pouches to a Walmart Road to Open Call FastPass — MVP validation, co-packer transition and disciplined sequencing."
    }
   ],
-  "_related_episode_handle": "sruti-baz-scaling-moumas"
+  "_related_episode_handle": "sruti-baz-scaling-moumas",
+  "_migration_status": "NOT_FEATURED",
+  "_note": "Moved out of the featured Founder Chapter lineup per Dana 2026-07-20 (Round 1/Q3). Record retained (not deleted); do not feature or publish unless Dana reinstates."
  },
  {
   "type": "founder_chapter",
@@ -152,7 +154,7 @@
    },
    {
     "key": "status",
-    "value": "editorial-review"
+    "value": "archived-from-lineup"
    },
    {
     "key": "seo_title",
@@ -163,7 +165,9 @@
     "value": "From layoff to confidence-centered oral care brand: how Kanicka Joseph built K&K Smiles into a product and experience ecosystem."
    }
   ],
-  "_related_episode_handle": "kanicka-joseph-k-and-k-smiles"
+  "_related_episode_handle": "kanicka-joseph-k-and-k-smiles",
+  "_migration_status": "NOT_FEATURED",
+  "_note": "Moved out of the featured Founder Chapter lineup per Dana 2026-07-20 (Round 1/Q3). Record retained (not deleted); do not feature or publish unless Dana reinstates."
  },
  {
   "type": "founder_chapter",
@@ -246,6 +250,7 @@
     "value": "From higher-ed executive to professional herbalist and founder: Dr. Michelle Cromwell's Soeur Du Sol, a functional beverage brand for midlife wellbeing."
    }
   ],
-  "_related_episode_handle": "dr-michelle-cromwell-soeur-du-sol"
+  "_related_episode_handle": "dr-michelle-cromwell-soeur-du-sol",
+  "_migration_status": "FEATURED (pending consent + insight sign-off)"
  }
 ]
