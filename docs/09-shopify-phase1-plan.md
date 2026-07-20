@@ -1,6 +1,6 @@
 # 09 — Shopify Phase 1 Build Plan
 
-**Status 2026-07-20: Dana confirmed the dev store; theme code is built in `theme/` (Dawn 15.5.0 fork, Theme Check zero errors). Nothing pushed to the store yet — the Shopify connector needs re-authorization, then the unpublished push + metaobject setup happen per §"Store-side setup" in `theme/README.md`. Nothing published.**
+**Status 2026-07-20 (evening): deployed to the dev store as UNPUBLISHED theme "BB Phase 1 - DO NOT PUBLISH" (`gid://shopify/OnlineStoreTheme/154677215286`). All 7 metaobject definitions created (founder_chapter has web pages at `/founders/<handle>`), 15 pages created, editorial-review seeds loaded (3 founders held with consent=false, dana_profile at pending-proof — no $115M claim). The published theme (Horizon) is untouched; nothing published; no scheduling URLs stored anywhere in the store or Git. Preview: `https://the-brand-blueprint.myshopify.com/?preview_theme_id=154677215286` (store password required).**
 
 Dev store confirmed by Dana 2026-07-20: **`the-brand-blueprint.myshopify.com`** (password-protected; unpublished theme only).
 
