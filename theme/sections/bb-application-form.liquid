@@ -1,0 +1,67 @@
+{% comment %}
+  Generic application/request form (Phase 2): guest application, resource
+  request, partner intro. Native Shopify contact form; a hidden field
+  identifies which form was submitted. NO scheduling links anywhere —
+  approved podcast guests receive the invitation-only link by email (doc 02).
+{% endcomment %}
+<section class="bb-section">
+  <div class="bb-container" style="max-width: 720px;">
+    <span class="bb-eyebrow">{{ section.settings.eyebrow }}</span>
+    <h1 class="bb-h1">{{ section.settings.heading }}</h1>
+    <p>{{ section.settings.intro }}</p>
+
+    {%- form 'contact', class: 'bb-intake', id: 'bb-application-form' -%}
+      {%- if form.posted_successfully? -%}
+        <div class="bb-callout" role="status">
+          <h2 class="bb-h3">{{ section.settings.success_heading }}</h2>
+          <p>{{ section.settings.success_body }}</p>
+        </div>
+      {%- else -%}
+        {%- if form.errors -%}
+          <p class="bb-field-error" role="alert">Please correct your email address and try again.</p>
+        {%- endif -%}
+        <input type="hidden" name="contact[Form]" value="{{ section.settings.form_key }}">
+        <fieldset>
+          <legend class="bb-visually-hidden">Your details</legend>
+          <label for="bb-app-name-{{ section.id }}">Full name</label><br>
+          <input type="text" id="bb-app-name-{{ section.id }}" name="contact[name]" autocomplete="name" required style="width:100%; padding:0.8rem; border:1px solid var(--bb-card-border); border-radius:var(--bb-radius); margin:0.25rem 0 1rem;"><br>
+          <label for="bb-app-email-{{ section.id }}">Email</label><br>
+          <input type="email" id="bb-app-email-{{ section.id }}" name="contact[email]" autocomplete="email" required style="width:100%; padding:0.8rem; border:1px solid var(--bb-card-border); border-radius:var(--bb-radius); margin:0.25rem 0 1rem;"><br>
+          {%- if section.settings.show_company -%}
+            <label for="bb-app-company-{{ section.id }}">Company or brand</label><br>
+            <input type="text" id="bb-app-company-{{ section.id }}" name="contact[company]" autocomplete="organization" style="width:100%; padding:0.8rem; border:1px solid var(--bb-card-border); border-radius:var(--bb-radius); margin:0.25rem 0 1rem;"><br>
+          {%- endif -%}
+          {%- if section.settings.show_link -%}
+            <label for="bb-app-link-{{ section.id }}">{{ section.settings.link_label }}</label><br>
+            <input type="url" id="bb-app-link-{{ section.id }}" name="contact[link]" style="width:100%; padding:0.8rem; border:1px solid var(--bb-card-border); border-radius:var(--bb-radius); margin:0.25rem 0 1rem;"><br>
+          {%- endif -%}
+          <label for="bb-app-body-{{ section.id }}">{{ section.settings.message_label }}</label><br>
+          <textarea id="bb-app-body-{{ section.id }}" name="contact[body]" rows="5" required style="width:100%; padding:0.8rem; border:1px solid var(--bb-card-border); border-radius:var(--bb-radius); margin:0.25rem 0 1rem;"></textarea>
+        </fieldset>
+        <button type="submit" class="bb-btn bb-btn--primary" data-bb-event="{{ section.settings.analytics_event }}">{{ section.settings.cta }}</button>
+      {%- endif -%}
+    {%- endform -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "BB Application Form",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Application" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Apply" },
+    { "type": "textarea", "id": "intro", "label": "Intro" },
+    { "type": "text", "id": "form_key", "label": "Form identifier (internal)", "default": "application" },
+    { "type": "checkbox", "id": "show_company", "label": "Ask for company/brand", "default": true },
+    { "type": "checkbox", "id": "show_link", "label": "Ask for a link", "default": false },
+    { "type": "text", "id": "link_label", "label": "Link field label", "default": "Website or social link" },
+    { "type": "text", "id": "message_label", "label": "Message field label", "default": "Tell us more" },
+    { "type": "text", "id": "cta", "label": "Submit label", "default": "Submit" },
+    { "type": "text", "id": "analytics_event", "label": "Analytics event name", "default": "application_submit" },
+    { "type": "text", "id": "success_heading", "label": "Success heading", "default": "Thank you — application received." },
+    { "type": "textarea", "id": "success_body", "label": "Success body", "default": "We review every submission personally and respond within two business days." }
+  ],
+  "presets": [{ "name": "BB Application Form" }]
+}
+{% endschema %}

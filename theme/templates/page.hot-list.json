@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "bb_grid": {
+      "type": "bb-founder-grid",
+      "settings": {
+        "eyebrow": "Founder Stories",
+        "heading": "The Founder Hot List",
+        "intro": "[EDITORIAL REVIEW] Standout founder stories, updated as chapters are approved.",
+        "limit": 12,
+        "show_filters": false,
+        "link_label": "Explore all Founder Chapters",
+        "link": "/pages/founders"
+      }
+    }
+  },
+  "order": [
+    "bb_grid"
+  ]
+}

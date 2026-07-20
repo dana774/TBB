@@ -1,0 +1,24 @@
+{
+  "sections": {
+    "bb_form": {
+      "type": "bb-application-form",
+      "settings": {
+        "eyebrow": "The Brand Blueprint Podcast",
+        "heading": "Apply to Be a Guest",
+        "intro": "Founder guests are selected by application. Tell us about your brand and the lessons you can share. Approved guests receive scheduling details by email \u2014 there is no public booking link.",
+        "form_key": "guest-application",
+        "show_company": true,
+        "show_link": true,
+        "link_label": "Your brand's website or social link",
+        "message_label": "Your brand story and what you'd share on the show",
+        "cta": "Submit application",
+        "analytics_event": "podcast_application_submit",
+        "success_heading": "Application received.",
+        "success_body": "Dana reviews every application personally. If it's a fit, you'll receive an invitation and scheduling details by email within two business days."
+      }
+    }
+  },
+  "order": [
+    "bb_form"
+  ]
+}

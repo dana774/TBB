@@ -1,0 +1,23 @@
+{
+  "sections": {
+    "bb_form": {
+      "type": "bb-application-form",
+      "settings": {
+        "eyebrow": "Resource Library",
+        "heading": "Request a Resource",
+        "intro": "Tell us what template, guide or playbook would move your brand forward and we'll consider it for the library.",
+        "form_key": "resource-request",
+        "show_company": true,
+        "show_link": false,
+        "message_label": "What resource do you need, and for which stage?",
+        "cta": "Send request",
+        "analytics_event": "resource_request_submit",
+        "success_heading": "Request received.",
+        "success_body": "We review requests as we plan new library releases."
+      }
+    }
+  },
+  "order": [
+    "bb_form"
+  ]
+}

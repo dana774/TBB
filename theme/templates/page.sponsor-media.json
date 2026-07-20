@@ -1,0 +1,10 @@
+{
+  "sections": {
+    "bb_kit": {
+      "type": "bb-sponsor-media"
+    }
+  },
+  "order": [
+    "bb_kit"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "sections": {
+    "bb_grid": {
+      "type": "bb-founder-grid",
+      "settings": {
+        "eyebrow": "Accelerators & Alumni",
+        "heading": "Founders from the programs we serve",
+        "intro": "[EDITORIAL REVIEW] Cohort founders and alumni appear here as chapters are approved.",
+        "limit": 24,
+        "show_filters": true,
+        "link_label": ""
+      }
+    },
+    "bb_final": {
+      "type": "bb-final-cta"
+    }
+  },
+  "order": [
+    "bb_grid",
+    "bb_final"
+  ]
+}

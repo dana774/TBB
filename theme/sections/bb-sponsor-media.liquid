@@ -1,0 +1,41 @@
+{% comment %}
+  Sponsor & Media Kit (Phase 2). Verified counts only; sponsorship contact
+  goes through the application form — no booking links, no invented metrics.
+{% endcomment %}
+<section class="bb-section">
+  <div class="bb-container" style="max-width: 880px;">
+    <span class="bb-eyebrow">Sponsors & Media</span>
+    <h1 class="bb-h1">{{ section.settings.heading }}</h1>
+    <p>{{ section.settings.intro }}</p>
+
+    <div class="bb-grid bb-grid--3 bb-mt-2">
+      <div class="bb-card bb-center"><span class="bb-display bb-h3">47</span><p>Podcast episodes</p></div>
+      <div class="bb-card bb-center"><span class="bb-display bb-h3">Founder-first</span><p>Interview format with real consumer-brand builders</p></div>
+      <div class="bb-card bb-center"><span class="bb-display bb-h3">[EDITORIAL REVIEW]</span><p>Audience metrics pending verified analytics</p></div>
+    </div>
+
+    <h2 class="bb-h2 bb-mt-2">Ways to work together</h2>
+    <ul>
+      <li><strong>Episode sponsorship</strong> — pre/mid-roll placements read by Dana.</li>
+      <li><strong>Signals sponsorship</strong> — presenting partner on Market Signal or Funding Friday.</li>
+      <li><strong>Media &amp; press</strong> — interviews, panels and speaking inquiries for Dana.</li>
+    </ul>
+
+    <div class="bb-callout bb-center bb-mt-2">
+      <h2 class="bb-h3">Start a sponsorship or media conversation</h2>
+      <p class="bb-mt-2"><a class="bb-btn bb-btn--primary" href="/pages/contact">Contact us</a></p>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "BB Sponsor & Media Kit",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Partner with The Brand Blueprint Podcast" },
+    { "type": "textarea", "id": "intro", "label": "Intro", "default": "Reach founders building real consumer brands. [EDITORIAL REVIEW — audience claims held until analytics are verified.]" }
+  ],
+  "presets": [{ "name": "BB Sponsor & Media Kit" }]
+}
+{% endschema %}

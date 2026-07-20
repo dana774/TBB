@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "bb_compare": {
+      "type": "bb-membership-compare"
+    },
+    "bb_final": {
+      "type": "bb-final-cta"
+    }
+  },
+  "order": [
+    "bb_compare",
+    "bb_final"
+  ]
+}

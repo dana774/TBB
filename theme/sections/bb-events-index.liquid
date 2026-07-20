@@ -1,0 +1,56 @@
+{% comment %} Events & Opportunities index (Phase 2). Full event + funding_opportunity listings. {% endcomment %}
+{%- assign events = shop.metaobjects.event.values -%}
+{%- assign funding = shop.metaobjects.funding_opportunity.values -%}
+<section class="bb-section">
+  <div class="bb-container">
+    <span class="bb-eyebrow">Events & Opportunities</span>
+    <h1 class="bb-h1">{{ section.settings.heading }}</h1>
+    {%- if section.settings.intro != blank -%}<p>{{ section.settings.intro }}</p>{%- endif -%}
+
+    <h2 class="bb-h2 bb-mt-2">Events</h2>
+    {%- if events.size > 0 -%}
+      <div class="bb-grid bb-grid--3">
+        {%- for event in events -%}
+          <article class="bb-card">
+            <span class="bb-eyebrow">{% if event.event_date.value %}{{ event.event_date.value | date: '%B %-d, %Y' }}{% else %}Date TBA{% endif %}</span>
+            <h3 class="bb-h3">{{ event.title.value }}</h3>
+            {%- if event.summary.value != blank -%}<p>{{ event.summary.value }}</p>{%- endif -%}
+            {%- if event.eligibility.value != blank -%}<p><strong>Who it's for:</strong> {{ event.eligibility.value }}</p>{%- endif -%}
+            {%- if event.registration_url.value != blank -%}<a class="bb-btn bb-btn--secondary" href="{{ event.registration_url.value }}" rel="noopener">Register</a>{%- endif -%}
+          </article>
+        {%- endfor -%}
+      </div>
+    {%- else -%}
+      <div class="bb-callout"><p>No events listed yet.</p></div>
+    {%- endif -%}
+
+    <h2 class="bb-h2 bb-mt-2">Funding opportunities</h2>
+    {%- if funding.size > 0 -%}
+      <div class="bb-grid bb-grid--3">
+        {%- for opp in funding -%}
+          <article class="bb-card">
+            <span class="bb-eyebrow">{{ opp.opportunity_type.value | default: 'Funding' }}{% if opp.deadline.value %} · closes {{ opp.deadline.value | date: '%B %-d, %Y' }}{% endif %}</span>
+            <h3 class="bb-h3">{{ opp.title.value }}</h3>
+            {%- if opp.amount_range.value != blank -%}<p><strong>{{ opp.amount_range.value }}</strong></p>{%- endif -%}
+            {%- if opp.fit_guidance.value != blank -%}<p>{{ opp.fit_guidance.value }}</p>{%- endif -%}
+            {%- if opp.verified_by.value != blank -%}<p class="bb-eyebrow">Verified by {{ opp.verified_by.value }}</p>{%- endif -%}
+          </article>
+        {%- endfor -%}
+      </div>
+    {%- else -%}
+      <div class="bb-callout"><p>No funding opportunities listed yet.</p></div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "BB Events Index",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Where founders show up next" },
+    { "type": "textarea", "id": "intro", "label": "Intro" }
+  ],
+  "presets": [{ "name": "BB Events Index" }]
+}
+{% endschema %}

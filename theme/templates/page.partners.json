@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "bb_partners": {
+      "type": "bb-partners"
+    },
+    "bb_final": {
+      "type": "bb-final-cta"
+    }
+  },
+  "order": [
+    "bb_partners",
+    "bb_final"
+  ]
+}

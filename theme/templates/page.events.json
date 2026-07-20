@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "bb_events": {
+      "type": "bb-events-index"
+    },
+    "bb_newsletter": {
+      "type": "bb-newsletter"
+    }
+  },
+  "order": [
+    "bb_events",
+    "bb_newsletter"
+  ]
+}
