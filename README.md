@@ -21,6 +21,8 @@ Live domains (`thebrandblueprint.biz`, `valugrowthpartners.com`) were **not modi
 | [docs/06-qa-and-exposure-report.md](docs/06-qa-and-exposure-report.md) | Data QA results and private-link exposure test |
 | [docs/07-unresolved-and-approvals.md](docs/07-unresolved-and-approvals.md) | Unresolved placeholders and items requiring Dana's approval |
 | [docs/08-studio-build-spec.md](docs/08-studio-build-spec.md) | Design contract + section-by-section Studio editor build spec (Phase 1 templates) |
+| [docs/09-shopify-phase1-plan.md](docs/09-shopify-phase1-plan.md) | Shopify Phase 1 build plan (BB moves to Shopify; theme in [`theme/`](theme/)) |
+| [docs/10-phase1-wrapup.md](docs/10-phase1-wrapup.md) | Phase 1 wrap-up: Flow workflow specs, acceptance-test report, handoff items |
 
 ## What can and cannot be done via API
 
