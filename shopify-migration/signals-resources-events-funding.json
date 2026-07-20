@@ -1,0 +1,285 @@
+{
+ "_note": "Skips the Wix 'founder-funding-opportunity-verification-queue' template record (workflow item, not content). Set signal/resource 'status' where the definition has one.",
+ "signals": [
+  {
+   "type": "signal",
+   "handle": "retail-readiness-operating-discipline",
+   "fields": [
+    {
+     "key": "title",
+     "value": "Retail readiness is becoming an operating-discipline test"
+    },
+    {
+     "key": "signal_type",
+     "value": "Market Signal"
+    },
+    {
+     "key": "summary",
+     "value": "Retail growth increasingly depends on the founder's ability to connect buyer readiness with pricing, margin, production and fulfillment discipline."
+    },
+    {
+     "key": "implication",
+     "value": "A compelling product story is necessary but insufficient when the operating model cannot absorb a successful buyer conversation."
+    },
+    {
+     "key": "founder_actions",
+     "value": "Validate margin, production capacity, replenishment assumptions and retail execution before pursuing expansion."
+    },
+    {
+     "key": "verification_source",
+     "value": "Editorial seed based on current founder advisory patterns; external source validation required before publication."
+    }
+   ]
+  },
+  {
+   "type": "signal",
+   "handle": "margin-pressure-changing-growth-plans",
+   "fields": [
+    {
+     "key": "title",
+     "value": "Margin pressure is changing how founders plan growth"
+    },
+    {
+     "key": "signal_type",
+     "value": "Market Signal"
+    },
+    {
+     "key": "summary",
+     "value": "Founders are being pushed to connect channel strategy, pricing architecture and cash planning earlier in the growth process."
+    },
+    {
+     "key": "implication",
+     "value": "Growth that increases revenue but weakens contribution margin or working capital can reduce strategic flexibility."
+    },
+    {
+     "key": "founder_actions",
+     "value": "Model channel-specific margin, cash conversion and inventory requirements before committing to the next growth channel."
+    },
+    {
+     "key": "verification_source",
+     "value": "Editorial seed based on current founder advisory patterns; external source validation required before publication."
+    }
+   ]
+  },
+  {
+   "type": "signal",
+   "handle": "ai-shopping-moving-to-cart",
+   "fields": [
+    {
+     "key": "title",
+     "value": "AI shopping is moving to the cart"
+    },
+    {
+     "key": "signal_type",
+     "value": "Market Signal"
+    },
+    {
+     "key": "summary",
+     "value": "AI assistants now shape comparison, cart and checkout — transaction readiness is a discoverability issue."
+    },
+    {
+     "key": "implication",
+     "value": "Brands whose top SKUs are not machine-readable will lose placements they never see."
+    },
+    {
+     "key": "founder_actions",
+     "value": "Audit top 1-3 SKUs for machine-readable accuracy; align site and feed; keep the customer relationship brand-owned."
+    },
+    {
+     "key": "verification_source",
+     "value": "Market Signal episode 2026-06-29"
+    }
+   ]
+  }
+ ],
+ "resources": [
+  {
+   "type": "resource",
+   "handle": "retail-readiness-blueprint-executive-guide",
+   "fields": [
+    {
+     "key": "title",
+     "value": "Retail Readiness Blueprint™ Executive Guide"
+    },
+    {
+     "key": "collection_name",
+     "value": "Retail + Distribution"
+    },
+    {
+     "key": "access_level",
+     "value": "Member access with public preview"
+    },
+    {
+     "key": "summary",
+     "value": "A structured guide to buyer readiness, channel economics, operational preparation and retail execution."
+    },
+    {
+     "key": "status",
+     "value": "editorial-review"
+    }
+   ]
+  },
+  {
+   "type": "resource",
+   "handle": "retail-buyer-outreach-playbook",
+   "fields": [
+    {
+     "key": "title",
+     "value": "Retail Buyer Outreach Playbook"
+    },
+    {
+     "key": "collection_name",
+     "value": "Retail + Distribution"
+    },
+    {
+     "key": "access_level",
+     "value": "Member access with public preview"
+    },
+    {
+     "key": "summary",
+     "value": "A practical outreach system for researching buyers, preparing the value proposition, building the contact sequence and managing follow-up."
+    },
+    {
+     "key": "status",
+     "value": "editorial-review"
+    }
+   ]
+  },
+  {
+   "type": "resource",
+   "handle": "founder-growth-operating-system-governance-blueprint",
+   "fields": [
+    {
+     "key": "title",
+     "value": "Brand Blueprint Founder Growth Operating System™ Governance Blueprint"
+    },
+    {
+     "key": "collection_name",
+     "value": "Strategy + Operating Systems"
+    },
+    {
+     "key": "access_level",
+     "value": "Public preview; complete resource by request or membership"
+    },
+    {
+     "key": "summary",
+     "value": "The governance layer for organizing founder growth priorities, decision rights, operating cadence, measures and execution accountability."
+    },
+    {
+     "key": "status",
+     "value": "editorial-review"
+    }
+   ]
+  }
+ ],
+ "events": [
+  {
+   "type": "event",
+   "handle": "cpg-cash-flow-management-seminar-july-2026",
+   "fields": [
+    {
+     "key": "title",
+     "value": "CPG Cash Flow Management Seminar"
+    },
+    {
+     "key": "event_date",
+     "value": "2026-07-23"
+    },
+    {
+     "key": "summary",
+     "value": "Virtual seminar on cash flow management for consumer products founders and operators."
+    },
+    {
+     "key": "eligibility",
+     "value": "Founders and operators in consumer products"
+    }
+   ]
+  },
+  {
+   "type": "event",
+   "handle": "funding-friday-weekly-opportunity-brief",
+   "fields": [
+    {
+     "key": "title",
+     "value": "Funding Friday — Weekly Opportunity Brief"
+    },
+    {
+     "key": "event_date",
+     "value": "2026-07-24"
+    },
+    {
+     "key": "summary",
+     "value": "Weekly digital release of vetted funding opportunities and readiness guidance."
+    },
+    {
+     "key": "eligibility",
+     "value": "Founders evaluating current capital and funding pathways"
+    }
+   ]
+  },
+  {
+   "type": "event",
+   "handle": "founder-network-orientation",
+   "fields": [
+    {
+     "key": "title",
+     "value": "Founder Network Orientation — Date To Be Confirmed"
+    },
+    {
+     "key": "summary",
+     "value": "Virtual orientation for new Founder Network members. Date to be confirmed."
+    },
+    {
+     "key": "eligibility",
+     "value": "Founder Network members"
+    }
+   ]
+  }
+ ],
+ "funding_opportunities": [
+  {
+   "type": "funding_opportunity",
+   "handle": "shophand-boost-grant",
+   "fields": [
+    {
+     "key": "title",
+     "value": "ShopHand Small Business Boost Grant"
+    },
+    {
+     "key": "opportunity_type",
+     "value": "Grant"
+    },
+    {
+     "key": "verified_by",
+     "value": "Funding Friday 2026-07-10"
+    },
+    {
+     "key": "fit_guidance",
+     "value": "Rewards operational readiness; strongest for founders with systems and documentation in place."
+    }
+   ]
+  },
+  {
+   "type": "funding_opportunity",
+   "handle": "nase-growth-grants",
+   "fields": [
+    {
+     "key": "title",
+     "value": "NASE Growth Grants"
+    },
+    {
+     "key": "opportunity_type",
+     "value": "Grant"
+    },
+    {
+     "key": "verified_by",
+     "value": "Funding Friday 2026-07-10"
+    },
+    {
+     "key": "fit_guidance",
+     "value": "Use-of-funds clarity separates strong applications from weak ones."
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "_note": "bio / philosophy / experience_timeline rich-text content should be exported from the parked Wix site's DanaProfile collection (executiveBio, operatingPhilosophy, experienceTimeline fields) and converted to Shopify rich text at execution time — not restated here to avoid divergence from the canonical Wix record. The fields below are safe to create now.",
+ "type": "dana_profile",
+ "handle": "dana-ammons",
+ "fields": [
+  {
+   "key": "name",
+   "value": "Dana Ammons"
+  },
+  {
+   "key": "positioning",
+   "value": "Dana Ammons is the creator and host of The Brand Blueprint and founder of Value Growth Partners, bringing operating experience from P&G, PepsiCo and Colgate-Palmolive to founders building consumer brands."
+  },
+  {
+   "key": "pepsico_claim",
+   "value": "$115M PepsiCo retail responsibility"
+  },
+  {
+   "key": "pepsico_claim_status",
+   "value": "Pending final proof approval — do not publish as a verified claim"
+  }
+ ]
+}

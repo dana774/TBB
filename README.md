@@ -25,6 +25,8 @@ Live domains (`thebrandblueprint.biz`, `valugrowthpartners.com`) were **not modi
 | [docs/10-vgp-change-list-and-cta-map.md](docs/10-vgp-change-list-and-cta-map.md) | VGP change list, final CTA map, cross-domain route spec (Shopify placeholder, internal only) |
 | [docs/11-crm-billing-ownership-and-handoff-spec.md](docs/11-crm-billing-ownership-and-handoff-spec.md) | CRM/billing systems of record, cross-brand handoff fields, duplicate-billing prevention |
 | [docs/12-vgp-qa-and-approvals.md](docs/12-vgp-qa-and-approvals.md) | Post-handoff exposure audit, QA state, items requiring Dana's approval |
+| [docs/13-shopify-prototype-status.md](docs/13-shopify-prototype-status.md) | Shopify store state, what's done/blocked, execution runbook |
+| [shopify-migration/](shopify-migration/README.md) | **Staged migration package**: 47 episodes + founders + signals/resources/events/funding + Dana profile, schema-validated payloads |
 
 ## Platform decision (2026-07-20 handoff)
 

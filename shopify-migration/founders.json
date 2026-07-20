@@ -1,0 +1,251 @@
+[
+ {
+  "type": "founder_chapter",
+  "handle": "sruti-baz-moumas",
+  "fields": [
+   {
+    "key": "name",
+    "value": "Sruti Baz"
+   },
+   {
+    "key": "company",
+    "value": "Mouma's"
+   },
+   {
+    "key": "role",
+    "value": "Founder"
+   },
+   {
+    "key": "chapter_title",
+    "value": "From Handmade Pouches to Walmart FastPass: Scaling Mouma's"
+   },
+   {
+    "key": "stage",
+    "value": "Scaling"
+   },
+   {
+    "key": "industry",
+    "value": "Food & Beverage (CPG)"
+   },
+   {
+    "key": "lesson",
+    "value": "Prove demand before you build capacity — sequence beats speed."
+   },
+   {
+    "key": "founder_narrative",
+    "value": "{\"type\": \"root\", \"children\": [{\"type\": \"paragraph\", \"children\": [{\"type\": \"text\", \"value\": \"Sruti Baz started Mouma's with handmade pouches, proving demand one batch at a time while holding a full-time job and raising a family. Rather than scaling on faith, she treated the early product as an MVP — testing recipes, packaging and price with real customers before committing to production capacity.\"}]}, {\"type\": \"paragraph\", \"children\": [{\"type\": \"text\", \"value\": \"That discipline shaped every stage that followed: the move from home production to a co-packer, structured planning for Amazon, and preparation for national retail conversations.\"}]}]}"
+   },
+   {
+    "key": "market_problem",
+    "value": "{\"type\": \"root\", \"children\": [{\"type\": \"paragraph\", \"children\": [{\"type\": \"text\", \"value\": \"Busy families want convenient food that still tastes homemade and carries cultural authenticity. Most shelf-stable options trade flavor and heritage for convenience, leaving a gap for a brand that delivers both.\"}]}]}"
+   },
+   {
+    "key": "turning_points",
+    "value": "{\"type\": \"root\", \"children\": [{\"type\": \"list\", \"listType\": \"unordered\", \"children\": [{\"type\": \"list-item\", \"children\": [{\"type\": \"text\", \"value\": \"Choosing MVP validation over premature scale — proving demand before investing in capacity.\"}]}, {\"type\": \"list-item\", \"children\": [{\"type\": \"text\", \"value\": \"The transition from handmade production to a co-packer relationship, unlocking consistent volume.\"}]}, {\"type\": \"list-item\", \"children\": [{\"type\": \"text\", \"value\": \"Preparing an Amazon channel plan while pursuing brick-and-mortar retail.\"}]}, {\"type\": \"list-item\", \"children\": [{\"type\": \"text\", \"value\": \"Earning a Walmart Road to Open Call FastPass, opening a direct path to a national buyer conversation.\"}]}]}]}"
+   },
+   {
+    "key": "milestones",
+    "value": "{\"type\": \"root\", \"children\": [{\"type\": \"list\", \"listType\": \"unordered\", \"children\": [{\"type\": \"list-item\", \"children\": [{\"type\": \"text\", \"value\": \"Validated Mouma's MVP with direct customer sales.\"}]}, {\"type\": \"list-item\", \"children\": [{\"type\": \"text\", \"value\": \"Completed transition to co-packer production.\"}]}, {\"type\": \"list-item\", \"children\": [{\"type\": \"text\", \"value\": \"Developed Amazon launch plan.\"}]}, {\"type\": \"list-item\", \"children\": [{\"type\": \"text\", \"value\": \"Awarded Walmart Road to Open Call FastPass.\"}]}]}]}"
+   },
+   {
+    "key": "pull_quote",
+    "value": "[PLACEHOLDER — select verbatim founder quote from episode audio during editorial review]"
+   },
+   {
+    "key": "dana_insight",
+    "value": "{\"type\": \"root\", \"children\": [{\"type\": \"paragraph\", \"children\": [{\"type\": \"text\", \"value\": \"[DRAFT — pending Dana's approval] \", \"italic\": true}, {\"type\": \"text\", \"value\": \"Sruti's path shows the Brand Blueprint sequence working as designed: research and validation before capacity, capacity before channel expansion. The FastPass wasn't luck — it was the visible result of doing the unglamorous stages in order.\"}]}]}"
+   },
+   {
+    "key": "consent_story",
+    "value": "false"
+   },
+   {
+    "key": "consent_image",
+    "value": "false"
+   },
+   {
+    "key": "consent_metrics",
+    "value": "false"
+   },
+   {
+    "key": "status",
+    "value": "editorial-review"
+   },
+   {
+    "key": "seo_title",
+    "value": "Founder Chapter: Sruti Baz, Mouma's | The Brand Blueprint"
+   },
+   {
+    "key": "seo_description",
+    "value": "How Sruti Baz scaled Mouma's from handmade pouches to a Walmart Road to Open Call FastPass — MVP validation, co-packer transition and disciplined sequencing."
+   }
+  ],
+  "_related_episode_handle": "sruti-baz-scaling-moumas"
+ },
+ {
+  "type": "founder_chapter",
+  "handle": "kanicka-joseph-kk-smiles",
+  "fields": [
+   {
+    "key": "name",
+    "value": "Kanicka Joseph"
+   },
+   {
+    "key": "company",
+    "value": "K&K Smiles"
+   },
+   {
+    "key": "role",
+    "value": "Founder"
+   },
+   {
+    "key": "chapter_title",
+    "value": "From Layoff to Oral Care Brand: Building K&K Smiles"
+   },
+   {
+    "key": "stage",
+    "value": "Launched"
+   },
+   {
+    "key": "industry",
+    "value": "Beauty & Personal Care (Oral Care)"
+   },
+   {
+    "key": "lesson",
+    "value": "Anchor the brand in an emotional outcome, then let products multiply around it."
+   },
+   {
+    "key": "founder_narrative",
+    "value": "{\"type\": \"root\", \"children\": [{\"type\": \"paragraph\", \"children\": [{\"type\": \"text\", \"value\": \"A layoff became the catalyst: Kanicka Joseph converted a whitening side hustle into a real brand, anchoring K&K Smiles in confidence rather than cosmetics alone.\"}]}, {\"type\": \"paragraph\", \"children\": [{\"type\": \"text\", \"value\": \"From that foundation she expanded deliberately — from a single hero service into a wider set of products and experiences that reinforce the same brand promise.\"}]}]}"
+   },
+   {
+    "key": "market_problem",
+    "value": "{\"type\": \"root\", \"children\": [{\"type\": \"paragraph\", \"children\": [{\"type\": \"text\", \"value\": \"Oral care is sold as a commodity routine, yet for many customers a confident smile is deeply personal. K&K Smiles addresses the gap between clinical, impersonal oral care products and the confidence-centered experience customers actually seek.\"}]}]}"
+   },
+   {
+    "key": "turning_points",
+    "value": "{\"type\": \"root\", \"children\": [{\"type\": \"list\", \"listType\": \"unordered\", \"children\": [{\"type\": \"list-item\", \"children\": [{\"type\": \"text\", \"value\": \"Reframing a layoff as the launch window for the business.\"}]}, {\"type\": \"list-item\", \"children\": [{\"type\": \"text\", \"value\": \"Positioning around confidence — an emotional outcome — rather than a commodity product claim.\"}]}, {\"type\": \"list-item\", \"children\": [{\"type\": \"text\", \"value\": \"Expanding from a whitening side hustle into a product and experience ecosystem under one brand promise.\"}]}]}]}"
+   },
+   {
+    "key": "milestones",
+    "value": "{\"type\": \"root\", \"children\": [{\"type\": \"list\", \"listType\": \"unordered\", \"children\": [{\"type\": \"list-item\", \"children\": [{\"type\": \"text\", \"value\": \"Launched K&K Smiles from a side hustle after a corporate layoff.\"}]}, {\"type\": \"list-item\", \"children\": [{\"type\": \"text\", \"value\": \"Established a confidence-centered brand identity.\"}]}, {\"type\": \"list-item\", \"children\": [{\"type\": \"text\", \"value\": \"Extended the brand into additional products and experiences.\"}]}]}]}"
+   },
+   {
+    "key": "pull_quote",
+    "value": "[PLACEHOLDER — select verbatim founder quote from episode audio during editorial review]"
+   },
+   {
+    "key": "dana_insight",
+    "value": "{\"type\": \"root\", \"children\": [{\"type\": \"paragraph\", \"children\": [{\"type\": \"text\", \"value\": \"[DRAFT — pending Dana's approval] \", \"italic\": true}, {\"type\": \"text\", \"value\": \"Kanicka's story is a lesson in identity-first brand building: when the emotional promise is clear, product-line expansion strengthens the brand instead of diluting it.\"}]}]}"
+   },
+   {
+    "key": "consent_story",
+    "value": "false"
+   },
+   {
+    "key": "consent_image",
+    "value": "false"
+   },
+   {
+    "key": "consent_metrics",
+    "value": "false"
+   },
+   {
+    "key": "status",
+    "value": "editorial-review"
+   },
+   {
+    "key": "seo_title",
+    "value": "Founder Chapter: Kanicka Joseph, K&K Smiles | The Brand Blueprint"
+   },
+   {
+    "key": "seo_description",
+    "value": "From layoff to confidence-centered oral care brand: how Kanicka Joseph built K&K Smiles into a product and experience ecosystem."
+   }
+  ],
+  "_related_episode_handle": "kanicka-joseph-k-and-k-smiles"
+ },
+ {
+  "type": "founder_chapter",
+  "handle": "michelle-cromwell-soeur-du-sol",
+  "fields": [
+   {
+    "key": "name",
+    "value": "Dr. Michelle Cromwell"
+   },
+   {
+    "key": "company",
+    "value": "Soeur Du Sol"
+   },
+   {
+    "key": "role",
+    "value": "Founder"
+   },
+   {
+    "key": "chapter_title",
+    "value": "From Higher Ed Executive to Functional Beverage Founder"
+   },
+   {
+    "key": "stage",
+    "value": "Launched"
+   },
+   {
+    "key": "industry",
+    "value": "Functional Beverage (CPG)"
+   },
+   {
+    "key": "lesson",
+    "value": "Credibility is a product feature — build expertise into the brand story."
+   },
+   {
+    "key": "founder_narrative",
+    "value": "{\"type\": \"root\", \"children\": [{\"type\": \"paragraph\", \"children\": [{\"type\": \"text\", \"value\": \"Dr. Michelle Cromwell brought an executive strategist's rigor and a professional herbalist's craft to the same venture. Soeur Du Sol grew from that dual expertise: a functional beverage brand rooted in tradition and formulated for midlife wellbeing.\"}]}, {\"type\": \"paragraph\", \"children\": [{\"type\": \"text\", \"value\": \"Her transition from higher education leadership to founder illustrates how deep domain credibility can become a brand's core differentiator.\"}]}]}"
+   },
+   {
+    "key": "market_problem",
+    "value": "{\"type\": \"root\", \"children\": [{\"type\": \"paragraph\", \"children\": [{\"type\": \"text\", \"value\": \"Midlife wellbeing is underserved by a beverage market split between clinical supplements and lifestyle drinks. Customers seeking traditionally rooted, credible functional options — formulated with genuine herbal expertise — have had few brands built for them.\"}]}]}"
+   },
+   {
+    "key": "turning_points",
+    "value": "{\"type\": \"root\", \"children\": [{\"type\": \"list\", \"listType\": \"unordered\", \"children\": [{\"type\": \"list-item\", \"children\": [{\"type\": \"text\", \"value\": \"Leaving an executive career in higher education to build a consumer brand.\"}]}, {\"type\": \"list-item\", \"children\": [{\"type\": \"text\", \"value\": \"Earning professional herbalist credentials — converting personal practice into product credibility.\"}]}, {\"type\": \"list-item\", \"children\": [{\"type\": \"text\", \"value\": \"Defining midlife wellbeing as the brand's specific, underserved audience.\"}]}]}]}"
+   },
+   {
+    "key": "milestones",
+    "value": "{\"type\": \"root\", \"children\": [{\"type\": \"list\", \"listType\": \"unordered\", \"children\": [{\"type\": \"list-item\", \"children\": [{\"type\": \"text\", \"value\": \"Completed professional herbalist training.\"}]}, {\"type\": \"list-item\", \"children\": [{\"type\": \"text\", \"value\": \"Founded Soeur Du Sol and launched its first functional beverage line.\"}]}, {\"type\": \"list-item\", \"children\": [{\"type\": \"text\", \"value\": \"Established the brand's traditionally rooted positioning for midlife wellbeing.\"}]}]}]}"
+   },
+   {
+    "key": "pull_quote",
+    "value": "[PLACEHOLDER — select verbatim founder quote from episode audio during editorial review]"
+   },
+   {
+    "key": "dana_insight",
+    "value": "{\"type\": \"root\", \"children\": [{\"type\": \"paragraph\", \"children\": [{\"type\": \"text\", \"value\": \"[DRAFT — pending Dana's approval] \", \"italic\": true}, {\"type\": \"text\", \"value\": \"Michelle's credentials do the marketing work most startups pay for: verifiable expertise built into the founder story creates trust a label claim never could.\"}]}]}"
+   },
+   {
+    "key": "consent_story",
+    "value": "false"
+   },
+   {
+    "key": "consent_image",
+    "value": "false"
+   },
+   {
+    "key": "consent_metrics",
+    "value": "false"
+   },
+   {
+    "key": "status",
+    "value": "editorial-review"
+   },
+   {
+    "key": "seo_title",
+    "value": "Founder Chapter: Dr. Michelle Cromwell, Soeur Du Sol | The Brand Blueprint"
+   },
+   {
+    "key": "seo_description",
+    "value": "From higher-ed executive to professional herbalist and founder: Dr. Michelle Cromwell's Soeur Du Sol, a functional beverage brand for midlife wellbeing."
+   }
+  ],
+  "_related_episode_handle": "dr-michelle-cromwell-soeur-du-sol"
+ }
+]
