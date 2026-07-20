@@ -21,6 +21,14 @@ Live domains (`thebrandblueprint.biz`, `valugrowthpartners.com`) were **not modi
 | [docs/06-qa-and-exposure-report.md](docs/06-qa-and-exposure-report.md) | Data QA results and private-link exposure test |
 | [docs/07-unresolved-and-approvals.md](docs/07-unresolved-and-approvals.md) | Unresolved placeholders and items requiring Dana's approval |
 | [docs/08-studio-build-spec.md](docs/08-studio-build-spec.md) | Design contract + section-by-section Studio editor build spec (Phase 1 templates) |
+| [docs/09-bb-parking-handoff.md](docs/09-bb-parking-handoff.md) | **BB parking handoff** — parked-state verification, full inventories, Shopify migration map |
+| [docs/10-vgp-change-list-and-cta-map.md](docs/10-vgp-change-list-and-cta-map.md) | VGP change list, final CTA map, cross-domain route spec (Shopify placeholder, internal only) |
+| [docs/11-crm-billing-ownership-and-handoff-spec.md](docs/11-crm-billing-ownership-and-handoff-spec.md) | CRM/billing systems of record, cross-brand handoff fields, duplicate-billing prevention |
+| [docs/12-vgp-qa-and-approvals.md](docs/12-vgp-qa-and-approvals.md) | Post-handoff exposure audit, QA state, items requiring Dana's approval |
+
+## Platform decision (2026-07-20 handoff)
+
+The Brand Blueprint will be prototyped as a native **Shopify Online Store 2.0** site (membership/protected-resource/merchandise model via Appstle). **`Bb Staging 2026` is PARKED** as a complete unpublished backup — labeled on-site, verified inactive (0 pricing plans, no automations, no redirects), nothing deleted. **VGP remains on Wix** and its staging build continues. Docs 09–12 govern the hybrid architecture.
 
 ## What can and cannot be done via API
 
