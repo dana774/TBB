@@ -23,6 +23,7 @@ Live domains (`thebrandblueprint.biz`, `valugrowthpartners.com`) were **not modi
 | [docs/08-studio-build-spec.md](docs/08-studio-build-spec.md) | Design contract + section-by-section Studio editor build spec (Phase 1 templates) |
 | [docs/09-shopify-phase1-plan.md](docs/09-shopify-phase1-plan.md) | Shopify Phase 1 build plan (BB moves to Shopify; theme in [`theme/`](theme/)) |
 | [docs/10-phase1-wrapup.md](docs/10-phase1-wrapup.md) | Phase 1 wrap-up: Flow workflow specs, acceptance-test report, handoff items |
+| [docs/11-phase2-deployment.md](docs/11-phase2-deployment.md) | Phase 2 deployment record: remaining BB pages, templates, and `partner` metaobject |
 
 ## What can and cannot be done via API
 
