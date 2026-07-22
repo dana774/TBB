@@ -25,6 +25,7 @@ Live domains (`thebrandblueprint.biz`, `valugrowthpartners.com`) were **not modi
 | [docs/10-phase1-wrapup.md](docs/10-phase1-wrapup.md) | Phase 1 wrap-up: Flow workflow specs, acceptance-test report, handoff items |
 | [docs/11-phase2-deployment.md](docs/11-phase2-deployment.md) | Phase 2 deployment record: remaining BB pages, templates, and `partner` metaobject |
 | [docs/12-flow-workflow-runbook.md](docs/12-flow-workflow-runbook.md) | Click-by-click operator guide to build the three (disabled) Shopify Flow workflows |
+| [docs/13-vgp-phase3-build-spec.md](docs/13-vgp-phase3-build-spec.md) | Phase 3: VGP institutional site Studio build spec (Wix), the doc 08 analog for VGP |
 
 ## What can and cannot be done via API
 
