@@ -1,5 +1,7 @@
 # 14 — VGP Studio Editor Build (section-by-section)
 
+> **STATUS: SPECIFICATION COMPLETE — NOT YET IMPLEMENTED IN WIX STUDIO.** This document is the build instruction set. The actual `Vgp Staging 2026` pages must still be composed and tested in the Wix Studio editor (no composition API exists). Do not treat this spec as a built site.
+
 The executable companion to doc 13. This is the click-level build for the **Vgp Staging 2026** Studio editor (`6b5d8f63-fc66-449d-8c07-2d826ef21d2d`), at the granularity of doc 08 §2 for BB. Build in Studio; **do not publish**; do not touch live `valugrowthpartners.com`. Copy marked `[EDITORIAL REVIEW]` is placeholder for Dana's sign-off; verified language is used where doc 02/08/13 established it.
 
 Design tokens: identical to doc 08 §1. VGP rhythm: 2-up cards max, section padding 112–136px desktop, gold on ≤1 element per view.

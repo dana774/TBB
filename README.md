@@ -27,7 +27,9 @@ Live domains (`thebrandblueprint.biz`, `valugrowthpartners.com`) were **not modi
 | [docs/12-flow-workflow-runbook.md](docs/12-flow-workflow-runbook.md) | Click-by-click operator guide to build the three (disabled) Shopify Flow workflows |
 | [docs/13-vgp-phase3-build-spec.md](docs/13-vgp-phase3-build-spec.md) | Phase 3: VGP institutional site Studio build spec (Wix), the doc 08 analog for VGP |
 | [docs/14-vgp-studio-build-detailed.md](docs/14-vgp-studio-build-detailed.md) | Phase 3: section-by-section VGP Studio editor build (executable companion to doc 13) |
-| [docs/15-store-preferences-checklist.md](docs/15-store-preferences-checklist.md) | Shopify Preferences review + paste-ready homepage SEO values |
+| [docs/15-store-preferences-checklist.md](docs/15-store-preferences-checklist.md) | Shopify Preferences review + approved homepage SEO values |
+| [docs/16-launch-readiness-package.md](docs/16-launch-readiness-package.md) | **Consolidated launch-readiness package** (18 sections, both platforms) |
+| [docs/17-dana-final-actions.md](docs/17-dana-final-actions.md) | Short list: only items needing Dana's owner/legal/financial/browser/publish authority |
 
 ## What can and cannot be done via API
 

@@ -6,13 +6,15 @@ Review of Online Store → Preferences (from Dana's 2026-07-23 screenshots). Ver
 - **Password protection: ON**, password `ucleax`. Keep ON. **Do not turn OFF until Dana approves launch** — this is what keeps the whole build private.
 - **Restrict to B2B customers only: OFF.** Correct.
 
-## Social sharing image and SEO — ⚠️ complete these two fields
-- **Home page title** (currently empty → showing the myshopify domain). Paste (68 chars, under the 70 limit):
-  `The Brand Blueprint — Build a brand that earns its place on the shelf`
-- **Meta description** (empty). Paste (≤320):
-  `The Brand Blueprint is the founder ecosystem: Founder Chapters, market signals, an eight-stage framework, and a podcast for consumer-brand founders ready to grow.`
+## Social sharing image and SEO — ⚠️ Dana manual action before launch
+Not exposed in the Admin API — these are admin-UI fields. **Marked "Dana manual action before launch," not a development defect.** Approved copy (Dana, 2026-07-23):
+- **Home page title** (currently empty → showing the myshopify domain). Paste:
+  `The Brand Blueprint | Build a Shelf-Ready Brand`
+- **Meta description** (empty). Paste:
+  `The Brand Blueprint helps consumer-brand founders grow through Founder Chapters, market signals, practical resources, an eight-stage framework and a connected founder network.`
 - **Social sharing image** (empty). Add a 1200×628 BB-branded image once the design asset exists (doc 05 gap). Low priority while noindex.
 - **Automatic hreflang tags: ON.** Harmless for a single-language store; leave as-is.
+- **Keep the storefront noindex** while in staging (guaranteed by the password page).
 
 ## Automatic redirection — ✅ fine as-is
 - **Country/region: ON**, **Language: OFF.** Fine for a single US market; no change needed.
