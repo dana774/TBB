@@ -38,7 +38,8 @@ One-screen router; each choice fires `route_select`:
 | `/advisory-pathway` | RestrictedRoutes (server-side, like BB intake) | Intake → Diagnose → Map → Select → Execute; qualified result → the single approved `vgp-insight-session` Calendly. See §5. |
 | `/institutional-inquiry` | Wix form → CRM `custom.institutional-inquiry` | Institutional/ESO intake; human review |
 | `/partner-contributor` | Wix form → CRM `custom.partner-contributor` | Partner intake |
-| `/capabilities` + `/capabilities/{slug}` | Programs | Capability/service pages; final slugs feed doc 04 redirect matrix |
+| `/capabilities` + `/capabilities/{slug}` | **Capabilities** (verified 6 items) | Capability/service pages; final slugs feed doc 04 redirect matrix |
+| member area (protected) | **ClientResources** (ADMIN read) | Signed-in members only; never public |
 | `/programs` + `/programs/{slug}` | Programs (dynamic) | Institutional programs |
 | `/case-studies` + `/case-studies/{slug}` | CaseStudies (dynamic) | Approved records only |
 | `/insights` + `/insights/{slug}` | Insights (dynamic) | Editorial/thought-leadership |

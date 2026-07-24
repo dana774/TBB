@@ -2,6 +2,8 @@
 
 > **STATUS: SPECIFICATION COMPLETE — NOT YET IMPLEMENTED IN WIX STUDIO.** This document is the build instruction set. The actual `Vgp Staging 2026` pages must still be composed and tested in the Wix Studio editor (no composition API exists). Do not treat this spec as a built site.
 
+> **DATA-LAYER VERIFIED 2026-07-24** (doc 03 addendum). Corrections applied below: capability pages bind to the dedicated **`Capabilities`** collection (6 items), not `Programs`; the members area uses the protected **`ClientResources`** collection (ADMIN read, 1 item); `DanaProfile` confirmed on VGP. **Velo is currently DISABLED on the site — it must be enabled before the `/advisory-pathway` server-side qualification backend can be built.**
+
 The executable companion to doc 13. This is the click-level build for the **Vgp Staging 2026** Studio editor (`6b5d8f63-fc66-449d-8c07-2d826ef21d2d`), at the granularity of doc 08 §2 for BB. Build in Studio; **do not publish**; do not touch live `valugrowthpartners.com`. Copy marked `[EDITORIAL REVIEW]` is placeholder for Dana's sign-off; verified language is used where doc 02/08/13 established it.
 
 Design tokens: identical to doc 08 §1. VGP rhythm: 2-up cards max, section padding 112–136px desktop, gold on ≤1 element per view.
@@ -51,7 +53,7 @@ Intro on institutional programs; Wix form → CRM label `custom.institutional-in
 ## `/partner-contributor`
 Wix form → CRM label `custom.partner-contributor`; human review. No Calendly.
 
-## `/capabilities` + `/capabilities/{slug}` (dynamic on `Programs`)
+## `/capabilities` + `/capabilities/{slug}` (dynamic on **`Capabilities`**, 6 items)
 Index: intro + 2-up capability grid. Detail: H1 capability; overview; who it's for; outcomes; related programs/case studies (bound); contextual CTA → `/advisory-pathway`; SEO fields bound. Render only approved records; final slugs feed doc 04 redirect matrix.
 
 ## `/programs` + `/programs/{slug}` (dynamic on `Programs`)
@@ -69,8 +71,8 @@ Dana as institutional speaker. Topics; formats; **verified** past engagements on
 ## `/about`
 Institutional framing of DanaProfile (shared narrative); operating philosophy; roles; pathway links to `/advisory-pathway` and BB cross-domain. PepsiCo claim gated on `pepsicoClaimStatus = approved`.
 
-## `/members/sign-in`
-Wix Members active-client area. Private scheduling links delivered by direct communication only — never rendered on-site.
+## `/members/sign-in` + member area
+Wix Members active-client area. Protected content binds to the **`ClientResources`** collection (ADMIN read — only served to signed-in members via Velo/dynamic dataset permissions, never public). Private scheduling links delivered by direct communication only — never rendered on-site.
 
 ## Legal
 Privacy / Terms / Accessibility — same set and standard as BB.

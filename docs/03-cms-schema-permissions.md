@@ -44,5 +44,22 @@ Founder/episode/signal/resource/event/funding content is mastered on **BB**; adv
 - Form submissions upsert Wix CRM contacts with labels: `custom.founder-intake`, `custom.podcast-guest-applicant` (BB); `custom.institutional-inquiry`, `custom.partner-contributor` (VGP).
 - Qualification outcome / next-route labels (e.g. `custom.route-fit-call`, `custom.route-human-review`) are applied by the intake results page logic (see doc 08 §5) after evaluation — server-side, not client-guessable.
 
+## Addendum — VGP re-verification 2026-07-24 (Phase 3)
+Re-read `Vgp Staging 2026` (`6b5d8f63-…`) via Wix Data v2 `GET /data/v2/collections`. **10 custom collections** (more than this doc's original VGP table). Drift and additions:
+| Collection | Read | Items | Note |
+|---|---|---|---|
+| Insights | ANYONE | 3 | as before |
+| CaseStudies | ANYONE | 3 | as before |
+| Programs | ANYONE | 3 | as before |
+| Partners | ANYONE | 3 | placeholders |
+| Speaking | ANYONE | 3 | placeholders |
+| RestrictedRoutes | ADMIN | **5** | was 4 — one route added; still correctly private |
+| FormSubmissions | ADMIN | 0 | as before |
+| **Capabilities** | ANYONE | 6 | **new** — dedicated capability catalog (bind VGP capability pages here) |
+| **ClientResources (Protected)** | **ADMIN** | 1 | **new** — members-area protected content source |
+| **DanaProfile** | ANYONE | 1 | **new on VGP** — shared founder profile (About binds here) |
+
+Permission verdict still holds: public content = ANYONE; RestrictedRoutes / FormSubmissions / ClientResources = ADMIN-only (not publicly queryable). Site is **Studio, Draft, Velo DISABLED** — Velo must be enabled before the `/advisory-pathway` server-side qualification backend (doc 14 §advisory-pathway) can be built.
+
 ## Field-standard note
 Every custom content collection carries: `slug`, `status`, `owner`, `publishDate`, `lastVerified`, `reviewDate`, `expirationDate`, SEO title/description, canonical data, source, consent/rights fields, and image governance fields (alt text, focal point, caption, source, rights, credit) either at collection level or per-image — matching the Master Prompt data requirements.

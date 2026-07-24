@@ -31,7 +31,7 @@ The Brand Blueprint is fully built on Shopify (Phases 1–2) and deployed to an 
 | CMS collections, forms, routes, CRM labels | ✅ Complete (doc 03, prior session) |
 | Phase 3 build spec + section-by-section Studio build | ✅ **Specification complete** (docs 13–14) |
 | VGP Studio page composition + testing | ⛔ **Not implemented in Wix Studio** — pending editor session |
-| VGP data-layer re-verification read | ⛔ Deferred (non-blocking; doc 03 already verified) |
+| VGP data-layer re-verification read | ✅ Done 2026-07-24 — 10 collections verified; drift logged (doc 03 addendum): +Capabilities, +ClientResources, +DanaProfile; RestrictedRoutes 4→5; **Velo disabled** (enable before advisory-pathway backend) |
 
 > **Status language rule:** "specification complete" ≠ "implemented in Wix Studio." Unbuilt Wix pages are outstanding.
 
