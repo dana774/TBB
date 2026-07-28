@@ -62,7 +62,9 @@ Open each URL with `?preview_theme_id=154677215286`, enter password `ucleax`, ca
 | 13 | VGP cross-brand route | homepage VGP band + `/pages/ecosystem` | Link → `https://www.valugrowthpartners.com/`, label "Explore Value Growth Partners" |
 | 14 | Header / footer / mobile nav | any page; expand mobile nav at 390 | Persistent "Complete the Founder Intake"; footer legal links |
 
-\* Confirm the exact metaobject URL base in admin (Shopify may render it as `/founders/<handle>`); adjust the path if different.
+\* **Confirmed 2026-07-24:** founder-chapter pages resolve at **`/founders/<handle>`** (e.g. `/founders/sruti-baz`) — the metaobject `urlHandle` is `founders`.
+
+**Member-QA account (for states 10b / member views):** a labeled test customer `bb-qa-member@example.com` exists, tagged `member` + `qa-test` (Customer `8871364788278`). To use it in browser QA: pass the storefront password (`ucleax`), open the account **activation link** (provided to Dana in chat — deliberately not committed to Git), set a password, then visit `/pages/buyer-pitch-deck-template` and `/pages/member-dashboard` to see the approved member state. Safe to delete after QA.
 
 ## 5. Shopify theme-settings table (exact values)
 Theme editor → Theme settings → **Brand Blueprint** (values also version-controlled in `theme/config/settings_data.json`).
@@ -96,6 +98,7 @@ Authoritative map in doc 02; as-built confirmation:
 - **Transparency note:** because Shopify storefronts render client-side, that container's markup exists in the intake-results page HTML source (visually gated, not server-gated). Since this is the *approved public* link, that is acceptable; fully removing it from source pre-qualification would require a server-side/app component (candidate hardening, later phase).
 - **Private/program links** (private client scheduling, Build in Tulsa, W.E. Build, JumpStart): **zero** occurrences in theme source, settings, CMS, sitemap, metadata, or analytics — verified by repo-wide grep (only the single approved link + doc references exist).
 - **General Calendly landing page:** never linked, never published.
+- **VGP side verified 2026-07-24** (Wix RestrictedRoutes, ADMIN-read only): the approved `vgp-insight-session` link is stored on exactly one route ("VGP Insight Session (approved public fit call)"); the private routes ("Active client scheduling", "Sponsored program …") store **no** scheduling URL; no banned scheduling URL is stored anywhere. Minor hardening option: one private route's descriptive **title** names the sponsored programs (Build in Tulsa / W.E. Build / JumpStart) — ADMIN-only, no URL — genericize the label if zero CMS mention is desired.
 - **Re-run at launch:** grep the published theme + rendered sitemap for `calendly`, `buildintulsa`, `webuild`, `jumpstart`; expect only the one approved link inside the qualified result.
 
 ## 9. CRM & system-of-record map

@@ -30,6 +30,7 @@ Live domains (`thebrandblueprint.biz`, `valugrowthpartners.com`) were **not modi
 | [docs/15-store-preferences-checklist.md](docs/15-store-preferences-checklist.md) | Shopify Preferences review + approved homepage SEO values |
 | [docs/16-launch-readiness-package.md](docs/16-launch-readiness-package.md) | **Consolidated launch-readiness package** (18 sections, both platforms) |
 | [docs/17-dana-final-actions.md](docs/17-dana-final-actions.md) | Short list: only items needing Dana's owner/legal/financial/browser/publish authority |
+| [docs/18-vgp-velo-enablement-and-backend.md](docs/18-vgp-velo-enablement-and-backend.md) | How to enable Velo + ready-to-paste VGP advisory-pathway qualification backend |
 
 ## What can and cannot be done via API
 
