@@ -31,6 +31,19 @@ The Wix CMS had **no founder or Dana headshots** — those fields were empty. Th
 - **Two-person podcast images**: held per Dana's decision.
 - **Image rights fields**: the promo images appear to be brand renders; source/rights/photographer metadata still needs confirmation before any public publish.
 
+## Theme logo + favicon (2026-07-27, unpublished "BB Preview" theme)
+Applied to the working theme **"BB Preview (Phase 1-2) - DO NOT PUBLISH"** (live "Horizon" theme untouched; API blocks live-theme writes anyway). Edited `config/settings_data.json` surgically — added three keys, preserved everything else, JSON validated:
+- **`logo`** → the **B icon** (`TBB_B_Icon`) — the repeating anchor logo, renders in the global header on every page.
+- **`favicon`** → `TBB_Favicon_512` — browser-tab icon site-wide.
+- **`brand_image`** → full horizontal `TBB_Primary_Horizontal_Blue` — footer/brand lockup (selective full-logo placement).
+
+Additional logo pieces uploaded to Files this round (the ones that fit website use): B icon, B-icon-on-navy, stacked Blue. Combined with the earlier five, the store now has a working web set: header (B), footer (horizontal), dark-background (stacked white-on-navy / B-on-navy), and the TBB+VGP endorsement lockup. The remaining suite pieces (social post templates, banners, story covers, virtual-call background) are marketing/social assets, not website page assets, so were intentionally not uploaded.
+
+### Whitespace / per-page images — what this fixes and what remains
+- The **global header B logo** now anchors every page (biggest single fix for the "missing logo" whitespace).
+- The **Dana portrait** and **episode cover images** wired earlier feed the custom sections (`bb-dana-authority`, `bb-about-dana`, `bb-podcast-preview`, etc.), so those fill in automatically.
+- **Still open (needs section-level work or founder photos):** the `bb-founder-grid` still shows gaps because founders have no headshots yet; and any bespoke section with its own empty image slot would need per-section placement in the theme editor. The homepage is a custom-section theme (`bb-hero-editorial`, etc.); tell me which specific sections still look sparse and I'll place the appropriate logo/image into each.
+
 ## Governance preserved
 - Sole-host imagery only (no second person surfaced).
 - No private/STAGING assets published; store still password-protected.
