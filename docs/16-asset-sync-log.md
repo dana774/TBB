@@ -44,6 +44,14 @@ Additional logo pieces uploaded to Files this round (the ones that fit website u
 - The **Dana portrait** and **episode cover images** wired earlier feed the custom sections (`bb-dana-authority`, `bb-about-dana`, `bb-podcast-preview`, etc.), so those fill in automatically.
 - **Still open (needs section-level work or founder photos):** the `bb-founder-grid` still shows gaps because founders have no headshots yet; and any bespoke section with its own empty image slot would need per-section placement in the theme editor. The homepage is a custom-section theme (`bb-hero-editorial`, etc.); tell me which specific sections still look sparse and I'll place the appropriate logo/image into each.
 
+## Empty image slots filled (2026-07-31, unpublished "BB Preview" theme)
+Preview-checked the custom homepage/About sections and found **3 image_picker slots rendering the gray placeholder callout** because they read from **theme section settings** (template JSON), not from the metaobject. Filled all three via `themeFilesUpsert` (verified persisted, no userErrors):
+- `templates/index.json` → `bb_hero.settings.image` = `shopify://shop_images/Dana_Ammons_Podcast_Host.png` (homepage hero).
+- `templates/index.json` → `bb_dana.settings.portrait` = same (homepage "Dana authority" band).
+- `templates/page.about.json` → `bb_about.settings.portrait` = same (About page portrait).
+
+**Note / recommendation:** the same single Dana host image now appears in both the homepage hero **and** the homepage Dana-authority band — only one Dana photo exists today. Recommend a real portrait session so hero vs. authority vs. About use **distinct** frames instead of one repeated image. The `bb-founder-grid` still shows gaps (founders have no headshots yet — awaiting photography + consent).
+
 ## Governance preserved
 - Sole-host imagery only (no second person surfaced).
 - No private/STAGING assets published; store still password-protected.
