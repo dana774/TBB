@@ -14,15 +14,17 @@ waiting on one specific input/approval from Dana.
   Smoke-tested. **Execution is Dana's local run** (needs a Wix Episodes CSV export + a
   Shopify `write_metaobjects` token) — see that folder's README.
 
-## ⏳ Waiting on a yes/no from Dana (safe, ready to execute)
-1. **Delete 3 placeholder episodes.** `sample-episode-latest`, `sample-episode-interview`,
-   `sample-episode-historical` — all labeled `[EDITORIAL REVIEW] Sample …`, fully superseded
-   by the 41 real episodes. *Recommendation: delete.* Destructive, so held for Dana's OK.
-2. **$99 Founder Network product.** Ready to scaffold as a **Draft** product (no sales
-   channel, no Appstle plan, no billing) so it exists for review. *Not created yet* — held
-   because it touches membership/billing. Also need the cadence to finalize at launch:
-   **one-time $99, or $99/month, or $99/year?** (Appstle sets the recurring plan; the base
-   product stays Draft until Dana's launch go-ahead.)
+## ✅ Approved & executed (2026-08-04)
+1. **3 placeholder episodes deleted.** `sample-episode-latest`, `sample-episode-interview`,
+   `sample-episode-historical` removed per Dana's OK. Episode set is now **41 real episodes,
+   zero samples** (verified).
+2. **$99/month Founder Network product created as DRAFT.** Per Dana: **monthly, $99/month**.
+   - Product: **Founder Network Membership** — `gid://shopify/Product/9102448689206`,
+     status **DRAFT**, vendor "The Brand Blueprint", type "Membership".
+   - Variant: "Monthly membership", SKU `FOUNDER-NETWORK-MONTHLY`, price **$99.00**.
+   - Tagged `DRAFT-pending-launch-approval`. **No sales channel, no Appstle plan, no billing
+     wired** — the recurring $99/month plan is attached in Appstle at launch, and the product
+     is not published until Dana's explicit go-ahead. Entitlements live on Shopify only (doc 11).
 
 ## 🔒 Blocked — need material/data only Dana can provide
 | Item | What's needed | Notes |
@@ -36,9 +38,11 @@ waiting on one specific input/approval from Dana.
 | **Founder consent** (story/image/metrics) | Recorded consent for each featured founder | Records held at `editorial-review` until consent logged. See `founder-consent-emails.md`. |
 
 ## Ready-to-run on approval (specs already exist)
-- **Founder Network launch:** create Draft product → install Appstle Memberships → attach the
-  subscription plan at the confirmed cadence → set entitlements (single source of truth on
-  Shopify; never duplicate recurring entitlements onto Wix per doc 11) → Dana approves → publish.
+- **Founder Network launch:** ✅ Draft product created ($99/month) → install Appstle Memberships
+  → attach the $99/month subscription plan to the product → set entitlements (single source of
+  truth on Shopify; never duplicate recurring entitlements onto Wix per doc 11) → Dana approves
+  → publish to the online store. Appstle install + plan attach + publish are the remaining steps,
+  all gated on Dana's launch go-ahead.
 - **Transcript import:** run the pipeline in `shopify-migration/transcripts/`.
 - **6 withheld co-host-era transcripts:** decision still open (doc 07 §1) — publish with a
   neutral historical note, edit, or withhold. Quarantined in `transcripts-HISTORICAL-HOLD.json`.
