@@ -1,0 +1,23 @@
+Object,Property Label,Internal Name,Type,Required,Options / Values
+Contact,Primary Relationship Type,vgp_primary_relationship_type,Dropdown,Yes,Active Client; Former Client; Consulting Prospect; Founder; Institutional Partner; Investor or Capital Provider; Retail or Corporate Contact; Referral Partner; Specialist or Service Partner; Podcast or Media Contact; Sponsor Prospect; Speaker or Event Organizer; Program Participant; Professional Peer; Vendor; Personal Network; Automated or Publication Contact; Other
+Contact,Additional Relationship Types,vgp_additional_relationship_types,Multiple checkboxes,No,(same options as Primary Relationship Type)
+Contact,Business Unit,vgp_business_unit,Multiple checkboxes,Yes,Value Growth Partners; The Brand Blueprint; Podcast; RED Academy; Accelerator or Ecosystem; Speaking and Media
+Contact,Relationship Status,vgp_relationship_status,Dropdown,Yes,New; Warm; Active; Strategic; Dormant; Closed
+Contact,Primary Interest,vgp_primary_interest,Dropdown,No,Consulting; Retail; Capital; Founder Resources; Speaking; Partnership; Podcast; Sponsorship
+Contact,Program or Ecosystem Affiliation,vgp_program_affiliation,Multiple checkboxes,No,RED Academy; CIC; Build in Tulsa; SEED SPOT; W.E. Build; Black Ambition; JumpStart; Other
+Contact,Original Relationship Source,vgp_original_relationship_source,Dropdown,No,Google Contacts; Gmail; Popl; LinkedIn; Referral; Conference; Website; Podcast; Shopify; Calendly; Program
+Contact,Latest Relationship Source,vgp_latest_relationship_source,Dropdown,No,(same options as Original Relationship Source)
+Contact,Follow-Up Priority,vgp_follow_up_priority,Dropdown,No,Urgent; High; Normal; Low; None
+Contact,Next Follow-Up Date,vgp_next_follow_up_date,Date,No,
+Contact,Last Meaningful Interaction,vgp_last_meaningful_interaction,Date,No,
+Contact,Scheduling Eligibility,vgp_scheduling_eligibility,Dropdown,No,Public intake only; Qualified prospect; Active client; Institutional; Podcast guest; Program participant; No scheduling
+Contact,Consent Status,vgp_consent_status,Dropdown,No,Explicit opt-in; Implied (existing relationship); Unknown; Do not market
+Contact,Legacy Source Lists,vgp_legacy_source_lists,Multiple checkboxes,No,Active Clients; Founder Prospects; All Founders; Inner Circle Investors; Past Clients; Partners; Friends and Family; TBB Guests
+Contact,Data Review Status,vgp_data_review_status,Dropdown,Yes,Unreviewed; Manual review; Approved; Imported; Hold
+Company,Organization Type,vgp_organization_type,Dropdown,No,Founder Brand; Client Company; Accelerator; University; Retailer; Investor or Fund; Government; Nonprofit; Media; Service Partner; Other
+Company,Business Unit Relationship,vgp_business_unit_rel,Multiple checkboxes,No,Value Growth Partners; The Brand Blueprint; Podcast; RED Academy; Accelerator or Ecosystem; Speaking and Media
+Company,Strategic Priority,vgp_strategic_priority,Dropdown,No,Tier 1; Tier 2; Tier 3; Monitor
+Company,Program Affiliation,vgp_company_program_affiliation,Multiple checkboxes,No,RED Academy; CIC; Build in Tulsa; SEED SPOT; W.E. Build; Black Ambition; JumpStart; Other
+Company,Institutional Relationship Status,vgp_institutional_status,Dropdown,No,Prospective; Active; Historical; Dormant
+Company,Data Review Status,vgp_company_review_status,Dropdown,No,Unreviewed; Manual review; Approved; Imported; Hold
+Deal,Opportunity Type,vgp_opportunity_type,Dropdown,Yes,VGP Advisory; Retainer; Institutional Program; Workshop or Speaking; Brand Blueprint Partnership; Sponsorship; Founder Program; Strategic Project; Other

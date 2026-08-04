@@ -1,0 +1,3 @@
+Email,First Name,Last Name,Company name,Job Title,Phone Number,Additional email addresses,Additional Phone Numbers,Primary Relationship Type,Additional Relationship Types,Business Unit,Legacy Source Lists,Original Relationship Source,Data Review Status,Lifecycle Stage,Import Notes
+founder@example.com,Sample,Founder,Example Foods,Founder,+15555550100,,,Founder,,Value Growth Partners,All Founders,Google Contacts,Approved,Lead,
+client@example.com,Sample,Client,Example Brand,CEO,+15555550101,alt@example.com,+15555550102,Active Client,Personal Network,Value Growth Partners,Active Clients;Friends and Family,Google Contacts,Approved,Customer,Multiple email addresses

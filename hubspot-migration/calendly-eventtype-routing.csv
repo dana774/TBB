@@ -1,0 +1,12 @@
+Event Type,Slug,Active,Audience / Route,Scheduling Eligibility,Relationship Write,Deal?
+Brand Blueprint | Fit & Reconnect Call,vgp-insight-session,Active,Public owned qualification (new founders & returning clients),Qualified prospect,Primary = Consulting Prospect (new); reconnect for returning,No
+VGP | Active Client Strategy Session,vgp-active-client-strategy-session,Active,Protected - active clients only,Active client,Client Status = Active,No (applies to existing engagement)
+VGP | Partner & Institutional Introduction,vgp-partner-contributor-intro,Active,"Accelerators, capital, platform, service partners",Institutional,Primary = Institutional Partner / Investor or Capital Provider,Possible (Institutional Program / Partnership)
+The Brand Blueprint | Guest Interview,the-brand-blueprint-interview-invite,Active,Protected - confirmed podcast guests,Podcast guest,Additional = Podcast or Media Contact,No
+Build in Tulsa | Founder Diagnostic,bit-founder-diagnostic-2026,Active,Program (BIT 2026),Program participant,Program Affiliation = Build in Tulsa,No
+Build in Tulsa | Executive Coaching Session,bit-executive-coaching-2026,Active,Program (BIT 2026),Program participant,Program Affiliation = Build in Tulsa,No
+SEED SPOT | Founder Office Hours,seed-spot-open-office-hours-with-dana-ammo,Active,"Program (SEED SPOT), group",Program participant,Program Affiliation = SEED SPOT,No
+W.E. Build Cohort 4 | Office Hours,w-e-build-cohort-4-office-hours,Active,Program (W.E. Build Cohort 4),Program participant,Program Affiliation = W.E. Build,No
+Black Ambition Open Office Hours,black-ambition-office-hours,Inactive,"Program (Black Ambition), group",Program participant,Program Affiliation = Black Ambition,No
+JumpStart | Founder Commercialization Session,jumpstart-founder-commercialization-session,Inactive (pilot template),"Program (JumpStart), gated",Program participant,Program Affiliation = JumpStart,Activate after eligibility confirmed
+COECP 1:1 with Dana Ammons,new-meeting,Inactive (legacy),Generic,No scheduling,Retire or repurpose,No

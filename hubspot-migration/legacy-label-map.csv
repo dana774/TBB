@@ -1,0 +1,11 @@
+Legacy Google Label,HubSpot Translation,Rule
+VGP Active Clients,Primary Relationship Type = Active Client; Lifecycle = Customer,Do not create a deal unless an active commercial engagement is documented
+VGP Prospect,Primary Relationship Type = Consulting Prospect,Lifecycle = Sales Qualified Lead only after current fit is confirmed
+VGP ALL Founders Group,Additional Relationship Type = Founder,Do not assume commercial opportunity
+VGP Inner Circle Investors,Additional Relationship Type = Investor or Capital Provider,"Treat as ecosystem relationship, not automatically a deal"
+VGP Past Clients,Primary or Additional Relationship Type = Former Client,Lifecycle should remain Customer or Other based on HubSpot governance
+VGP Partners,Additional Relationship Type = Referral or Specialist Partner,Classify partner subtype during review
+TBB Guests,Additional Relationship Type = Podcast or Media Contact,Route through controlled podcast scheduling
+RED Academy Partners,Business Unit = RED Academy,Preserve institutional / ecosystem role
+CIC Founders,Business Unit = Accelerator or Ecosystem; Additional Type = Founder,Preserve program affiliation
+Friends and Family,Additional Relationship Type = Personal Network,Exclude from mass marketing unless consent exists
