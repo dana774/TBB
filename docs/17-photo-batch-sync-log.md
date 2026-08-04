@@ -36,7 +36,7 @@ Both PASS assets were re-saved with an embedded **sRGB** ICC profile at JPG qual
 - **VGP-01, BB-08** — re-generate (see reject reasons). VGP-01 is a Wix/VGP hero; BB-08 must not contain a Dana-like face.
 - **BB-05** — re-generate or retouch the checklist to true blur.
 - **BB-09** — place `bb-members.jpg` in the theme editor (Member/Community section) when Dana next opens the Shopify customizer.
-- **BB-10** — confirm the source portrait is a genuine photograph of Dana (spec: REAL PHOTO ONLY); rights/photographer metadata still to be recorded before public launch.
+- **BB-10** — ✅ Confirmed by Dana (2026-08-04): `dana-bb-portrait.jpg` is a **genuine photograph of Dana Ammons**, satisfying the REAL-PHOTO-ONLY spec. Rights: subject is the site owner (Dana), self-supplied; no third-party consent required. Photographer credit still TBD — capture if available before public launch.
 
 ## Cross-batch guardrails for future generations
 1. Never allow a Dana-like face in any "Dana: NO" asset.
