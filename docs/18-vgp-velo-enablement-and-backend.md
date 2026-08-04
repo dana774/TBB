@@ -1,9 +1,9 @@
 # 18 — VGP Advisory-Pathway: Velo Backend + Build Spec (IMPLEMENTATION-READY)
 
-Server-side qualification for `/advisory-pathway` (doc 14). Site: `Vgp Staging 2026` (`6b5d8f63-…`), Studio. **Velo/Dev Mode: ENABLED by Dana 2026-08-04.** Qualifying rule **confirmed by Dana 2026-08-04** (below). Nothing here publishes; the live VGP site is untouched.
+Server-side qualification for `/advisory-pathway` (doc 14). Site: `Vgp Staging 2026` (`6b5d8f63-…`), Studio. **Velo/Dev Mode: ENABLED (Dana, 2026-08-04).** Qualifying rule **confirmed (Dana, 2026-08-04)**. **Advisory Pathway Intake form: CREATED via API 2026-08-04** (id `5b3336f8-45de-458e-a47a-7dbe63eb8c50`) — see Part D for the one editor tweak it needs. Nothing published; live VGP site untouched.
 
 ## Confirmed qualification rule
-Intake asks two qualifying questions; a visitor sees the **VGP Insight Session** fit-call button only when **prospective client AND no prior paid engagement**.
+A visitor sees the **VGP Insight Session** fit-call button only when **prospective client AND no prior paid engagement**.
 | Audience | Prior paid engagement | Result |
 |---|---|---|
 | Prospective client | No | **QUALIFIED → fit-call button** |
@@ -13,42 +13,50 @@ Intake asks two qualifying questions; a visitor sees the **VGP Insight Session**
 | Partner or contributor | — | Partner pathway |
 | Anything ambiguous | — | Human review, 2-business-day ack |
 
-The fit-call URL is returned **only** for the qualified branch — never rendered for any other result, never in nav/footer/sitemap.
+The fit-call URL is returned **only** for the qualified branch — never for any other result, never in nav/footer/sitemap.
 
 ## Part A — Velo enablement (DONE)
-Wix Studio → **Dev Mode** toggle → on. Code panel with `Backend` / `Public` / page code now available.
+Wix Studio → Dev Mode → on. Code panel with `Backend` / `Public` / page code available.
 
-## Part B — Build order (what's code vs editor)
-1. **Backend module** — paste Part C into a new `Backend` file. *(code, provided)*
-2. **Advisory-intake form** — build per Part D spec in the Wix Forms editor (or I create it via the Forms API when the connector is stable). *(spec, provided)*
-3. **Page elements** — place the form + result text + hidden fit-call button on the `/advisory-pathway` page. *(editor list, Part E)*
-4. **Page code** — paste Part F into the page's code. *(code, provided)*
+## Part B — Remaining steps (what's done vs to-do)
+1. **Backend module** — paste Part C into a new `Backend` file. *(code below)*
+2. **Advisory-intake form** — ✅ created via API. **One editor tweak:** set the two questions to radio buttons (Part D) — the Forms REST API on this site silently drops radio options (verified twice), so this must be done in the editor.
+3. **Page elements** — place the form + result text + hidden fit-call button (Part E). *(editor)*
+4. **Page code** — paste Part F. *(code below)*
 5. **Test** — Part G.
 
+The backend and page code are written to be **tolerant**: they match the two answers by content (label text *or* coded value), so the flow works no matter how the radio options end up formatted in the editor.
+
 ## Part C — Backend module → create `backend/advisoryPathway.web.js`
-Current Velo web-module format (`.web.js`). The approved fit-call URL lives **server-side only** and is returned solely for the qualified branch, so it is never in client source for non-qualified visitors.
 ```js
 // backend/advisoryPathway.web.js
 import { Permissions, webMethod } from 'wix-web-module';
 
 const APPROVED_FIT_CALL = 'https://calendly.com/valugrowthpartners/vgp-insight-session';
+const norm = (s) => String(s || '').trim().toLowerCase();
 
 /**
  * Server-side advisory-pathway qualification.
- * Input: { audience, priorEngagement } (values from the form's field keys — see Part D).
- * Output: { route, message, destination } — destination is the fit-call URL ONLY when qualified, else null.
+ * Tolerant matching: accepts coded values (prospective_client) OR labels (Prospective client).
+ * Returns the fit-call URL ONLY for the qualified branch.
  */
 export const evaluateAdvisoryPathway = webMethod(
   Permissions.Anyone,
   async (submission) => {
-    const audience = String(submission.audience || '').toLowerCase();
-    const prior = String(submission.priorEngagement || '').toLowerCase();
+    const audience = norm(submission.audience);
+    const prior = norm(submission.priorEngagement);
+
+    const isProspective = audience.includes('prospective');
+    const isExisting    = audience.includes('existing');
+    const isInstitution = audience.includes('institution') || audience.includes('eso');
+    const isPartner     = audience.includes('partner') || audience.includes('contributor');
+    const priorNo       = prior === 'no' || prior === 'false' || prior === 'n';
 
     let route = 'human_review';
-    if (audience === 'prospective_client' && prior === 'no') route = 'qualified';
-    else if (audience === 'existing_client') route = 'existing_client';
-    else if (audience === 'institution_eso') route = 'institutional';
-    else if (audience === 'partner_contributor') route = 'partner';
+    if (isProspective && priorNo) route = 'qualified';
+    else if (isExisting)    route = 'existing_client';
+    else if (isInstitution) route = 'institutional';
+    else if (isPartner)     route = 'partner';
 
     const messages = {
       qualified: "You're a fit for a 30-minute VGP Insight Session — a fit, pathway and initial-scoping conversation.",
@@ -63,38 +71,46 @@ export const evaluateAdvisoryPathway = webMethod(
   }
 );
 ```
-> `.jsw` alternative: if your editor uses classic web modules, name the file `backend/advisoryPathway.jsw` and replace the `webMethod(Permissions.Anyone, async (submission) => { … })` wrapper with `export async function evaluateAdvisoryPathway(submission) { … }` (same body).
+> `.jsw` alternative: name the file `advisoryPathway.jsw` and use `export async function evaluateAdvisoryPathway(submission) { … }` (same body, no `webMethod` wrapper).
 
-## Part D — Advisory-intake form spec (Wix Forms editor)
-Form name: **Advisory Pathway Intake**. Set each option's **value** exactly as shown (label is what visitors see; value is what the backend reads — Wix Forms lets you set both).
-| # | Field label | Type | Required | Field key | Option values (label → value) |
-|---|---|---|---|---|---|
-| 1 | Full name | Text | Yes | `name` | — |
-| 2 | Email | Email | Yes | `email` | — |
-| 3 | Which best describes you? | Radio (single) | Yes | `audience` | Prospective client → `prospective_client` · Existing client → `existing_client` · Institution or ESO → `institution_eso` · Partner or contributor → `partner_contributor` |
-| 4 | Have you previously engaged VGP for paid advisory or a program? | Radio (single) | Yes | `priorEngagement` | Yes → `yes` · No → `no` |
-| 5 | Company / organization | Text | No | `company` | — |
-| 6 | What would you like help with? | Long text | No | `message` | — |
-CRM: on submit, label the contact (`custom.institutional-inquiry` / `custom.partner-contributor` / advisory) per doc 03.
+## Part D — Advisory Pathway Intake form (CREATED via API — one editor tweak)
+Form id `5b3336f8-45de-458e-a47a-7dbe63eb8c50`. Already has: First name, Last name, Email (mapped to Contacts), the two questions, Company, Message, Submit, and a thank-you message. Open it in **Add → Forms → your forms → Advisory Pathway Intake** (or Forms & Submissions in the dashboard) and make **one change**:
+
+- Change **"Which best describes you?"** and **"Have you previously engaged VGP for paid advisory or a program?"** from text fields to **Radio buttons** (a Selection field).
+  - Audience options (labels): **Prospective client · Existing client · Institution or ESO · Partner or contributor**
+  - Prior-engagement options (labels): **No · Yes**
+- Option *values* don't matter — the backend matches on the label text too. Just make them selectable choices, not free text.
+
+(Why the editor: the site's Forms REST API silently converts radio options to plain text — verified on create and update 2026-08-04 — so the choice UI has to be set in the editor.)
 
 ## Part E — Page elements (Studio editor, `/advisory-pathway`)
-Place on the page (or a results section) and set these element IDs in the editor's properties panel:
-- **The form** (Advisory Pathway Intake) → keep default or set ID `advisoryForm`.
-- **Result text** → ID `resultMessage`. Set **Hidden on load** (Properties → uncheck "Visible").
-- **Fit-call button** → ID `fitCallButton`, label "Schedule Your VGP Insight Session". Set **Hidden on load** (critical: it must not be in the initial DOM). Link is set by code at runtime.
-- (Optional) pathway buttons for institutional / partner / sign-in branches, shown by extending the page code.
+- **The form** (Advisory Pathway Intake) → ID `advisoryForm`.
+- **Result text** → ID `resultMessage`. **Hidden on load.**
+- **Fit-call button** → ID `fitCallButton`, label "Schedule Your VGP Insight Session", **Hidden on load** (must not be in the initial DOM). Link set by code at runtime.
+- (Optional) pathway buttons for institutional / partner / sign-in branches.
 
 ## Part F — Page code (paste into the `/advisory-pathway` page code)
+Reads the two answers by field key when present, else detects them by content — robust to whatever keys/labels the editor produces.
 ```js
 import { evaluateAdvisoryPathway } from 'backend/advisoryPathway.web';
 
 $w.onReady(() => {
   $w('#advisoryForm').onWixFormSubmitted(async (event) => {
-    // event.fields is keyed by field key in current Wix Forms.
-    // If your form returns an array of {fieldName, fieldValue}, map it to an object first.
-    const f = event.fields || {};
-    const audience = f.audience ?? f['audience'];
-    const priorEngagement = f.priorEngagement ?? f['priorEngagement'];
+    // Normalize the submission into a plain {key: value} object.
+    const raw = event.fields || {};
+    const byKey = Array.isArray(raw)
+      ? Object.fromEntries(raw.map(x => [x.fieldName || x.id, x.fieldValue ?? x.value]))
+      : raw;
+
+    let audience = byKey.audience;
+    let priorEngagement = byKey.priorEngagement;
+
+    // Fallback: find the answers by content if the keys differ.
+    if (!audience || !priorEngagement) {
+      const vals = Object.values(byKey).map(v => String(v).toLowerCase());
+      audience = audience || vals.find(v => /prospective|existing|institution|eso|partner|contributor/.test(v)) || '';
+      priorEngagement = priorEngagement || vals.find(v => v === 'no' || v === 'yes' || v === 'true' || v === 'false') || '';
+    }
 
     const { message, destination } = await evaluateAdvisoryPathway({ audience, priorEngagement });
 
@@ -108,19 +124,17 @@ $w.onReady(() => {
     } else {
       $w('#fitCallButton').hide();
     }
-    // Optional: fire analytics 'vgp_insight_session_click' on #fitCallButton click.
+    // Optional: fire analytics 'vgp_insight_session_click' on the button.
   });
 });
 ```
-> If `onWixFormSubmitted` gives `event.fields` as an array, normalize first:
-> `const f = Object.fromEntries((event.fields||[]).map(x => [x.fieldName || x.id, x.fieldValue ?? x.value]));`
 
 ## Part G — Test (before relying on it)
-1. Preview the page. Submit as **Prospective client + No** → result message shows AND the fit-call button appears linking to `vgp-insight-session`.
-2. Submit as **Prospective client + Yes** → human-review message, **no** button.
-3. Submit as **Existing client / Institution / Partner** → the matching message, **no** button.
-4. View page source on a non-qualified result → confirm the Calendly URL is **absent** (it's only injected for the qualified branch).
-5. Keep the site in **draft** — do not publish.
+1. Preview → submit **Prospective client + No** → message shows AND the fit-call button appears linking to `vgp-insight-session`.
+2. **Prospective client + Yes** → human-review message, **no** button.
+3. **Existing client / Institution / Partner** → matching message, **no** button.
+4. View source on a non-qualified result → the Calendly URL is **absent** (injected only for the qualified branch).
+5. Keep the site **draft** — do not publish.
 
 ## Guardrails
 Fit-call destination returned only for the qualified branch · button hidden on load · no private/active-client or sponsored-program URL anywhere · Calendly schedules approved conversations only, never the qualification layer · nothing published · live VGP site untouched.
