@@ -53,17 +53,28 @@ import Base from '../layouts/Base.astro';
     form?.addEventListener('submit', async (e) => {
       e.preventDefault();
       const data = new FormData(form);
-      const res = await fetch('/api/qualify', {
-        method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({
-          audience: data.get('audience'),
-          priorEngagement: data.get('priorEngagement'),
-          name: data.get('name'),
-          email: data.get('email'),
-        }),
-      });
-      const { message, destination } = await res.json();
+      const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'One moment…'; }
+      let message = '', destination = null;
+      try {
+        const res = await fetch('/api/qualify', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({
+            audience: data.get('audience'),
+            priorEngagement: data.get('priorEngagement'),
+            name: data.get('name'),
+            email: data.get('email'),
+          }),
+        });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        ({ message, destination } = await res.json());
+      } catch (err) {
+        message = "Sorry — something went wrong submitting the form. Please email dana@valugrowthpartners.com and we'll follow up right away.";
+        destination = null;
+      } finally {
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'See my next step'; }
+      }
       result.innerHTML = '';
       const card = document.createElement('div');
       card.className = 'vgp-card';
