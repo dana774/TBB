@@ -1,0 +1,7 @@
+# transient / sensitive — never commit
+__pycache__/
+*.pyc
+data/            # contact PII CSVs live here at runtime, not in git
+.hs_token
+*.token
+HUBSPOT_TOKEN*
