@@ -21,7 +21,7 @@ is not approved, follow the placeholder/gate rules in §9.
 - **Auth:** use a Wix Headless OAuth app (Client ID) with **read** access to the public collections;
   server-side API key only for admin-gated reads (never ship admin tokens to the client).
 - **Publicly readable collections:** `Capabilities`, `CaseStudies`, `DanaProfile`, `Insights`,
-  `Partners`, `Programs`, `Speaking`.
+  `Partners`, `Programs`, `Speaking`, `FounderResourceDirectory`.
 - **Admin-only (server-side only, never client-exposed):** `ClientResources`, `RestrictedRoutes`,
   `FormSubmissions`.
 - **Render filter (all public collections):** only render items whose `status` indicates approved/
@@ -93,9 +93,33 @@ related insight (`relatedInsightSlug`→`Insights`); CTA **Start the Advisory Pa
 Slugs: `strategic-growth-architecture`, `growth-os`, `funding-and-forecast-readiness`,
 `retail-and-distribution`, `digital-growth-and-ai`, `operations-and-sourcing`.
 
-### `/programs` (dynamic on `Programs`, 3)
+### `/programs` (dynamic on `Programs`)
 `title`, `programType`, `audience`, `modules`, `outcomes`, `format`, `duration`, `institution`,
-`offerStatus`. CTA → `/institutional-inquiry`.
+`offerStatus`. CTA → `/institutional-inquiry`. Includes the institutional/commercialization programs
+**and** the Founder Accelerator consulting tiers below.
+
+### `/consulting-tiers` (Founder Accelerator — dynamic on `Programs` where `programType` = "Founder Accelerator - Consulting Tier")
+A pricing/tiers page for the retainer ladder — **6 tiers**, ascending by price:
+Founder Accelerator $249 · LaunchPad $499 · LaunchPad+ $749 · Elevate $999 · Pinnacle $1,499 · Apex
+$2,499 (monthly). For each tier render `title`, `format` (price · hours/month), `audience` (designed-for),
+`modules` (included services), `outcomes` (focus/purpose). CTA → `/advisory-pathway`.
+**Pricing display is Dana's toggle:** default shows the monthly retainer price per tier; the à-la-carte
+**creative-partner rates (Heloise Lanoix) are gated** — list those *services* only, never the hourly
+rates, consistent with the partner-page privacy rule. Positioning: a bridge from accelerator programs
+(WE Build, CIC, SeedSpot) into sustained strategic + creative consulting.
+
+### `/resources` — Founder Resource Directory (dynamic on `FounderResourceDirectory`)
+A curated, browsable directory of **startup-friendly vendors** for founders, grouped by `category`
+(Contract Manufacturer · 3PL / Fulfillment · Warehouse / Flexible Space · Packaging). Per entry render
+`company`, `category`, `services`, `bestFit`, and a **"Learn more"** link to `website` (plus `email`/
+`phone` when present) and `sourceUrl`. Filter by category. These are **publicly-listed third-party
+vendors compiled as a resource** (not VGP partners and not endorsements) — include a short disclaimer:
+*"Curated for convenience; details are self-reported/public and should be independently verified. Not
+an endorsement or partnership."* Render only `status` = `published`.
+**Hot List (gated, NOT a public page):** the VGP Hot List weekly digest contains **founder fundraising
+data — raise amounts, capital secured, data-room links**. Do **not** build it as a public page or expose
+any founder raise/round/data-room field publicly. If built at all, it is an **investor-gated** distribution
+behind member auth; its "Resource Partner Highlights" section maps to the public `/resources` + `Partners`.
 
 ### `/case-studies` + `/case-studies/{slug}` (dynamic on `CaseStudies`, 3)
 Render approved only. `client` **or** `anonymousLabel` (use anonymousLabel when consent not cleared),
@@ -212,6 +236,8 @@ lazy-load below the fold.
   pepsicoClaim, pepsicoClaimStatus, brandBlueprintUrl, vgpUrl, seoTitle, seoDescription.
 - **ClientResources** (admin): title, slug, status, clientRef, resourceType, fileUrl(url), accessNotes.
 - **RestrictedRoutes** (admin): title, slug, status, routeUrl(url), routeType, audience, notes.
+- **FounderResourceDirectory:** company, slug, category, services, minimum, bestFit, notes, website(url),
+  email, phone, sourceUrl(url), logo(media_image), status. (`minimum`/`notes`/`logo` may be empty.)
 
 ## 11. Acceptance criteria / QA
 - Every public collection renders live from the VGP CMS (no hard-coded copy where a field exists).
