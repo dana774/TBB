@@ -13,7 +13,8 @@ tier/pricing detail** (the Sengo+Nudge framework is an internal operating docume
 | **Louise Lenoir** | Creative & Digital Partner | Dana's brief (no file yet) |
 | **Sengo** | Capital Intelligence Platform | Sengo+Nudge framework (was "Singo") |
 | **Nudge** | Commerce Intelligence Platform | Sengo+Nudge framework |
-| **Kaylee McFerson** | Paid Media & Digital Partner | Kaylee one-sheeter |
+| **Kaylee McFerson** | Paid Media & Digital Partner | Kaylee one-sheeter (services added, rates kept private per Dana) |
+| **Patrice Malloy** (The Affluent CFO) | Referral Partner — Financial & Tax Strategy | Affluent CFO podcast-collaboration script |
 
 **Not on the featured page:** the `VGP_partner_shortlist_startup_friendly.xlsx` (~20 manufacturers /
 3PL / packaging vendors) is a **research/prospect list** for a founder resource directory, not
@@ -138,3 +139,29 @@ included? Let me know if you'd like your services or rates listed as well. I'll 
 once the page is published. Thank you!
 
 Dana — Value Growth Partners
+
+*(Kaylee's profile now lists her three service areas — Strategy Development & Planning; Paid Media
+Execution & Optimization; Consulting & Training — with rates kept off the public page per Dana.)*
+
+---
+
+## 6 · Patrice Malloy (The Affluent CFO)
+**Subject:** Adding you to the Value Growth Partners partner page
+
+Hi Patrice,
+
+As I build the new Value Growth Partners website, I'd like to formally feature you on our partner page
+as a referral partner and collaborator — The Affluent CFO — alongside our Finance Blueprint for
+Founders series.
+
+- **Name:** Patrice Malloy (The Affluent CFO)
+- **Partner type:** Referral Partner — Financial & Tax Strategy
+- **Focus:** Tax strategy and financial advisory for founders
+- **Description:** Patrice Malloy, known as The Affluent CFO, is a master tax strategist and financial
+  advisor who helps entrepreneurs achieve financial freedom through her Unapologetic Affluence
+  platform, and collaborates with The Brand Blueprint on the Finance Blueprint for Founders series.
+
+Could you review and reply with any edits, and send a headshot, your logo, and any images you'd like
+featured? I'll share the live link once the page is published. Thank you, and I'm excited for the series.
+
+Dana Ammons — Founder & CEO, Value Growth Partners

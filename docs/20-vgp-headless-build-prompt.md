@@ -179,10 +179,11 @@ lazy-load below the fold.
 
 ## 9. Content gates & placeholders (pending Dana — do not fabricate)
 - **Speaking `pastEngagements`** — omit the section until a verified list is supplied.
-- **Partners** — 5 real partners are seeded, each `editorial-review` pending confirmation + assets:
+- **Partners** — 6 real partners are seeded, each `editorial-review` pending confirmation + assets:
   **ArkLaTex Financial Consultants** (Referral — Financing & Lending), **Louise Lenoir** (Creative &
   Digital), **Sengo** (Capital Intelligence Platform), **Nudge** (Commerce Intelligence Platform),
-  **Kaylee McFerson** (Paid Media & Digital). Render a partner **only** once `status` is `published`.
+  **Kaylee McFerson** (Paid Media & Digital), **Patrice Malloy / The Affluent CFO** (Referral —
+  Financial & Tax Strategy). Render a partner **only** once `status` is `published`.
   Always hide the 3 `[PLACEHOLDER]` archetypes. Until a logo is present, render a clean
   name/type/description card (no broken image). **Do not** surface any Sengo/Nudge internal tier or
   pricing detail — those live only in the internal integration framework, not on the public page. The
