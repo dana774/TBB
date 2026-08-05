@@ -1,10 +1,8 @@
-// Content layer. Reads VGP Wix CMS collections when a headless client ID is
-// configured (PUBLIC_WIX_CLIENT_ID); otherwise falls back to editorial-review
-// seed content so every page renders and looks right during the build-out.
-//
-// Wiring live data: set PUBLIC_WIX_CLIENT_ID (Wix Headless project client ID)
-// and install the optional deps (@wix/sdk, @wix/data). The queryCollection()
-// helper below is the single integration point.
+// Content layer. Source of truth is the in-repo content below (Wix is being
+// retired). The Wix reader is kept as a dormant, optional hook only for a
+// transition period — set PUBLIC_WIX_CLIENT_ID to temporarily read Wix CMS.
+// Long term, replace the seed with real approved content here, or swap in a
+// no-code CMS (HubSpot HubDB / Sanity) at the queryCollection() seam.
 
 export type Item = Record<string, any>;
 

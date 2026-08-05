@@ -31,10 +31,21 @@ import Base from '../layouts/Base.astro';
     .vgp-form input, .vgp-form textarea { display:block; width:100%; margin-top:.35rem; padding:.8rem; border:1px solid var(--vgp-card-border); border-radius:var(--vgp-radius); font:inherit; font-weight:400; }
   </style>
   <script>
-    const f = document.getElementById('inq-form');
-    f?.addEventListener('submit', (e) => {
+    const f = document.getElementById('inq-form') as HTMLFormElement;
+    f?.addEventListener('submit', async (e) => {
       e.preventDefault();
-      // TODO(live): POST to Wix Forms submission API for form bfeb795f-… when PUBLIC_WIX_CLIENT_ID is set.
+      const d = new FormData(f);
+      try {
+        await fetch('/api/lead', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({
+            name: d.get('name'), email: d.get('email'), org: d.get('org'),
+            pathway: 'institutional', source: 'institutional-inquiry',
+            message: [d.get('orgType'), d.get('support'), d.get('goals')].filter(Boolean).join(' | '),
+          }),
+        });
+      } catch {}
       f.setAttribute('hidden', '');
       document.getElementById('inq-done')?.removeAttribute('hidden');
     });

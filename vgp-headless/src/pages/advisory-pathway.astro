@@ -14,6 +14,11 @@ import Base from '../layouts/Base.astro';
 
       <form id="advisory-form" class="vgp-mt" novalidate>
         <fieldset class="vgp-fieldset">
+          <legend>Your details</legend>
+          <label class="vgp-field">Full name<input type="text" name="name" autocomplete="name" required /></label>
+          <label class="vgp-field">Email<input type="email" name="email" autocomplete="email" required /></label>
+        </fieldset>
+        <fieldset class="vgp-fieldset">
           <legend>Which best describes you?</legend>
           <label class="vgp-opt"><input type="radio" name="audience" value="prospective_client" required /> Prospective client</label>
           <label class="vgp-opt"><input type="radio" name="audience" value="existing_client" /> Existing client</label>
@@ -37,6 +42,8 @@ import Base from '../layouts/Base.astro';
     .vgp-fieldset legend { font-family: var(--font-serif); font-size: var(--vgp-h3); color: var(--vgp-navy); margin-bottom: 1rem; }
     .vgp-opt { display: flex; gap: .75rem; align-items: center; padding: 1rem 1.25rem; border: 1px solid var(--vgp-card-border); border-radius: var(--vgp-radius); margin-bottom: .75rem; cursor: pointer; }
     .vgp-opt:has(input:checked) { border-color: var(--vgp-blueprint-blue); background: var(--vgp-pale-blue); }
+    .vgp-field { display:block; font-weight:600; color:var(--vgp-navy); margin-bottom:1rem; }
+    .vgp-field input { display:block; width:100%; margin-top:.35rem; padding:.8rem; border:1px solid var(--vgp-card-border); border-radius:var(--vgp-radius); font:inherit; font-weight:400; }
     #advisory-result .vgp-card { background: var(--vgp-pale-blue); border: none; }
   </style>
 
@@ -49,7 +56,12 @@ import Base from '../layouts/Base.astro';
       const res = await fetch('/api/qualify', {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ audience: data.get('audience'), priorEngagement: data.get('priorEngagement') }),
+        body: JSON.stringify({
+          audience: data.get('audience'),
+          priorEngagement: data.get('priorEngagement'),
+          name: data.get('name'),
+          email: data.get('email'),
+        }),
       });
       const { message, destination } = await res.json();
       result.innerHTML = '';
