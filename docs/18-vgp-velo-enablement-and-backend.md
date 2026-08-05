@@ -136,5 +136,18 @@ $w.onReady(() => {
 4. View source on a non-qualified result → the Calendly URL is **absent** (injected only for the qualified branch).
 5. Keep the site **draft** — do not publish.
 
+## Part H — VGP forms & CRM label inventory (verified 2026-08-04)
+All three intake forms exist and are **enabled**; each captures the visitor as a Contact via its `CONTACTS_*` name/email fields. (The institutional + partner forms pre-existed from the earlier staging build; the advisory form was created this session.)
+| Form | Form ID | Purpose / page | Segmentation label |
+|---|---|---|---|
+| Advisory Pathway Intake | `5b3336f8-45de-458e-a47a-7dbe63eb8c50` | `/advisory-pathway` (qualification) | `custom.vgp-qualified-lead` — **apply only on the qualified result**, not every submission |
+| Institutional Inquiry | `bfeb795f-543c-40a6-8c29-3712031cfc1c` | `/institutional-inquiry` | `custom.institutional-lead` |
+| Partner & Contributor Inquiry | `f37ecc59-bf20-4daf-8485-8ec883f13de7` | `/partner-contributor` | `custom.partner-contributor-lead` (created this session) |
+| (Speaking inquiry — build when the Speaking page is composed) | — | `/speaking` | `custom.speaking-lead` |
+
+Contact labels present: `custom.institutional-lead`, `custom.vgp-qualified-lead`, `custom.speaking-lead`, `custom.partner-contributor-lead`. (These supersede the doc 03 placeholder names `custom.institutional-inquiry` / `custom.partner-contributor`.)
+
+**Applying the labels on submission — recommended: Wix Automations** (dashboard → Automations → "When a form is submitted → Add label"), one per form, mapping each form to the label above. This is the standard, safe pattern and doesn't touch the working form schemas. For the **advisory** form, do NOT blanket-label; apply `custom.vgp-qualified-lead` only for the qualified branch — either via an Automation conditioned on the result, or by adding a `wix-crm-backend` label call inside the qualified branch of `advisoryPathway.web.js`.
+
 ## Guardrails
 Fit-call destination returned only for the qualified branch · button hidden on load · no private/active-client or sponsored-program URL anywhere · Calendly schedules approved conversations only, never the qualification layer · nothing published · live VGP site untouched.

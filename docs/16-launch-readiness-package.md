@@ -28,7 +28,7 @@ The Brand Blueprint is fully built on Shopify (Phases 1–2) and deployed to an 
 **Wix — VGP**
 | Area | Status |
 |---|---|
-| CMS collections, forms, routes, CRM labels | ✅ Complete (doc 03, prior session) |
+| CMS collections, forms, routes, CRM labels | ✅ Complete (doc 03). Forms verified 2026-08-04: 3 intake forms enabled (Advisory Pathway Intake, Institutional Inquiry, Partner & Contributor Inquiry); 4 contact labels present. Label-on-submit application via Wix Automations — see doc 18 Part H |
 | Phase 3 build spec + section-by-section Studio build | ✅ **Specification complete** (docs 13–14) |
 | VGP Studio page composition + testing | ⛔ **Not implemented in Wix Studio** — pending editor session |
 | VGP data-layer re-verification read | ✅ Done 2026-07-24 — 10 collections verified; drift logged (doc 03 addendum): +Capabilities, +ClientResources, +DanaProfile; RestrictedRoutes 4→5; **Velo disabled** (enable before advisory-pathway backend) |
