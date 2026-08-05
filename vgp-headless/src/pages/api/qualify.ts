@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro';
 import { evaluateAdvisory } from '../../lib/qualify';
-import { upsertLead } from '../../lib/hubspot';
+import { upsertLead, createAdvisoryDeal } from '../../lib/hubspot';
 
 // Server-rendered endpoint: qualification runs on the server, so the fit-call
 // URL is never in client source for non-qualified visitors. Also captures the
@@ -32,13 +32,17 @@ export const POST: APIRoute = async ({ request }) => {
 
   // Capture the advisory lead into HubSpot with its pathway (no-ops without email/token).
   if (body.email) {
-    await upsertLead({
+    const lead = await upsertLead({
       email: String(body.email),
       firstname: body.name?.split?.(' ')?.[0],
       lastname: body.name?.split?.(' ')?.slice(1).join(' '),
       vgp_pathway: result.route,
       vgp_source: 'advisory-pathway',
     });
+    // A qualified prospective client is a real opportunity → create a Deal.
+    if (result.route === 'qualified' && lead.contactId) {
+      await createAdvisoryDeal(lead.contactId, `VGP Advisory — ${body.name || body.email}`);
+    }
   }
 
   return new Response(JSON.stringify(result), {

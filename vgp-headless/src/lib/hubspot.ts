@@ -33,7 +33,9 @@ async function post(properties: Record<string, string>) {
   });
 }
 
-export async function upsertLead(fields: LeadFields): Promise<{ ok: boolean; skipped?: boolean; status?: number }> {
+export async function upsertLead(
+  fields: LeadFields
+): Promise<{ ok: boolean; skipped?: boolean; status?: number; contactId?: string }> {
   if (!TOKEN) return { ok: false, skipped: true };
   if (!fields.email) return { ok: false, status: 400 };
 
@@ -51,8 +53,40 @@ export async function upsertLead(fields: LeadFields): Promise<{ ok: boolean; ski
       }
       res = await post(standard);
     }
-    return { ok: res.ok, status: res.status };
+    let contactId: string | undefined;
+    try {
+      const json = await res.json();
+      contactId = json?.results?.[0]?.id;
+    } catch { /* ignore */ }
+    return { ok: res.ok, status: res.status, contactId };
   } catch {
     return { ok: false, status: 0 };
+  }
+}
+
+// Best-effort: create a Deal for a qualified advisory lead, associated to the
+// contact. Uses the default pipeline; fails soft (lead capture is unaffected).
+// Set HUBSPOT_PIPELINE / HUBSPOT_DEALSTAGE to target a custom advisory pipeline.
+export async function createAdvisoryDeal(
+  contactId: string,
+  dealname: string
+): Promise<{ ok: boolean; skipped?: boolean }> {
+  if (!TOKEN || !contactId) return { ok: false, skipped: true };
+  const pipeline = (import.meta.env.HUBSPOT_PIPELINE as string) || 'default';
+  const dealstage = (import.meta.env.HUBSPOT_DEALSTAGE as string) || 'appointmentscheduled';
+  try {
+    const res = await fetch('https://api.hubapi.com/crm/v3/objects/deals', {
+      method: 'POST',
+      headers: { authorization: `Bearer ${TOKEN}`, 'content-type': 'application/json' },
+      body: JSON.stringify({
+        properties: { dealname, pipeline, dealstage },
+        associations: [
+          { to: { id: contactId }, types: [{ associationCategory: 'HUBSPOT_DEFINED', associationTypeId: 3 }] },
+        ],
+      }),
+    });
+    return { ok: res.ok };
+  } catch {
+    return { ok: false };
   }
 }

@@ -1,13 +1,22 @@
 import { defineConfig } from 'astro/config';
 import node from '@astrojs/node';
 
-// Hybrid: pages are static by default; the qualification endpoint opts into
-// server rendering (export const prerender = false). The node standalone
-// adapter runs anywhere (Vercel/Netlify/Render/self-host). Swap to
-// @astrojs/vercel or @astrojs/netlify at deploy time if preferred.
+// Adapter is selectable by env so the same repo deploys cleanly:
+//   (default)            -> @astrojs/node standalone (local dev/test, Render, Fly, self-host)
+//   DEPLOY_TARGET=vercel -> @astrojs/vercel serverless (recommended cheap deploy)
+// Hybrid output: pages prerender; /api/* endpoints opt into server rendering.
+const target = process.env.DEPLOY_TARGET || 'node';
+let adapter;
+if (target === 'vercel') {
+  const { default: vercel } = await import('@astrojs/vercel/serverless');
+  adapter = vercel();
+} else {
+  adapter = node({ mode: 'standalone' });
+}
+
 export default defineConfig({
   output: 'hybrid',
-  adapter: node({ mode: 'standalone' }),
+  adapter,
   site: 'https://www.valugrowthpartners.com',
   vite: {
     // Wix headless SDK is an optional runtime dep (installed only when wiring

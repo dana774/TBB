@@ -35,12 +35,15 @@ Account/identity/banking steps only you can do — I do all the code + HubSpot o
 6. **Launch:** repoint `valugrowthpartners.com` DNS → Vercel; remove `noindex`; confirm live.
 7. **Cancel Wix** once everything is confirmed live and clients are migrated.
 
+## Also built this session (2026-08-05, build + smoke-test verified)
+- **HubSpot Deal on qualified advisory leads:** `createAdvisoryDeal()` — a qualified prospective client creates a Deal associated to the contact (default pipeline/stage; override with `HUBSPOT_PIPELINE` / `HUBSPOT_DEALSTAGE` for a custom advisory pipeline). Fails soft; lead capture is unaffected.
+- **Calendly → HubSpot webhook:** `/api/calendly-webhook` — on `invitee.created`, marks the contact `vgp_pathway=booked_fit_call`. Setup: Calendly → Integrations → Webhooks → subscribe `invitee.created` to `https://<domain>/api/calendly-webhook` (optional signature verification via `CALENDLY_WEBHOOK_KEY`).
+- **Vercel deploy config:** adapter is env-selectable — default `@astrojs/node` (local/other hosts); `DEPLOY_TARGET=vercel` uses `@astrojs/vercel` serverless. Both build targets verified. To deploy on Vercel: connect the repo, set Build env `DEPLOY_TARGET=vercel`, and the runtime env vars (`HUBSPOT_TOKEN`, `FIT_CALL_URL`, `BB_URL`).
+
 ## What I can still build when you're ready
-- Optional: create a HubSpot **Deal** on qualified advisory leads (pipeline for advisory).
-- Optional: Calendly ↔ HubSpot sync so booked fit-calls log automatically.
 - HubSpot tracking script on the site for attribution.
+- Institutional/partner Deals (same pattern as advisory) if you want those as pipeline opportunities too.
 - Content: replace `[SOURCED — confirm]` / `[EDITORIAL REVIEW]` with approved copy; real case studies; your photo.
-- Deploy config for Vercel/Netlify (swap adapter) on your word.
 
 ## Guardrails preserved
 Fit-call URL server-gated (qualified branch only) · no private/program scheduling URLs · Dana sole creator/founder/host · PepsiCo $ figure gated · nothing published / `noindex` while staging · existing subscription clients not disrupted (migrated deliberately, not dropped).
