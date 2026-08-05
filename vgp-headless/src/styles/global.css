@@ -70,8 +70,13 @@ p { margin: 0 0 1rem; }
   border-radius: var(--vgp-radius);
   padding: 1.75rem;
   transition: box-shadow var(--vgp-transition);
+  display: flex;
+  flex-direction: column;
 }
 .vgp-card:hover { box-shadow: 0 6px 20px rgba(7,30,65,.08); }
+/* Bottom-align the trailing CTA so grid rows read evenly */
+.vgp-card > a:last-child,
+.vgp-card > .vgp-btn:last-child { margin-top: auto; padding-top: .75rem; }
 
 .vgp-review-flag {
   border: 1px dashed var(--vgp-warm-gold);

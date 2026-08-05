@@ -1,0 +1,4 @@
+# Staging: keep the site out of search indexes until launch.
+# At launch, replace with: "User-agent: *  Allow: /" and add a Sitemap line.
+User-agent: *
+Disallow: /
