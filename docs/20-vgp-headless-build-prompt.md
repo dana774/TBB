@@ -179,8 +179,11 @@ lazy-load below the fold.
 
 ## 9. Content gates & placeholders (pending Dana — do not fabricate)
 - **Speaking `pastEngagements`** — omit the section until a verified list is supplied.
-- **Partners** — records are `[PLACEHOLDER]` archetypes; **hide the Partners display** until real
-  partners + logo permission are approved (do not render placeholder partners publicly).
+- **Partners** — 4 real referral partners are now seeded (Alt Finance, Louise Lenoir, Singo, Nudge),
+  each at `editorial-review` pending the partner's confirmation + assets (logo/headshot/images). Render
+  a partner **only** once `status` is `published`. Still hide the 3 `[PLACEHOLDER]` archetypes always.
+  Logos/images arrive via the partner outreach emails; until a logo is present, render a clean
+  name/type/description card (no broken image).
 - **Insights (3) & Capabilities (6)** — currently `editorial-review`; render on the preview build for
   Dana's sign-off, but keep `noindex` until status flips to approved.
 - **DanaProfile account figure** — gated per §`/about`.
