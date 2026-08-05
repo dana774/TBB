@@ -1,1 +1,0 @@
-const e=document.querySelector(".vgp-nav__toggle"),n=document.getElementById("vgp-menu");e?.addEventListener("click",()=>{const t=n?.toggleAttribute("data-open");e.setAttribute("aria-expanded",String(!!t))});
