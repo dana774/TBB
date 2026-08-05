@@ -1,0 +1,44 @@
+---
+import Base from '../layouts/Base.astro';
+import { getPartners } from '../lib/content';
+const partners = await getPartners();
+const anyPending = partners.some((p) => p.review);
+---
+<Base
+  title="Partner Network"
+  description="The referral and delivery partners in the Value Growth Partners network."
+>
+  <section class="vgp-section">
+    <div class="vgp-container">
+      <span class="vgp-eyebrow">Partner Network</span>
+      <h1>The people we bring to the table</h1>
+      <p style="max-width:62ch;">Commercial readiness rarely comes from advice alone. When a founder is better served by a specialist — financing, tax strategy, creative, paid media, or capital and commerce intelligence — we make the introduction. These are the trusted partners in the Value Growth Partners network.</p>
+
+      {anyPending && (
+        <p class="vgp-review-flag" style="max-width:62ch;">
+          Listings are being confirmed with each partner before this page goes public. Names, descriptions and contact details shown here are pending each partner's sign-off.
+        </p>
+      )}
+
+      <div class="vgp-grid vgp-grid--2 vgp-mt">
+        {partners.map((p) => (
+          <article class="vgp-card">
+            <span class="vgp-eyebrow" style="margin-bottom:.5rem;">{p.type}</span>
+            <h4 style="margin-bottom:.35rem;">{p.name}</h4>
+            {p.focus && <p style="color:var(--vgp-navy);font-weight:600;margin-bottom:.5rem;">{p.focus}</p>}
+            <p>{p.description}</p>
+            {p.website && (
+              <a href={p.website} target="_blank" rel="noopener">Visit website →</a>
+            )}
+          </article>
+        ))}
+      </div>
+
+      <div class="vgp-card vgp-bg-pale vgp-center vgp-mt" style="border:none;">
+        <h3>Want to partner with VGP?</h3>
+        <p>If you work with founders and think there's a fit, we'd like to hear from you.</p>
+        <p class="vgp-mt"><a class="vgp-btn vgp-btn--primary" href="/partner-contributor">Explore partnering →</a></p>
+      </div>
+    </div>
+  </section>
+</Base>

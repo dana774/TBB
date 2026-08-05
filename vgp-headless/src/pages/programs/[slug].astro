@@ -13,12 +13,9 @@ const { item } = Astro.props;
       <nav aria-label="Breadcrumb"><a href="/programs">Programs</a> / {item.title}</nav>
       <h1>{item.title}</h1>
       <p style="font-size:1.25rem;">{item.summary}</p>
-      <h4 class="vgp-mt">Audience & eligibility</h4>
-      <p>[EDITORIAL REVIEW] Who this program is designed for.</p>
-      <h4>Format</h4>
-      <p>[EDITORIAL REVIEW] How the program runs.</p>
-      <h4>Outcomes</h4>
-      <p>[EDITORIAL REVIEW] The commercial-readiness outcomes for the cohort.</p>
+      <h4 class="vgp-mt">About the program</h4>
+      <p>{item.detail ?? item.summary}</p>
+      <p>Audience, format and depth are scoped to your organization on the inquiry call — every institutional engagement is tailored rather than packaged.</p>
       <div class="vgp-card vgp-bg-pale vgp-center vgp-mt" style="border:none;">
         <h3>Bring this to your organization</h3>
         <p class="vgp-mt"><a class="vgp-btn vgp-btn--primary" href="/institutional-inquiry">Submit an Institutional Inquiry</a></p>

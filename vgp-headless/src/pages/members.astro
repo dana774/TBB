@@ -1,7 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
 // Active-client area. Private scheduling links are delivered by direct
-// communication only — never rendered on-site. Live: wire to Wix Members.
+// communication only — never rendered on-site. Sign-in is not wired yet;
+// connect an auth provider (e.g. HubSpot membership / a hosted auth) at launch.
 ---
 <Base title="Client Sign-In" description="Active-client area.">
   <section class="vgp-section">
@@ -9,8 +10,8 @@ import Base from '../layouts/Base.astro';
       <span class="vgp-eyebrow">Active Clients</span>
       <h1>Client sign-in</h1>
       <p>Access to your engagement workspace. Scheduling for active clients is arranged directly with your VGP contact — never through a public link.</p>
-      <p class="vgp-mt"><a class="vgp-btn vgp-btn--primary" href="#">Sign in</a></p>
-      <p style="font-size:.9rem;">[EDITORIAL REVIEW] Wire to Wix Members / your auth provider when going live.</p>
+      <p class="vgp-mt">Client sign-in is arriving soon. In the meantime, your VGP contact will share everything you need directly.</p>
+      <p style="font-size:.9rem;"><a href="/advisory-pathway">Not a client yet? Start the Advisory Pathway →</a></p>
     </div>
   </section>
 </Base>

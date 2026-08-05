@@ -11,15 +11,13 @@ const { item } = Astro.props;
   <article class="vgp-section">
     <div class="vgp-container" style="max-width:760px;">
       <nav aria-label="Breadcrumb"><a href="/case-studies">Case Studies</a> / {item.title}</nav>
-      <p class="vgp-review-flag">[EDITORIAL REVIEW] Approved case-study content pending — no invented metrics.</p>
       <h1>{item.title}</h1>
-      <h4 class="vgp-mt">Context</h4>
-      <p>[EDITORIAL REVIEW] The situation.</p>
-      <h4>Approach</h4>
-      <p>[EDITORIAL REVIEW] What VGP did.</p>
-      <h4>Measured outcome</h4>
-      <p>{item.outcome}</p>
-      <p class="vgp-mt"><a class="vgp-btn vgp-btn--primary" href="/advisory-pathway">Start the Advisory Pathway</a></p>
+      <p class="vgp-review-flag">This case study is in preparation — published once the client approves the specifics. We never show metrics we can't verify.</p>
+      <p style="font-size:1.25rem;">{item.outcome}</p>
+      <div class="vgp-card vgp-bg-pale vgp-center vgp-mt" style="border:none;">
+        <h3>Want to be the next one?</h3>
+        <p class="vgp-mt"><a class="vgp-btn vgp-btn--primary" href="/advisory-pathway">Start the Advisory Pathway</a></p>
+      </div>
     </div>
   </article>
 </Base>
