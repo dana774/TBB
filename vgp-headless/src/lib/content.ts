@@ -60,10 +60,22 @@ const SEED = {
     { slug: 'insight-two', title: `${R} What ESOs miss about growth`, summary: `${R} Field note placeholder.` },
     { slug: 'insight-three', title: `${R} Operating systems for founders`, summary: `${R} Field note placeholder.` },
   ],
-  speaking: [] as Item[], // placeholders hidden until verified (doc 07 §6)
+  // Sourced from public info (Venture Café Cambridge speaker listing) — confirm with Dana.
+  speaking: [
+    { title: 'Venture Café Cambridge — speaker', detail: '[SOURCED — confirm] Founder-readiness and go-to-market for emerging CPG brands.' },
+  ] as Item[],
+  // Bio drafted from public sources (LinkedIn, VGP site, podcast listings, Venture Café)
+  // 2026-08-04 — PENDING Dana's confirmation. Sole-host rule applied (no co-host language).
+  // The $115M PepsiCo figure is deliberately excluded (gated, doc 07 §2).
   danaProfile: {
     name: 'Dana Ammons',
-    positioning: `${R} Dana Ammons brings verified brand and commercial leadership from P&G, PepsiCo and Colgate-Palmolive to founders and the organizations that support them.`,
+    positioning:
+      'Dana Ammons is the founder and principal of Value Growth Partners — a CPG, beauty and beverage veteran with leadership experience at Procter & Gamble, PepsiCo, Colgate-Palmolive and SC Johnson. He partners with emerging businesses, accelerators and investor networks to build founder readiness, launch strategy and lasting commercial growth. [SOURCED — confirm]',
+    philosophy:
+      'Access is not the same as commercial readiness. Dana helps founders and the organizations that support them close that gap — turning promising ideas into brands that can actually sell, scale and hold their place on the shelf. [SOURCED — confirm]',
+    experience_timeline:
+      'Procter & Gamble — Director of Sales, leading key accounts including Target and Sam\'s Club; earned the Triple Crown Award for driving top-line, bottom-line and market-share growth. Additional brand and commercial leadership across PepsiCo, Colgate-Palmolive and SC Johnson. [SOURCED — confirm]',
+    pepsico_claim_status: 'pending-proof',
   },
 };
 
