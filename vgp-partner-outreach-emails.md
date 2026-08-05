@@ -9,7 +9,7 @@ tier/pricing detail** (the Sengo+Nudge framework is an internal operating docume
 ## Partners on the VGP page (2026-08-04, from Dana's files)
 | Name | Type | Source |
 |---|---|---|
-| **ArkLaTex Financial Consultants** | Referral Partner — Financing & Lending | ArkLaTex snapshot (was mis-transcribed as "Alt Finance") |
+| **Ark-La-Tex Financial Consultants** | Referral Partner — Financing & Lending | Snapshot + Kasvaa partnership deck (was "Alt Finance"); logo lockup + `arklatexfinancial.net` \| (318) 256-9796 confirmed; USDA B&I + SBA focus |
 | **Heloise Lanoix** | Creative & Digital Partner | KT Consulting one-sheeter/contract (corrects the voice-transcribed "Louise Lenoir"; full legal name Héloïse Simonneaux-Lanoix) |
 | **Sengo** | Capital Intelligence Platform | Sengo+Nudge framework (was "Singo") |
 | **Nudge** | Commerce Intelligence Platform | Sengo+Nudge framework |
@@ -30,25 +30,26 @@ confirmed partners with permission — kept separate.
 
 ---
 
-## 1 · ArkLaTex Financial Consultants
-**Subject:** Adding ArkLaTex Financial Consultants to the Value Growth Partners partner page
+## 1 · Ark-La-Tex Financial Consultants
+**Subject:** Adding Ark-La-Tex Financial Consultants to the Value Growth Partners partner page
 
-Hi [First name / ArkLaTex team],
+Hi [First name / Ark-La-Tex team],
 
-I'm building out the new Value Growth Partners website and I'd like to formally feature ArkLaTex
+I'm building out the new Value Growth Partners website and I'd like to formally feature Ark-La-Tex
 Financial Consultants on our referral partner page as our financing and lending partner.
 
-- **Name:** ArkLaTex Financial Consultants
+- **Name:** Ark-La-Tex Financial Consultants
 - **Partner type:** Referral Partner — Financing & Lending
-- **Focus:** SBA and commercial lending placement, investor-readiness and grant packaging
-- **Description:** ArkLaTex Financial Consultants provides specialized loan and business-financing
-  support, including SBA 7(a) and 504 loans, commercial lending, and investor-readiness consulting.
-  A trusted partner for small businesses and minority-owned enterprises, helping founders access
-  capital through bank partnerships, private lending, and CDFIs.
+- **Focus:** USDA B&I, SBA and commercial lending navigation for rural growth and acquisitions
+- **Website:** arklatexfinancial.net | (318) 256-9796
+- **Description:** Ark-La-Tex Financial Consultants helps founders and small businesses finance rural
+  growth and acquisitions with local expertise and creative solutions — specializing in USDA Business
+  & Industry guaranteed loans, SBA 7(a) and 504 loans, and commercial lending across acquisitions,
+  ownership transitions, real estate and equipment, and refinance-plus-growth.
 
-Could you review and reply with any edits, confirm your best public contact details, and send your
-logo plus any images you'd like featured? The page is in final build, and I'll share the live link
-once it's published. Thank you for the partnership.
+Could you confirm this reads correctly and that the logo lockup and contact details are the ones
+you'd like shown? Send any edits plus any additional images you'd like featured. I'll share the live
+link once it's published. Thank you for the partnership.
 
 Dana Ammons — Founder & CEO, Value Growth Partners
 
