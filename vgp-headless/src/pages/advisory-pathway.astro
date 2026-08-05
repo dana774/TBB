@@ -1,0 +1,75 @@
+---
+import Base from '../layouts/Base.astro';
+// The results are computed by POST /api/qualify (server-side). The fit-call
+// button is never in the initial DOM; it is created only for the qualified
+// response. Mirrors the confirmed rule: prospective client + no prior paid
+// engagement => fit call.
+---
+<Base title="Advisory Pathway" description="Find the right way to work with Value Growth Partners.">
+  <section class="vgp-section">
+    <div class="vgp-container" style="max-width:720px;">
+      <span class="vgp-eyebrow">Advisory Pathway</span>
+      <h1>Let's find the right starting point.</h1>
+      <p>Two quick questions and we'll point you to the right next step.</p>
+
+      <form id="advisory-form" class="vgp-mt" novalidate>
+        <fieldset class="vgp-fieldset">
+          <legend>Which best describes you?</legend>
+          <label class="vgp-opt"><input type="radio" name="audience" value="prospective_client" required /> Prospective client</label>
+          <label class="vgp-opt"><input type="radio" name="audience" value="existing_client" /> Existing client</label>
+          <label class="vgp-opt"><input type="radio" name="audience" value="institution_eso" /> Institution or ESO</label>
+          <label class="vgp-opt"><input type="radio" name="audience" value="partner_contributor" /> Partner or contributor</label>
+        </fieldset>
+        <fieldset class="vgp-fieldset">
+          <legend>Have you previously engaged VGP for paid advisory or a program?</legend>
+          <label class="vgp-opt"><input type="radio" name="priorEngagement" value="no" required /> No</label>
+          <label class="vgp-opt"><input type="radio" name="priorEngagement" value="yes" /> Yes</label>
+        </fieldset>
+        <button type="submit" class="vgp-btn vgp-btn--primary">See my next step</button>
+      </form>
+
+      <div id="advisory-result" class="vgp-mt" hidden aria-live="polite"></div>
+    </div>
+  </section>
+
+  <style>
+    .vgp-fieldset { border: 0; padding: 0; margin: 0 0 2rem; }
+    .vgp-fieldset legend { font-family: var(--font-serif); font-size: var(--vgp-h3); color: var(--vgp-navy); margin-bottom: 1rem; }
+    .vgp-opt { display: flex; gap: .75rem; align-items: center; padding: 1rem 1.25rem; border: 1px solid var(--vgp-card-border); border-radius: var(--vgp-radius); margin-bottom: .75rem; cursor: pointer; }
+    .vgp-opt:has(input:checked) { border-color: var(--vgp-blueprint-blue); background: var(--vgp-pale-blue); }
+    #advisory-result .vgp-card { background: var(--vgp-pale-blue); border: none; }
+  </style>
+
+  <script>
+    const form = document.getElementById('advisory-form') as HTMLFormElement;
+    const result = document.getElementById('advisory-result') as HTMLElement;
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      const res = await fetch('/api/qualify', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ audience: data.get('audience'), priorEngagement: data.get('priorEngagement') }),
+      });
+      const { message, destination } = await res.json();
+      result.innerHTML = '';
+      const card = document.createElement('div');
+      card.className = 'vgp-card';
+      const p = document.createElement('p');
+      p.textContent = message;
+      card.appendChild(p);
+      if (destination) {
+        const a = document.createElement('a');
+        a.className = 'vgp-btn vgp-btn--primary';
+        a.href = destination;           // approved fit-call URL — qualified branch ONLY
+        a.target = '_blank';
+        a.rel = 'noopener';
+        a.textContent = 'Schedule Your VGP Insight Session';
+        a.style.marginTop = '1rem';
+        card.appendChild(a);
+      }
+      result.hidden = false;
+      result.focus?.();
+    });
+  </script>
+</Base>
