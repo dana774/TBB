@@ -23,7 +23,7 @@ is not approved, follow the placeholder/gate rules in §9.
 - **Publicly readable collections:** `Capabilities`, `CaseStudies`, `DanaProfile`, `Insights`,
   `Partners`, `Programs`, `Speaking`, `FounderResourceDirectory`.
 - **Admin-only (server-side only, never client-exposed):** `ClientResources`, `RestrictedRoutes`,
-  `FormSubmissions`.
+  `FormSubmissions`, `HotListIssues`, `HotListFeatures` (the investor-gated Hot List — see doc 21).
 - **Render filter (all public collections):** only render items whose `status` indicates approved/
   published (`published` / `approved` / `live`). Treat `editorial-review`, `Draft`, empty, or
   `[PLACEHOLDER]` as **not for public render** (see §9).
@@ -118,8 +118,11 @@ vendors compiled as a resource** (not VGP partners and not endorsements) — inc
 an endorsement or partnership."* Render only `status` = `published`.
 **Hot List (gated, NOT a public page):** the VGP Hot List weekly digest contains **founder fundraising
 data — raise amounts, capital secured, data-room links**. Do **not** build it as a public page or expose
-any founder raise/round/data-room field publicly. If built at all, it is an **investor-gated** distribution
-behind member auth; its "Resource Partner Highlights" section maps to the public `/resources` + `Partners`.
+any founder raise/round/data-room field publicly. It is an **investor-gated** distribution behind member
+auth + an `investor` role, backed by the ADMIN-only `HotListIssues`/`HotListFeatures` collections and
+read only via a role-checked backend function. Full build spec (routes `/investors`,
+`/investors/hot-list`, consent gate, approval flow, audit): **see doc 21**. Its "Resource Partner
+Highlights" section maps to the public `/resources` + `Partners`.
 
 ### `/case-studies` + `/case-studies/{slug}` (dynamic on `CaseStudies`, 3)
 Render approved only. `client` **or** `anonymousLabel` (use anonymousLabel when consent not cleared),
