@@ -32,6 +32,7 @@ Live domains (`thebrandblueprint.biz`, `valugrowthpartners.com`) were **not modi
 | [docs/17-dana-final-actions.md](docs/17-dana-final-actions.md) | Short list: only items needing Dana's owner/legal/financial/browser/publish authority |
 | [docs/18-vgp-velo-enablement-and-backend.md](docs/18-vgp-velo-enablement-and-backend.md) | Velo backend + Advisory Pathway Intake form (created via API) for VGP advisory-pathway |
 | [docs/19-vgp-studio-design-system-setup.md](docs/19-vgp-studio-design-system-setup.md) | VGP Wix Studio Global Styles input sheet (colors, text themes, buttons, spacing) |
+| [docs/20-vgp-headless-build.md](docs/20-vgp-headless-build.md) | **VGP headless build** — decision, status, guardrail proof (code in [`vgp-headless/`](vgp-headless/)) |
 
 ## What can and cannot be done via API
 
