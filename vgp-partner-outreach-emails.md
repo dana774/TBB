@@ -10,7 +10,7 @@ tier/pricing detail** (the Sengo+Nudge framework is an internal operating docume
 | Name | Type | Source |
 |---|---|---|
 | **ArkLaTex Financial Consultants** | Referral Partner — Financing & Lending | ArkLaTex snapshot (was mis-transcribed as "Alt Finance") |
-| **Louise Lenoir** | Creative & Digital Partner | Dana's brief (no file yet) |
+| **Heloise Lanoix** | Creative & Digital Partner | KT Consulting one-sheeter/contract (corrects the voice-transcribed "Louise Lenoir"; full legal name Héloïse Simonneaux-Lanoix) |
 | **Sengo** | Capital Intelligence Platform | Sengo+Nudge framework (was "Singo") |
 | **Nudge** | Commerce Intelligence Platform | Sengo+Nudge framework |
 | **Kaylee McFerson** | Paid Media & Digital Partner | Kaylee one-sheeter (services added, rates kept private per Dana) |
@@ -23,8 +23,9 @@ confirmed partners with permission — kept separate.
 ## Open confirmations for Dana
 - **ArkLaTex = the "Alt Finance" you meant?** (I consolidated them.) Its snapshot phone `(870) 555-7890`
   looks like a placeholder — please confirm the real public contact.
-- **Louise Lenoir vs Kaylee McFerson** are treated as two separate partners (creative direction vs.
-  paid media). Confirm that's right, and send Louise's details when handy.
+- **Heloise Lanoix** (corrected from "Louise Lenoir") and **Kaylee McFerson** are two separate
+  partners (creative/app design vs. paid media). Confirm the corrected name and the public contact
+  details Heloise wants shown.
 - Sengo/Nudge public descriptions kept generic; confirm wording.
 
 ---
@@ -53,24 +54,29 @@ Dana Ammons — Founder & CEO, Value Growth Partners
 
 ---
 
-## 2 · Louise Lenoir
+## 2 · Heloise Lanoix
 **Subject:** Featuring you on the Value Growth Partners partner page
 
-Hi Louise,
+Hi Heloise,
 
 As I finish the new Value Growth Partners website, I want to formally feature you as our lead digital
 design and creative director on the partner page.
 
-- **Name:** Louise Lenoir
+- **Name:** Heloise Lanoix
 - **Role / type:** Creative & Digital Partner
-- **Focus:** Lead digital design and creative direction
-- **Description:** Louise Lenoir is Value Growth Partners' lead digital design and creative director,
-  and the firm's primary creative and digital contractor for brand, web and content design.
+- **Focus:** Digital design, app and product design, and creative direction
+- **Description:** Heloise Lanoix is Value Growth Partners' lead digital design and creative director,
+  and a creative and digital contractor specializing in digital product and app design — from
+  app-flow diagrams and wireframes through visual design and coordination with development.
 
 Would you review and send back any edits, plus a headshot and any work images or a logo you'd like
-included? I'll share the live link once it's up. Thank you for everything.
+included? Please also confirm the name and contact details you'd like shown publicly. I'll share the
+live link once it's up. Thank you for everything.
 
 Dana — Value Growth Partners
+
+*(Privacy: her KT invoice/contract contain bank, Zelle and personal-contact details — deliberately
+kept out of the CMS, repo, and public page.)*
 
 ---
 

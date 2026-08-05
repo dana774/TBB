@@ -180,7 +180,7 @@ lazy-load below the fold.
 ## 9. Content gates & placeholders (pending Dana — do not fabricate)
 - **Speaking `pastEngagements`** — omit the section until a verified list is supplied.
 - **Partners** — 6 real partners are seeded, each `editorial-review` pending confirmation + assets:
-  **ArkLaTex Financial Consultants** (Referral — Financing & Lending), **Louise Lenoir** (Creative &
+  **ArkLaTex Financial Consultants** (Referral — Financing & Lending), **Heloise Lanoix** (Creative &
   Digital), **Sengo** (Capital Intelligence Platform), **Nudge** (Commerce Intelligence Platform),
   **Kaylee McFerson** (Paid Media & Digital), **Patrice Malloy / The Affluent CFO** (Referral —
   Financial & Tax Strategy). Render a partner **only** once `status` is `published`.
