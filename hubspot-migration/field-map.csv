@@ -21,3 +21,11 @@ Company,Program Affiliation,vgp_company_program_affiliation,Multiple checkboxes,
 Company,Institutional Relationship Status,vgp_institutional_status,Dropdown,No,Prospective; Active; Historical; Dormant
 Company,Data Review Status,vgp_company_review_status,Dropdown,No,Unreviewed; Manual review; Approved; Imported; Hold
 Deal,Opportunity Type,vgp_opportunity_type,Dropdown,Yes,VGP Advisory; Retainer; Institutional Program; Workshop or Speaking; Brand Blueprint Partnership; Sponsorship; Founder Program; Strategic Project; Other
+Contact,Attribution — Site,vgp_attr_site,Single-line text,No,Set by website intake on every submission
+Contact,Attribution — Page,vgp_attr_page,Single-line text,No,Landing/submission page path
+Contact,Attribution — Campaign,vgp_attr_campaign,Single-line text,No,UTM campaign
+Contact,Attribution — Source,vgp_attr_source,Single-line text,No,UTM source / channel
+Contact,Attribution — Audience,vgp_attr_audience,Single-line text,No,Audience/segment from the form route
+Contact,Attribution — Route,vgp_attr_route,Single-line text,No,Which of the 9 intake routes fired
+Contact,Attribution — Offer,vgp_attr_offer,Single-line text,No,Offer/lead magnet associated with the submission
+Contact,Attribution — Referral,vgp_attr_referral,Single-line text,No,Referring URL or named referral source

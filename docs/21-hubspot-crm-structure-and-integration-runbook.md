@@ -212,7 +212,14 @@ Install the **HubSpot Sales Gmail extension** + connect the inbox (Settings → 
 
 Connect calendar (Settings → Integrations → Calendar) for meeting sync + the HubSpot meetings tool. Two-way sync so booked meetings log to the contact timeline and update `Last Meaningful Interaction`. This is the Google Calendar layer beneath Calendly.
 
-### 9.3 Wix forms → HubSpot (VGP + Brand Blueprint)
+> **Architecture update (supersedes the Wix routing below):** VGP is migrating off Wix to a new
+> front-end host that wires intake forms + contact capture **directly to HubSpot**, and payments/
+> invoicing move to the Shopify (Brand Blueprint) store. The form-route → property mapping in §9.3
+> still applies verbatim — only the delivery mechanism changes (new host → HubSpot Forms/CRM API
+> instead of Wix). See `docs/22-website-and-shopify-agent-handoff-prompts.md` for the agent handoff
+> prompts and the updated system-ownership + money-boundary model.
+
+### 9.3 Intake forms → HubSpot (new VGP host + Brand Blueprint)
 
 Live Wix sites in the account:
 
