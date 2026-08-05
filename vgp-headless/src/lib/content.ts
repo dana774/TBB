@@ -154,6 +154,7 @@ const SEED = {
       focus: 'USDA B&I, SBA and commercial lending navigation for rural growth and acquisitions',
       description: 'Ark-La-Tex Financial Consultants helps founders and small businesses finance rural growth and acquisitions with local expertise and creative solutions — specializing in USDA Business & Industry guaranteed loans, SBA 7(a) and 504 loans, and commercial lending across acquisitions, ownership transitions, real estate and equipment, and refinance-plus-growth.',
       website: 'https://arklatexfinancial.net',
+      logo: '/assets/partners/ark-la-tex-financial-consultants-logo.png',
       review: true,
     },
     {
@@ -206,12 +207,23 @@ const SEED = {
   // The $115M PepsiCo figure is deliberately excluded (gated, doc 07 §2).
   danaProfile: {
     name: 'Dana Ammons',
+    // Drafted from public sources (LinkedIn, VGP site, podcast/Venture Café listings),
+    // 2026-08-04. `sourced:true` renders a "pending confirmation" banner. Written in
+    // name-based / third-person voice (no asserted pronouns). The $115M PepsiCo figure
+    // is gated (doc 07 §2) and shown only when pepsico_claim_status === 'approved'.
+    sourced: true,
     positioning:
-      'Dana Ammons is the founder and principal of Value Growth Partners — a CPG, beauty and beverage veteran with leadership experience at Procter & Gamble, PepsiCo, Colgate-Palmolive and SC Johnson. He partners with emerging businesses, accelerators and investor networks to build founder readiness, launch strategy and lasting commercial growth. [SOURCED — confirm]',
+      'Dana Ammons is the founder and principal of Value Growth Partners — a CPG, beauty and beverage veteran with commercial leadership experience across Procter & Gamble, PepsiCo, Colgate-Palmolive and SC Johnson. Value Growth Partners works with emerging businesses, accelerators and investor networks to build founder readiness, launch strategy and lasting commercial growth.',
     philosophy:
-      'Access is not the same as commercial readiness. Dana helps founders and the organizations that support them close that gap — turning promising ideas into brands that can actually sell, scale and hold their place on the shelf. [SOURCED — confirm]',
+      'Access is not the same as commercial readiness. VGP helps founders — and the organizations that support them — close that gap, turning promising ideas into brands that can actually sell, scale and hold their place on the shelf.',
     experience_timeline:
-      'Procter & Gamble — Director of Sales, leading key accounts including Target and Sam\'s Club; earned the Triple Crown Award for driving top-line, bottom-line and market-share growth. Additional brand and commercial leadership across PepsiCo, Colgate-Palmolive and SC Johnson. [SOURCED — confirm]',
+      'At Procter & Gamble, Dana served as Director of Sales, leading key accounts including Target and Sam\'s Club and earning the Triple Crown Award for driving top-line, bottom-line and market-share growth. Additional brand and commercial leadership followed across PepsiCo, Colgate-Palmolive and SC Johnson — a career spent turning products into brands that win at retail.',
+    credentials: [
+      'Procter & Gamble — Director of Sales (Target, Sam\'s Club); Triple Crown Award',
+      'Commercial & brand leadership across PepsiCo, Colgate-Palmolive and SC Johnson',
+      'Founder & principal, Value Growth Partners',
+      'Speaker on commercial readiness and founder ecosystems (incl. Venture Café Cambridge)',
+    ],
     pepsico_claim_status: 'pending-proof',
   },
 };

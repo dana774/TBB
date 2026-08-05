@@ -23,6 +23,7 @@ const anyPending = partners.some((p) => p.review);
       <div class="vgp-grid vgp-grid--2 vgp-mt">
         {partners.map((p) => (
           <article class="vgp-card">
+            {p.logo && <img src={p.logo} alt={`${p.name} logo`} class="partner-logo" loading="lazy" />}
             <span class="vgp-eyebrow" style="margin-bottom:.5rem;">{p.type}</span>
             <h4 style="margin-bottom:.35rem;">{p.name}</h4>
             {p.focus && <p style="color:var(--vgp-navy);font-weight:600;margin-bottom:.5rem;">{p.focus}</p>}
@@ -33,6 +34,10 @@ const anyPending = partners.some((p) => p.review);
           </article>
         ))}
       </div>
+
+      <style>
+        .partner-logo { height: 40px; width: auto; margin-bottom: 1rem; object-fit: contain; }
+      </style>
 
       <div class="vgp-card vgp-bg-pale vgp-center vgp-mt" style="border:none;">
         <h3>Want to partner with VGP?</h3>

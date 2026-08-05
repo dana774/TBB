@@ -1,5 +1,5 @@
 import type { APIRoute } from 'astro';
-import { upsertLead, type LeadFields } from '../../lib/hubspot';
+import { upsertLead, createDeal, type LeadFields } from '../../lib/hubspot';
 
 // Lead capture endpoint for the institutional-inquiry and partner-contributor
 // forms. Upserts a HubSpot contact with the pathway/source segmentation.
@@ -35,6 +35,22 @@ export const POST: APIRoute = async ({ request }) => {
   };
 
   const result = await upsertLead(fields);
+
+  // A real inquiry is an opportunity → create a Deal, tagged with the workbook's
+  // opportunity type. Best-effort; never blocks the response.
+  if (result.contactId) {
+    try {
+      const label = fields.company || `${fields.firstname ?? ''} ${fields.lastname ?? ''}`.trim() || fields.email;
+      if (isInstitutional) {
+        await createDeal(result.contactId, `VGP Institutional — ${label}`, 'Institutional Program');
+      } else {
+        await createDeal(result.contactId, `VGP Partnership — ${label}`, 'Strategic Project');
+      }
+    } catch {
+      /* deal creation is best-effort */
+    }
+  }
+
   // Always return success to the visitor UX; capture status is logged server-side.
   return new Response(JSON.stringify({ received: true, captured: result.ok }), {
     status: 200,

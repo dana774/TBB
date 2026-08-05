@@ -88,29 +88,48 @@ export async function upsertLead(
   }
 }
 
-// Best-effort: create a Deal for a qualified advisory lead, associated to the
-// contact. Uses the default pipeline; fails soft (lead capture is unaffected).
-// Set HUBSPOT_PIPELINE / HUBSPOT_DEALSTAGE to target a custom advisory pipeline.
-export async function createAdvisoryDeal(
+// Best-effort: create a Deal associated to the contact. Uses the default
+// pipeline; fails soft (lead capture is unaffected). Set HUBSPOT_PIPELINE /
+// HUBSPOT_DEALSTAGE to target a custom pipeline. `opportunityType` sets the
+// workbook's `vgp_opportunity_type` property (dropped by HubSpot if that custom
+// property doesn't exist yet — the deal still creates).
+export async function createDeal(
   contactId: string,
-  dealname: string
+  dealname: string,
+  opportunityType?: string
 ): Promise<{ ok: boolean; skipped?: boolean }> {
   if (!TOKEN || !contactId) return { ok: false, skipped: true };
   const pipeline = (import.meta.env.HUBSPOT_PIPELINE as string) || 'default';
   const dealstage = (import.meta.env.HUBSPOT_DEALSTAGE as string) || 'appointmentscheduled';
+  const properties: Record<string, string> = { dealname, pipeline, dealstage };
+  if (opportunityType) properties.vgp_opportunity_type = opportunityType;
+  const body = (props: Record<string, string>) =>
+    JSON.stringify({
+      properties: props,
+      associations: [
+        { to: { id: contactId }, types: [{ associationCategory: 'HUBSPOT_DEFINED', associationTypeId: 3 }] },
+      ],
+    });
   try {
-    const res = await hsFetch('https://api.hubapi.com/crm/v3/objects/deals', {
+    let res = await hsFetch('https://api.hubapi.com/crm/v3/objects/deals', {
       method: 'POST',
       headers: { authorization: `Bearer ${TOKEN}`, 'content-type': 'application/json' },
-      body: JSON.stringify({
-        properties: { dealname, pipeline, dealstage },
-        associations: [
-          { to: { id: contactId }, types: [{ associationCategory: 'HUBSPOT_DEFINED', associationTypeId: 3 }] },
-        ],
-      }),
+      body: body(properties),
     });
+    // If the custom vgp_opportunity_type property doesn't exist yet, retry without it.
+    if (res.status === 400 && opportunityType) {
+      res = await hsFetch('https://api.hubapi.com/crm/v3/objects/deals', {
+        method: 'POST',
+        headers: { authorization: `Bearer ${TOKEN}`, 'content-type': 'application/json' },
+        body: body({ dealname, pipeline, dealstage }),
+      });
+    }
     return { ok: res.ok };
   } catch {
     return { ok: false };
   }
 }
+
+/** @deprecated use createDeal(contactId, dealname, 'VGP Advisory') */
+export const createAdvisoryDeal = (contactId: string, dealname: string) =>
+  createDeal(contactId, dealname, 'VGP Advisory');
