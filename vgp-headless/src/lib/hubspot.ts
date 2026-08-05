@@ -23,8 +23,22 @@ export type LeadFields = {
 const TOKEN = import.meta.env.HUBSPOT_TOKEN as string | undefined;
 const UPSERT = 'https://api.hubapi.com/crm/v3/objects/contacts/batch/upsert';
 
+// Every HubSpot call is bounded so a slow/stalled network can never hang the
+// request. If HubSpot doesn't answer in time we abort and fail soft — the
+// user-facing qualification result must never wait on CRM capture.
+const HS_TIMEOUT_MS = 4500;
+async function hsFetch(url: string, init: RequestInit) {
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), HS_TIMEOUT_MS);
+  try {
+    return await fetch(url, { ...init, signal: ctrl.signal });
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 async function post(properties: Record<string, string>) {
-  return fetch(UPSERT, {
+  return hsFetch(UPSERT, {
     method: 'POST',
     headers: { authorization: `Bearer ${TOKEN}`, 'content-type': 'application/json' },
     body: JSON.stringify({
@@ -75,7 +89,7 @@ export async function createAdvisoryDeal(
   const pipeline = (import.meta.env.HUBSPOT_PIPELINE as string) || 'default';
   const dealstage = (import.meta.env.HUBSPOT_DEALSTAGE as string) || 'appointmentscheduled';
   try {
-    const res = await fetch('https://api.hubapi.com/crm/v3/objects/deals', {
+    const res = await hsFetch('https://api.hubapi.com/crm/v3/objects/deals', {
       method: 'POST',
       headers: { authorization: `Bearer ${TOKEN}`, 'content-type': 'application/json' },
       body: JSON.stringify({

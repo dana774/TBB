@@ -30,18 +30,24 @@ export const POST: APIRoute = async ({ request }) => {
     FIT_CALL_URL
   );
 
-  // Capture the advisory lead into HubSpot with its pathway (no-ops without email/token).
+  // Capture the advisory lead into HubSpot with its pathway (no-ops without
+  // email/token). Fully isolated: any failure here must never affect the
+  // qualification result the visitor sees.
   if (body.email) {
-    const lead = await upsertLead({
-      email: String(body.email),
-      firstname: body.name?.split?.(' ')?.[0],
-      lastname: body.name?.split?.(' ')?.slice(1).join(' '),
-      vgp_pathway: result.route,
-      vgp_source: 'advisory-pathway',
-    });
-    // A qualified prospective client is a real opportunity → create a Deal.
-    if (result.route === 'qualified' && lead.contactId) {
-      await createAdvisoryDeal(lead.contactId, `VGP Advisory — ${body.name || body.email}`);
+    try {
+      const lead = await upsertLead({
+        email: String(body.email),
+        firstname: body.name?.split?.(' ')?.[0],
+        lastname: body.name?.split?.(' ')?.slice(1).join(' '),
+        vgp_pathway: result.route,
+        vgp_source: 'advisory-pathway',
+      });
+      // A qualified prospective client is a real opportunity → create a Deal.
+      if (result.route === 'qualified' && lead.contactId) {
+        await createAdvisoryDeal(lead.contactId, `VGP Advisory — ${body.name || body.email}`);
+      }
+    } catch {
+      /* capture is best-effort; never block the response */
     }
   }
 
