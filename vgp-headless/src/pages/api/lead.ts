@@ -16,6 +16,7 @@ export const POST: APIRoute = async ({ request }) => {
     body = {};
   }
 
+  const isInstitutional = body.pathway === 'institutional';
   const fields: LeadFields = {
     email: String(body.email || ''),
     firstname: body.firstname || body.name?.split?.(' ')?.[0],
@@ -24,6 +25,13 @@ export const POST: APIRoute = async ({ request }) => {
     vgp_pathway: body.pathway,
     vgp_source: body.source,
     vgp_message: body.message || body.detail || body.support || body.goals,
+    // CRM taxonomy (migration workbook)
+    vgp_primary_relationship_type: isInstitutional ? 'Institutional Partner' : 'Referral Partner',
+    vgp_business_unit: 'Value Growth Partners',
+    vgp_primary_interest: isInstitutional ? 'Partnership' : 'Partnership',
+    vgp_original_relationship_source: 'Website',
+    vgp_scheduling_eligibility: isInstitutional ? 'Institutional' : 'Public intake only',
+    vgp_data_review_status: 'Unreviewed',
   };
 
   const result = await upsertLead(fields);
