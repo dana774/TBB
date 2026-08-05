@@ -1,0 +1,25 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCaseStudies } from '../../lib/content';
+export async function getStaticPaths() {
+  const items = await getCaseStudies();
+  return items.map((c) => ({ params: { slug: c.slug }, props: { item: c } }));
+}
+const { item } = Astro.props;
+---
+<Base title={item.title} description={item.outcome}>
+  <article class="vgp-section">
+    <div class="vgp-container" style="max-width:760px;">
+      <nav aria-label="Breadcrumb"><a href="/case-studies">Case Studies</a> / {item.title}</nav>
+      <p class="vgp-review-flag">[EDITORIAL REVIEW] Approved case-study content pending — no invented metrics.</p>
+      <h1>{item.title}</h1>
+      <h4 class="vgp-mt">Context</h4>
+      <p>[EDITORIAL REVIEW] The situation.</p>
+      <h4>Approach</h4>
+      <p>[EDITORIAL REVIEW] What VGP did.</p>
+      <h4>Measured outcome</h4>
+      <p>{item.outcome}</p>
+      <p class="vgp-mt"><a class="vgp-btn vgp-btn--primary" href="/advisory-pathway">Start the Advisory Pathway</a></p>
+    </div>
+  </article>
+</Base>

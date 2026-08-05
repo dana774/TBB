@@ -1,0 +1,34 @@
+---
+import Base from '../layouts/Base.astro';
+import { getSpeaking } from '../lib/content';
+const engagements = await getSpeaking(); // empty until verified (doc 07 §6) => list hidden
+---
+<Base title="Speaking" description="Book Dana Ammons to speak.">
+  <section class="vgp-section">
+    <div class="vgp-container" style="max-width:760px;">
+      <span class="vgp-eyebrow">Speaking</span>
+      <h1>Bring Dana to your team or event</h1>
+      <p>[EDITORIAL REVIEW] Dana Ammons speaks on commercial readiness, founder ecosystems, and building brands that earn their place on the shelf.</p>
+
+      <h4 class="vgp-mt">Topics</h4>
+      <ul>
+        <li>[EDITORIAL REVIEW] From access to commercial readiness</li>
+        <li>[EDITORIAL REVIEW] Operating systems for founder growth</li>
+        <li>[EDITORIAL REVIEW] Building brands that earn shelf space</li>
+      </ul>
+
+      {engagements.length > 0 && (
+        <>
+          <h4>Recent engagements</h4>
+          <ul>{engagements.map((e) => <li>{e.title}</li>)}</ul>
+        </>
+      )}
+
+      <div class="vgp-card vgp-bg-pale vgp-center vgp-mt" style="border:none;">
+        <h3>Invite Dana to speak</h3>
+        <p>Tell us about your event — every inquiry is reviewed personally. No public booking link.</p>
+        <p class="vgp-mt"><a class="vgp-btn vgp-btn--primary" href="/institutional-inquiry">Send a speaking inquiry</a></p>
+      </div>
+    </div>
+  </section>
+</Base>

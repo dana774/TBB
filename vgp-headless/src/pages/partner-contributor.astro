@@ -1,0 +1,39 @@
+---
+import Base from '../layouts/Base.astro';
+// Live submission wires to the existing Wix "Partner & Contributor Inquiry" form
+// (id f37ecc59-…, doc 18 Part H) + CRM label custom.partner-contributor-lead.
+---
+<Base title="Partner & Contributor" description="Build alongside the advisory practice.">
+  <section class="vgp-section">
+    <div class="vgp-container" style="max-width:720px;">
+      <span class="vgp-eyebrow">Partners & Contributors</span>
+      <h1>Introduce yourself</h1>
+      <p>Investors, partners and contributors — tell us who you are and how you'd like to build with the practice.</p>
+
+      <form id="pc-form" class="vgp-mt vgp-form">
+        <label>Full name<input type="text" name="name" autocomplete="name" required /></label>
+        <label>Work email<input type="email" name="email" autocomplete="email" required /></label>
+        <label>Organization<input type="text" name="org" /></label>
+        <label>How would you like to contribute?<input type="text" name="type" required /></label>
+        <label>Tell us about the collaboration you have in mind<textarea name="detail" rows="4"></textarea></label>
+        <button type="submit" class="vgp-btn vgp-btn--primary">Send introduction</button>
+      </form>
+      <div id="pc-done" hidden class="vgp-card vgp-bg-pale vgp-mt" style="border:none;" aria-live="polite">
+        <h3>Introduction received.</h3>
+        <p>We respond to every serious introduction within two business days.</p>
+      </div>
+    </div>
+  </section>
+  <style>
+    .vgp-form label { display:block; margin-bottom:1rem; font-weight:600; color:var(--vgp-navy); }
+    .vgp-form input, .vgp-form textarea { display:block; width:100%; margin-top:.35rem; padding:.8rem; border:1px solid var(--vgp-card-border); border-radius:var(--vgp-radius); font:inherit; font-weight:400; }
+  </style>
+  <script>
+    const f = document.getElementById('pc-form');
+    f?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      f.setAttribute('hidden', '');
+      document.getElementById('pc-done')?.removeAttribute('hidden');
+    });
+  </script>
+</Base>

@@ -1,0 +1,23 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getInsights } from '../../lib/content';
+export async function getStaticPaths() {
+  const items = await getInsights();
+  return items.map((i) => ({ params: { slug: i.slug }, props: { item: i } }));
+}
+const { item } = Astro.props;
+---
+<Base title={item.title} description={item.summary}>
+  <article class="vgp-section">
+    <div class="vgp-container" style="max-width:720px;">
+      <nav aria-label="Breadcrumb"><a href="/insights">Insights</a> / {item.title}</nav>
+      <h1>{item.title}</h1>
+      <p style="font-size:1.25rem;">{item.summary}</p>
+      <p>[EDITORIAL REVIEW] Article body — authored by Dana Ammons.</p>
+      <div class="vgp-card vgp-bg-pale vgp-mt" style="border:none;">
+        <h4>Work with VGP</h4>
+        <p><a href="/advisory-pathway">Start the Advisory Pathway →</a></p>
+      </div>
+    </div>
+  </article>
+</Base>

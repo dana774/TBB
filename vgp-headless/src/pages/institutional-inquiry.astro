@@ -1,0 +1,42 @@
+---
+import Base from '../layouts/Base.astro';
+// Live submission wires to the existing Wix "Institutional Inquiry" form
+// (id bfeb795f-…, doc 18 Part H) + CRM label custom.institutional-lead via the
+// Wix client. In staging (no client) the form acknowledges inline.
+---
+<Base title="Institutional Inquiry" description="For ESOs, accelerators and institutions.">
+  <section class="vgp-section">
+    <div class="vgp-container" style="max-width:720px;">
+      <span class="vgp-eyebrow">Institutions & ESOs</span>
+      <h1>Institutional Inquiry</h1>
+      <p>Tell us about your cohort and the commercial outcomes you want to create. Every inquiry is reviewed personally — we respond within two business days.</p>
+
+      <form id="inq-form" class="vgp-mt vgp-form">
+        <label>Full name<input type="text" name="name" autocomplete="name" required /></label>
+        <label>Work email<input type="email" name="email" autocomplete="email" required /></label>
+        <label>Organization<input type="text" name="org" required /></label>
+        <label>Organization type<input type="text" name="orgType" placeholder="Accelerator, ESO, university, …" required /></label>
+        <label>What support are you exploring?<textarea name="support" rows="3" required></textarea></label>
+        <label>Tell us about your founders and the commercial outcomes you want<textarea name="goals" rows="4"></textarea></label>
+        <button type="submit" class="vgp-btn vgp-btn--primary">Submit inquiry</button>
+      </form>
+      <div id="inq-done" hidden class="vgp-card vgp-bg-pale vgp-mt" style="border:none;" aria-live="polite">
+        <h3>Thank you — your inquiry is in.</h3>
+        <p>We review every institutional inquiry personally and respond within two business days.</p>
+      </div>
+    </div>
+  </section>
+  <style>
+    .vgp-form label { display:block; margin-bottom:1rem; font-weight:600; color:var(--vgp-navy); }
+    .vgp-form input, .vgp-form textarea { display:block; width:100%; margin-top:.35rem; padding:.8rem; border:1px solid var(--vgp-card-border); border-radius:var(--vgp-radius); font:inherit; font-weight:400; }
+  </style>
+  <script>
+    const f = document.getElementById('inq-form');
+    f?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      // TODO(live): POST to Wix Forms submission API for form bfeb795f-… when PUBLIC_WIX_CLIENT_ID is set.
+      f.setAttribute('hidden', '');
+      document.getElementById('inq-done')?.removeAttribute('hidden');
+    });
+  </script>
+</Base>

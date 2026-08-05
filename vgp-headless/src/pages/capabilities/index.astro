@@ -1,0 +1,24 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCapabilities } from '../../lib/content';
+const capabilities = await getCapabilities();
+---
+<Base title="Capabilities" description="How Value Growth Partners builds commercial readiness.">
+  <section class="vgp-section">
+    <div class="vgp-container">
+      <span class="vgp-eyebrow">Capabilities</span>
+      <h1>How we build commercial readiness</h1>
+      <p style="max-width:60ch;">Each engagement draws on the capabilities below, matched to where the business actually is.</p>
+      <div class="vgp-grid vgp-grid--2 vgp-mt">
+        {capabilities.map((c) => (
+          <article class="vgp-card">
+            <h4>{c.title}</h4>
+            <p>{c.outcome}</p>
+            <a href={`/capabilities/${c.slug}`}>Explore this capability →</a>
+          </article>
+        ))}
+      </div>
+      <p class="vgp-mt"><a class="vgp-btn vgp-btn--primary" href="/advisory-pathway">Start the Advisory Pathway</a></p>
+    </div>
+  </section>
+</Base>

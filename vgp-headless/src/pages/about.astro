@@ -1,0 +1,28 @@
+---
+import Base from '../layouts/Base.astro';
+import { getDanaProfile } from '../lib/content';
+const dana = await getDanaProfile();
+// The $115M PepsiCo figure renders ONLY when pepsico_claim_status === 'approved' (doc 07 §2).
+const showPepsico = dana.pepsico_claim_status === 'approved' && dana.pepsico_claim;
+---
+<Base title="About Dana Ammons" description="Founder & principal, Value Growth Partners.">
+  <section class="vgp-section">
+    <div class="vgp-container" style="max-width:820px;">
+      <span class="vgp-eyebrow">About</span>
+      <h1>Dana Ammons</h1>
+      <p style="font-size:1.25rem;">{dana.positioning}</p>
+      {showPepsico && <p>{dana.pepsico_claim}</p>}
+
+      <h4 class="vgp-mt">Operating philosophy</h4>
+      <p>{dana.philosophy || '[EDITORIAL REVIEW] Operating philosophy.'}</p>
+
+      <h4>Experience</h4>
+      <p>{dana.experience_timeline || '[EDITORIAL REVIEW] Verified experience across P&G, PepsiCo and Colgate-Palmolive.'}</p>
+
+      <div class="vgp-grid vgp-grid--2 vgp-mt">
+        <a class="vgp-card" href="/advisory-pathway"><h4>Work with VGP</h4><p>Start the Advisory Pathway.</p></a>
+        <a class="vgp-card" href={import.meta.env.BB_URL || 'https://the-brand-blueprint.myshopify.com'} data-evt="cross_domain_route"><h4>The Brand Blueprint</h4><p>The founder ecosystem side.</p></a>
+      </div>
+    </div>
+  </section>
+</Base>

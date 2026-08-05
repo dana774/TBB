@@ -1,0 +1,26 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCapabilities } from '../../lib/content';
+export async function getStaticPaths() {
+  const items = await getCapabilities();
+  return items.map((c) => ({ params: { slug: c.slug }, props: { item: c } }));
+}
+const { item } = Astro.props;
+---
+<Base title={item.title} description={item.outcome}>
+  <article class="vgp-section">
+    <div class="vgp-container" style="max-width:760px;">
+      <nav aria-label="Breadcrumb"><a href="/capabilities">Capabilities</a> / {item.title}</nav>
+      <h1>{item.title}</h1>
+      <p style="font-size:1.25rem;">{item.outcome}</p>
+      <h4 class="vgp-mt">Who it's for</h4>
+      <p>[EDITORIAL REVIEW] The founders and organizations this capability serves.</p>
+      <h4>Outcomes</h4>
+      <p>[EDITORIAL REVIEW] The measurable results this capability helps create (no invented numbers).</p>
+      <div class="vgp-card vgp-bg-pale vgp-center vgp-mt" style="border:none;">
+        <h3>Map this into your growth path</h3>
+        <p class="vgp-mt"><a class="vgp-btn vgp-btn--primary" href="/advisory-pathway">Start the Advisory Pathway</a></p>
+      </div>
+    </div>
+  </article>
+</Base>
