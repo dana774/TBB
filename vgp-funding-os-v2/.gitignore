@@ -1,0 +1,23 @@
+# Never commit clasp / OAuth credentials or secrets
+.clasp.json
+.clasprc.json
+*.clasprc.json
+client_secret*.json
+credentials.json
+service-account*.json
+token.json
+*.pem
+.env
+.env.*
+!.env.example
+
+# Node
+node_modules/
+npm-debug.log*
+package-lock.json
+
+# OS / editor
+.DS_Store
+*.swp
+.idea/
+.vscode/
