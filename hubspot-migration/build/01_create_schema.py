@@ -26,7 +26,7 @@ CONTACT_PROPS = [
  ("vgp_primary_relationship_type","Primary Relationship Type","enumeration","select",REL_TYPES),
  ("vgp_additional_relationship_types","Additional Relationship Types","enumeration","checkbox",REL_TYPES),
  ("vgp_business_unit","Business Unit","enumeration","checkbox",BUSINESS_UNITS),
- ("vgp_relationship_status","Relationship Status","enumeration","select",["New","Warm","Active","Strategic","Dormant","Closed"]),
+ ("vgp_relationship_status","VGP Relationship Status","enumeration","select",["New","Warm","Active","Strategic","Dormant","Closed"]),
  ("vgp_primary_interest","Primary Interest","enumeration","select",["Consulting","Retail","Capital","Founder Resources","Speaking","Partnership","Podcast","Sponsorship"]),
  ("vgp_program_affiliation","Program or Ecosystem Affiliation","enumeration","checkbox",PROGRAMS),
  ("vgp_original_relationship_source","Original Relationship Source","enumeration","select",SOURCES),
