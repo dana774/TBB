@@ -11,7 +11,9 @@ const links = [
 ---
 <header class="vgp-nav">
   <div class="vgp-container vgp-nav__inner">
-    <a href="/" class="vgp-nav__logo">Value Growth Partners</a>
+    <a href="/" class="vgp-nav__logo" aria-label="Value Growth Partners — home">
+      <img src="/assets/brand/vgp-logo-primary-horizontal.png" alt="Value Growth Partners" width="2013" height="540" />
+    </a>
     <button class="vgp-nav__toggle" aria-expanded="false" aria-controls="vgp-menu" aria-label="Menu">Menu</button>
     <nav id="vgp-menu" class="vgp-nav__menu" aria-label="Primary">
       {links.map((l) => <a href={l.href}>{l.label}</a>)}
@@ -22,7 +24,8 @@ const links = [
 <style>
   .vgp-nav { position: sticky; top: 0; z-index: 50; background: #fff; border-bottom: 1px solid var(--vgp-card-border); }
   .vgp-nav__inner { display: flex; align-items: center; justify-content: space-between; min-height: 72px; }
-  .vgp-nav__logo { font-family: var(--font-serif); font-weight: 700; color: var(--vgp-navy); text-decoration: none; font-size: 1.15rem; }
+  .vgp-nav__logo { display: inline-flex; align-items: center; text-decoration: none; }
+  .vgp-nav__logo img { height: 34px; width: auto; display: block; }
   .vgp-nav__menu { display: flex; align-items: center; gap: 1.5rem; }
   .vgp-nav__menu a { color: var(--vgp-navy); text-decoration: none; font-size: .95rem; }
   .vgp-nav__menu a:hover { color: var(--vgp-blueprint-blue); }
