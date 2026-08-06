@@ -1,0 +1,22 @@
+Brand Blueprint + VGP Website Image Batch
+
+bb-funding.jpg
+Dimensions: 1600 x 1067 px
+Alt text: Hands review a funding application checklist beside a laptop, calculator, and financial documents.
+
+bb-ecosystem.jpg
+Dimensions: 1600 x 1067 px
+Alt text: A Black woman founder and a business investor shake hands across a conference table.
+
+bb-members.jpg
+Dimensions: 1600 x 1067 px
+Alt text: Dana Ammons participates in a virtual meeting with four professionals displayed on a laptop.
+
+dana-bb-portrait.jpg
+Dimensions: 1200 x 1500 px
+Alt text: Dana Ammons in a light blue suit against a deep blue studio background.
+
+vgp-home-hero.jpg
+Dimensions: 2400 x 1350 px
+Alt text: Dana Ammons presents operating performance data to two business leaders in a boardroom.
+

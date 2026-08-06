@@ -43,7 +43,16 @@ verify it without the underlying annual figures and the years for each seat.
 2. **Keep ">$1B" but substantiate it** — Dana provides the cumulative methodology: annual
    managed value + years for each seat (incl. the P&G accounts), and I'll total and document it.
 
-## Status
-`dana_profile` on Shopify keeps this **gated as pending-proof** — the ">$1B" figure is **not**
-published as verified anywhere, per the no-misrepresentation rule. It stays gated until Dana
-chooses option 1 or supplies the numbers for option 2.
+## Status — RESOLVED (2026-08-06)
+Dana chose the **cumulative-career** basis and approved compelling, non-specific wording (option 2,
+framed so it is **not** attributed to any single role). Approved line now live on the VGP
+`DanaProfile` (`pepsicoClaimStatus = approved`):
+
+> *"Across a 25+ year career leading national retail accounts for Fortune 100 consumer brands —
+> including P&G, PepsiCo, Colgate-Palmolive, and S.C. Johnson — Dana has managed more than $1 billion
+> in cumulative account value."*
+
+This is a **Dana-attested cumulative career figure**, not a single-line-item claim — consistent with
+the no-misrepresentation rule (his own attested career total, non-specific, not tied to one employer).
+**To do:** mirror the same approved line onto the BB Shopify `dana_profile` (currently still carries
+the pending gate) so both brands' About sections match.

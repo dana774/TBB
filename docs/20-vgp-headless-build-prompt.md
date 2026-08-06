@@ -57,6 +57,12 @@ Motion: fade/rise ≤200ms; honor `prefers-reduced-motion`.
 - **Nav** (white, sticky): VGP wordmark left; links — Capabilities, Programs, Case Studies, Insights,
   Speaking, About; persistent primary button **"Start the Advisory Pathway"** → `/advisory-pathway`.
 - **Footer** (Navy): sitemap, contact, Privacy / Terms / Accessibility, one-line positioning, ©.
+  **Public contact (v3.0 master spec):** business name **Value Growth Partners**;
+  **phone +1 229-663-1684** (NEVER publish the 480 personal number); email dana@valugrowthpartners.com;
+  LinkedIn linkedin.com/in/dana-ammons-51184b3. Endorsement line where appropriate:
+  *"The Brand Blueprint Ecosystem | Powered by Value Growth Partners | Strategic Advisory & Operating Firm."*
+- **Imagery:** hero + contextual images per **doc 22** (`assets/vgp/`): Home hero `vgp-home-hero.jpg`,
+  About portrait `dana-bb-portrait.jpg`, plus `bb-funding` / `bb-ecosystem` / `bb-members` for section context.
 - **SEO defaults** (per page, §8 gate): one H1, unique title + meta description, canonical, OG,
   JSON-LD `Organization` + `Person` (Dana) sitewide.
 - **Analytics** (GTM/custom events, no analytics on private scheduling): `route_select`,
@@ -107,6 +113,10 @@ $2,499 (monthly). For each tier render `title`, `format` (price · hours/month),
 **creative-partner rates (Heloise Lanoix) are gated** — list those *services* only, never the hourly
 rates, consistent with the partner-page privacy rule. Positioning: a bridge from accelerator programs
 (WE Build, CIC, SeedSpot) into sustained strategic + creative consulting.
+**v3.0 single-ladder rule (doc: master prompt):** publish **one** consolidated public engagement
+ladder with one naming family — do **NOT** surface Founder Accelerator, LaunchPad, Elevate, Pinnacle,
+Apex, legacy tiers, and Growth OS packages all at once. The 6 tier records exist as backstage/reference
+(editorial-review); Dana selects the single public ladder shown here.
 
 ### `/resources` — Founder Resource Directory (dynamic on `FounderResourceDirectory`)
 A curated, browsable directory of **startup-friendly vendors** for founders, grouped by `category`
@@ -140,11 +150,12 @@ Speak** → speaking inquiry (human review). **No public Calendly.**
 
 ### `/about` (on `DanaProfile`)
 `profileName`, `role`, `portrait`, `executiveBio`, `operatingPhilosophy`, `ecosystemRoles`,
-`experienceTimeline`, `speakingCredibility`. **Account-figure gate:** render `pepsicoClaim` **only if
-`pepsicoClaimStatus` == `approved`**. It is currently NOT approved (documents substantiate ≈$265M, not
-">$1B" — see doc 18), so display the defensible line instead: *"Led national retail accounts for P&G,
-PepsiCo, Colgate-Palmolive and S.C. Johnson — including Walmart and Sam's Club."* Pathway links to BB
-(§7) and VGP advisory.
+`experienceTimeline`, `speakingCredibility`. **Portrait:** `assets/vgp/dana-bb-portrait.jpg` (doc 22).
+**Account figure — APPROVED (doc 18):** `pepsicoClaimStatus` is now `approved`; render `pepsicoClaim`
+as-is: *"Across a 25+ year career leading national retail accounts for Fortune 100 consumer brands —
+including P&G, PepsiCo, Colgate-Palmolive, and S.C. Johnson — Dana has managed more than $1 billion in
+cumulative account value."* (Dana-attested cumulative career figure — do not attach it to a single
+role.) Pathway links to BB (§7) and VGP advisory.
 
 ### `/advisory-pathway` (qualification → scheduling gate)
 Short qualification (server-evaluated, mirror BB pattern): collect audience/role/goal, evaluate in a
