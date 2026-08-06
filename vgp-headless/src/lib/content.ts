@@ -119,9 +119,9 @@ const SEED = {
   // Real, in-preparation engagements. No fabricated metrics: case studies stay
   // in preparation until Dana supplies (and each client approves) the specifics.
   caseStudies: [
-    { slug: 'case-one', title: 'Commercial-readiness engagement', outcome: 'In preparation — full details published once the client approves specifics. No numbers are shown until they can be verified.', review: true },
-    { slug: 'case-two', title: 'Go-to-market & retail readiness', outcome: 'In preparation — full details published once the client approves specifics. No numbers are shown until they can be verified.', review: true },
-    { slug: 'case-three', title: 'ESO cohort program', outcome: 'In preparation — full details published once the institution approves specifics. No numbers are shown until they can be verified.', review: true },
+    { slug: 'case-one', title: 'Commercial-readiness engagement', outcome: 'In preparation — full details published once the client approves specifics. No numbers are shown until they can be verified.', image: '/assets/img/vgp-capabilities-advisory.jpg', review: true },
+    { slug: 'case-two', title: 'Go-to-market & retail readiness', outcome: 'In preparation — full details published once the client approves specifics. No numbers are shown until they can be verified.', image: '/assets/img/vgp-operations.jpg', review: true },
+    { slug: 'case-three', title: 'ESO cohort program', outcome: 'In preparation — full details published once the institution approves specifics. No numbers are shown until they can be verified.', image: '/assets/img/vgp-programs-cohort.jpg', review: true },
   ],
   insights: [
     {
@@ -263,3 +263,31 @@ export async function getDanaProfile(): Promise<Item> {
 
 export const POSITIONING_LINE =
   'VGP helps entrepreneurship support organizations move founders from access to commercial readiness.';
+
+// The three-layer ecosystem architecture (Brand Architecture Bible v5.2).
+// Voice: VGP = "strategic advisory and operating firm"; Brand Blueprint =
+// "founder-facing ecosystem"; Growth OS = "implementation layer". No guarantees.
+export const ECOSYSTEM_LAYERS = [
+  {
+    name: 'The Brand Blueprint',
+    role: 'The founder-facing ecosystem',
+    tagline: 'The front door.',
+    body: 'The Brand Blueprint is where founders find community, content, and momentum — a content platform, newsletter, podcast, Founder Network, and opportunity engine that builds visibility and signal.',
+    gets: ['Community & Founder Network', 'Content, newsletter & podcast', 'Visibility & investor signal', 'Partner access & opportunity flow'],
+  },
+  {
+    name: 'Value Growth Partners',
+    role: 'The strategic advisory & operating firm',
+    tagline: 'The advisory and execution engine.',
+    body: 'Value Growth Partners is the senior expertise and execution discipline behind the ecosystem. Where a founder needs real strategy and hands-on implementation, VGP carries the advisory, the build, and the accountability.',
+    gets: ['Strategic advisory & diagnostics', 'Strategy sprints & implementation scopes', 'Managed systems & fractional support', 'Retail, funding & partner orchestration'],
+    anchor: true,
+  },
+  {
+    name: 'Growth OS',
+    role: 'The implementation layer',
+    tagline: 'Where guidance becomes infrastructure.',
+    body: 'Growth OS turns strategy into operating infrastructure — the dashboards, workflows, forecasts, routines, and accountability that make growth repeatable instead of heroic.',
+    gets: ['Dashboards & forecast workbooks', 'Workflows & automation', 'Operating routines & cadence', 'Action trackers & accountability'],
+  },
+];

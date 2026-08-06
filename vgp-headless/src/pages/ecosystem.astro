@@ -1,0 +1,95 @@
+---
+import Base from '../layouts/Base.astro';
+import { ECOSYSTEM_LAYERS } from '../lib/content';
+const BB_URL = import.meta.env.BB_URL || 'https://the-brand-blueprint.myshopify.com';
+---
+<Base
+  title="The Ecosystem"
+  description="How The Brand Blueprint, Value Growth Partners and Growth OS work together — one ecosystem, three layers."
+>
+  <!-- Hero -->
+  <section class="vgp-section">
+    <div class="vgp-container" style="max-width:820px;">
+      <span class="vgp-eyebrow">The Ecosystem</span>
+      <h1>One ecosystem, three layers.</h1>
+      <p style="font-size:1.3rem; max-width:64ch;">The market should never have to guess whether this is a podcast, a newsletter, an accelerator, or a consulting firm. It's an operating ecosystem — and each layer has a clear job. Together they take a founder from first signal to fully built.</p>
+    </div>
+  </section>
+
+  <!-- Three layers -->
+  <section class="vgp-section vgp-bg-soft" style="padding-top:2rem;">
+    <div class="vgp-container">
+      <div class="eco-stack">
+        {ECOSYSTEM_LAYERS.map((l, i) => (
+          <article class={`eco-layer${l.anchor ? ' eco-layer--anchor' : ''}`}>
+            <div class="eco-layer__head">
+              <span class="eco-num">{String(i + 1).padStart(2, '0')}</span>
+              <div>
+                <span class="vgp-eyebrow" style="margin-bottom:.35rem;">{l.role}</span>
+                <h3 style="margin-bottom:.25rem;">{l.name}</h3>
+                <p class="eco-tag">{l.tagline}</p>
+              </div>
+            </div>
+            <p>{l.body}</p>
+            <ul class="eco-gets">
+              {l.gets.map((g) => <li>{g}</li>)}
+            </ul>
+            {l.anchor && <span class="eco-badge">You are here</span>}
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- How they work together -->
+  <section class="vgp-section">
+    <div class="vgp-container" style="max-width:900px;">
+      <span class="vgp-eyebrow">How it works together</span>
+      <h2>One relationship, tuned to who you are.</h2>
+      <div class="vgp-grid vgp-grid--2 vgp-mt">
+        <article class="vgp-card">
+          <h4>For founders</h4>
+          <p>You enter through The Brand Blueprint — the community, the content, and the tools that build visibility and momentum. When you're ready for deeper strategy or hands-on execution, Value Growth Partners steps in with advisory and Growth OS builds. Access on one side, real implementation on the other.</p>
+        </article>
+        <article class="vgp-card">
+          <h4>For investors &amp; referral partners</h4>
+          <p>The ecosystem creates visibility and curated deal flow — founders you'd actually want to meet. Value Growth Partners provides the strategic and operational diligence behind the scenes, so the founders you engage are readiness-checked, not just introduced.</p>
+        </article>
+      </div>
+      <p class="vgp-mt" style="max-width:60ch;">The through-line across all three layers: <strong>founder operating infrastructure, not just consulting.</strong> Clarity, readiness, visibility, pipeline, execution, accountability — built to last, not just advised on.</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="vgp-section vgp-bg-navy vgp-center">
+    <div class="vgp-container" style="max-width:640px;">
+      <h2 style="font-size:var(--vgp-h3);">Find your starting point.</h2>
+      <p style="max-width:52ch; margin:0 auto 1.75rem;">Not sure which layer you need? Start the Advisory Pathway and we'll point you to the right one — or explore the founder ecosystem directly.</p>
+      <p>
+        <a class="vgp-btn vgp-btn--primary" href="/advisory-pathway" style="margin-right:.5rem;">Start the Advisory Pathway</a>
+        <a class="vgp-btn vgp-btn--secondary" href={BB_URL}>Explore The Brand Blueprint</a>
+      </p>
+    </div>
+  </section>
+
+  <style>
+    .eco-stack { display: grid; gap: 1.25rem; }
+    .eco-layer {
+      background: #fff; border: 1px solid var(--vgp-card-border); border-radius: var(--vgp-radius);
+      padding: 2rem; position: relative;
+      box-shadow: 0 1px 2px rgba(7,30,65,.05), 0 10px 30px rgba(7,30,65,.06);
+    }
+    .eco-layer--anchor { border-color: var(--vgp-blueprint-blue); border-width: 2px; box-shadow: 0 8px 30px rgba(57,120,215,.14); }
+    .eco-layer__head { display: flex; gap: 1.25rem; align-items: flex-start; margin-bottom: 1rem; }
+    .eco-num { font-family: var(--font-serif); font-size: 2.5rem; line-height: 1; color: var(--vgp-warm-gold); flex: 0 0 auto; }
+    .eco-tag { color: var(--vgp-blueprint-blue); font-weight: 600; margin: 0; }
+    .eco-gets { columns: 2; gap: 1.5rem; margin: 1rem 0 0; padding-left: 1.1rem; }
+    .eco-gets li { margin-bottom: .4rem; break-inside: avoid; }
+    .eco-badge {
+      position: absolute; top: 1.25rem; right: 1.25rem; background: var(--vgp-blueprint-blue); color: #fff;
+      font-size: .75rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+      padding: .3rem .7rem; border-radius: 999px;
+    }
+    @media (max-width: 620px) { .eco-gets { columns: 1; } .eco-layer__head { flex-direction: column; gap: .5rem; } }
+  </style>
+</Base>

@@ -12,6 +12,7 @@ const caseStudies = await getCaseStudies();
       <div class="vgp-grid vgp-grid--2 vgp-mt">
         {caseStudies.map((c) => (
           <article class="vgp-card">
+            {c.image && <img class="vgp-card-thumb" src={c.image} alt="" width="1536" height="1024" loading="lazy" />}
             <h4>{c.title}</h4>
             <p>{c.outcome}</p>
             <a href={`/case-studies/${c.slug}`}>Read the case →</a>
