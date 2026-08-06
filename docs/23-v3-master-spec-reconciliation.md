@@ -70,7 +70,9 @@ Only ONE public event; everything else is gated. Never the general `calendly.com
   nothing deleted/redirected before staging acceptance. Dana is sole publisher / rollback owner.
 
 ## E. Gaps still open (tracked)
-- Program sub-area records (4) not yet seeded as discrete Programs; institutional 3 + accelerator 6 exist.
+- ✅ **Program sub-areas seeded** (2026-08-06): Commercialization Programs · Curriculum + Cohort Support ·
+  Mentorship + Office Hours · Workshops + Seminars (`programType = Institutional Program`,
+  editorial-review). Programs collection now = 3 institutional + 6 accelerator tiers + these 4 sub-areas.
 - BB-side v3.0 pages (/start, Investor Pipeline, Sponsor, Signals Hub, etc.) live in the **Shopify** BB
   build, not this VGP repo scope — route/CTA/governance rules from §B–D apply there too.
 - Legal/privacy review, W.E. Build final dates, and the public naming family remain Dana approval gates.
