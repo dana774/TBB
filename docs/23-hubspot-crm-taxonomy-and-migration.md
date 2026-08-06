@@ -1,21 +1,21 @@
 # 23 — HubSpot CRM Taxonomy & Contact Migration
 
-Source of truth: **VGP + Brand Blueprint HubSpot Migration Control Workbook v1.2** (Dana's upload, 2026-08-05). Built from four legacy Google Contacts exports. 137 source rows → **102 unique email-based contacts**. No HubSpot records were modified in producing this.
+Source of truth: **VGP HubSpot Migration — Rebuilt Master v2** (Dana's upload, 2026-08-06). Consolidated from 6 sources (4 curated Google lists + Founders xlsx + Gmail backfill + prior workbook), deduped by email, taxonomy applied. **206 contacts** total. No HubSpot records were modified in producing this. (Supersedes v1.2's 102-record master.)
 
-This doc is the no-PII control record. The two import files that contain personal data were delivered to Dana directly and are **deliberately not committed to Git**:
-- `vgp-hubspot-pilot-10.csv` — the 10 pilot records
-- `vgp-hubspot-contacts-full-102.csv` — the full set
+This doc is the no-PII control record. The import files contain personal data and are **deliberately not committed to Git** — delivered to Dana directly:
+- `vgp-hubspot-pilot-10.csv` — 10 Approved pilot records
+- `vgp-hubspot-contacts-approved-94.csv` — the 94 Approved (import-ready) records
+- `vgp-hubspot-manual-review-112.csv` — 112 rows that need Dana's vetting **before** import (do not import as-is)
 
-## What's in the 102
-| Primary Relationship Type | Count |
+## What's in the 206 (v2)
+| Metric | Count |
 |---|---|
-| Founder | 49 |
-| Consulting Prospect | 23 |
-| Active Client | 16 |
-| Investor or Capital Provider | 11 |
-| Partner | 3 |
+| Total | 206 (105 Vetted + 101 High-Value Backfill) |
+| **Approved (import-ready)** | **94** |
+| Manual review (needs vetting) | 112 |
+| Org inferred from email domain | 160 (verify) · 16 still missing |
 
-Business Unit: all 102 = **Value Growth Partners**. Data review status: **91 ready for pilot, 11 manual review**. Lifecycle recommendation: 63 Lead · 23 Sales Qualified Lead · 16 Customer.
+Primary Relationship Type (all 206): 79 Referral Partner · 58 Founder · 27 Investor or Capital Provider · 23 Consulting Prospect · 16 Active Client · 3 Partner. **Excluded / held in source (not imported): 1,256 Gmail "Unknown" + 484 "Friends & Family".** Rule: **only `Data Review Status = Approved` rows get imported.**
 
 ## Custom properties to create (HubSpot → Settings → Properties)
 Create these before importing so the columns map cleanly. Contact object unless noted.
@@ -57,8 +57,8 @@ Create these before importing so the columns map cleanly. Contact object unless 
 1. **Create the properties above** (Settings → Properties). Match internal names exactly.
 2. **Import the pilot first:** HubSpot → Contacts → Import → File → `vgp-hubspot-pilot-10.csv`. Map columns (standard headers auto-map; the `vgp_*` headers map to the properties from step 1). Import; do **not** create duplicate/list-based automations yet.
 3. **Verify the pilot 10** — spot-check relationship type, business unit, lifecycle, review status. Confirm no unwanted workflow fired.
-4. **Full import:** repeat with `vgp-hubspot-contacts-full-102.csv`. HubSpot dedupes by email, so re-importing the 10 pilot rows updates rather than duplicates.
-5. **Work the 11 "Manual review" rows** (flagged in `vgp_data_review_status`) before treating them as clean.
+4. **Full import:** repeat with `vgp-hubspot-contacts-approved-94.csv` (the 94 Approved rows). HubSpot dedupes by email, so re-importing the 10 pilot rows updates rather than duplicates.
+5. **Vet the 112 "Manual review" rows** (`vgp-hubspot-manual-review-112.csv`): fix any `Org Inferred = Yes` names, then set Data Review Status = Approved and import that batch. Do not import them as-is.
 6. **Reconcile** against any contacts already in HubSpot by email (the workbook's phase 4).
 
 ## How the website now writes into this taxonomy

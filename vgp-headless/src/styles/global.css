@@ -78,6 +78,15 @@ p { margin: 0 0 1rem; }
 .vgp-card > a:last-child,
 .vgp-card > .vgp-btn:last-child { margin-top: auto; padding-top: .75rem; }
 
+/* Full-bleed thumbnail at the top of a .vgp-card (padding is 1.75rem) */
+.vgp-card-thumb {
+  width: calc(100% + 3.5rem);
+  margin: -1.75rem -1.75rem 1.25rem;
+  height: 180px;
+  object-fit: cover;
+  border-radius: var(--vgp-radius) var(--vgp-radius) 0 0;
+}
+
 /* Full-width hero/section photography */
 .vgp-hero-img {
   width: 100%;

@@ -11,6 +11,7 @@ const insights = await getInsights();
       <div class="vgp-grid vgp-grid--3 vgp-mt">
         {insights.map((i) => (
           <article class="vgp-card">
+            {i.image && <img class="vgp-card-thumb" src={i.image} alt="" width="1536" height="1024" loading="lazy" />}
             <h4>{i.title}</h4>
             <p>{i.summary}</p>
             <a href={`/insights/${i.slug}`}>Read →</a>

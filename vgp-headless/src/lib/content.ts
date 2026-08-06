@@ -117,6 +117,7 @@ const SEED = {
     {
       slug: 'access-is-not-readiness',
       title: 'Access is not commercial readiness',
+      image: '/assets/img/vgp-home-advisory.jpg',
       summary: 'The programs, capital and introductions are more available than ever — and most founders still are not ready to sell. The gap is commercial, not access.',
       body: [
         'The ecosystem has gotten very good at access. There are more accelerators, more grants, more pitch nights and more warm introductions than at any point in the last decade. And yet the failure rate at the shelf has barely moved. That is the tell: access was never the binding constraint.',
@@ -127,6 +128,7 @@ const SEED = {
     {
       slug: 'what-esos-miss',
       title: 'What ESOs miss about growth',
+      image: '/assets/img/vgp-programs-cohort.jpg',
       summary: 'Support organizations optimize for what is easy to measure — sessions delivered, founders served. The commercial outcomes that matter show up later, and elsewhere.',
       body: [
         'Most entrepreneurship support is measured by activity: workshops run, founders enrolled, demo days held. Those numbers are real, but they are inputs. The outcome that actually justifies the work — a business that can sell and scale — often shows up months later, in a distribution win or a second purchase order, where the program never sees it.',
@@ -137,6 +139,7 @@ const SEED = {
     {
       slug: 'operating-systems-for-founders',
       title: 'Operating systems for founders',
+      image: '/assets/img/vgp-operations.jpg',
       summary: 'Early growth runs on heroics. The businesses that last replace the scramble with a few boring systems — before they have to.',
       body: [
         'In the early days, everything works because a few people will it to work. That is a feature, not a bug — until it becomes the ceiling. The scramble that got a brand its first thousand customers is exactly what breaks at its first real retail order.',
