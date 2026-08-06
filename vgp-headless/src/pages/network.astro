@@ -24,6 +24,7 @@ const anyPending = partners.some((p) => p.review);
         {partners.map((p) => (
           <article class="vgp-card">
             {p.logo && <img src={p.logo} alt={`${p.name} logo`} class="partner-logo" loading="lazy" />}
+            {!p.logo && p.headshot && <img src={p.headshot} alt={p.name} class="partner-headshot" loading="lazy" />}
             <span class="vgp-eyebrow" style="margin-bottom:.5rem;">{p.type}</span>
             <h4 style="margin-bottom:.35rem;">{p.name}</h4>
             {p.focus && <p style="color:var(--vgp-navy);font-weight:600;margin-bottom:.5rem;">{p.focus}</p>}
@@ -37,6 +38,7 @@ const anyPending = partners.some((p) => p.review);
 
       <style>
         .partner-logo { height: 40px; width: auto; margin-bottom: 1rem; object-fit: contain; }
+        .partner-headshot { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; margin-bottom: .85rem; }
       </style>
 
       <div class="vgp-card vgp-bg-pale vgp-center vgp-mt" style="border:none;">
