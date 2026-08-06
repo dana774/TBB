@@ -54,8 +54,9 @@ Cards: white, 1px `#E5EAF2` border, hover-only subtle shadow, no gradients, no o
 Motion: fade/rise ≤200ms; honor `prefers-reduced-motion`.
 
 ## 3. Global chrome
-- **Nav** (white, sticky): VGP wordmark left; links — Capabilities, Programs, Case Studies, Insights,
-  Speaking, About; persistent primary button **"Start the Advisory Pathway"** → `/advisory-pathway`.
+- **Nav** (white, sticky, per v3.0): VGP wordmark left; links — **Capabilities · Growth OS · Programs ·
+  Speaking · Insights · About**; persistent primary button **"Explore a VGP Advisory Engagement"** →
+  `/advisory-pathway`. (CTA language — prefer/avoid lists and the full Calendly exposure registry: doc 23.)
 - **Footer** (Navy): sitemap, contact, Privacy / Terms / Accessibility, one-line positioning, ©.
   **Public contact (v3.0 master spec):** business name **Value Growth Partners**;
   **phone +1 229-663-1684** (NEVER publish the 480 personal number); email dana@valugrowthpartners.com;
@@ -92,12 +93,14 @@ Homepage spine: **Intake → Diagnose → Map the Growth Path → Select the Eng
 9. **Final CTA** — Start the Advisory Pathway.
 **Never link Calendly from the homepage.**
 
-### `/capabilities` (index) + `/capabilities/{slug}` (dynamic on `Capabilities`, 6 records)
-Index: editorial list of 6 (`title`, `summary`, `whoItsFor`). Detail: H1 `title`; `promise`; `whoItsFor`;
+### `/capabilities` (index) + `/capabilities/{slug}` (dynamic on `Capabilities`, 7 records)
+Index: editorial list of 7 (`title`, `summary`, `whoItsFor`). Detail: H1 `title`; `promise`; `whoItsFor`;
 `approach` (rich text); `outcomes` (rich text); related program (`relatedProgramSlug`→`Programs`),
-related insight (`relatedInsightSlug`→`Insights`); CTA **Start the Advisory Pathway** → `/advisory-pathway`.
+related insight (`relatedInsightSlug`→`Insights`); CTA **Explore a VGP Advisory Engagement** → `/advisory-pathway`.
 Slugs: `strategic-growth-architecture`, `growth-os`, `funding-and-forecast-readiness`,
-`retail-and-distribution`, `digital-growth-and-ai`, `operations-and-sourcing`.
+`retail-and-distribution`, `digital-growth-and-ai`, `operations-and-sourcing`,
+`partner-investor-orchestration`. **Growth OS** is also a top-nav item / dedicated page — the only public
+implementation architecture (internal agents/prompts/Google systems stay internal).
 
 ### `/programs` (dynamic on `Programs`)
 `title`, `programType`, `audience`, `modules`, `outcomes`, `format`, `duration`, `institution`,
@@ -187,8 +190,10 @@ only post-qualification)**; other results → routes / human review.
 
 ## 6. Governance — HARD RULES (do not violate)
 1. **Only** public Calendly = `https://calendly.com/valugrowthpartners/vgp-insight-session`, and **only**
-   on a qualified Advisory-Pathway result. No general Calendly landing page anywhere. No other
-   scheduling/program/private links rendered anywhere.
+   on a qualified Advisory-Pathway / founder-intake result. No general Calendly landing page anywhere. All
+   other events (active-client, Build in Tulsa, W.E. Build, JumpStart[inactive], Partner/Contributor intro,
+   Podcast Interview Invite) are **private/gated or conditional** — never in public nav/footer/CMS/source/
+   sitemap/analytics. **Full exposure registry: doc 23 §B.**
 2. **Cross-brand BB route:** the Shopify Brand Blueprint store is currently password-protected / no
    approved public URL. Render the BB founder route as **descriptive copy with no live link** until an
    approved URL exists. Never output a dead or placeholder link. Once approved, link with

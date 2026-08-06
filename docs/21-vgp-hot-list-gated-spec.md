@@ -6,6 +6,13 @@ secured, use of funds, data-room links. This document specifies how to build it 
 access, founder consent, and zero public exposure. It complements the public build in doc 20 (the
 Hot List is explicitly NOT a public page there).
 
+## 0. Relationship to the BB Investor Pipeline (v3.0)
+Per the v3.0 master spec, **public investor lead-capture belongs to the Brand Blueprint _Investor
+Pipeline_ form** (BB owns the investor front door). This gated Hot List is the **downstream product**:
+the weekly digest served **only to vetted, approved investors** (many sourced via that BB form). They
+are complementary — the BB form captures interest; the Hot List (below) serves confidential deal flow to
+approved investors. Nothing here changes the "never public" rules.
+
 ## 1. Non-negotiable governance
 - **Never public.** No public route, no sitemap/index entry, `noindex`, no public API read. Founder
   raise/round/capital/data-room fields must never render outside an authenticated investor session.
