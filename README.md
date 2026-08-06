@@ -29,7 +29,7 @@ Live domains (`thebrandblueprint.biz`, `valugrowthpartners.com`) were **not modi
 | [shopify-migration/](shopify-migration/README.md) | Migration package: episodes + founders + signals/resources/events/funding + Dana profile payloads |
 | [docs/14-round1-decisions-log.md](docs/14-round1-decisions-log.md) | Round 1 editorial decisions (withheld episodes, claim reframe, lineup swap, consent) |
 | [docs/15-migration-execution-log.md](docs/15-migration-execution-log.md) | **Shopify migration EXECUTED** — 41 episodes + rest created; skeletons updated in place |
-| [docs/16-hubspot-marketing-stack-and-tracking.md](docs/16-hubspot-marketing-stack-and-tracking.md) | HubSpot role & boundary, email ownership (Klaviyo=BB / HubSpot=VGP), tracking-code install + headless (Vercel/Next.js) pageview spec |
+| [docs/16-hubspot-marketing-stack-and-tracking.md](docs/16-hubspot-marketing-stack-and-tracking.md) | Marketing/ops stack: HubSpot/Klaviyo/Airtable/Asana roles & boundaries, stage-based email split, tracking-code install + headless (Vercel/Next.js) pageview spec, **BB consolidated-billing amendment** |
 
 ## Platform decision (2026-07-20 handoff)
 
