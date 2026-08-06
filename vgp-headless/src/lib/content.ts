@@ -89,18 +89,21 @@ const SEED = {
       title: 'ESO Cohort Program',
       summary: 'Move a whole cohort of founders from access to commercial readiness — together, on a shared timeline.',
       detail: 'A structured program for entrepreneurship support organizations that run cohorts. VGP works alongside your founders across the cohort arc — diagnosing where each business really is, teaching the commercial fundamentals most programs skip, and leaving founders with a concrete readiness plan rather than another certificate. Format and depth are scoped to your cohort size, stage and goals.',
+      image: '/assets/img/vgp-home-advisory.jpg',
     },
     {
       slug: 'accelerator-track',
       title: 'Accelerator Advisory Track',
       summary: 'Embedded commercial advisory for an accelerator portfolio, matched to each company\'s stage.',
       detail: 'For accelerators that want more than a guest lecture. VGP embeds as a commercial advisor across the portfolio — office hours, readiness reviews, and buyer- and investor-facing preparation — so promising companies convert access into distribution and revenue. Engagement can run per-cohort or as an ongoing track.',
+      image: '/assets/img/vgp-capabilities-advisory.jpg',
     },
     {
       slug: 'institution-partnership',
       title: 'Institutional Partnership',
       summary: 'A long-term partnership that builds durable commercial capability inside your institution.',
       detail: 'For universities, economic-development bodies and investor networks investing in founder outcomes over years, not weeks. VGP partners to build repeatable commercial-readiness capability into how your institution supports founders — curriculum, advisory model, and measurement — so the impact compounds after any single engagement ends.',
+      image: '/assets/img/vgp-operations.jpg',
     },
   ],
   // Real, in-preparation engagements. No fabricated metrics: case studies stay

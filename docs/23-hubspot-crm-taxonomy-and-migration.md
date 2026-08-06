@@ -68,8 +68,11 @@ New inbound leads from the site are tagged consistently with the migrated record
 - **Partner/contributor** (`/api/lead`): Primary = Referral Partner; Interest = Partnership.
 - Values match the dropdown option labels above. Until the properties are created, the capture code's standard-property fallback still lands the contact (email/name/company/lifecycle) and simply omits the `vgp_*` fields.
 
+## Property status — VERIFIED LIVE (2026-08-06)
+Checked against the live HubSpot connector: **all 14 properties already exist** (Contact, Company, and Deal), and their dropdown option values **exactly match** what the website writes. Confirmed present: `vgp_primary_relationship_type`, `vgp_additional_relationship_types`, `vgp_business_unit`, `vgp_relationship_status`, `vgp_primary_interest`, `vgp_original_relationship_source`, `vgp_scheduling_eligibility`, `vgp_follow_up_priority`, `vgp_next_follow_up_date`, `vgp_data_review_status` (Contact); `vgp_organization_type`, `vgp_strategic_priority` (Company); `vgp_opportunity_type` (Deal) — plus extras (consent status, attribution, program affiliation). No creation needed; import CSVs map cleanly and live capture populates correctly.
+
 ## Open items for Dana
-- Create the 14 properties (or hand me a live HubSpot connector session and I'll create them via API).
+- ~~Create the 14 properties~~ — done (verified live above).
 - Approve the pilot 10, then run the full import.
 - Resolve the 11 manual-review records and the 1 missing-email source row.
 - Company/Deal properties (`vgp_organization_type`, `vgp_strategic_priority`, `vgp_opportunity_type`) apply when you start populating Companies and Deals.

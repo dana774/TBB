@@ -13,12 +13,22 @@ const programs = await getPrograms();
       <div class="vgp-grid vgp-grid--2 vgp-mt">
         {programs.map((p) => (
           <article class="vgp-card">
+            {p.image && <img class="vgp-card-thumb" src={p.image} alt="" width="1536" height="1024" loading="lazy" />}
             <h4>{p.title}</h4>
             <p>{p.summary}</p>
             <a href={`/programs/${p.slug}`}>Learn more →</a>
           </article>
         ))}
       </div>
+      <style>
+        .vgp-card-thumb {
+          width: calc(100% + 3.5rem);
+          margin: -1.75rem -1.75rem 1.25rem;
+          height: 180px;
+          object-fit: cover;
+          border-radius: var(--vgp-radius) var(--vgp-radius) 0 0;
+        }
+      </style>
       <p class="vgp-mt"><a class="vgp-btn vgp-btn--primary" href="/institutional-inquiry">Submit an Institutional Inquiry</a></p>
     </div>
   </section>
