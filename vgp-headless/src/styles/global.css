@@ -78,6 +78,15 @@ p { margin: 0 0 1rem; }
 .vgp-card > a:last-child,
 .vgp-card > .vgp-btn:last-child { margin-top: auto; padding-top: .75rem; }
 
+/* Full-width hero/section photography */
+.vgp-hero-img {
+  width: 100%;
+  height: clamp(240px, 34vw, 420px);
+  object-fit: cover;
+  border-radius: var(--vgp-radius);
+  display: block;
+}
+
 .vgp-review-flag {
   border: 1px dashed var(--vgp-warm-gold);
   background: #fffbef; color: #7a5b0e;

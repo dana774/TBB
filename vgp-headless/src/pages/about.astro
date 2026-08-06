@@ -12,14 +12,9 @@ const BB_URL = import.meta.env.BB_URL || 'https://the-brand-blueprint.myshopify.
   <section class="vgp-section">
     <div class="vgp-container" style="max-width:900px;">
       <span class="vgp-eyebrow">About</span>
-
-      <div class="about-hero">
-        <div class="about-photo" aria-hidden="true">DA</div>
-        <div>
-          <h1 style="margin-bottom:.5rem;">Dana Ammons</h1>
-          <p style="font-size:1.25rem;margin-bottom:0;">{dana.positioning}</p>
-        </div>
-      </div>
+      <img class="vgp-hero-img" src="/assets/img/vgp-about-strategy.jpg" alt="Dana Ammons at work — Value Growth Partners" width="1672" height="941" style="margin-bottom:1.75rem;" />
+      <h1 style="margin-bottom:.5rem;">Dana Ammons</h1>
+      <p style="font-size:1.25rem;">{dana.positioning}</p>
 
       {dana.sourced && (
         <p class="vgp-review-flag" style="max-width:70ch;">Biography drafted from public sources — pending Dana's confirmation before launch.</p>
@@ -49,14 +44,7 @@ const BB_URL = import.meta.env.BB_URL || 'https://the-brand-blueprint.myshopify.
   </section>
 
   <style>
-    .about-hero { display: flex; gap: 1.75rem; align-items: center; margin-bottom: 1.5rem; }
-    .about-photo {
-      flex: 0 0 auto; width: 120px; height: 120px; border-radius: 50%;
-      background: var(--vgp-navy); color: #fff; display: grid; place-items: center;
-      font-family: var(--font-serif); font-size: 2.5rem; letter-spacing: .05em;
-    }
     .about-creds { max-width: 68ch; padding-left: 1.1rem; }
     .about-creds li { margin-bottom: .5rem; }
-    @media (max-width: 620px) { .about-hero { flex-direction: column; align-items: flex-start; } }
   </style>
 </Base>
