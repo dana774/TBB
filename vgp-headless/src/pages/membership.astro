@@ -1,0 +1,67 @@
+---
+import Base from '../layouts/Base.astro';
+// The $99 Founder Network membership is sold through The Brand Blueprint (Shopify).
+// Set MEMBERSHIP_CHECKOUT_URL to the Shopify checkout/product link once it exists;
+// until then the CTA routes to the advisory pathway and shows a "opening soon" note.
+const CHECKOUT_URL = import.meta.env.MEMBERSHIP_CHECKOUT_URL;
+const benefits = [
+  { h: 'The Founder Signal', p: 'A members’ newsletter with market moves, funding calls, and operator insight you can act on.' },
+  { h: 'Funding access', p: 'The ecosystem’s funding opportunities — Funding Friday and Hot List eligibility — surfaced as they open.' },
+  { h: 'Referral partner network', p: 'Access to VGP’s vetted specialist network for financing, tax, creative and paid media — with member-only discounts on select partners.' },
+  { h: 'Accelerator toolkit', p: 'Curriculum, tools, templates and playbooks drawn from the Brand Blueprint accelerator.' },
+  { h: 'Member discounts', p: 'Reduced pricing on Brand Blueprint accelerator content and programs.' },
+  { h: 'Visibility pathways', p: 'Partner and investor visibility as you build momentum and readiness.' },
+];
+---
+<Base title="Founder Network Membership" description="Join the Founder Network for $99/month — the low-friction front door to the Brand Blueprint ecosystem.">
+  <section class="vgp-section">
+    <div class="vgp-container" style="max-width:1040px;">
+      <span class="vgp-eyebrow">Founder Network Membership</span>
+      <h1>Your front door to the ecosystem — $99/month.</h1>
+      <p style="font-size:1.25rem; max-width:64ch;">The Founder Network is low-friction access to everything the Brand Blueprint ecosystem creates: signal, funding, tools, and the people who can help you build. It’s the first rung of the ladder — and the fastest way to start.</p>
+
+      <div class="mbr-grid vgp-mt">
+        <div class="mbr-benefits">
+          <div class="vgp-grid vgp-grid--2">
+            {benefits.map((b) => (
+              <article class="vgp-card">
+                <h4>{b.h}</h4>
+                <p style="margin-bottom:0;">{b.p}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        <aside class="mbr-card">
+          <div class="mbr-price">$99<span>/month</span></div>
+          <p class="mbr-sub">Founder Network membership. Cancel anytime.</p>
+          {CHECKOUT_URL ? (
+            <a class="vgp-btn vgp-btn--primary mbr-cta" href={CHECKOUT_URL}>Join the Founder Network</a>
+          ) : (
+            <>
+              <a class="vgp-btn vgp-btn--primary mbr-cta" href="/advisory-pathway">Get on the list</a>
+              <p class="vgp-review-flag" style="margin-top:1rem;">Checkout opens soon — membership billing is being finalized. Set <code>MEMBERSHIP_CHECKOUT_URL</code> to the Shopify link to go live.</p>
+            </>
+          )}
+          <p class="mbr-fine">Ready for hands-on strategy and execution? The Founder Network is the entry point to VGP’s full advisory ladder. <a href="/how-we-work">See how we work →</a></p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .mbr-grid { display: grid; grid-template-columns: 1fr 340px; gap: 2rem; align-items: start; }
+    .mbr-card {
+      position: sticky; top: 116px; background: var(--vgp-navy); color: #fff;
+      border-radius: var(--vgp-radius); padding: 2rem; text-align: center;
+      box-shadow: 0 10px 30px rgba(7,30,65,.18);
+    }
+    .mbr-price { font-family: var(--font-serif); font-size: 3.25rem; line-height: 1; color: #fff; }
+    .mbr-price span { font-family: var(--font-sans); font-size: 1rem; color: rgba(255,255,255,.7); font-weight: 400; }
+    .mbr-sub { color: rgba(255,255,255,.8); margin: .5rem 0 1.5rem; }
+    .mbr-cta { width: 100%; }
+    .mbr-fine { font-size: .85rem; color: rgba(255,255,255,.75); margin: 1.5rem 0 0; }
+    .mbr-fine a { color: #fff; }
+    @media (max-width: 860px) { .mbr-grid { grid-template-columns: 1fr; } .mbr-card { position: static; } }
+  </style>
+</Base>

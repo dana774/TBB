@@ -1,0 +1,75 @@
+---
+import Base from '../layouts/Base.astro';
+const process = [
+  { n: '01', h: 'Diagnose', p: 'We start with an honest read on where the business actually is — model, market, operations, readiness — and name the few things that matter most right now.' },
+  { n: '02', h: 'Build', p: 'We install the strategy, systems and Growth OS the business needs: roadmap, dashboards, workflows, forecasts, and the operating cadence that makes progress repeatable.' },
+  { n: '03', h: 'Orchestrate', p: 'We bring the right partners, capital, and introductions at the right time — and stay accountable for the outcome, not just the advice.' },
+];
+const ways = [
+  { h: 'Founder Network — $99/mo', p: 'Low-friction membership: signal, funding access, tools, and the referral network. The front door to the ecosystem.', cta: 'Join the Founder Network', href: '/membership' },
+  { h: 'Advisory retainer', p: 'Monthly strategy, prioritization, accountability, and decision support — scaling from a light advisory bridge up to fractional strategic operating support.', cta: 'Start the Advisory Pathway', href: '/advisory-pathway' },
+  { h: 'Growth OS build', p: 'A scoped implementation: tool audit, dashboards, workflows, forecast workbook, and automation — installed and, where you want it, managed.', cta: 'Talk through a build', href: '/advisory-pathway' },
+  { h: 'Project sprints', p: 'Focused, time-boxed work when you need a specific deliverable — buyer materials, a forecast model, a go-to-market plan — without an open-ended retainer.', cta: 'Scope a sprint', href: '/advisory-pathway' },
+];
+---
+<Base title="How We Work" description="How Value Growth Partners works — diagnose, build, orchestrate — and the ways to engage, from a $99 membership to fractional operating support.">
+  <!-- Hero -->
+  <section class="vgp-section">
+    <div class="vgp-container" style="max-width:820px;">
+      <span class="vgp-eyebrow">How We Work</span>
+      <h1>Advisory that becomes infrastructure.</h1>
+      <p style="font-size:1.25rem; max-width:64ch;">We don’t hand over a deck and walk away. We diagnose what’s real, build the systems that make growth repeatable, and orchestrate the partners and capital around it. Systems over services. From traction to structure.</p>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="vgp-section vgp-bg-soft">
+    <div class="vgp-container">
+      <span class="vgp-eyebrow">The engagement</span>
+      <h2>Three moves, every time.</h2>
+      <div class="vgp-grid vgp-grid--3 vgp-mt">
+        {process.map((s) => (
+          <article class="vgp-card">
+            <span class="hw-num">{s.n}</span>
+            <h4>{s.h}</h4>
+            <p style="margin-bottom:0;">{s.p}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Ways to engage -->
+  <section class="vgp-section">
+    <div class="vgp-container">
+      <span class="vgp-eyebrow">Ways to engage</span>
+      <h2>Start where you are. Ascend as you’re ready.</h2>
+      <p style="max-width:64ch;">Founders graduate through value — from membership, to advisory, to executive-level operating support. Each level has a clear job; you only move up when the next level is genuinely the right support.</p>
+      <div class="vgp-grid vgp-grid--2 vgp-mt">
+        {ways.map((w) => (
+          <article class="vgp-card">
+            <h4>{w.h}</h4>
+            <p>{w.p}</p>
+            <a href={w.href}>{w.cta} →</a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="vgp-section vgp-bg-navy vgp-center">
+    <div class="vgp-container" style="max-width:640px;">
+      <h2 style="font-size:var(--vgp-h3);">Not sure which level fits?</h2>
+      <p style="max-width:52ch; margin:0 auto 1.75rem;">Start the Advisory Pathway and we’ll point you to the right starting point — membership, advisory, or a scoped build.</p>
+      <p>
+        <a class="vgp-btn vgp-btn--primary" href="/advisory-pathway" style="margin-right:.5rem;">Start the Advisory Pathway</a>
+        <a class="vgp-btn vgp-btn--secondary" href="/membership">Join for $99/month</a>
+      </p>
+    </div>
+  </section>
+
+  <style>
+    .hw-num { font-family: var(--font-serif); font-size: 2rem; color: var(--vgp-warm-gold); display: block; margin-bottom: .25rem; }
+  </style>
+</Base>
