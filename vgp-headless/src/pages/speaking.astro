@@ -20,10 +20,19 @@ const engagements = await getSpeaking(); // empty until verified (doc 07 §6) =>
 
       {engagements.length > 0 && (
         <>
-          <h4>Recent engagements</h4>
-          <ul>{engagements.map((e) => <li>{e.title}</li>)}</ul>
+          <h4 class="vgp-mt">Recent engagements</h4>
+          <ul class="spk-list">
+            {engagements.map((e) => (
+              <li><strong>{e.title}</strong>{e.detail && <span> — {e.detail}</span>}</li>
+            ))}
+          </ul>
         </>
       )}
+      <style>
+        .spk-list { max-width: 64ch; padding-left: 1.1rem; }
+        .spk-list li { margin-bottom: .6rem; }
+        .spk-list strong { color: var(--vgp-navy); }
+      </style>
 
       <div class="vgp-card vgp-bg-pale vgp-center vgp-mt" style="border:none;">
         <h3>Invite Dana to speak</h3>

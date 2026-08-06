@@ -214,9 +214,12 @@ const SEED = {
       review: true,
     },
   ],
-  // Sourced from public info (Venture Café Cambridge speaker listing) — confirm with Dana.
+  // Real engagements from Dana. Carrington years pending her confirmation
+  // (~2017–2018). Venture Café entry sourced from public info — confirm.
   speaking: [
-    { title: 'Venture Café Cambridge — speaker', detail: '[SOURCED — confirm] Founder-readiness and go-to-market for emerging CPG brands.' },
+    { title: 'CIC Demo Day — Host & Moderator', detail: 'Hosted and moderated the retail cohort Demo Day, May 2025.' },
+    { title: 'Carrington College — Commencement Speaker', detail: 'Delivered the graduation keynote two consecutive years. [Years pending confirmation]' },
+    { title: 'Venture Café Cambridge — Speaker', detail: 'Founder-readiness and go-to-market for emerging CPG brands. [Sourced — confirm]' },
   ] as Item[],
   // Bio drafted from public sources (LinkedIn, VGP site, podcast listings, Venture Café)
   // 2026-08-04 — PENDING Dana's confirmation. Sole-host rule applied (no co-host language).
