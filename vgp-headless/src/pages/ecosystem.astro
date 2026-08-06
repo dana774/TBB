@@ -41,8 +41,20 @@ const BB_URL = import.meta.env.BB_URL || 'https://the-brand-blueprint.myshopify.
     </div>
   </section>
 
-  <!-- How they work together -->
+  <!-- Intro video -->
   <section class="vgp-section">
+    <div class="vgp-container" style="max-width:860px;">
+      <span class="vgp-eyebrow vgp-center" style="display:block; text-align:center;">Watch</span>
+      <h2 class="vgp-center">See the ecosystem in action.</h2>
+      <video class="eco-video vgp-mt" controls preload="metadata" playsinline>
+        <source src="/assets/media/bb-intro.mp4" type="video/mp4" />
+        Your browser doesn’t support embedded video.
+      </video>
+    </div>
+  </section>
+
+  <!-- How they work together -->
+  <section class="vgp-section vgp-bg-soft">
     <div class="vgp-container" style="max-width:900px;">
       <span class="vgp-eyebrow">How it works together</span>
       <h2>One relationship, tuned to who you are.</h2>
@@ -73,6 +85,7 @@ const BB_URL = import.meta.env.BB_URL || 'https://the-brand-blueprint.myshopify.
   </section>
 
   <style>
+    .eco-video { width: 100%; border-radius: var(--vgp-radius); display: block; box-shadow: 0 10px 30px rgba(7,30,65,.14); background: #000; }
     .eco-stack { display: grid; gap: 1.25rem; }
     .eco-layer {
       background: #fff; border: 1px solid var(--vgp-card-border); border-radius: var(--vgp-radius);
