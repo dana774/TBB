@@ -55,7 +55,7 @@ import Base from '../layouts/Base.astro';
       const data = new FormData(form);
       const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
       if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'One moment…'; }
-      let message = '', destination = null;
+      let message = '', destination = null, ctaLabel = 'Schedule Your VGP Insight Session';
       try {
         const res = await fetch('/api/qualify', {
           method: 'POST',
@@ -68,7 +68,9 @@ import Base from '../layouts/Base.astro';
           }),
         });
         if (!res.ok) throw new Error('HTTP ' + res.status);
-        ({ message, destination } = await res.json());
+        const json = await res.json();
+        message = json.message; destination = json.destination;
+        if (json.ctaLabel) ctaLabel = json.ctaLabel;
       } catch (err) {
         message = "Sorry — something went wrong submitting the form. Please email dana@valugrowthpartners.com and we'll follow up right away.";
         destination = null;
@@ -87,7 +89,7 @@ import Base from '../layouts/Base.astro';
         a.href = destination;           // approved fit-call URL — qualified branch ONLY
         a.target = '_blank';
         a.rel = 'noopener';
-        a.textContent = 'Schedule Your VGP Insight Session';
+        a.textContent = ctaLabel;
         a.style.marginTop = '1rem';
         card.appendChild(a);
       }

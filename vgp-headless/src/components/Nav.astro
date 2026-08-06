@@ -23,9 +23,9 @@ const links = [
 </header>
 <style>
   .vgp-nav { position: sticky; top: 0; z-index: 50; background: #fff; border-bottom: 1px solid var(--vgp-card-border); }
-  .vgp-nav__inner { display: flex; align-items: center; justify-content: space-between; min-height: 72px; }
+  .vgp-nav__inner { display: flex; align-items: center; justify-content: space-between; min-height: 96px; gap: 1.5rem; }
   .vgp-nav__logo { display: inline-flex; align-items: center; text-decoration: none; }
-  .vgp-nav__logo img { height: 34px; width: auto; display: block; }
+  .vgp-nav__logo img { height: 56px; width: auto; display: block; }
   .vgp-nav__menu { display: flex; align-items: center; gap: 1.5rem; }
   .vgp-nav__menu a { color: var(--vgp-navy); text-decoration: none; font-size: .95rem; }
   .vgp-nav__menu a:hover { color: var(--vgp-blueprint-blue); }
@@ -33,7 +33,7 @@ const links = [
   .vgp-nav__toggle { display: none; background: none; border: 1px solid var(--vgp-card-border); border-radius: var(--vgp-radius); padding: .5rem .9rem; font: inherit; cursor: pointer; }
   @media (max-width: 900px) {
     .vgp-nav__toggle { display: block; }
-    .vgp-nav__menu { position: absolute; left: 0; right: 0; top: 72px; background: #fff; flex-direction: column; align-items: stretch; gap: 0; padding: .5rem 0; border-bottom: 1px solid var(--vgp-card-border); display: none; }
+    .vgp-nav__menu { position: absolute; left: 0; right: 0; top: 96px; background: #fff; flex-direction: column; align-items: stretch; gap: 0; padding: .5rem 0; border-bottom: 1px solid var(--vgp-card-border); display: none; }
     .vgp-nav__menu[data-open] { display: flex; }
     .vgp-nav__menu a { padding: .8rem var(--vgp-gutter); }
     .vgp-nav__cta { margin: .5rem var(--vgp-gutter); text-align: center; }

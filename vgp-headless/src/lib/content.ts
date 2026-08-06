@@ -39,48 +39,58 @@ const R = '[EDITORIAL REVIEW]';
  *  `review` flag so their pages show a "pending confirmation" banner while the
  *  site is in staging. */
 const SEED = {
+  // VGP capability areas — sourced from the VGP Client-Facing Messaging &
+  // Capability Content Pack. `includes` = what the engagement covers; `bestFor`
+  // = the client it fits. `outcome` is the one-line promise.
   capabilities: [
     {
-      slug: 'commercial-readiness',
-      title: 'Commercial Readiness',
-      outcome: 'Get a business genuinely ready to sell, scale and hold its place on the shelf.',
-      whoFor: 'Founders and the organizations that back them — where the idea, the funding or the access is already there, but the business is not yet built to win at retail.',
-      outcomes: 'A clear, honest read on what "ready" means for this business, the specific gaps between here and there, and a prioritized plan to close them before capital, headcount or retail commitments are on the line.',
+      slug: 'strategic-growth-architecture',
+      title: 'Strategic Growth Architecture',
+      outcome: 'Turn a promising business into a clear model, market path and roadmap you can actually run.',
+      includes: ['Business model clarity', 'Market path', 'Pricing logic', 'Operating priorities', 'Growth roadmap', 'Founder decision cadence'],
+      bestFor: 'Founders needing structure and strategic focus.',
     },
     {
-      slug: 'operating-systems',
-      title: 'Operating Systems',
-      outcome: 'Install the systems that make growth repeatable instead of heroic.',
-      whoFor: 'Teams whose results still depend on a few people improvising — where every win takes a scramble and nothing is yet written down or repeatable.',
-      outcomes: 'The operating rhythm, decision rights and core processes a business needs to grow without breaking: planning cadences, account and channel management, and the metrics that tell you the truth early.',
+      slug: 'growth-os-diagnostic-build',
+      title: 'Growth OS Diagnostic & Build',
+      outcome: 'Install the operating system — dashboards, workflows and automation — that makes growth repeatable.',
+      includes: ['Tool audit', 'Workflow map', 'Dashboards', 'Forecast workbook', 'Meeting intelligence', 'Action trackers', 'Automation roadmap'],
+      bestFor: 'Founders or programs ready to systematize operations.',
     },
     {
-      slug: 'growth-strategy',
-      title: 'Growth Strategy',
-      outcome: 'Map the path from where the business actually is to where it is going.',
-      whoFor: 'Founders and institutions choosing among too many directions at once, and needing a defensible sequence rather than a wish list.',
-      outcomes: 'A focused growth thesis — which customers, channels and categories to win first, in what order, and the few moves that matter most this year — grounded in how CPG, beauty and beverage buyers actually make decisions.',
+      slug: 'funding-forecast-readiness',
+      title: 'Funding & Forecast Readiness',
+      outcome: 'Walk into funding conversations with a forecast, a gap analysis and the assets to back them.',
+      includes: ['Forecast model', 'Funding gap analysis', 'Grant and investor readiness', 'Opportunity matching', 'Pitch assets', 'Funder preparation'],
+      bestFor: 'Capital-seeking founders and nonprofit / program partners.',
     },
     {
-      slug: 'go-to-market',
-      title: 'Go-to-Market',
-      outcome: 'Reach the right buyers with the right offer, in the channels that will actually pay back.',
-      whoFor: 'Brands preparing to launch or expand distribution — DTC, retail, or both — who cannot afford to learn distribution economics the expensive way.',
-      outcomes: 'A go-to-market plan that fits the brand and the shelf: channel strategy, retail and buyer readiness, pricing and trade architecture, and the proof points a buyer needs to say yes.',
+      slug: 'retail-distribution-strategy',
+      title: 'Retail & Distribution Strategy',
+      outcome: 'Get shelf-ready — buyer materials, channel strategy and the trade math to win at retail.',
+      includes: ['Retail readiness', 'Buyer materials', 'Distributor / broker strategy', 'Wholesale approach', 'Retail trial activation', 'Channel planning'],
+      bestFor: 'Consumer products — CPG, beauty, wellness, food & beverage, and retail-enabled brands.',
     },
     {
-      slug: 'brand-positioning',
-      title: 'Brand & Positioning',
-      outcome: 'Sharpen what the brand stands for so it earns its place in a crowded category.',
-      whoFor: 'Founders whose product is strong but whose story does not yet cut through — or whose positioning has drifted as the business grew.',
-      outcomes: 'A positioning that is true, differentiated and commercially useful — the reason a buyer stocks it and a shopper reaches for it — carried consistently from pitch deck to packaging to shelf.',
+      slug: 'digital-growth-ai',
+      title: 'Digital Growth & AI Optimization',
+      outcome: 'Build scalable demand — email, paid media, marketplace and AI-search visibility that compounds.',
+      includes: ['Klaviyo / email', 'Paid media strategy', 'Amazon / marketplace readiness', 'AI search & answer-engine optimization', 'Content systems'],
+      bestFor: 'Brands needing scalable digital demand generation.',
     },
     {
-      slug: 'capital-readiness',
-      title: 'Capital Readiness',
-      outcome: 'Walk into funding conversations prepared, on your terms.',
-      whoFor: 'Founders and the investor networks and ESOs supporting them, ahead of a raise, a lending decision, or an ownership transition.',
-      outcomes: 'A business that can withstand diligence: a credible growth story, the numbers and unit economics to back it, and clarity on whether — and what kind of — capital is the right tool for the next stage. Delivered with trusted financing and finance partners where a referral serves the founder better than advice alone.',
+      slug: 'operations-sourcing',
+      title: 'Operations Sourcing',
+      outcome: 'Move from small-batch to scalable — the right manufacturing, 3PL and distribution partners.',
+      includes: ['Contract manufacturing', '3PL, storage & fulfillment', 'Distributor sourcing', 'Wholesaler sourcing', 'Broker sourcing'],
+      bestFor: 'Brands moving from handmade / small-batch to scalable operations.',
+    },
+    {
+      slug: 'partner-investor-orchestration',
+      title: 'Partner & Investor Orchestration',
+      outcome: 'The right introductions at the right time — partners, investors and ecosystem visibility.',
+      includes: ['Referral partner matching', 'Investor-readiness signal', 'Warm introductions', 'Ecosystem visibility'],
+      bestFor: 'Founders ready for external relationships.',
     },
   ],
   programs: [
@@ -89,7 +99,7 @@ const SEED = {
       title: 'ESO Cohort Program',
       summary: 'Move a whole cohort of founders from access to commercial readiness — together, on a shared timeline.',
       detail: 'A structured program for entrepreneurship support organizations that run cohorts. VGP works alongside your founders across the cohort arc — diagnosing where each business really is, teaching the commercial fundamentals most programs skip, and leaving founders with a concrete readiness plan rather than another certificate. Format and depth are scoped to your cohort size, stage and goals.',
-      image: '/assets/img/vgp-home-advisory.jpg',
+      image: '/assets/img/vgp-speaking-event.jpg',
     },
     {
       slug: 'accelerator-track',
@@ -117,7 +127,7 @@ const SEED = {
     {
       slug: 'access-is-not-readiness',
       title: 'Access is not commercial readiness',
-      image: '/assets/img/vgp-home-advisory.jpg',
+      image: '/assets/img/vgp-capabilities-advisory.jpg',
       summary: 'The programs, capital and introductions are more available than ever — and most founders still are not ready to sell. The gap is commercial, not access.',
       body: [
         'The ecosystem has gotten very good at access. There are more accelerators, more grants, more pitch nights and more warm introductions than at any point in the last decade. And yet the failure rate at the shelf has barely moved. That is the tell: access was never the binding constraint.',

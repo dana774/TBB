@@ -33,9 +33,9 @@ p { margin: 0 0 1rem; }
 .vgp-eyebrow {
   display: block;
   font-size: var(--vgp-eyebrow);
-  letter-spacing: .05em;
+  letter-spacing: .12em;
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--vgp-warm-gold);
   margin-bottom: 1rem;
 }
@@ -69,14 +69,33 @@ p { margin: 0 0 1rem; }
   border: 1px solid var(--vgp-card-border);
   border-radius: var(--vgp-radius);
   padding: 1.75rem;
-  transition: box-shadow var(--vgp-transition);
+  transition: box-shadow var(--vgp-transition), transform var(--vgp-transition);
   display: flex;
   flex-direction: column;
+  /* Resting elevation so cards lift off the white page */
+  box-shadow: 0 1px 2px rgba(7,30,65,.05), 0 10px 30px rgba(7,30,65,.06);
 }
-.vgp-card:hover { box-shadow: 0 6px 20px rgba(7,30,65,.08); }
-/* Bottom-align the trailing CTA so grid rows read evenly */
-.vgp-card > a:last-child,
-.vgp-card > .vgp-btn:last-child { margin-top: auto; padding-top: .75rem; }
+.vgp-card:hover { box-shadow: 0 4px 10px rgba(7,30,65,.08), 0 18px 44px rgba(7,30,65,.12); transform: translateY(-3px); }
+/* Trailing CTA: bottom-aligned and styled as a formal outlined button */
+.vgp-card > .vgp-btn:last-child { margin-top: auto; }
+.vgp-card > a:last-child:not(.vgp-btn) {
+  margin-top: auto;
+  align-self: flex-start;
+  display: inline-block;
+  padding: .6rem 1.15rem;
+  border: 1px solid var(--vgp-card-border);
+  border-radius: var(--vgp-radius);
+  font-weight: 600;
+  font-size: .95rem;
+  text-decoration: none;
+  color: var(--vgp-navy);
+  transition: border-color var(--vgp-transition), background var(--vgp-transition), color var(--vgp-transition);
+}
+.vgp-card > a:last-child:not(.vgp-btn):hover {
+  border-color: var(--vgp-blueprint-blue);
+  color: var(--vgp-blueprint-blue);
+  background: var(--vgp-pale-blue);
+}
 
 /* Full-bleed thumbnail at the top of a .vgp-card (padding is 1.75rem) */
 .vgp-card-thumb {
@@ -84,14 +103,16 @@ p { margin: 0 0 1rem; }
   margin: -1.75rem -1.75rem 1.25rem;
   height: 180px;
   object-fit: cover;
+  object-position: center 22%; /* bias toward the top so heads aren't cropped */
   border-radius: var(--vgp-radius) var(--vgp-radius) 0 0;
 }
 
 /* Full-width hero/section photography */
 .vgp-hero-img {
   width: 100%;
-  height: clamp(240px, 34vw, 420px);
+  height: clamp(240px, 34vw, 440px);
   object-fit: cover;
+  object-position: center 22%; /* keep faces/heads in frame */
   border-radius: var(--vgp-radius);
   display: block;
 }

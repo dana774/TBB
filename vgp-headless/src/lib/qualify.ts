@@ -20,7 +20,7 @@ const MESSAGES: Record<AdvisoryResult['route'], string> = {
   qualified:
     "You're a fit for a 30-minute VGP Insight Session — a fit, pathway and initial-scoping conversation.",
   existing_client:
-    'Welcome back. Sign in and your VGP contact will follow up directly.',
+    'Welcome back. Book time with Dana directly below — no need to requalify.',
   institutional:
     'Institutions and ESOs have a dedicated pathway — tell us about your cohort and goals.',
   partner:

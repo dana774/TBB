@@ -13,10 +13,18 @@ const { item } = Astro.props;
       <nav aria-label="Breadcrumb"><a href="/capabilities">Capabilities</a> / {item.title}</nav>
       <h1>{item.title}</h1>
       <p style="font-size:1.25rem;">{item.outcome}</p>
-      <h4 class="vgp-mt">Who it's for</h4>
-      <p>{item.whoFor ?? 'The founders and organizations this capability serves.'}</p>
-      <h4>What it produces</h4>
-      <p>{item.outcomes ?? 'The commercial outcomes this capability helps create.'}</p>
+      {Array.isArray(item.includes) && (
+        <>
+          <h4 class="vgp-mt">What it includes</h4>
+          <ul>{item.includes.map((i: string) => <li>{i}</li>)}</ul>
+        </>
+      )}
+      {item.bestFor && (
+        <>
+          <h4>Best for</h4>
+          <p>{item.bestFor}</p>
+        </>
+      )}
       <div class="vgp-card vgp-bg-pale vgp-center vgp-mt" style="border:none;">
         <h3>Map this into your growth path</h3>
         <p class="vgp-mt"><a class="vgp-btn vgp-btn--primary" href="/advisory-pathway">Start the Advisory Pathway</a></p>
