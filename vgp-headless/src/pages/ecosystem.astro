@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import { ECOSYSTEM_LAYERS } from '../lib/content';
+import { ECOSYSTEM_LAYERS, ECOSYSTEM_OPERATING_LAYERS } from '../lib/content';
 const BB_URL = import.meta.env.BB_URL || 'https://the-brand-blueprint.myshopify.com';
 ---
 <Base
@@ -41,8 +41,29 @@ const BB_URL = import.meta.env.BB_URL || 'https://the-brand-blueprint.myshopify.
     </div>
   </section>
 
-  <!-- Intro video -->
+  <!-- Five-layer operating model / ascension -->
   <section class="vgp-section">
+    <div class="vgp-container">
+      <span class="vgp-eyebrow">The full operating model</span>
+      <h2>Five layers of ascension.</h2>
+      <p style="max-width:66ch;">Beneath the three-brand architecture is a five-layer operating model — the path a founder climbs, from first signal to fractional operating leadership. Start anywhere; ascend as you're ready.</p>
+      <div class="eco-ladder vgp-mt">
+        {ECOSYSTEM_OPERATING_LAYERS.map((l, i) => (
+          <article class="eco-rung" style={`--rung:${i + 1}`}>
+            <div class="eco-rung__bar" aria-hidden="true"></div>
+            <span class="eco-rung__num">{String(i + 1).padStart(2, '0')}</span>
+            <span class="vgp-eyebrow" style="margin-bottom:.25rem;">{l.role}</span>
+            <h4 style="margin-bottom:.4rem;">{l.name}</h4>
+            <p style="font-size:.9375rem;">{l.body}</p>
+            {l.href && <a href={l.href} class="eco-rung__link">Explore →</a>}
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Intro video -->
+  <section class="vgp-section vgp-bg-soft">
     <div class="vgp-container" style="max-width:860px;">
       <span class="vgp-eyebrow vgp-center" style="display:block; text-align:center;">Watch</span>
       <h2 class="vgp-center">See the ecosystem in action.</h2>
@@ -86,6 +107,18 @@ const BB_URL = import.meta.env.BB_URL || 'https://the-brand-blueprint.myshopify.
 
   <style>
     .eco-video { width: 100%; border-radius: var(--vgp-radius); display: block; box-shadow: 0 10px 30px rgba(7,30,65,.14); background: #000; }
+    .eco-ladder { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; }
+    .eco-rung {
+      background: #fff; border: 1px solid var(--vgp-card-border); border-radius: var(--vgp-radius);
+      padding: 1.5rem; display: flex; flex-direction: column;
+      box-shadow: 0 1px 2px rgba(7,30,65,.05), 0 10px 30px rgba(7,30,65,.06);
+    }
+    .eco-rung__bar { height: calc(6px + (var(--rung) - 1) * 9px); background: var(--vgp-blueprint-blue); border-radius: 3px; margin-bottom: 1rem; }
+    .eco-rung:last-child .eco-rung__bar { background: var(--vgp-warm-gold); }
+    .eco-rung__num { font-family: var(--font-serif); color: var(--vgp-warm-gold); font-size: 1.25rem; line-height: 1; margin-bottom: .5rem; }
+    .eco-rung__link { margin-top: auto; padding-top: .85rem; font-weight: 600; text-decoration: none; }
+    @media (max-width: 1024px) { .eco-ladder { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 620px) { .eco-ladder { grid-template-columns: 1fr; } }
     .eco-stack { display: grid; gap: 1.25rem; }
     .eco-layer {
       background: #fff; border: 1px solid var(--vgp-card-border); border-radius: var(--vgp-radius);

@@ -278,6 +278,16 @@ export async function getDanaProfile(): Promise<Item> {
 export const POSITIONING_LINE =
   'VGP helps entrepreneurship support organizations move founders from access to commercial readiness.';
 
+// The five-layer operating model / ascension ladder (Growth OS Manual v2).
+// Signal Engine → Founder Network → VGP Advisory → Growth OS → Apex.
+export const ECOSYSTEM_OPERATING_LAYERS = [
+  { name: 'Signal Engine', role: 'Media + Intelligence', body: 'Content, podcast, newsletter and market intelligence create visibility and signal — how founders and opportunities get discovered.', href: null },
+  { name: 'Founder Network', role: 'Membership + Community', body: 'The $99/month entry membership — signal, funding access, tools, and the referral network. The front door.', href: '/membership' },
+  { name: 'VGP Advisory', role: 'Strategy + Execution', body: 'Senior strategic advisory and hands-on execution — retainers, diagnostics, strategy sprints, and scoped implementation.', href: '/how-we-work' },
+  { name: 'Growth OS', role: 'Systems + Automation', body: 'The implementation layer — dashboards, workflows, forecasts and automation that turn strategy into durable operating infrastructure.', href: '/capabilities/growth-os-diagnostic-build' },
+  { name: 'Apex', role: 'Fractional Leadership', body: 'Fractional strategic operating support — weekly decision cadence, complex workstream oversight, and senior operator leadership for founders ready for it.', href: '/how-we-work' },
+];
+
 // The three-layer ecosystem architecture (Brand Architecture Bible v5.2).
 // Voice: VGP = "strategic advisory and operating firm"; Brand Blueprint =
 // "founder-facing ecosystem"; Growth OS = "implementation layer". No guarantees.
