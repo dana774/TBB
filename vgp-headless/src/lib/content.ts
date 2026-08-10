@@ -56,6 +56,17 @@ const SEED = {
       outcome: 'Install the operating system — dashboards, workflows and automation — that makes growth repeatable.',
       includes: ['Tool audit', 'Workflow map', 'Dashboards', 'Forecast workbook', 'Meeting intelligence', 'Action trackers', 'Automation roadmap'],
       bestFor: 'Founders or programs ready to systematize operations.',
+      definition: 'Growth OS is not generic software consulting. It is the implementation system that turns strategy into durable operating infrastructure — making the advisory work repeatable, measurable, and scalable. Strategy becomes the dashboards, workflows, and accountability you actually run.',
+      sequence: [
+        'Confirm the client archetype, commercial objective, operating pain, and decision owner.',
+        'Inventory current tools, data sources, access levels, reporting gaps, and recurring handoffs.',
+        'Choose one system of record — never build logic across competing sources of truth.',
+        'Stand up the AI workspace, naming conventions, folder structure, and export standards.',
+        'Launch one to three revenue-critical or time-saving workflows before secondary automations.',
+        'Build dashboard v1, data definitions, and an adoption-ready operating cadence.',
+        'Train only the people who will use the workflows; publish SOPs and a change log.',
+        'Move into managed optimization once the foundation is stable and owners are clear.',
+      ],
     },
     {
       slug: 'funding-forecast-readiness',
@@ -290,7 +301,7 @@ export const ECOSYSTEM_LAYERS = [
     name: 'Growth OS',
     role: 'The implementation layer',
     tagline: 'Where guidance becomes infrastructure.',
-    body: 'Growth OS turns strategy into operating infrastructure — the dashboards, workflows, forecasts, routines, and accountability that make growth repeatable instead of heroic.',
+    body: 'Growth OS is not generic software consulting — it is the implementation system that makes the advisory repeatable, measurable, and scalable. It turns strategy into operating infrastructure: the dashboards, workflows, forecasts, routines, and accountability that make growth repeatable instead of heroic.',
     gets: ['Dashboards & forecast workbooks', 'Workflows & automation', 'Operating routines & cadence', 'Action trackers & accountability'],
   },
 ];

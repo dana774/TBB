@@ -13,6 +13,12 @@ const { item } = Astro.props;
       <nav aria-label="Breadcrumb"><a href="/capabilities">Capabilities</a> / {item.title}</nav>
       <h1>{item.title}</h1>
       <p style="font-size:1.25rem;">{item.outcome}</p>
+      {item.definition && (
+        <div class="vgp-card vgp-bg-pale" style="border:none; margin: 1.5rem 0;">
+          <h4 style="margin-bottom:.5rem;">What it is</h4>
+          <p style="margin-bottom:0;">{item.definition}</p>
+        </div>
+      )}
       {Array.isArray(item.includes) && (
         <>
           <h4 class="vgp-mt">What it includes</h4>
@@ -23,6 +29,19 @@ const { item } = Astro.props;
         <>
           <h4>Best for</h4>
           <p>{item.bestFor}</p>
+        </>
+      )}
+      {Array.isArray(item.sequence) && (
+        <>
+          <h4 class="vgp-mt">How a Growth OS gets built</h4>
+          <ol class="cap-sequence">
+            {item.sequence.map((s: string) => <li>{s}</li>)}
+          </ol>
+          <style>
+            .cap-sequence { max-width: 64ch; padding-left: 1.3rem; }
+            .cap-sequence li { margin-bottom: .6rem; padding-left: .3rem; }
+            .cap-sequence li::marker { color: var(--vgp-warm-gold); font-weight: 700; }
+          </style>
         </>
       )}
       <div class="vgp-card vgp-bg-pale vgp-center vgp-mt" style="border:none;">
