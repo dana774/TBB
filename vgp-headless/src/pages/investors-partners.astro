@@ -20,6 +20,26 @@ const steps = [
   ['Connect', 'We facilitate warm introductions to aligned investors and partners.'],
   ['Follow through', 'We support continued diligence, feedback, and partnership execution.'],
 ];
+const refSupports = [
+  { h: 'Curated founder introductions', p: 'Context-rich introductions to founders whose needs match your services, expertise, and preferred client profile.' },
+  { h: 'Partner visibility engine', p: 'Visibility through the newsletter, Hot List, podcast, founder resource library, and partner spotlights.' },
+  { h: 'Strategic context before calls', p: 'We share founder stage, goals, pain points, and urgency so partner conversations start with clarity.' },
+  { h: 'Reciprocal referral economics', p: 'A transparent referral structure designed to reward ecosystem collaboration.' },
+  { h: 'Long-term relationship flow', p: 'Stay connected to founders as their needs evolve across marketing, operations, funding, retail, and growth systems.' },
+];
+const refFits = [
+  { h: 'Manufacturing, 3PL & logistics', p: 'Partners who help founders move from idea to production, fulfillment, storage, and scale.' },
+  { h: 'Creative, digital & paid media', p: 'Design, branding, websites, content, email, paid ads, Amazon, and AI-optimization partners.' },
+  { h: 'Legal, accounting & funding advisors', p: 'Professionals who help founders get legally, financially, and capital-ready.' },
+  { h: 'Retail, broker & distributor partners', p: 'Operators who help brands access wholesale, retail, distributors, brokers, and marketplace channels.' },
+];
+const refSteps = [
+  ['Join', 'Define partner category, service value, and best-fit founder profile.'],
+  ['Signal', 'Gain visibility through curated ecosystem communications.'],
+  ['Match', 'Receive context-rich introductions to relevant founders.'],
+  ['Deliver', 'Support founder execution while protecting relationship trust.'],
+  ['Grow', 'Build repeat referral flow and ecosystem credibility over time.'],
+];
 ---
 <Base title="For Investors & Partners" description="Curated founder pipeline, de-risked opportunities, and actionable intelligence — powered by Value Growth Partners.">
   <!-- Hero -->
@@ -81,13 +101,31 @@ const steps = [
     </div>
   </section>
 
-  <!-- Referral partners -->
-  <section class="vgp-section">
-    <div class="vgp-container" style="max-width:820px;">
-      <span class="vgp-eyebrow">Referral &amp; service partners</span>
-      <h2>Bring your expertise to the ecosystem.</h2>
-      <p style="max-width:66ch;">If you serve founders — financing, tax and financial strategy, creative, paid media, operations — there’s a place for you in the VGP network. We’ll define your best-fit founder profile and where your expertise supports the ecosystem, then route the right founders to you. See who’s already in the <a href="/network">partner network →</a></p>
-      <p class="vgp-mt"><a class="vgp-btn vgp-btn--secondary" href="/partner-contributor">Explore partnering</a></p>
+  <!-- Referral & service partners -->
+  <section class="vgp-section vgp-bg-soft">
+    <div class="vgp-container">
+      <span class="vgp-eyebrow">For Referral &amp; Service Partners</span>
+      <h2>Warm founder access. Strategic collaboration.</h2>
+      <p style="max-width:72ch;">The Referral Partner Network connects vetted operators, agencies, and service providers with founders who need practical execution support. For partners, we create trusted visibility, warm introductions, and recurring founder demand.</p>
+
+      <h3 class="vgp-mt" style="margin-top:2.5rem;">How we support referral partners</h3>
+      <div class="vgp-grid vgp-grid--3 vgp-mt">
+        {refSupports.map((s) => <article class="vgp-card"><h4>{s.h}</h4><p style="margin-bottom:0;">{s.p}</p></article>)}
+      </div>
+
+      <h3 class="vgp-mt" style="margin-top:2.5rem;">Who this is best for</h3>
+      <div class="vgp-grid vgp-grid--2 vgp-mt">
+        {refFits.map((f) => <article class="vgp-card"><h4>{f.h}</h4><p style="margin-bottom:0;">{f.p}</p></article>)}
+      </div>
+
+      <h3 class="vgp-mt" style="margin-top:2.5rem;">How the ecosystem works</h3>
+      <div class="ip-steps vgp-mt">
+        {refSteps.map(([t, d], i) => (
+          <div class="ip-step"><span class="ip-num">{i + 1}</span><h4 style="margin:.5rem 0 .35rem;">{t}</h4><p style="font-size:.95rem; margin:0;">{d}</p></div>
+        ))}
+      </div>
+
+      <p class="vgp-mt" style="margin-top:2.5rem;"><a class="vgp-btn vgp-btn--primary" href="/partner-contributor" style="margin-right:.5rem;">Explore partnering</a><a class="vgp-btn vgp-btn--secondary" href="/network">See the partner network</a></p>
     </div>
   </section>
 
