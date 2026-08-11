@@ -1,17 +1,41 @@
 ---
 import Base from '../layouts/Base.astro';
-// Active-client area. Private scheduling links are delivered by direct
-// communication only — never rendered on-site. Sign-in is not wired yet;
-// connect an auth provider (e.g. HubSpot membership / a hosted auth) at launch.
+// Member area entry point. The VGP site does NOT host gated content or passwords —
+// it links to the member hub (Google Drive hub for launch, or a Shopify-gated area
+// later). Set MEMBER_PORTAL_URL to that hub link and the sign-in goes live.
+const PORTAL_URL = import.meta.env.MEMBER_PORTAL_URL;
+const library = [
+  { h: 'Resource Library', p: 'Playbooks, worksheets, dashboards and templates — organized by founder need.' },
+  { h: 'Funding Opportunities', p: 'Funding Friday, Hot List eligibility, and curated capital opportunities as they open.' },
+  { h: 'Accelerator Toolkit', p: 'Curriculum, tools and playbooks from the Brand Blueprint accelerator.' },
+  { h: 'Partner Directory', p: 'The vetted referral network — with member-only discounts on select partners.' },
+];
 ---
-<Base title="Client Sign-In" description="Active-client area.">
+<Base title="Member Sign-In" description="The Founder Network member area — resources, funding, tools, and the partner network.">
   <section class="vgp-section">
-    <div class="vgp-container vgp-center" style="max-width:560px;">
-      <span class="vgp-eyebrow">Active Clients</span>
-      <h1>Client sign-in</h1>
-      <p>Access to your engagement workspace. Scheduling for active clients is arranged directly with your VGP contact — never through a public link.</p>
-      <p class="vgp-mt">Client sign-in is arriving soon. In the meantime, your VGP contact will share everything you need directly.</p>
-      <p style="font-size:.9rem;"><a href="/advisory-pathway">Not a client yet? Start the Advisory Pathway →</a></p>
+    <div class="vgp-container" style="max-width:900px;">
+      <span class="vgp-eyebrow">Founder Network Members</span>
+      <h1>Member sign-in.</h1>
+      <p style="font-size:1.25rem; max-width:60ch;">Your Founder Network membership gives you the resource library, funding opportunities, the accelerator toolkit, and the partner network — all in one place.</p>
+
+      <div class="mem-actions vgp-mt">
+        {PORTAL_URL ? (
+          <a class="vgp-btn vgp-btn--primary" href={PORTAL_URL}>Enter the member area</a>
+        ) : (
+          <>
+            <span class="vgp-btn vgp-btn--primary" style="opacity:.6; cursor:default;">Member area — opening at launch</span>
+            <p class="vgp-review-flag" style="margin-top:1rem; max-width:60ch;">The member hub link isn't wired yet. Set <code>MEMBER_PORTAL_URL</code> (a Google Drive hub for launch, or a Shopify-gated member area) and this button goes live — no code change needed.</p>
+          </>
+        )}
+        <p style="margin-top:1rem;"><a href="/membership">Not a member yet? Join the Founder Network — $99/mo →</a></p>
+      </div>
+
+      <h3 class="vgp-mt" style="margin-top:3rem;">What's inside</h3>
+      <div class="vgp-grid vgp-grid--2 vgp-mt">
+        {library.map((l) => <article class="vgp-card"><h4>{l.h}</h4><p style="margin-bottom:0;">{l.p}</p></article>)}
+      </div>
+
+      <p class="vgp-mt" style="font-size:.9rem; color:var(--vgp-body-gray); margin-top:2rem;">Active advisory clients: scheduling and your engagement workspace are arranged directly with your VGP contact — never through a public link.</p>
     </div>
   </section>
 </Base>
