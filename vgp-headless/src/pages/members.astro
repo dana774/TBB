@@ -3,7 +3,10 @@ import Base from '../layouts/Base.astro';
 // Member area entry point. The VGP site does NOT host gated content or passwords —
 // it links to the member hub (Google Drive hub for launch, or a Shopify-gated area
 // later). Set MEMBER_PORTAL_URL to that hub link and the sign-in goes live.
-const PORTAL_URL = import.meta.env.MEMBER_PORTAL_URL;
+// Defaults to the Google Drive "Founder Network — Members" hub built for Path A.
+// Override with MEMBER_PORTAL_URL (e.g. a Shopify-gated area) when you graduate.
+// Access is gated by the folder's Drive sharing (Google Group of active members).
+const PORTAL_URL = import.meta.env.MEMBER_PORTAL_URL || 'https://drive.google.com/drive/folders/1ls2sHkPm9f-qtAhEiupuxhLk7TetWE0m';
 const library = [
   { h: 'Resource Library', p: 'Playbooks, worksheets, dashboards and templates — organized by founder need.' },
   { h: 'Funding Opportunities', p: 'Funding Friday, Hot List eligibility, and curated capital opportunities as they open.' },
