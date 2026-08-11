@@ -57,6 +57,7 @@ const SEED = {
       includes: ['Tool audit', 'Workflow map', 'Dashboards', 'Forecast workbook', 'Meeting intelligence', 'Action trackers', 'Automation roadmap'],
       bestFor: 'Founders or programs ready to systematize operations.',
       definition: 'Growth OS is not generic software consulting. It is the implementation system that turns strategy into durable operating infrastructure — making the advisory work repeatable, measurable, and scalable. Strategy becomes the dashboards, workflows, and accountability you actually run.',
+      sequenceTitle: 'How a Growth OS gets built',
       sequence: [
         'Confirm the client archetype, commercial objective, operating pain, and decision owner.',
         'Inventory current tools, data sources, access levels, reporting gaps, and recurring handoffs.',
@@ -74,6 +75,16 @@ const SEED = {
       outcome: 'Walk into funding conversations with a forecast, a gap analysis and the assets to back them.',
       includes: ['Forecast model', 'Funding gap analysis', 'Grant and investor readiness', 'Opportunity matching', 'Pitch assets', 'Funder preparation'],
       bestFor: 'Capital-seeking founders and nonprofit / program partners.',
+      definition: 'Do not go to investors too early. Funding readiness means the story, the numbers, and the gaps are all in place first — so when an introduction comes, it is warm, credible, and worth the investor\'s time.',
+      sequenceTitle: 'Before an investor introduction',
+      sequence: [
+        'A current one-pager with a specific, clear ask.',
+        'Traction numbers that are accurate and source-backed.',
+        'A clear use of funds and a 12–24 month milestone roadmap.',
+        'Known gaps understood and disclosed — never hidden.',
+        'An investor thesis, stage, category, and check size that actually fit.',
+        'A concise, context-rich introduction.',
+      ],
     },
     {
       slug: 'retail-distribution-strategy',
@@ -81,6 +92,15 @@ const SEED = {
       outcome: 'Get shelf-ready — buyer materials, channel strategy and the trade math to win at retail.',
       includes: ['Retail readiness', 'Buyer materials', 'Distributor / broker strategy', 'Wholesale approach', 'Retail trial activation', 'Channel planning'],
       bestFor: 'Consumer products — CPG, beauty, wellness, food & beverage, and retail-enabled brands.',
+      definition: 'Small tests should produce serious evidence. Retail trials become buyer proof, sell-through becomes strategy, and traction becomes investor signal — so a founder walks into buyer conversations with more than a pitch.',
+      sequenceTitle: 'The retail activation sequence',
+      sequence: [
+        'Plan a small, disciplined retail trial designed to produce real evidence.',
+        'Score retail readiness — confirm what must be in place before buyer outreach.',
+        'Prepare buyer materials, pricing and trade architecture, and a specific ask.',
+        'Run the trial; capture sell-through, sample conversion, and buyer feedback.',
+        'Convert the trial into a buyer-ready recap and the next retail action.',
+      ],
     },
     {
       slug: 'digital-growth-ai',

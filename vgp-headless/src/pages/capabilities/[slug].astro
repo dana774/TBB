@@ -33,7 +33,7 @@ const { item } = Astro.props;
       )}
       {Array.isArray(item.sequence) && (
         <>
-          <h4 class="vgp-mt">How a Growth OS gets built</h4>
+          <h4 class="vgp-mt">{item.sequenceTitle ?? 'How it works'}</h4>
           <ol class="cap-sequence">
             {item.sequence.map((s: string) => <li>{s}</li>)}
           </ol>
