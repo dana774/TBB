@@ -2,6 +2,15 @@
 import Base from '../layouts/Base.astro';
 import { ECOSYSTEM_LAYERS, ECOSYSTEM_OPERATING_LAYERS } from '../lib/content';
 const BB_URL = import.meta.env.BB_URL || 'https://the-brand-blueprint.myshopify.com';
+
+// The founder journey through the ecosystem (Growth OS Manual v2.0 — "The Ecosystem Promise").
+const JOURNEY = [
+  { stage: 'Discover', how: 'Content + referrals', body: 'A founder finds the ecosystem through the podcast, the newsletter, market signals, or a trusted referral.' },
+  { stage: 'Join', how: 'Founder Network', body: 'They join the $99/month Founder Network — funding signal, tools, the resource library, and the partner network.' },
+  { stage: 'Assess', how: 'Readiness + data', body: 'Readiness scorecards and founder data surface where they actually are — and what the next real move is.' },
+  { stage: 'Build', how: 'Advisory + projects', body: 'Value Growth Partners steps in with strategy and scoped execution — retail readiness, funding readiness, growth architecture.' },
+  { stage: 'Scale', how: 'Growth OS + Apex', body: 'Growth OS turns the strategy into durable operating infrastructure, with fractional leadership for founders ready for it.' },
+];
 ---
 <Base
   title="The Ecosystem"
@@ -62,8 +71,31 @@ const BB_URL = import.meta.env.BB_URL || 'https://the-brand-blueprint.myshopify.
     </div>
   </section>
 
-  <!-- Intro video -->
+  <!-- The founder journey -->
   <section class="vgp-section vgp-bg-soft">
+    <div class="vgp-container">
+      <span class="vgp-eyebrow">The founder journey</span>
+      <h2>From first signal to fully scaled.</h2>
+      <p style="max-width:68ch;">The Brand Blueprint helps founders move from visibility to strategy to scale — with the right intelligence, relationships, systems, and level of support at each stage of growth.</p>
+      <ol class="eco-journey vgp-mt">
+        {JOURNEY.map((s, i) => (
+          <li class="eco-step">
+            <span class="eco-step__num">{String(i + 1).padStart(2, '0')}</span>
+            <h4 class="eco-step__stage">{s.stage}</h4>
+            <span class="eco-step__how">{s.how}</span>
+            <p>{s.body}</p>
+          </li>
+        ))}
+      </ol>
+      <figure class="eco-quote vgp-mt">
+        <blockquote>“We create better founder outcomes when the right partners enter at the right time.”</blockquote>
+        <figcaption>— Dana Ammons, Founder &amp; Principal Strategist</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Intro video -->
+  <section class="vgp-section">
     <div class="vgp-container" style="max-width:860px;">
       <span class="vgp-eyebrow vgp-center" style="display:block; text-align:center;">Watch</span>
       <h2 class="vgp-center">See the ecosystem in action.</h2>
@@ -107,6 +139,21 @@ const BB_URL = import.meta.env.BB_URL || 'https://the-brand-blueprint.myshopify.
 
   <style>
     .eco-video { width: 100%; border-radius: var(--vgp-radius); display: block; box-shadow: 0 10px 30px rgba(7,30,65,.14); background: #000; }
+    .eco-journey { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; counter-reset: none; }
+    .eco-step {
+      background: #fff; border: 1px solid var(--vgp-card-border); border-radius: var(--vgp-radius);
+      padding: 1.5rem 1.35rem; position: relative;
+      box-shadow: 0 1px 2px rgba(7,30,65,.05), 0 10px 30px rgba(7,30,65,.06);
+    }
+    .eco-step__num { font-family: var(--font-serif); color: var(--vgp-warm-gold); font-size: 1.25rem; line-height: 1; display: block; margin-bottom: .5rem; }
+    .eco-step__stage { margin: 0 0 .15rem; }
+    .eco-step__how { display: block; color: var(--vgp-blueprint-blue); font-weight: 600; font-size: .85rem; margin-bottom: .5rem; }
+    .eco-step p { font-size: .9rem; margin: 0; }
+    @media (max-width: 1024px) { .eco-journey { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 620px) { .eco-journey { grid-template-columns: 1fr; } }
+    .eco-quote { max-width: 60ch; margin-left: 0; border-left: 3px solid var(--vgp-warm-gold); padding-left: 1.5rem; }
+    .eco-quote blockquote { font-family: var(--font-serif); font-size: 1.5rem; line-height: 1.35; margin: 0 0 .5rem; color: var(--vgp-navy); }
+    .eco-quote figcaption { color: var(--vgp-body-gray); font-weight: 600; }
     .eco-ladder { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; }
     .eco-rung {
       background: #fff; border: 1px solid var(--vgp-card-border); border-radius: var(--vgp-radius);
