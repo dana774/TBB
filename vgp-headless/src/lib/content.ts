@@ -49,6 +49,7 @@ const SEED = {
       outcome: 'Turn a promising business into a clear model, market path and roadmap you can actually run.',
       includes: ['Business model clarity', 'Market path', 'Pricing logic', 'Operating priorities', 'Growth roadmap', 'Founder decision cadence'],
       bestFor: 'Founders needing structure and strategic focus.',
+      definition: 'Before you build anything, you need a clear model. Strategic Growth Architecture is the foundation — business-model clarity, market path, pricing logic, and the growth roadmap and decision cadence a founder actually runs the business by.',
     },
     {
       slug: 'growth-os-diagnostic-build',
@@ -108,6 +109,7 @@ const SEED = {
       outcome: 'Build scalable demand — email, paid media, marketplace and AI-search visibility that compounds.',
       includes: ['Klaviyo / email', 'Paid media strategy', 'Amazon / marketplace readiness', 'AI search & answer-engine optimization', 'Content systems'],
       bestFor: 'Brands needing scalable digital demand generation.',
+      definition: 'Demand should compound, not restart every month. This is the system for scalable digital growth — email, paid media, marketplace readiness, and AI-search visibility built to work together instead of as one-off campaigns.',
     },
     {
       slug: 'operations-sourcing',
@@ -115,6 +117,7 @@ const SEED = {
       outcome: 'Move from small-batch to scalable — the right manufacturing, 3PL and distribution partners.',
       includes: ['Contract manufacturing', '3PL, storage & fulfillment', 'Distributor sourcing', 'Wholesaler sourcing', 'Broker sourcing'],
       bestFor: 'Brands moving from handmade / small-batch to scalable operations.',
+      definition: 'Growth breaks on the supply side first. Operations Sourcing connects a brand to the right manufacturing, 3PL, and distribution partners — so scaling up production and fulfillment doesn\'t turn into a scramble.',
     },
     {
       slug: 'partner-investor-orchestration',
@@ -122,6 +125,7 @@ const SEED = {
       outcome: 'The right introductions at the right time — partners, investors and ecosystem visibility.',
       includes: ['Referral partner matching', 'Investor-readiness signal', 'Warm introductions', 'Ecosystem visibility'],
       bestFor: 'Founders ready for external relationships.',
+      definition: 'The right introduction at the right time can change a company\'s trajectory. Partner & Investor Orchestration surfaces founders to aligned partners and investors — with context, readiness, and warm intros, never cold noise.',
     },
   ],
   programs: [
