@@ -40,6 +40,14 @@ const refSteps = [
   ['Deliver', 'Support founder execution while protecting relationship trust.'],
   ['Grow', 'Build repeat referral flow and ecosystem credibility over time.'],
 ];
+// Referral mechanics + guardrails (VGP Referral Partner Program & Fee Structure 2026).
+// Fee percentages are intentionally NOT published here — they are gated to approved partners.
+const refHow = [
+  ['VGP → Partner', 'VGP spots a founder need that fits your expertise and makes a warm introduction. You scope, price, contract, and deliver independently. Referral fees apply if the engagement closes.'],
+  ['Partner → VGP', 'You introduce a founder or company to VGP; we scope and contract directly, never interfering in your pricing or delivery. Referral fees apply if the engagement closes.'],
+];
+const refGuardrails = ['Non-exclusive relationship', 'No guaranteed referral volume', 'Editorial discretion retained by VGP', 'Confidentiality applies', 'Either party may terminate with 30 days’ notice'];
+const PARTNER_INTAKE = 'https://forms.gle/fG38XuGXYYeYcEUd6';
 ---
 <Base title="For Investors & Partners" description="Curated founder pipeline, de-risked opportunities, and actionable intelligence — powered by Value Growth Partners.">
   <!-- Hero -->
@@ -126,7 +134,25 @@ const refSteps = [
         ))}
       </div>
 
-      <p class="vgp-mt" style="margin-top:2.5rem;"><a class="vgp-btn vgp-btn--primary" href="/partner-contributor" style="margin-right:.5rem;">Explore partnering</a><a class="vgp-btn vgp-btn--secondary" href="/network" style="margin-right:.5rem;">See the partner network</a><a class="vgp-btn vgp-btn--secondary" href="/assets/one-pagers/vgp-referral-partner-one-pager.pdf" download>Download the partner overview (PDF) ↓</a></p>
+      <h3 class="vgp-mt" style="margin-top:2.5rem;">The referral program &amp; fee structure</h3>
+      <p style="max-width:72ch;">A reciprocal, transparent program built to reward ecosystem collaboration — with clear guardrails and a fee schedule shared with approved partners.</p>
+      <div class="vgp-grid vgp-grid--2 vgp-mt">
+        {refHow.map(([t, d]) => <article class="vgp-card"><h4>{t}</h4><p style="margin-bottom:0;">{d}</p></article>)}
+      </div>
+      <div class="vgp-grid vgp-grid--2" style="margin-top:1.25rem; align-items:start;">
+        <article class="vgp-card">
+          <h4 style="margin-bottom:.6rem;">Expectations &amp; guardrails</h4>
+          <ul class="ip-guardrails">{refGuardrails.map((g) => <li>{g}</li>)}</ul>
+        </article>
+        <article class="vgp-card ip-gated">
+          <span class="ip-lock">Approved partners only</span>
+          <h4 style="margin:.35rem 0 .5rem;">Reciprocal fee schedule</h4>
+          <p style="margin-bottom:.6rem;">The full structure — referral percentage, the client referral incentive, the first-term window, and the optional visibility-only participation — is shared with partners on acceptance into the program.</p>
+          <p style="margin-bottom:0;"><a href={PARTNER_INTAKE} target="_blank" rel="noopener">Apply to join the Referral Partner Program →</a></p>
+        </article>
+      </div>
+
+      <p class="vgp-mt" style="margin-top:2.5rem;"><a class="vgp-btn vgp-btn--primary" href={PARTNER_INTAKE} target="_blank" rel="noopener" style="margin-right:.5rem;">Apply to become a partner</a><a class="vgp-btn vgp-btn--secondary" href="/network" style="margin-right:.5rem;">See the partner network</a><a class="vgp-btn vgp-btn--secondary" href="/assets/one-pagers/vgp-referral-partner-one-pager.pdf" download>Download the program overview (PDF) ↓</a></p>
     </div>
   </section>
 
@@ -143,6 +169,10 @@ const refSteps = [
     .ip-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.25rem; }
     .ip-step { border-top: 3px solid var(--vgp-warm-gold); padding-top: 1rem; }
     .ip-num { font-family: var(--font-serif); font-size: 2rem; color: var(--vgp-blueprint-blue); }
+    .ip-guardrails { margin: 0; padding-left: 1.1rem; }
+    .ip-guardrails li { margin-bottom: .3rem; font-size: .95rem; }
+    .ip-gated { border: 1px solid var(--vgp-warm-gold); background: rgba(0,0,0,.02); }
+    .ip-lock { display: inline-block; font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--vgp-warm-gold); }
     @media (max-width: 900px) { .ip-steps { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 520px) { .ip-steps { grid-template-columns: 1fr; } }
   </style>

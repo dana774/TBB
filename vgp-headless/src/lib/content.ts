@@ -265,18 +265,22 @@ const SEED = {
     // 2026-08-04. `sourced:true` renders a "pending confirmation" banner. Written in
     // name-based / third-person voice (no asserted pronouns). The $115M PepsiCo figure
     // is gated (doc 07 §2) and shown only when pepsico_claim_status === 'approved'.
-    sourced: true,
+    // 2026-08-12 — Replaced with Dana's own executive summary (author-provided,
+    // authoritative). `sourced:false` removes the pending-confirmation banner.
+    sourced: false,
     positioning:
-      'Dana Ammons is the founder and principal of Value Growth Partners — a CPG, beauty and beverage veteran with commercial leadership experience across Procter & Gamble, PepsiCo, Colgate-Palmolive and SC Johnson. Value Growth Partners works with emerging businesses, accelerators and investor networks to build founder readiness, launch strategy and lasting commercial growth.',
+      'Dana Ammons is the founder and principal of Value Growth Partners — a sales, marketing and brand strategist with more than 25 years of leadership across consumer-goods companies including Procter & Gamble, PepsiCo, S.C. Johnson and Colgate-Palmolive. He translates corporate rigor into entrepreneurial success, giving founders and the organizations that support them the strategy and hands-on execution to build brands that sell, scale and last.',
     philosophy:
       'Access is not the same as commercial readiness. VGP helps founders — and the organizations that support them — close that gap, turning promising ideas into brands that can actually sell, scale and hold their place on the shelf.',
     experience_timeline:
-      'At Procter & Gamble, Dana served as Director of Sales, leading key accounts including Target and Sam\'s Club and earning the Triple Crown Award for driving top-line, bottom-line and market-share growth. Additional brand and commercial leadership followed across PepsiCo, Colgate-Palmolive and SC Johnson — a career spent turning products into brands that win at retail.',
+      'Before founding Value Growth Partners, Dana brought Fortune 100 brand-building discipline to the startup world — as a consultant with NJOY, launching and scaling pioneering products, and with Crave Chips, developing healthier kettle-cooked snacks and securing regional retail distribution. As CEO of Urban Therapy (Twisted Sista), he led the early phases of a turnaround focused on cost optimization, operational efficiency and personnel restructuring ahead of the company\'s transition to new ownership. At VGP he provides fractional representation and hands-on support across sales strategy, marketing, social media and digital optimization — for clients ranging from high-growth startups to mission-driven nonprofits such as R.E.D. Academy.',
     credentials: [
-      'Procter & Gamble — Director of Sales (Target, Sam\'s Club); Triple Crown Award',
-      'Commercial & brand leadership across PepsiCo, Colgate-Palmolive and SC Johnson',
+      '25+ years in consumer goods — Procter & Gamble, PepsiCo, S.C. Johnson, Colgate-Palmolive',
+      'Startup consultant — NJOY (launch & scale) and Crave Chips (retail distribution)',
+      'Former CEO, Urban Therapy (Twisted Sista) — led initial turnaround phases',
+      'Creator & host, The Brand Blueprint — semi-weekly episodes reaching thousands',
+      'Founder mentor — CIC (Cambridge Innovation Center) and Seed Spot',
       'Founder & principal, Value Growth Partners',
-      'Speaker on commercial readiness and founder ecosystems (incl. Venture Café Cambridge)',
     ],
     pepsico_claim_status: 'pending-proof',
   },
