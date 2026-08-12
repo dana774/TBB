@@ -21,6 +21,26 @@ Companion docs: `26-member-content-access.md` (the gate), this file (the fill).
 
 ---
 
+## Staging folder for freshly-uploaded toolkits
+
+Some member resources were uploaded into this chat as local files (not yet in Drive):
+Founder Capital Access Module Toolkit, Retail Buyer Access System v2, Retail Trial Creator
+System, Retail Readiness Blueprint Starter Suite, Retail Entry Playbook, Alternative Capital
+Playbook, Startup Financial Model, Forecast OS (shell + spec), CPG Cash Flow Management,
+Manufacturing/Packaging/Fulfillment Operating Partner Directory, Funding Brief for Founders,
+Two-Pager Suite, Sponsor Media Kit, Sponsor Placement Guide, Broker CRM package.
+
+**Dana's manual step (once):** In Google Drive create a folder named
+`Founder Network — Uploads to Sort (staging)` and drag those local copies into it. Then paste
+its folder ID into the prompt below where marked `STAGING_FOLDER_ID`. The population project
+will sort those into folders 01–07 alongside the Drive files already listed.
+
+Do NOT place these in the member hub: the Growth OS Strategic Framework & Operating Manual,
+the Tech Stack Operating System, and the Founder Network Resource Library & Operating System
+— those are internal "source of truth" docs, not member-facing.
+
+---
+
 ## THE PROMPT (copy everything below this line)
 
 ```
@@ -63,6 +83,11 @@ HARD RULES
    WHEN to use it, and WHAT it produces. (Growth OS manual convention.)
 6. If you are unsure whether something is safe/appropriate to share, leave it OUT and add
    it to a "REVIEW WITH DANA" list at the bottom of that folder's README.
+
+STAGING FOLDER (freshly-uploaded toolkits Dana dragged in): STAGING_FOLDER_ID
+List its files first (parentId = STAGING_FOLDER_ID) and route each into the right folder
+below by topic (capital→01, retail→02, GTM/sales→03, forecast/ops→04, brand/sponsor→05,
+growth-os→06, partner directory→07). Same COPY + verify + README rules apply.
 
 CANDIDATE SOURCE FILES (verify each before copying; IDs are Dana's Drive)
 
