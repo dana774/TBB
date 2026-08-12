@@ -154,6 +154,25 @@ const SEED = {
   // Real, in-preparation engagements. No fabricated metrics: case studies stay
   // in preparation until Dana supplies (and each client approves) the specifics.
   caseStudies: [
+    {
+      slug: 'inventory-and-3pls',
+      title: 'From Chaos to Clarity: Mastering Inventory & 3PLs',
+      outcome: 'A Brand Blueprint workshop for CPG founders — built around Visionary Hydroponics’ 3PL wake-up call, and the inventory and fulfillment discipline that keeps growth from breaking operations.',
+      image: '/assets/img/vgp-operations.jpg',
+      subject: 'Visionary Hydroponics, a hydroponic-system startup, scaled too quickly with the wrong 3PL partner — facing hidden fees, poor service, and inventory errors. Their story shows what CPG founders must do to vet logistics partners, protect cash flow, and make sure fulfillment supports growth instead of breaking it.',
+      challenge: [
+        'Hidden fees & vague contracts → cash-flow strain and eroded margins',
+        'Unresponsive 3PL support → fulfillment delays and missed SLAs',
+        'Inventory syncing failures → stockouts, overselling, and lost customer trust',
+        'No startup-level prioritization → orders deprioritized during peak times',
+      ],
+      lessons: [
+        { h: 'Vet 3PLs like you’d vet a co-founder', p: 'Know the contract, test their tech, and ask for startup-specific references before you sign.' },
+        { h: 'Know your inventory — and your cash flow', p: 'Set clear reorder points for every SKU, segment inventory by velocity (ABC analysis), and audit dead stock monthly to free up cash and warehouse space.' },
+        { h: 'Forecasting is strategy, not guesswork', p: 'Build a rolling forecast and align it with supplier lead times and sales velocity to reduce panic orders.' },
+      ],
+      takeaway: 'Fulfillment and inventory decisions shape margin, customer trust, and the ability to scale. VGP works 1:1 with founders to install these systems before growth outpaces operations.',
+    },
     { slug: 'case-one', title: 'Commercial-readiness engagement', outcome: 'In preparation — full details published once the client approves specifics. No numbers are shown until they can be verified.', image: '/assets/img/vgp-capabilities-advisory.jpg', review: true },
     { slug: 'case-two', title: 'Go-to-market & retail readiness', outcome: 'In preparation — full details published once the client approves specifics. No numbers are shown until they can be verified.', image: '/assets/img/vgp-operations.jpg', review: true },
     { slug: 'case-three', title: 'ESO cohort program', outcome: 'In preparation — full details published once the institution approves specifics. No numbers are shown until they can be verified.', image: '/assets/img/vgp-programs-cohort.jpg', review: true },
@@ -273,9 +292,10 @@ const SEED = {
     philosophy:
       'Access is not the same as commercial readiness. VGP helps founders — and the organizations that support them — close that gap, turning promising ideas into brands that can actually sell, scale and hold their place on the shelf.',
     experience_timeline:
-      'Before founding Value Growth Partners, Dana brought Fortune 100 brand-building discipline to the startup world — as a consultant with NJOY, launching and scaling pioneering products, and with Crave Chips, developing healthier kettle-cooked snacks and securing regional retail distribution. As CEO of Urban Therapy (Twisted Sista), he led the early phases of a turnaround focused on cost optimization, operational efficiency and personnel restructuring ahead of the company\'s transition to new ownership. At VGP he provides fractional representation and hands-on support across sales strategy, marketing, social media and digital optimization — for clients ranging from high-growth startups to mission-driven nonprofits such as R.E.D. Academy.',
+      'At Procter & Gamble, Dana served as Director of Sales — leading key accounts including Target and Sam\'s Club and earning the Triple Crown Award for top-line, bottom-line and market-share growth — with brand and commercial leadership following across PepsiCo, S.C. Johnson and Colgate-Palmolive. He later brought that Fortune 100 discipline to the startup world as a consultant with NJOY, launching and scaling pioneering products, and with Crave Chips, developing healthier kettle-cooked snacks and securing regional retail distribution. As CEO of Urban Therapy (Twisted Sista), he led the early phases of a turnaround focused on cost optimization, operational efficiency and personnel restructuring ahead of the company\'s transition to new ownership. At VGP he provides fractional representation and hands-on support across sales strategy, marketing, social media and digital optimization — for clients ranging from high-growth startups to mission-driven nonprofits such as R.E.D. Academy.',
     credentials: [
-      '25+ years in consumer goods — Procter & Gamble, PepsiCo, S.C. Johnson, Colgate-Palmolive',
+      'Procter & Gamble — Director of Sales (Target, Sam\'s Club); Triple Crown Award',
+      '25+ years across PepsiCo, S.C. Johnson and Colgate-Palmolive',
       'Startup consultant — NJOY (launch & scale) and Crave Chips (retail distribution)',
       'Former CEO, Urban Therapy (Twisted Sista) — led initial turnaround phases',
       'Creator & host, The Brand Blueprint — semi-weekly episodes reaching thousands',

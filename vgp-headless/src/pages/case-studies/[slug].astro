@@ -12,12 +12,47 @@ const { item } = Astro.props;
     <div class="vgp-container" style="max-width:760px;">
       <nav aria-label="Breadcrumb"><a href="/case-studies">Case Studies</a> / {item.title}</nav>
       <h1>{item.title}</h1>
-      <p class="vgp-review-flag">This case study is in preparation — published once the client approves the specifics. We never show metrics we can't verify.</p>
-      <p style="font-size:1.25rem;">{item.outcome}</p>
+
+      {item.review ? (
+        <>
+          <p class="vgp-review-flag">This case study is in preparation — published once the client approves the specifics. We never show metrics we can't verify.</p>
+          <p style="font-size:1.25rem;">{item.outcome}</p>
+        </>
+      ) : (
+        <>
+          <p style="font-size:1.25rem;">{item.outcome}</p>
+          {item.subject && <p style="max-width:68ch;">{item.subject}</p>}
+
+          {Array.isArray(item.challenge) && item.challenge.length > 0 && (
+            <>
+              <h4 class="vgp-mt">What went wrong</h4>
+              <ul class="cs-list">{item.challenge.map((c: string) => <li>{c}</li>)}</ul>
+            </>
+          )}
+
+          {Array.isArray(item.lessons) && item.lessons.length > 0 && (
+            <>
+              <h4 class="vgp-mt">What smart founders do</h4>
+              {item.lessons.map((l: { h: string; p: string }) => (
+                <div class="cs-lesson"><h5>{l.h}</h5><p style="margin:0;">{l.p}</p></div>
+              ))}
+            </>
+          )}
+
+          {item.takeaway && <p class="vgp-mt" style="max-width:68ch; font-weight:600;">{item.takeaway}</p>}
+        </>
+      )}
+
       <div class="vgp-card vgp-bg-pale vgp-center vgp-mt" style="border:none;">
-        <h3>Want to be the next one?</h3>
+        <h3>{item.review ? 'Want to be the next one?' : 'Facing this in your own operations?'}</h3>
         <p class="vgp-mt"><a class="vgp-btn vgp-btn--primary" href="/advisory-pathway">Start the Advisory Pathway</a></p>
       </div>
     </div>
   </article>
+  <style>
+    .cs-list { padding-left: 1.1rem; max-width: 68ch; }
+    .cs-list li { margin-bottom: .4rem; }
+    .cs-lesson { margin-bottom: 1rem; }
+    .cs-lesson h5 { margin: 0 0 .2rem; color: var(--vgp-navy); font-size: 1.05rem; }
+  </style>
 </Base>
