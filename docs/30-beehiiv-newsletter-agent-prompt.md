@@ -168,6 +168,32 @@ Sheet or from beehiiv — one source of truth either way.
 
 ---
 
+## Part C — Automated weekly sweep (this repo) ✅ live
+
+The weekly sweep is automated with a scheduled **Routine** (no Zapier/Make), so it runs whether or not
+anyone opens the Claude Project.
+
+- **Schedule:** every **Monday 13:00 UTC** (~9am ET / 6am PT). Adjustable.
+- **What fires:** a fresh headless session runs the standalone sweep prompt — web-sources funding
+  opportunities, investor updates, and founder news for the VGP ecosystem (last ~7–10 days), verifies each
+  against a real source URL, **dedupes on URL**, and **appends new rows** to the database.
+- **System-of-record:** `newsletter/intelligence-database.csv` on the **`newsletter-intelligence`** branch
+  (append-only, versioned in git — no connector approval needed, so it can't silently fail).
+- **Drive mirror (best-effort):** the run also attempts to upsert the same rows into the Google Sheet
+  `The Founder Signal — Intelligence Database`. A headless session can't clear an interactive Drive
+  approval, so if the connector isn't authorized for non-interactive writes it flags the rows for sync
+  rather than failing the whole run. The git CSV remains authoritative.
+- **Member back-catalog:** the gated `/members/newsletter` archive renders from the CSV; the Drive Sheet
+  is the shareable mirror for members who prefer Drive.
+
+**Issue drafting still pulls from the same database** (Mode 3), so the newsletter is assembled from
+everything the sweeps accumulated since the last issue.
+
+To change cadence, timezone, or sourcing focus, edit the Routine's prompt/schedule (or ask the build
+agent). To pause it, disable the Routine.
+
+---
+
 ## Notes for the build agent (not the newsletter agent)
 - The newsletter agent **specs** `/api/member-provision` and `/members/newsletter`; the **build agent**
   (this repo's Claude) implements them per doc 28. Keep the roles separate.
