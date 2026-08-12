@@ -11,6 +11,15 @@ const JOURNEY = [
   { stage: 'Build', how: 'Advisory + projects', body: 'Value Growth Partners steps in with strategy and scoped execution — retail readiness, funding readiness, growth architecture.' },
   { stage: 'Scale', how: 'Growth OS + Apex', body: 'Growth OS turns the strategy into durable operating infrastructure, with fractional leadership for founders ready for it.' },
 ];
+// Public-safe view of the six operating portfolios (Ecosystem Consolidation, doc 32).
+const PORTFOLIOS = [
+  { name: 'Founder Network & Resources', body: 'Membership, the resource library, onboarding, and alumni continuity — the founder’s home base.' },
+  { name: 'Signal, Media & Opportunity', body: 'The podcast, Market Signal, Funding Friday, the Hot List, and events — how founders and opportunities get discovered.' },
+  { name: 'Readiness & Market Access', body: 'Capital, retail, distribution, sourcing, and operating readiness — getting founders ready for the room.' },
+  { name: 'Advisory & Growth OS', body: 'Diagnostics, sprints, dashboards, automation, and managed or fractional support — strategy turned into infrastructure.' },
+  { name: 'Programs & Learning', body: 'Curriculum, workshops, mentorship, office hours, and speaking — for accelerators, institutions, and cohorts.' },
+  { name: 'Partner, Investor & Expert Network', body: 'Investor pipeline, referral partners, specialists, and sponsors — the relationships around every founder.' },
+];
 ---
 <Base
   title="The Ecosystem"
@@ -44,6 +53,24 @@ const JOURNEY = [
               {l.gets.map((g) => <li>{g}</li>)}
             </ul>
             {l.anchor && <span class="eco-badge">You are here</span>}
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Two front doors + six portfolios -->
+  <section class="vgp-section">
+    <div class="vgp-container">
+      <span class="vgp-eyebrow">How the ecosystem is organized</span>
+      <h2>Two front doors. Six portfolios.</h2>
+      <p style="max-width:70ch;">Two clear front doors: <strong>The Brand Blueprint</strong> for founder-facing signal, tools, membership, and opportunity flow — and <strong>Value Growth Partners</strong> for diagnostics, advisory, Growth OS, programs, and fractional support. Behind them, the work is organized into six portfolios, so every founder resource traces to one source and nothing is duplicated.</p>
+      <div class="vgp-grid vgp-grid--3 vgp-mt">
+        {PORTFOLIOS.map((p, i) => (
+          <article class="vgp-card eco-port">
+            <span class="eco-port__num">{String(i + 1).padStart(2, '0')}</span>
+            <h4 style="margin-bottom:.35rem;">{p.name}</h4>
+            <p style="margin-bottom:0;">{p.body}</p>
           </article>
         ))}
       </div>
@@ -166,6 +193,8 @@ const JOURNEY = [
     .eco-rung__link { margin-top: auto; padding-top: .85rem; font-weight: 600; text-decoration: none; }
     @media (max-width: 1024px) { .eco-ladder { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 620px) { .eco-ladder { grid-template-columns: 1fr; } }
+    .eco-port { position: relative; }
+    .eco-port__num { font-family: var(--font-serif); color: var(--vgp-warm-gold); font-size: 1.25rem; line-height: 1; display: block; margin-bottom: .5rem; }
     .eco-stack { display: grid; gap: 1.25rem; }
     .eco-layer {
       background: #fff; border: 1px solid var(--vgp-card-border); border-radius: var(--vgp-radius);
