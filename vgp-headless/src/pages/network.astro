@@ -3,6 +3,9 @@ import Base from '../layouts/Base.astro';
 import { getPartners } from '../lib/content';
 const partners = await getPartners();
 const anyPending = partners.some((p) => p.review);
+// Branded monogram fallback for partners without a logo/headshot yet.
+const initials = (name: string) =>
+  name.replace(/[^A-Za-z ]/g, ' ').trim().split(/\s+/).slice(0, 2).map((w) => w[0]).join('').toUpperCase();
 ---
 <Base
   title="Partner Network"
@@ -23,8 +26,11 @@ const anyPending = partners.some((p) => p.review);
       <div class="vgp-grid vgp-grid--2 vgp-mt">
         {partners.map((p) => (
           <article class="vgp-card">
-            {p.logo && <img src={p.logo} alt={`${p.name} logo`} class="partner-logo" loading="lazy" />}
-            {!p.logo && p.headshot && <img src={p.headshot} alt={p.name} class="partner-headshot" loading="lazy" />}
+            {p.logo
+              ? <img src={p.logo} alt={`${p.name} logo`} class="partner-logo" loading="lazy" />
+              : p.headshot
+                ? <img src={p.headshot} alt={p.name} class="partner-headshot" loading="lazy" />
+                : <span class="partner-monogram" aria-hidden="true">{initials(p.name)}</span>}
             <span class="vgp-eyebrow" style="margin-bottom:.5rem;">{p.type}</span>
             <h4 style="margin-bottom:.35rem;">{p.name}</h4>
             {p.focus && <p style="color:var(--vgp-navy);font-weight:600;margin-bottom:.5rem;">{p.focus}</p>}
@@ -39,6 +45,13 @@ const anyPending = partners.some((p) => p.review);
       <style>
         .partner-logo { height: 40px; width: auto; margin-bottom: 1rem; object-fit: contain; }
         .partner-headshot { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; margin-bottom: .85rem; }
+        .partner-monogram {
+          display: inline-flex; align-items: center; justify-content: center;
+          width: 56px; height: 56px; border-radius: 50%;
+          background: var(--vgp-warm-gold); color: var(--vgp-navy);
+          font-family: var(--font-serif); font-weight: 700; font-size: 1.3rem;
+          letter-spacing: .02em; margin-bottom: .85rem;
+        }
       </style>
 
       <div class="vgp-card vgp-bg-pale vgp-center vgp-mt" style="border:none;">
