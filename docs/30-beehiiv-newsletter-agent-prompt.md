@@ -162,14 +162,23 @@ Produce a PASS/FAIL report with the next action per FAIL.
   report + sign-off list, with the used rows marked in the database after
   send. Nothing sends until a human says so.
 
-## Operational wiring (current state)
+## Operational wiring (current state, verified 2026-08-13)
 
+- **beehiiv**: publication "The Brand Blueprint Founder Signal"
+  (`pub_db4b4f77-fd65-4837-bc5d-f7ecce3a9560`) with active tier
+  "Founder Network" at $99.00/month
+  (`tier_60d240a2-ad80-4dc5-a587-b9a81696fdb6`). Verified via API.
 - **Database branch**: `newsletter-intelligence` carries
   `newsletter/intelligence-database.csv` (seeded, header row committed).
   Weekly sweep runs append rows there.
-- **Weekly Routine**: a fresh-session cron Routine runs the Mode 2 sweep on
-  `SWEEP_FREQUENCY`. Creating/updating the Routine requires an interactive
-  approval, so it is set up from an attended session.
-- **Drive mirror**: the Google Sheet mirror of the database is created once
-  the Drive connector is authorized for non-interactive writes; until then
-  the CSV in this repo is the system-of-record.
+- **Weekly Routine**: `trig_01Uwk9GUfhn6eM4a92Po6T5s` — "The Founder Signal
+  — weekly intelligence sweep", cron `0 14 * * 1` (Mondays 14:00 UTC =
+  9:00 AM Central during DST), fresh session per run, push notification on
+  completion. Note: the Routine's sessions run without MCP connectors, so
+  sweeps write to the repo CSV only.
+- **Drive mirror**: Google Sheet "The Founder Signal — Intelligence
+  Database", file ID `1Xm1VhZNpljbUIwsBRknCzlFey0jKFzqbl2Xu6lJ7bDE`, in the
+  same Drive folder as "Template — Founder Intelligence Database". Header
+  row seeded with the schema. The connected Drive tooling has no
+  append/update call, so the Sheet is a member-shareable snapshot refreshed
+  from the repo CSV in attended sessions — the CSV is the system-of-record.
