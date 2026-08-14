@@ -35,6 +35,7 @@ Live domains (`thebrandblueprint.biz`, `valugrowthpartners.com`) were **not modi
 | [docs/20-vgp-headless-build.md](docs/20-vgp-headless-build.md) | **VGP headless build** — decision, status, guardrail proof (code in [`vgp-headless/`](vgp-headless/)) |
 | [docs/21-vgp-go-forward-architecture.md](docs/21-vgp-go-forward-architecture.md) | **Wix-free / HubSpot-centric plan** — stack, HubSpot lead capture (built), Dana's migration steps |
 | [docs/34-founder-resource-directory-exposure.md](docs/34-founder-resource-directory-exposure.md) | **Founder Resource Directory exposure decision** — stays gated on Brand Blueprint (Shopify); not public on VGP; verification + data-preservation record |
+| [docs/35-founder-network-shopify-launch-audit.md](docs/35-founder-network-shopify-launch-audit.md) | **Founder Network Shopify member-delivery audit + launch checklist** — gating verified, 6 collections still to populate, Dana's test list |
 
 ## What can and cannot be done via API
 
