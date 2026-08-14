@@ -91,7 +91,28 @@ Ecosystem Guide is linked, not republished (third-party publication).
 Refreshed ★ START HERE (old version archived by rename) · Member Use & Legal Notice ·
 BB_Member_Founder-Network-Playbook_v1.docx.
 
-## RIGHTS TO CLEAR (confirm before any member-facing use)
+## RIGHTS DECISIONS — resolved with Dana, 2026-08-14
+
+1. **Business Strategy Presentation Template.pdf** — confirmed third-party. Will not be published. CLOSED.
+2. **Beauty VCs.jpeg** — confirmed third-party screenshot. Will not be published. CLOSED.
+3. **Charlotte Startup Ecosystem Guide** — the guide itself stays unpublished (publisher's IP).
+   Per Dana's direction, the nationally-relevant organizations were extracted as facts (names,
+   official links, descriptions written fresh in our own words) into a new owned resource:
+   **PRT-03 · BB_Partners_National-Founder-Resource-Organizations_v1** in folder 07 — national
+   mentoring/education, programs for underrepresented founders, funding, talent, and
+   broad-reach Carolinas/Southeast organizations. CLOSED.
+4. **Stock photography in the seminar/masterclass decks and one-pager suite** — Dana confirmed
+   the decks are VGP/Brand Blueprint creations; publication approved (decks were already in the
+   hub). CLOSED.
+5. **Fonts** — audited every published Office file (all five source DOCX and the Capital
+   Strategy Masterclass PPTX): only standard system fonts in use (Aptos, Calibri, Arial,
+   Cambria, Times New Roman). No Söhne, Tiempos, or other paid fonts found anywhere in the
+   published set, so nothing needed swapping. All new artwork and branded covers use free
+   stacks (Georgia/Playfair-class serif, Inter/Arial sans). CLOSED.
+
+All REVIEW WITH DANA holds below were confirmed by Dana as correctly held back — no changes.
+
+## RIGHTS TO CLEAR (original list, kept for the record — all items resolved above)
 
 1. **Business Strategy Presentation Template.pdf** — appears to be a third-party presentation
    template; confirm license before distributing. Not published.
