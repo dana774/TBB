@@ -34,6 +34,7 @@ Live domains (`thebrandblueprint.biz`, `valugrowthpartners.com`) were **not modi
 | [docs/19-vgp-studio-design-system-setup.md](docs/19-vgp-studio-design-system-setup.md) | VGP Wix Studio Global Styles input sheet (colors, text themes, buttons, spacing) |
 | [docs/20-vgp-headless-build.md](docs/20-vgp-headless-build.md) | **VGP headless build** — decision, status, guardrail proof (code in [`vgp-headless/`](vgp-headless/)) |
 | [docs/21-vgp-go-forward-architecture.md](docs/21-vgp-go-forward-architecture.md) | **Wix-free / HubSpot-centric plan** — stack, HubSpot lead capture (built), Dana's migration steps |
+| [docs/22-founder-resource-directory-exposure.md](docs/22-founder-resource-directory-exposure.md) | **Founder Resource Directory exposure decision** — stays gated on Brand Blueprint (Shopify); not public on VGP; verification + data-preservation record |
 
 ## What can and cannot be done via API
 
