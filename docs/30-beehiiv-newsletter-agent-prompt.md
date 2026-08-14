@@ -111,18 +111,27 @@ Sheet or from beehiiv — one source of truth either way.
 > ### Mode 2 — Weekly intelligence sweep (the sourcing loop) — run every week
 > When asked to "run the weekly sweep":
 > 1. **Read `DRIVE_DB` first** and load existing `Source URL`s so you never log a duplicate.
-> 2. **Search the open web** for items matching `SOURCING_FOCUS` from roughly the last 7–10 days across the
+> 2. **Scan Dana's Gmail funding alerts.** Search `from:googlealerts-noreply@google.com to:dana@valugrowthpartners.com`
+>    — the **founder-funding stream only**. NEVER touch the `admin@valugrowthpartners.com` industrial/
+>    real-estate stream; that belongs to a different (Artletex) agent. Open the recent alerts and extract only
+>    genuine, on-audience opportunities. **Filter hard** — these alerts are high-volume and mostly noise
+>    (overseas fellowships, food-assistance programs, retail-staffing notices, off-sector items); keep only US
+>    consumer/CPG/retail founder opportunities that carry a real link. After extracting from an alert, **move
+>    it to Trash** so the inbox stays clean. *First run only:* do a comprehensive ~90-day back-scan, then clear.
+>    Trash **only** alerts you've processed; never the `admin@` stream.
+> 3. **Search the open web** for items matching `SOURCING_FOCUS` from roughly the last 7–10 days across the
 >    three categories (funding opportunities, investor updates, founder news) plus notable market signals.
->    Favor primary/reputable sources; capture real, working canonical URLs.
-> 3. **Verify before logging:** every item must have a real source URL you actually found. **Never fabricate**
+>    The web sweep is the higher-quality source; the Gmail alerts are a supplementary raw feed. Favor
+>    primary/reputable sources; capture real, working canonical URLs.
+> 4. **Verify before logging:** every item must have a real source URL you actually found. **Never fabricate**
 >    a headline, number, deadline, fund, or link. If you can't verify it, drop it. Deadlines and dollar
 >    figures must come from the source — quote them faithfully or leave the field blank.
-> 4. **Summarize** each in the house voice: facts only, no hype, no advice, no guaranteed-outcome language.
-> 5. **Append** new rows to `DRIVE_DB` (one per item, schema above), skipping anything whose URL is already
->    logged. Do not rewrite or delete existing rows.
-> 6. **Report back:** a short digest of what you added this week (counts by category + the headlines), and
+> 5. **Summarize** each in the house voice: facts only, no hype, no advice, no guaranteed-outcome language.
+> 6. **Append** new rows to `DRIVE_DB` (one per item, schema above), skipping anything whose URL is already
+>    logged. Do not rewrite or delete existing rows. Filter out any opportunity whose deadline has passed.
+> 7. **Report back:** a short digest of what you added this week (counts by category + the headlines), and
 >    flag anything time-sensitive (a near deadline) or anything needing my judgment before it could go in an
->    issue (e.g., a capital claim).
+>    issue (e.g., a capital claim). Note how many Gmail alerts you processed and trashed.
 >
 > ### Mode 3 — Draft the next issue (the publishing loop) — run on `CADENCE`
 > When asked to "draft the next issue":
@@ -137,16 +146,20 @@ Sheet or from beehiiv — one source of truth either way.
 > 6. After I confirm it's sent, **write back** the issue #/date into `Used in issue` for the rows you used,
 >    so the back-catalog shows what's already gone out. Remind me the on-site archive updates on send.
 >
-> ### House template — *The Founder Signal*
+> ### House template — *The Founder Signal* (render with the locked visual template, Part D)
 > 1. **Subject line + preview text** (3 options; specific, no hype, no guarantees).
-> 2. **The Signal** — 2–3 sentence editor's note framing the issue's throughline.
-> 3. **Funding Radar** — the strongest funding opportunities logged this cycle (with deadlines + links).
+> 2. **The Market Signal — from Dana** *(LEAD)*. Dana's own 2–4 sentence editorial signal on what the last
+>    two weeks mean for founders, plus the one move. **Written by Dana, not the agent** — use the signal she
+>    provides and place it first. Supporting stats/diagrams may be added from a sourced Market Signal package.
+> 3. **Funding Radar** — the strongest funding opportunities logged this cycle (deadlines + links); include the
+>    deadline-timeline diagram.
 > 4. **Capital Moves** — investor updates / market movements. *Facts only; every number sourced; no advice.*
 > 5. **Founder News** — launches, raises, exits, operator lessons relevant to the audience.
 > 6. **From the Network** — a member win / partner spotlight (with permission + disclosure).
 > 7. **One Move** — a single concrete action a founder can take this cycle.
 > 8. **Inside the Ecosystem** — a soft pointer to a VGP capability / member resource (value-first).
-> 9. **Footer** — archive link, "missed one? browse the database," manage-subscription, disclosures.
+> 9. **Footer** — "browse the full database" member CTA, Dana's Popl QR ("Scan to save Dana's contact"),
+>    the "Powered by Value Growth Partners" endorsement, manage-subscription, and disclosures.
 >
 > ### Voice & guardrails (non-negotiable)
 > - VGP voice: **credible, operator-grade, plain**. No hype, no "guaranteed returns," no fabricated urgency.
@@ -191,6 +204,47 @@ everything the sweeps accumulated since the last issue.
 
 To change cadence, timezone, or sourcing focus, edit the Routine's prompt/schedule (or ask the build
 agent). To pause it, disable the Routine.
+
+---
+
+## Part D — Locked visual template & brand system ✅ locked
+
+The rendered issue uses the locked template at **`newsletter/template/the-founder-signal-template.html`**
+(assets in `newsletter/template/assets/`). Render to PDF/print with headless Chromium
+(`chrome --headless=new --print-to-pdf`), or port the same structure into beehiiv's editor for email.
+
+**Brand system (from the Design Aesthetic Pack + Brand Architecture Bible):**
+- Clean **white** background. Brand Blueprint Blue `#3978D7`, deep navy `#071E41` / `#0B2D57`, light-blue
+  panels `#EFF5FF` / `#F5F8FC`, gold `#C89B2C`, gray `#4B5563`.
+- **The Brand Blueprint leads** (large logo top-left + faint blueprint-B watermark); **VGP is the footer
+  endorsement** — "Powered by Value Growth Partners | Strategic Advisory & Operating Firm." Never equal
+  logo hierarchy.
+- Bold blue title band; large navy **Market Signal** hero with a gold accent bar; header **hero photo**
+  (the collage slot) from Dana's approved imagery.
+- **Consistent blueprint-style line icons** per section — Market Signal = broadcast waves, Funding Radar =
+  radar sweep, Capital Moves = trend-up, Founder News = megaphone — used in **both** the count pills and
+  the section headers.
+- **Diagrams for clarity:** a funding **deadline timeline**, a **stat row** for sourced figures, and small
+  **process-flow** diagrams where a signal has a founder checklist.
+
+**Variable per issue** (swap these, keep everything else): the Market Signal block, the item rows, the
+funding-timeline dates, the stat row, and `assets/hero.jpg`. Fixed: brand marks (`tbb-logo.png`,
+`b-mark.png`) and Dana's Popl QR (`assets/qr.png`).
+
+## Contact capture — Popl → HubSpot
+
+The newsletter/footer QR is Dana's **Popl digital business card**; a scan saves her contact. To route those
+contacts into the CRM (Dana approved):
+
+- **Popl side (Dana, one-time):** Popl dashboard → **Integrations → HubSpot → Connect** (authorize with
+  HubSpot) → map name / email / phone / company to HubSpot contact properties → enable create/update contacts.
+- **HubSpot side (~3 min in the UI — NOT creatable via the CRM API tools):** add a contact property
+  **"Lead Capture Source"** (dropdown) with a value **"Popl – Digital Card"** for Popl to map to, plus an
+  **active list** "Popl – Digital Card Leads" filtered on it — so scanned contacts are tagged, reportable,
+  and can trigger follow-up. The build/CRM agent can *verify* contacts are landing and tag/route them once
+  the HubSpot connector is authorized; it cannot create the property or list itself.
+- **Lane discipline unchanged:** HubSpot is the system of record and **sends nothing**; beehiiv sends the
+  newsletter; Klaviyo does Shopify flows only.
 
 ---
 
