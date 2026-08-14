@@ -12,12 +12,19 @@ newsletter/issues/
     issue.html                         # HTML source (from the locked template)
 ```
 
-## Filing an issue (do this on every send)
-1. Render the approved issue from `newsletter/template/` to `issue.pdf` (+ keep the `issue.html`).
-2. Create `newsletter/issues/<YYYY-MM-DD-founder-signal-slug>/` and drop both files in.
-3. Append an entry to `catalog.json` with: date, title, market_signal, slug, pdf/html paths,
-   `status: "sent"`, `sent_date`, `beehiiv_url`, and `drive_file_id` (once mirrored to Drive).
-4. Mirror `issue.pdf` to the Google Drive member folder (see `docs/33`) and record its `drive_file_id`.
+## Filing an issue (one command — do this on every send)
+Render the approved issue to PDF, then run the helper — it creates the folder, copies the files, and
+updates `catalog.json` for you (idempotent; safe to re-run):
+
+```
+python3 newsletter/file-issue.py \
+  --pdf <issue.pdf> --html <issue.html> \
+  --title "<title>" --market-signal "<this issue's signal>" \
+  --date YYYY-MM-DD --status sent --beehiiv-url <url>
+```
+
+Then mirror `issue.pdf` to the Google Drive member folder (doc 33) and re-run with `--drive-file-id <id>`
+to record the link. **Don't hand-edit `catalog.json`** — let the script own it so the format stays valid.
 
 ## Member access
 Members reach the archive two ways (both gated to the Founder Network): the on-site

@@ -145,6 +145,12 @@ Sheet or from beehiiv — one source of truth either way.
 >    sign-off list of every claim needing my approval.
 > 6. After I confirm it's sent, **write back** the issue #/date into `Used in issue` for the rows you used,
 >    so the back-catalog shows what's already gone out. Remind me the on-site archive updates on send.
+> 7. **File the issue — required, never skip (doc 33).** Render the final approved issue to PDF, then run
+>    `python3 newsletter/file-issue.py --pdf <issue.pdf> --html <issue.html> --title "<title>"
+>    --market-signal "<signal>" --date <YYYY-MM-DD> --status sent --beehiiv-url <url>`. This saves the issue
+>    under `newsletter/issues/<slug>/` and appends it to `catalog.json` (idempotent). Then mirror the PDF to
+>    the Drive archive folder and re-run with `--drive-file-id`. **The issue is not done until it is filed and
+>    cataloged** — this is what feeds the members' archive.
 >
 > ### House template — *The Founder Signal* (render with the locked visual template, Part D)
 > 1. **Subject line + preview text** (3 options; specific, no hype, no guarantees).
@@ -177,7 +183,9 @@ Sheet or from beehiiv — one source of truth either way.
 > ### Definition of done
 > - *Weekly sweep:* new, deduped, verified rows in `DRIVE_DB` + a digest of what was added.
 > - *Issue:* a staged beehiiv draft + 3 subject lines + preview text + QA report + sign-off list, with the
->   used rows marked in the database after you send. Nothing sends until I say so.
+>   used rows marked in the database after you send. Nothing sends until I say so. **After send, the issue is
+>   filed via `newsletter/file-issue.py` and `catalog.json` is updated** (doc 33) — an issue isn't done until
+>   it's archived.
 
 ---
 
