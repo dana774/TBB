@@ -63,3 +63,19 @@ and must be corrected to this rule:
   cross-brand rules).
 - The `FounderResourceDirectory` data stays the system-of-record and feeds the
   member-gated Partner/Resource experience on Brand Blueprint.
+
+## Follow-through — build prompt corrected (2026-08-14)
+`docs/20-vgp-headless-build-prompt.md` carried a `### /resources — Founder
+Resource Directory` section instructing a **public** category-filterable build.
+That section was replaced with the gated rule above (and its Hot List
+cross-reference fixed) on the **5 branches that contained it**:
+`bb-vgp-staging-rebuild-5ww6ql`, `founder-network-resource-standards-y6a9nm`,
+`founder-signal-agent-setup-93hxb2`, `hubspot-email-tracking-setup-1di0a9`,
+`newsletter-intelligence`.
+
+The other 3 branches carrying that prompt file
+(`hubspot-auth-key-hjcwr8`, `hubspot-structure-integrations-5ocgxs`,
+`vgp-funding-os-v2-deploy-4j9am4`) had **no** public `/resources` section — they
+already use a gated `/client-sign-in → protected client resources` model — so no
+change was needed. The canonical build branch (`new-session-q4or1d`, per doc 00)
+never had the section. Net: no branch now instructs a public directory build.
