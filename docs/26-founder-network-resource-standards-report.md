@@ -166,3 +166,38 @@ fill-in template was published instead — confirm the updated deck isn't client
   Canva, the Shopify build, or member emails.
 - The v5.0 blueprint's master Resource Catalog sheet (system of record) is a recommended next
   build — the resource IDs used here (CAP/RET/GTM/OPS/BRD/GOS/PRT) are ready to seed it.
+
+## POST-COMPLETION AUDIT — 2026-08-14
+
+Every folder was re-listed and verified against the delivery claims. All 38 placed files, all 14
+graphics, the Legal Notice, the refreshed START HERE (old one archived by rename), PRT-03, and
+both repo commits are confirmed present.
+
+**Parallel workstream discovered.** A sibling session was working in the hub concurrently. It had
+filed ~17 additional member resources on Aug 12–13 that Drive's search index had not yet surfaced
+when this session found the folders "empty" (native Sheets/Forms and renamed Office files in 02,
+03, and 06; CAP-11 Lender Readiness Questionnaire in 01), and it authored its own READMEs for
+01/04/05/07 plus a "What's New in the Hub — August 2026" doc. Same v5.0 standard, same file links,
+slightly different resource-ID numbering (PTR- vs PRT-, different OPS order).
+
+**Deduplication performed:** this session's duplicate READMEs in 04, 05, and 07 were moved to
+trash (recoverable), leaving exactly one README per folder — 01/04/05/07 from the sibling
+session, 02/03/06 from this one.
+
+**Remaining inconsistencies for Dana (nobody's files were deleted):**
+1. Byte-identical duplicates under two names in the same folder: 02 "Calculator — Retail,
+   Wholesale & Distributor Pricing" = BB_Retail_Profitable-Pricing-Calculator_v1.xlsx; 02
+   "Worksheet — 3-Year Stockist Strategy" = BB_Retail_Retail-Bootcamp-Activities_v1.docx; 06
+   "Template — Founder Intelligence Database" = BB_GrowthOS_Intelligence-Database-Template_v1.xlsx.
+   Pick one name each and trash the other.
+2. Cross-folder duplicates: 02 "Tracker — Stockist Outreach" and "Email Templates — Indie
+   Stockist Intro Sequence" are the same files as the BB_GTM_ copies in 03. Decide whether they
+   live in 02 or 03.
+3. The sibling-filed resources in 02 (Walmart SKU Tracker, PDP Scorecard, Inventory Count, P&L
+   worksheet) and 03 (Pitch Night Readiness form, Competitor Matrix, Customer Journey Map, Market
+   Sizing, Product Roadmap, 90-Day Sales Forecast) are not yet listed in the 02/03 READMEs
+   (authored before they became visible). One README edit per folder closes this.
+4. PRT-03 (National Founder Resource Organizations) postdates the surviving 07 README — add one
+   line linking it.
+5. The surviving 07 README relies on the hub-level Legal Notice for the explicit "VGP may receive
+   a referral fee" wording; the branded PRT-01 PDF cover carries it verbatim.
