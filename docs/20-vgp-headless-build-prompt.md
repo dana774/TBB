@@ -121,21 +121,16 @@ ladder with one naming family — do **NOT** surface Founder Accelerator, Launch
 Apex, legacy tiers, and Growth OS packages all at once. The 6 tier records exist as backstage/reference
 (editorial-review); Dana selects the single public ladder shown here.
 
-### `/resources` — Founder Resource Directory (dynamic on `FounderResourceDirectory`)
-A curated, browsable directory of **startup-friendly vendors** for founders, grouped by `category`
-(Contract Manufacturer · 3PL / Fulfillment · Warehouse / Flexible Space · Packaging). Per entry render
-`company`, `category`, `services`, `bestFit`, and a **"Learn more"** link to `website` (plus `email`/
-`phone` when present) and `sourceUrl`. Filter by category. These are **publicly-listed third-party
-vendors compiled as a resource** (not VGP partners and not endorsements) — include a short disclaimer:
-*"Curated for convenience; details are self-reported/public and should be independently verified. Not
-an endorsement or partnership."* Render only `status` = `published`.
+### Founder Resource Directory — GATED on Brand Blueprint (do NOT build a public VGP `/resources` page)
+The Founder Resource Directory (`FounderResourceDirectory`: Contract Manufacturer · 3PL / Fulfillment · Warehouse / Flexible Space · Packaging) is a **member benefit delivered inside the Brand Blueprint Founder Network (Shopify)** — it is **NOT** a public VGP page. Do **not** create a `/resources` route or any public, teaser, partial, or gated-preview rendering of this collection on the VGP site (Wix Studio or headless). The `FounderResourceDirectory` data stays the system-of-record and feeds the member-gated resource/partner experience on the Brand Blueprint / Shopify side only; never duplicate the entitlement across Wix and Shopify. (Decision: Dana 2026-08-14 — see doc 34 `founder-resource-directory-exposure`.)
+
 **Hot List (gated, NOT a public page):** the VGP Hot List weekly digest contains **founder fundraising
 data — raise amounts, capital secured, data-room links**. Do **not** build it as a public page or expose
 any founder raise/round/data-room field publicly. It is an **investor-gated** distribution behind member
 auth + an `investor` role, backed by the ADMIN-only `HotListIssues`/`HotListFeatures` collections and
 read only via a role-checked backend function. Full build spec (routes `/investors`,
 `/investors/hot-list`, consent gate, approval flow, audit): **see doc 21**. Its "Resource Partner
-Highlights" section maps to the public `/resources` + `Partners`.
+Highlights" section maps to `Partners` (the Founder Resource Directory is gated on Brand Blueprint, not a public VGP page).
 
 ### `/case-studies` + `/case-studies/{slug}` (dynamic on `CaseStudies`, 3)
 Render approved only. `client` **or** `anonymousLabel` (use anonymousLabel when consent not cleared),
