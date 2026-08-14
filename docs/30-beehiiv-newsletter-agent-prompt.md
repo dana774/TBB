@@ -104,10 +104,11 @@ Produce a PASS/FAIL report with the next action per FAIL.
    mark it "hold."
 4. QA against this doc and the guardrails; re-check that every stat still
    traces to a logged source URL.
-5. **Stage, don't send**: output (a) the full issue as clean HTML/Markdown
-   for beehiiv (or a beehiiv API `create draft` payload on request);
-   (b) 3 subject-line options + preview text; (c) a QA report; (d) a
-   sign-off list of every claim needing approval.
+5. **Stage, don't send**: stage the issue as a beehiiv **draft** built from
+   the issue template (see "Issue production flow" below) — every
+   [bracketed] placeholder replaced, every italic guidance paragraph
+   deleted. Also output: (b) 3 subject-line options + preview text; (c) a
+   QA report; (d) a sign-off list of every claim needing approval.
 6. After human confirmation that it's sent, write back the issue #/date into
    `Used in issue` for the rows used, so the back-catalog shows what's
    already gone out. Remind that the on-site archive updates on send.
@@ -176,9 +177,46 @@ Produce a PASS/FAIL report with the next action per FAIL.
   9:00 AM Central during DST), fresh session per run, push notification on
   completion. Note: the Routine's sessions run without MCP connectors, so
   sweeps write to the repo CSV only.
+- **Issue template**: beehiiv post template "The Founder Signal — Issue
+  Template" (`post_template_ba03cd90-6407-44af-9a7a-6346c43314ff`), themed
+  to the VGP brand (Playfair Display headings in Navy `#071E41`, Inter body
+  in `#4B5563`, Blueprint Blue `#3978D7` links/buttons, gold `#C89B2C`
+  eyebrow accents). Carries every house-template section as a card with
+  [bracketed] placeholders and italic guidance lines, default subject/
+  preview placeholders, and email+web recipients preset to paid tiers.
 - **Drive mirror**: Google Sheet "The Founder Signal — Intelligence
   Database", file ID `1Xm1VhZNpljbUIwsBRknCzlFey0jKFzqbl2Xu6lJ7bDE`, in the
   same Drive folder as "Template — Founder Intelligence Database". Header
   row seeded with the schema. The connected Drive tooling has no
   append/update call, so the Sheet is a member-shareable snapshot refreshed
   from the repo CSV in attended sessions — the CSV is the system-of-record.
+
+## Issue production flow (repo → beehiiv → send)
+
+The pipeline from accumulated intelligence to a sent issue:
+
+1. **Draft (agent, Mode 3)**: curate unused database rows into the house
+   sections.
+2. **Stage into beehiiv (agent)**: create a **draft post** whose body is
+   the issue template's structure with placeholders filled — via the
+   beehiiv MCP `save_post` (draft status) using the same section/card HTML
+   as the template, or by the human choosing "Start from template →
+   The Founder Signal — Issue Template" in the beehiiv editor and pasting
+   the drafted copy in. Never edit the template itself with issue content —
+   the template stays clean; each issue is its own post.
+3. **Placeholder discipline**: every `[bracketed]` slot replaced or its
+   section deleted/marked hold; every *italic guidance paragraph* deleted;
+   subject + preview text set from the 3 staged options. A draft containing
+   a literal `[` placeholder or guidance line fails QA.
+4. **Review (human)**: open the draft in beehiiv, check the QA report and
+   sign-off list, adjust, then **send from beehiiv** (audience is preset to
+   the paid tiers). The agent never schedules or sends.
+5. **Write-back (agent, after human confirms send)**: stamp `Used in issue`
+   on the rows used, in the repo CSV.
+
+Template placement notes: the masthead card, section cards, One Move
+(pale-blue/gold) card, and footer links (archive, database Sheet, manage
+preferences, unsubscribe merge tags) are all part of the template body —
+new sections belong inside a card with an eyebrow label to match. beehiiv
+appends its own compliance footer with the publication address and
+unsubscribe link on send.
