@@ -113,25 +113,83 @@ Produce a PASS/FAIL report with the next action per FAIL.
    `Used in issue` for the rows used, so the back-catalog shows what's
    already gone out. Remind that the on-site archive updates on send.
 
-## House template — The Founder Signal
+## House template — The Founder Signal (v2, matches the beehiiv template)
 
 1. **Subject line + preview text** (3 options; specific, no hype, no
    guarantees).
-2. **The Signal** — 2–3 sentence editor's note framing the issue's
-   throughline.
-3. **Funding Radar** — the strongest funding opportunities logged this cycle
-   (with deadlines + links).
-4. **Capital Moves** — investor updates / market movements. Facts only;
+2. **Masthead** — cadence · issue # · date · coverage window · scope line.
+3. **The Market Signal (from Dana)** — headline, 1–2 paragraphs on one
+   decision founders face, a "**The move:**" action, Dana's byline.
+4. **Stat row / step path (optional)** — 2–3 stat tiles and/or a numbered
+   step path supporting the Market Signal. Only with a named source;
+   otherwise cut.
+5. **This issue's sweep** — total verified items, counts per section, and
+   what was filtered out (expired items by name, off-target alerts).
+6. **Funding Radar** — deadline table (soonest first, "Open now" on top),
+   then one block per item: headline link · badge · summary ·
+   "Why it matters" · Deadline · Fit (region · sector · stage) · Source.
+7. **Capital Moves** — same block shape, no Deadline line. Facts only;
    every number sourced; no advice.
-5. **Founder News** — launches, raises, exits, operator lessons relevant to
-   the audience.
-6. **From the Network** — a member win / partner spotlight (with permission
-   + disclosure).
-7. **One Move** — a single concrete action a founder can take this cycle.
-8. **Inside the Ecosystem** — a soft pointer to a VGP capability / member
-   resource (value-first).
-9. **Footer** — archive link, "missed one? browse the database,"
-   manage-subscription, disclosures.
+8. **Founder News** — same block shape; launches, raises, exits, operator
+   lessons.
+9. **From the Network (optional)** — member win / partner spotlight (with
+   permission + disclosure); delete if none.
+10. **Pre-send sign-off card** — gold-bordered staging card listing every
+    capital figure, unsourced stat, and non-canonical link awaiting
+    approval. **Deleted before send.**
+11. **Members database CTA** — pointer + button to the intelligence
+    database Sheet.
+12. **Footer** — methodology line (sweep + alerts, dedupe, verification,
+    figures-as-found), "Powered by Value Growth Partners," archive link,
+    manage-preferences, unsubscribe.
+
+**Badge conventions** (styled spans, uppercase, 12px bold): status badges
+in Blueprint Blue `#3978D7` (`OPEN NOW`, `EARLY-BIRD OPEN`); provenance
+badge in gold `#C89B2C` (`FROM YOUR ALERTS` for Gmail-alert-sourced items);
+review flags in gold with a warning mark (`⚠ REVIEW: $ FIGURE`). Review
+flags and the sign-off card exist only in staged drafts — both are removed
+after human approval, before send.
+
+## Draft handoff format (newsletter agent → beehiiv build)
+
+Alongside (or instead of) a designed PDF, every issue draft must include a
+plain-text/Markdown handoff with these fields, so the build step can
+populate the beehiiv template without guessing:
+
+```
+ISSUE META
+Issue #: · Date: · Coverage window: [start–end]
+Subject options (3): · Preview text:
+
+MARKET SIGNAL
+Headline: · Body (1–2 paras): · The move:
+Stats (optional): value + caption + NAMED SOURCE each
+Steps (optional): 3–4 steps + caption/source
+
+SWEEP SUMMARY
+Total verified: · Funding Radar N · Capital Moves N · Founder News N
+Filtered out: [named expired items + off-target categories]
+
+ITEM (repeat per item)
+Section: Funding Radar | Capital Moves | Founder News
+Headline: · Badge: OPEN NOW | EARLY-BIRD OPEN | FROM YOUR ALERTS | none
+Summary (2–3 sentences): · Why it matters (1 sentence):
+Deadline: (Funding Radar only) · Fit: region · sector · stage
+Source name: · Source URL: (CANONICAL article URL — not a bare domain)
+Sign-off flag: no | yes + reason (any $ figure = yes)
+
+SIGN-OFF LIST
+- every $ figure, unsourced stat, and pending-permission item
+
+NETWORK (optional)
+Spotlight text + permission status + disclosure line
+```
+
+Hard rules for the handoff: canonical article URLs are mandatory (a bare
+domain fails QA); every stat carries a named source or is dropped; figures
+quoted verbatim from the source; images/QR codes must be delivered as
+separate image files (they cannot be extracted from a PDF) — the beehiiv
+build substitutes a button link when no asset is provided.
 
 ## Voice & guardrails (non-negotiable)
 
@@ -181,9 +239,11 @@ Produce a PASS/FAIL report with the next action per FAIL.
   Template" (`post_template_ba03cd90-6407-44af-9a7a-6346c43314ff`), themed
   to the VGP brand (Playfair Display headings in Navy `#071E41`, Inter body
   in `#4B5563`, Blueprint Blue `#3978D7` links/buttons, gold `#C89B2C`
-  eyebrow accents). Carries every house-template section as a card with
+  eyebrow accents). Carries every house-template v2 section as a card with
   [bracketed] placeholders and italic guidance lines, default subject/
   preview placeholders, and email+web recipients preset to paid tiers.
+  First populated draft staged 2026-08-14 from the Aug 13 format-review
+  sample (`post_29ce724e-61ee-44b9-96e1-792936b0860d`, status draft).
 - **Drive mirror**: Google Sheet "The Founder Signal — Intelligence
   Database", file ID `1Xm1VhZNpljbUIwsBRknCzlFey0jKFzqbl2Xu6lJ7bDE`, in the
   same Drive folder as "Template — Founder Intelligence Database". Header
