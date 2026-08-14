@@ -1,0 +1,19 @@
+{
+  "publication": "The Founder Signal",
+  "notes": "Master catalog of newsletter issues. Feeds the gated /members/newsletter archive and the Google Drive member mirror. One object per issue; append on each send.",
+  "issues": [
+    {
+      "issue": "sample",
+      "date": "2026-08-13",
+      "title": "Funding, capital moves & founder news",
+      "market_signal": "Your barcode is becoming a data system (GS1 Sunrise 2027)",
+      "slug": "2026-08-13-founder-signal-sample",
+      "pdf": "newsletter/issues/2026-08-13-founder-signal-sample/issue.pdf",
+      "html": "newsletter/issues/2026-08-13-founder-signal-sample/issue.html",
+      "status": "sample",
+      "sent_date": null,
+      "beehiiv_url": null,
+      "drive_file_id": null
+    }
+  ]
+}
