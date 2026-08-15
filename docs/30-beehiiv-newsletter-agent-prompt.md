@@ -244,6 +244,19 @@ build substitutes a button link when no asset is provided.
   preview placeholders, and email+web recipients preset to paid tiers.
   First populated draft staged 2026-08-14 from the Aug 13 format-review
   sample (`post_29ce724e-61ee-44b9-96e1-792936b0860d`, status draft).
+- **Audience gating (verified 2026-08-14)**: single paid tier "Founder
+  Network" $99/mo (gifting enabled; name trailing-space fixed). Issues and
+  the template target paid tiers only on both email and web, so free
+  beehiiv signups never receive member content. Current subscribers: 2
+  (both Dana's addresses, free tier — must be comped to receive issues).
+  No segments, no automations. Remaining setup: comp Dana's addresses; set
+  the email-footer postal address + copyright in beehiiv settings
+  (CAN-SPAM — currently blank); keep all payment on Shopify (do not
+  connect beehiiv's own Stripe checkout); build `/api/member-provision`
+  (Shopify $99+ purchase webhook → beehiiv gift/comp on Founder Network →
+  downgrade on cancellation). Until that endpoint exists, members are
+  added manually in the beehiiv UI (Add subscriber → Gift premium →
+  Founder Network).
 - **Drive mirror**: Google Sheet "The Founder Signal — Intelligence
   Database", file ID `1Xm1VhZNpljbUIwsBRknCzlFey0jKFzqbl2Xu6lJ7bDE`, in the
   same Drive folder as "Template — Founder Intelligence Database". Header

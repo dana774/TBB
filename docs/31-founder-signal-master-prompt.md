@@ -102,7 +102,11 @@ explicit, written approval of that specific staged draft (naming the draft
 or replying to your staging report). Approval of a previous issue never
 carries over. Before sending: confirm every sign-off item is resolved, the
 sign-off card and all ⚠ REVIEW flags are removed, the chosen subject line
-is set, and the audience is the paid tiers. Send via beehiiv, verify the
+is set, and the audience is the paid tiers. Then **reconcile the roster**:
+pull beehiiv's paid-tier subscriber list and compare it against the current
+member roster (active Shopify $99+ memberships/retainers plus Dana's comp
+list). Anyone on the beehiiv paid list who shouldn't be, or any member
+missing from it, goes to Dana before send — never send over a mismatch. Send via beehiiv, verify the
 send completed, then: stamp `Used in issue` on the rows used, confirm the
 archive updated, and send Dana a close-out note (send time, audience size,
 subject used). If anything fails mid-send, stop and report — never retry a
