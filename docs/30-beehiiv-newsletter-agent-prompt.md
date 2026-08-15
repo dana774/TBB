@@ -133,13 +133,19 @@ Produce a PASS/FAIL report with the next action per FAIL.
 8. **Founder News** — same block shape; launches, raises, exits, operator
    lessons.
 9. **From the Network (optional)** — member win / partner spotlight (with
-   permission + disclosure); delete if none.
-10. **Pre-send sign-off card** — gold-bordered staging card listing every
+   permission + disclosure); delete if none. When referral partners or
+   sponsors come online, they run here (or in a dedicated sponsor card)
+   with a plain "Partner"/"Sponsored" disclosure — never undisclosed.
+10. **Inside The Brand Blueprint** — the standing mid-funnel slot: a 1–2
+    sentence "what's next on The Brand Blueprint" update + the latest
+    episode embed (thumbnail + title render automatically from the episode
+    URL) + a "Watch the latest episode" button. Value-first, no hard sell.
+11. **Pre-send sign-off card** — gold-bordered staging card listing every
     capital figure, unsourced stat, and non-canonical link awaiting
     approval. **Deleted before send.**
-11. **Members database CTA** — pointer + button to the intelligence
+12. **Members database CTA** — pointer + button to the intelligence
     database Sheet.
-12. **Footer** — methodology line (sweep + alerts, dedupe, verification,
+13. **Footer** — methodology line (sweep + alerts, dedupe, verification,
     figures-as-found), "Powered by Value Growth Partners," archive link,
     manage-preferences, unsubscribe.
 
@@ -183,6 +189,9 @@ SIGN-OFF LIST
 
 NETWORK (optional)
 Spotlight text + permission status + disclosure line
+
+BRAND BLUEPRINT (every issue)
+What's next (1–2 sentences): · Latest episode URL: · Episode title:
 ```
 
 Hard rules for the handoff: canonical article URLs are mandatory (a bare
@@ -257,6 +266,22 @@ build substitutes a button link when no asset is provided.
   downgrade on cancellation). Until that endpoint exists, members are
   added manually in the beehiiv UI (Add subscriber → Gift premium →
   Founder Network).
+- **Publication settings (applied 2026-08-15)**: double opt-in ON (+
+  48-hour smart nudge) for organic signups; sender name "The Founder
+  Signal"; footer copyright/contact line "Value Growth Partners | The
+  Brand Blueprint · admin@valugrowthpartners.com"; publication description
+  set (feeds beehiiv discovery/recommendations); automatic UTM tagging
+  already on. Still pending: the physical mailing address in the email
+  footer (CAN-SPAM — Dana to supply), and comping Dana's two addresses
+  (dana@valugrowthpartners.com, danaammons26@gmail.com) to Founder
+  Network in the UI.
+- **Funnel roadmap (beehiiv features available on this plan)**: now — the
+  "Inside The Brand Blueprint" episode card in every issue; later —
+  From-the-Network partner/sponsor placements (plain disclosure required),
+  beehiiv referral program (member-gets-member), polls for engagement
+  signal, and the beehiiv Ad Network for founder-targeted ads when the
+  list is large enough. All monetized placements go through Dana's
+  sign-off list.
 - **Drive mirror**: Google Sheet "The Founder Signal — Intelligence
   Database", file ID `1Xm1VhZNpljbUIwsBRknCzlFey0jKFzqbl2Xu6lJ7bDE`, in the
   same Drive folder as "Template — Founder Intelligence Database". Header
