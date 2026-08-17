@@ -264,8 +264,14 @@ build substitutes a button link when no asset is provided.
   connect beehiiv's own Stripe checkout); build `/api/member-provision`
   (Shopify $99+ purchase webhook → beehiiv gift/comp on Founder Network →
   downgrade on cancellation). Until that endpoint exists, members are
-  added manually in the beehiiv UI (Add subscriber → Gift premium →
-  Founder Network).
+  comped manually in the beehiiv UI via **Complimentary access**:
+  Subscriptions → Offers tab → Complimentary access section → create the
+  grant (tier Founder Network + duration) once; after it exists, apply it
+  per subscriber from their profile (Audience → Subscribers → open the
+  subscriber) or in bulk via a Segment. Note: "Gifts" (Tiers tab) are
+  reader-purchased Stripe gifts, not publisher comps — the comp mechanism
+  is Complimentary access only, and no option appears on subscriber
+  profiles until the grant has been created.
 - **Publication settings (applied 2026-08-15)**: double opt-in ON (+
   48-hour smart nudge) for organic signups; sender name "The Founder
   Signal"; footer copyright/contact line "Value Growth Partners | The
