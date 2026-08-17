@@ -271,10 +271,11 @@ build substitutes a button link when no asset is provided.
   Signal"; footer copyright/contact line "Value Growth Partners | The
   Brand Blueprint · admin@valugrowthpartners.com"; publication description
   set (feeds beehiiv discovery/recommendations); automatic UTM tagging
-  already on. Still pending: the physical mailing address in the email
-  footer (CAN-SPAM — Dana to supply), and comping Dana's two addresses
-  (dana@valugrowthpartners.com, danaammons26@gmail.com) to Founder
-  Network in the UI.
+  already on. Footer mailing address set 2026-08-15 (1565 Benton Blvd,
+  Suite 1103, Savannah, GA 31407 — a suite address, so no personal address
+  is exposed; CAN-SPAM satisfied). Still pending: comping Dana's two
+  addresses (dana@valugrowthpartners.com, danaammons26@gmail.com) to
+  Founder Network in the UI.
 - **Funnel roadmap (beehiiv features available on this plan)**: now — the
   "Inside The Brand Blueprint" episode card in every issue; later —
   From-the-Network partner/sponsor placements (plain disclosure required),
