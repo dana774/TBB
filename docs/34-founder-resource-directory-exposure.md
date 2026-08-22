@@ -1,4 +1,4 @@
-# 22 — Founder Resource Directory: exposure decision + verification (2026-08-14)
+# 34 — Founder Resource Directory: exposure decision + verification (2026-08-14)
 
 ## Decision (Dana, 2026-08-14) — FINAL
 The **Founder Resource Directory** (contract manufacturers, 3PL/fulfillment,
@@ -57,12 +57,16 @@ go-ahead before making this mutation.**
 Any build prompt or automation that describes publishing this directory on the
 **VGP site (Wix Studio or headless), Vercel, or as a public page** is **incorrect**
 and must be corrected to this rule:
-- Delivery is **gated, on the Brand Blueprint / Shopify (Appstle) side only.**
+- Delivery is **gated on the Brand Blueprint / Shopify side only** — via **Shopify
+  Subscriptions** ($99/mo) plus the native theme gate `bb-member-gate.liquid`
+  (`customer.tags contains "Founder Network"`, tag applied by Shopify Flow). **Appstle
+  is no longer used** (uninstalled in the 2026-08-14 platform reset; see doc 35).
 - **Do not** build or expose the directory on VGP.
 - **Do not** duplicate the entitlement across Wix and Shopify (doc 20 / doc 11
   cross-brand rules).
 - The `FounderResourceDirectory` data stays the system-of-record and feeds the
-  member-gated Partner/Resource experience on Brand Blueprint.
+  member-gated Partner/Resource experience on Brand Blueprint (the `member-partner-directory`
+  collection → `resource` metaobjects with `collection_name = "Partner Network + Expert Routing"`).
 
 ## Follow-through — build prompt corrected (2026-08-14)
 `docs/20-vgp-headless-build-prompt.md` carried a `### /resources — Founder
