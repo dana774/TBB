@@ -2,7 +2,14 @@
 import Base from '../../layouts/Base.astro';
 // Scaffold — funding partner names & details pending from Dana. Add each as a
 // card below (or wire into content.ts as a `fundingPartners` collection) once confirmed.
-const fundingPartners: { name: string; focus: string; blurb: string }[] = [];
+const fundingPartners: { name: string; focus: string; blurb: string; website?: string }[] = [
+  {
+    name: 'C2FO — Lending Connections',
+    focus: 'Working capital & lender matchmaking',
+    blurb: 'C2FO runs the world’s largest working-capital platform, and through Lending Connections it matches businesses with a vetted network of lenders — receivables finance, term loans, asset-based lending and factoring. A strong fit for founders who need capital to fund expansion POs, product innovation or staffing, and for teams working through P&L stabilization and turnaround.',
+    website: 'https://c2fo.com/supplier-solutions/lending-connections/',
+  },
+];
 ---
 <Base
   title="Funding Partners"
@@ -31,6 +38,8 @@ const fundingPartners: { name: string; focus: string; blurb: string }[] = [];
               <h4>{f.name}</h4>
               <p style="color:var(--vgp-navy); font-weight:600; margin-bottom:.4rem;">{f.focus}</p>
               <p>{f.blurb}</p>
+              {f.website && <a href={f.website} target="_blank" rel="noopener">Learn more ↗</a>}
+              <p style="margin-top:.6rem; font-size:.9rem; color:var(--vgp-body-gray);">Introductions are made warmly through VGP.</p>
             </article>
           ))}
         </div>

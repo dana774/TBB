@@ -33,7 +33,15 @@ data current from a single source of truth.
 - Kaylee McFerson — `/network/kaylee-mcferson`
 - Sengo — `/network/sengo`
 - Nudge — `/network/nudge`
-- Funding partners — `/network/funding-partners` (scaffold; names pending)
+- Product Society (contract manufacturing) — `/network/product-society`
+- Sarah Horowitz Parfums (fragrance contract manufacturing) — `/network/sarah-horowitz-parfums`
+- Funding partners — `/network/funding-partners` (now live with **C2FO — Lending Connections** / Jay Lott)
+
+## Funding & sourcing partners added (researched)
+- **C2FO — Lending Connections** (Jay Lott, Director) — working-capital platform + lender matchmaking (receivables finance, term loans, ABL, factoring). Listed on the funding-partners page; founder intros made warmly via VGP. **Jay's direct contact kept internal (Airtable), not published** pending his confirmation.
+- **Product Society** (Philip Miller) — USA-made turnkey contract manufacturer (beauty/personal care/fragrance), North Hollywood.
+- **Sarah Horowitz Parfums** (Sarah Horowitz) — fragrance contract manufacturer (custom scent → bottling/production).
+All three added in editorial-review state; run them through the same announcement + form loop before publishing.
 
 ## Confirmed data notes
 - **Ark-La-Tex** website = `altfc.net` (arklatexfinancial.net is dead). Contact nthompson@altfc.net · 318-256-9796 · Many, LA.
