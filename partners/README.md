@@ -35,10 +35,12 @@ data current from a single source of truth.
 - Nudge — `/network/nudge`
 - Product Society (contract manufacturing) — `/network/product-society`
 - Sarah Horowitz Parfums (fragrance contract manufacturing) — `/network/sarah-horowitz-parfums`
-- Funding partners — `/network/funding-partners` (now live with **C2FO — Lending Connections** / Jay Lott)
+- C2FO — Lending Connections (funding) — `/network/c2fo`
+- Funding partners (roster page) — `/network/funding-partners` (lists **C2FO** and **Ark-La-Tex**; growing)
 
 ## Funding & sourcing partners added (researched)
-- **C2FO — Lending Connections** (Jay Lott, Director) — working-capital platform + lender matchmaking (receivables finance, term loans, ABL, factoring). Listed on the funding-partners page; founder intros made warmly via VGP. **Jay's direct contact kept internal (Airtable), not published** pending his confirmation.
+- **C2FO — Lending Connections** (Jay Lott, Director) — working-capital platform + lender matchmaking (receivables finance, term loans, ABL, factoring). Has its own reviewable page `/network/c2fo` and appears on the funding-partners roster. **One of several** funding partners — more will be added on the funding side; C2FO is not framed as "the main" partner. **Jay's direct contact kept internal (Airtable), not published** pending his confirmation.
+- **Ark-La-Tex Financial Consultants** — also in the **funding category** (USDA B&I, SBA, commercial lending). Appears on both the referral directory and the funding-partners roster (`funding: true`).
 - **Product Society** (Philip Miller) — USA-made turnkey contract manufacturer (beauty/personal care/fragrance), North Hollywood.
 - **Sarah Horowitz Parfums** (Sarah Horowitz) — fragrance contract manufacturer (custom scent → bottling/production).
 All three added in editorial-review state; run them through the same announcement + form loop before publishing.

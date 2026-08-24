@@ -1,15 +1,12 @@
 ---
 import Base from '../../layouts/Base.astro';
-// Scaffold — funding partner names & details pending from Dana. Add each as a
-// card below (or wire into content.ts as a `fundingPartners` collection) once confirmed.
-const fundingPartners: { name: string; focus: string; blurb: string; website?: string }[] = [
-  {
-    name: 'C2FO — Lending Connections',
-    focus: 'Working capital & lender matchmaking',
-    blurb: 'C2FO runs the world’s largest working-capital platform, and through Lending Connections it matches businesses with a vetted network of lenders — receivables finance, term loans, asset-based lending and factoring. A strong fit for founders who need capital to fund expansion POs, product innovation or staffing, and for teams working through P&L stabilization and turnaround.',
-    website: 'https://c2fo.com/supplier-solutions/lending-connections/',
-  },
-];
+import { getPartners } from '../../lib/content';
+
+// Funding partners are drawn from the partner collection (content.ts) — any
+// partner flagged `funding: true`. C2FO is one of several; more funding partners
+// will be added on the funding side over time.
+const all = await getPartners();
+const fundingPartners = all.filter((p: any) => p.funding);
 ---
 <Base
   title="Funding Partners"
@@ -20,7 +17,7 @@ const fundingPartners: { name: string; focus: string; blurb: string; website?: s
       <nav aria-label="Breadcrumb"><a href="/network">Partner Network</a> / Funding Partners</nav>
       <span class="vgp-eyebrow">For founders</span>
       <h1>Connect with our funding partners</h1>
-      <p style="font-size:1.15rem; max-width:70ch;">Value Growth Partners maintains relationships with a curated set of funding partners — from non-dilutive and structured lending to equity capital. When a founder is genuinely capital-ready and there's real fit, we make a warm, context-rich introduction so the first conversation starts with signal, not a cold pitch.</p>
+      <p style="font-size:1.15rem; max-width:70ch;">Value Growth Partners maintains relationships with a curated set of funding partners — from working capital and structured lending to USDA-backed and commercial financing. This roster is growing. When a founder is genuinely capital-ready and there's real fit, we make a warm, context-rich introduction so the first conversation starts with signal, not a cold pitch.</p>
 
       <div class="vgp-card vgp-bg-soft vgp-mt">
         <h4 style="margin-bottom:.5rem;">How it works</h4>
@@ -33,13 +30,13 @@ const fundingPartners: { name: string; focus: string; blurb: string; website?: s
 
       {fundingPartners.length > 0 ? (
         <div class="vgp-grid vgp-grid--2 vgp-mt">
-          {fundingPartners.map((f) => (
+          {fundingPartners.map((f: any) => (
             <article class="vgp-card">
               <h4>{f.name}</h4>
               <p style="color:var(--vgp-navy); font-weight:600; margin-bottom:.4rem;">{f.focus}</p>
-              <p>{f.blurb}</p>
-              {f.website && <a href={f.website} target="_blank" rel="noopener">Learn more ↗</a>}
-              <p style="margin-top:.6rem; font-size:.9rem; color:var(--vgp-body-gray);">Introductions are made warmly through VGP.</p>
+              <p>{f.fundingBlurb ?? f.description}</p>
+              <p style="margin-top:.6rem;"><a href={`/network/${f.slug}`}>View profile →</a></p>
+              <p style="margin-top:.4rem; font-size:.9rem; color:var(--vgp-body-gray);">Introductions are made warmly through VGP.</p>
             </article>
           ))}
         </div>
@@ -48,6 +45,10 @@ const fundingPartners: { name: string; focus: string; blurb: string; website?: s
           Our funding partners are being confirmed and will be listed here shortly. In the meantime, founders who are capital-ready can request an introduction below and we'll route you to the right partner.
         </p>
       )}
+
+      <p class="vgp-mt" style="font-size:.95rem; color:var(--vgp-body-gray); max-width:70ch;">
+        More funding partners are being added across the capital spectrum — non-dilutive, structured lending and equity. Check back, or request an introduction and we'll route you to the best current fit.
+      </p>
 
       <div class="vgp-card vgp-bg-pale vgp-center vgp-mt" style="border:none;">
         <h3>Capital-ready? Let's talk.</h3>

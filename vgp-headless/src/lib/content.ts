@@ -234,6 +234,8 @@ const SEED = {
       engagement: ['Capital structuring and advisory', 'USDA B&I loan packaging', 'Lender coordination and documentation support'],
       whyVgp: 'Deep program knowledge and a strong track record executing complex USDA-backed financings that many founders don’t realize they qualify for.',
       contact: { email: 'nthompson@altfc.net', phone: '318-256-9796', location: 'Many, Louisiana' },
+      funding: true,
+      fundingBlurb: 'Capital advisory and structured lending — USDA B&I guarantees, SBA 7(a)/504 and commercial lending for expansion, acquisition, real estate and equipment, with a focus on rural and rural-adjacent markets.',
       review: true,
     },
     {
@@ -332,6 +334,28 @@ const SEED = {
       engagement: ['Custom fragrance & scent development', 'Private-label fragrance', 'Contract manufacturing — creation through bottling & production'],
       whyVgp: 'Decades of perfumery and hands-on contract manufacturing — a rare partner who can take a founder from scent concept to a finished, production-ready product.',
       contact: { email: 'sarah@sarahhorowitz.com', location: 'Westlake Village, CA' },
+      review: true,
+    },
+    {
+      slug: 'c2fo',
+      name: 'C2FO — Lending Connections',
+      type: 'Funding Partner — Working Capital & Lender Matchmaking',
+      focus: 'Working-capital platform and vetted lender network for growth-stage founders',
+      description: 'C2FO operates the world’s largest working-capital platform, and through Lending Connections it matches businesses with a vetted network of lenders — receivables finance, term loans, asset-based lending and factoring. A strong fit for founders who need capital to fund expansion POs, product innovation or staffing, and for teams working through P&L stabilization and turnaround.',
+      website: 'https://c2fo.com/supplier-solutions/lending-connections/',
+      category: 'Working Capital / Lender Matchmaking',
+      // Jay Lott (Director, C2FO Lending Connections) is the VGP relationship
+      // contact — kept internal pending his confirmation. Founder intros routed
+      // warmly through VGP; no direct contact published.
+      bestFit: [
+        'Founders under ~$1MM ARR needing $200k–$600k in working capital',
+        'Growth trajectories: expansion POs, product innovation, staffing',
+        'Teams working through P&L stabilization and turnaround',
+      ],
+      engagement: ['Working-capital assessment', 'Lender matchmaking across the C2FO network', 'Receivables finance, term loans, ABL and factoring'],
+      whyVgp: 'One vetted front door to a network of lenders — so a capital-ready founder gets matched to the right structure instead of cold-applying to a dozen.',
+      funding: true,
+      fundingBlurb: 'Working-capital platform and lender matchmaking — receivables finance, term loans, asset-based lending and factoring for expansion, innovation, staffing, or P&L stabilization.',
       review: true,
     },
   ],
