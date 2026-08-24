@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-label="09 Accelerator plus Alumni Continuity — Founder Network member collection cover">
+  <title>09 · Accelerator + Alumni Continuity</title>
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1A2B3C"/>
+      <stop offset="1" stop-color="#0E1926"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg2)"/>
+  <g opacity="0.12" fill="none" stroke="#B8763E" stroke-width="3" stroke-linecap="round">
+    <path d="M1120 640 L1210 520 L1300 400 L1390 250"/>
+    <circle cx="1120" cy="640" r="13"/>
+    <circle cx="1210" cy="520" r="13"/>
+    <circle cx="1300" cy="400" r="13"/>
+    <circle cx="1390" cy="250" r="17"/>
+  </g>
+  <rect x="140" y="196" width="70" height="5" fill="#B8763E"/>
+  <text x="140" y="176" font-family="Helvetica,Arial,sans-serif" font-size="26" font-weight="bold" letter-spacing="5" fill="#B8763E">COLLECTION 09</text>
+  <text x="140" y="332" font-family="Georgia,'Times New Roman',serif" font-size="82" font-weight="bold" fill="#FFFFFF">Accelerator</text>
+  <text x="140" y="440" font-family="Georgia,'Times New Roman',serif" font-size="82" font-weight="bold" fill="#B8763E">+ Alumni Continuity</text>
+  <text x="140" y="524" font-family="Helvetica,Arial,sans-serif" font-size="29" fill="#AEBCC9">What a cohort produces, and how the gains survive it ending.</text>
+  <rect x="140" y="700" width="440" height="3" fill="#3A4B5C"/>
+  <text x="140" y="750" font-family="Helvetica,Arial,sans-serif" font-size="23" letter-spacing="2" fill="#8DA0B2">FOUNDER NETWORK MEMBER RESOURCE</text>
+  <text x="140" y="788" font-family="Helvetica,Arial,sans-serif" font-size="21" fill="#5A6B7C">The Brand Blueprint · Powered by Value Growth Partners</text>
+</svg>

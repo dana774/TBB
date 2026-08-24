@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000" role="img" aria-label="The Founder Operating Cadence — three nested review loops: weekly, monthly and quarterly, each with its own question, output and failure mode">
+  <title>The Founder Operating Cadence</title>
+  <rect width="1600" height="1000" fill="#FFFFFF"/>
+
+  <text x="90" y="88" font-family="Helvetica,Arial,sans-serif" font-size="21" font-weight="bold" letter-spacing="4" fill="#B8763E">SH-02 · START HERE</text>
+  <text x="90" y="150" font-family="Georgia,'Times New Roman',serif" font-size="52" font-weight="bold" fill="#1A2B3C">The Founder Operating Cadence</text>
+  <text x="90" y="196" font-family="Helvetica,Arial,sans-serif" font-size="23" fill="#5A6B7C">Three loops. Each one catches what the faster loop cannot see.</text>
+  <rect x="90" y="222" width="1420" height="2" fill="#D6DDE4"/>
+
+  <!-- Loop columns -->
+  <g>
+    <!-- WEEKLY -->
+    <rect x="90" y="270" width="440" height="470" rx="10" fill="#F2F5F8" stroke="#D6DDE4" stroke-width="2"/>
+    <rect x="90" y="270" width="440" height="7" rx="3" fill="#B8763E"/>
+    <text x="126" y="336" font-family="Helvetica,Arial,sans-serif" font-size="19" font-weight="bold" letter-spacing="3" fill="#B8763E">WEEKLY · 45 MIN</text>
+    <text x="126" y="392" font-family="Georgia,serif" font-size="38" font-weight="bold" fill="#1A2B3C">The operating loop</text>
+    <text x="126" y="444" font-family="Helvetica,Arial,sans-serif" font-size="20" fill="#1A2B3C" font-weight="bold">Asks:</text>
+    <text x="126" y="476" font-family="Helvetica,Arial,sans-serif" font-size="20" fill="#3A4B5C">Did what we said would happen</text>
+    <text x="126" y="504" font-family="Helvetica,Arial,sans-serif" font-size="20" fill="#3A4B5C">this week actually happen?</text>
+    <text x="126" y="556" font-family="Helvetica,Arial,sans-serif" font-size="20" fill="#1A2B3C" font-weight="bold">Produces:</text>
+    <text x="126" y="588" font-family="Helvetica,Arial,sans-serif" font-size="20" fill="#3A4B5C">A short list of what carries</text>
+    <text x="126" y="616" font-family="Helvetica,Arial,sans-serif" font-size="20" fill="#3A4B5C">over, and what is stuck.</text>
+    <rect x="126" y="646" width="368" height="2" fill="#D6DDE4"/>
+    <text x="126" y="686" font-family="Helvetica,Arial,sans-serif" font-size="18" fill="#8A5A2E" font-weight="bold">Fails when:</text>
+    <text x="126" y="714" font-family="Helvetica,Arial,sans-serif" font-size="18" fill="#5A6B7C">it becomes a status meeting.</text>
+
+    <!-- MONTHLY -->
+    <rect x="580" y="270" width="440" height="470" rx="10" fill="#F2F5F8" stroke="#D6DDE4" stroke-width="2"/>
+    <rect x="580" y="270" width="440" height="7" rx="3" fill="#7A93A8"/>
+    <text x="616" y="336" font-family="Helvetica,Arial,sans-serif" font-size="19" font-weight="bold" letter-spacing="3" fill="#4A6478">MONTHLY · 90 MIN</text>
+    <text x="616" y="392" font-family="Georgia,serif" font-size="38" font-weight="bold" fill="#1A2B3C">The review loop</text>
+    <text x="616" y="444" font-family="Helvetica,Arial,sans-serif" font-size="20" fill="#1A2B3C" font-weight="bold">Asks:</text>
+    <text x="616" y="476" font-family="Helvetica,Arial,sans-serif" font-size="20" fill="#3A4B5C">Are the numbers doing what</text>
+    <text x="616" y="504" font-family="Helvetica,Arial,sans-serif" font-size="20" fill="#3A4B5C">we expected — and if not, why?</text>
+    <text x="616" y="556" font-family="Helvetica,Arial,sans-serif" font-size="20" fill="#1A2B3C" font-weight="bold">Produces:</text>
+    <text x="616" y="588" font-family="Helvetica,Arial,sans-serif" font-size="20" fill="#3A4B5C">One change you are making,</text>
+    <text x="616" y="616" font-family="Helvetica,Arial,sans-serif" font-size="20" fill="#3A4B5C">written down.</text>
+    <rect x="616" y="646" width="368" height="2" fill="#D6DDE4"/>
+    <text x="616" y="686" font-family="Helvetica,Arial,sans-serif" font-size="18" fill="#8A5A2E" font-weight="bold">Fails when:</text>
+    <text x="616" y="714" font-family="Helvetica,Arial,sans-serif" font-size="18" fill="#5A6B7C">it slides "until things calm down".</text>
+
+    <!-- QUARTERLY -->
+    <rect x="1070" y="270" width="440" height="470" rx="10" fill="#F2F5F8" stroke="#D6DDE4" stroke-width="2"/>
+    <rect x="1070" y="270" width="440" height="7" rx="3" fill="#1A2B3C"/>
+    <text x="1106" y="336" font-family="Helvetica,Arial,sans-serif" font-size="19" font-weight="bold" letter-spacing="3" fill="#1A2B3C">QUARTERLY · HALF DAY</text>
+    <text x="1106" y="392" font-family="Georgia,serif" font-size="38" font-weight="bold" fill="#1A2B3C">The reset loop</text>
+    <text x="1106" y="444" font-family="Helvetica,Arial,sans-serif" font-size="20" fill="#1A2B3C" font-weight="bold">Asks:</text>
+    <text x="1106" y="476" font-family="Helvetica,Arial,sans-serif" font-size="20" fill="#3A4B5C">Are we still pointed at the</text>
+    <text x="1106" y="504" font-family="Helvetica,Arial,sans-serif" font-size="20" fill="#3A4B5C">right thing at all?</text>
+    <text x="1106" y="556" font-family="Helvetica,Arial,sans-serif" font-size="20" fill="#1A2B3C" font-weight="bold">Produces:</text>
+    <text x="1106" y="588" font-family="Helvetica,Arial,sans-serif" font-size="20" fill="#3A4B5C">Max 3 priorities, a stop list,</text>
+    <text x="1106" y="616" font-family="Helvetica,Arial,sans-serif" font-size="20" fill="#3A4B5C">and one layer to move.</text>
+    <rect x="1106" y="646" width="368" height="2" fill="#D6DDE4"/>
+    <text x="1106" y="686" font-family="Helvetica,Arial,sans-serif" font-size="18" fill="#8A5A2E" font-weight="bold">Fails when:</text>
+    <text x="1106" y="714" font-family="Helvetica,Arial,sans-serif" font-size="18" fill="#5A6B7C">nothing is ever taken away.</text>
+  </g>
+
+  <!-- Feed arrows -->
+  <g stroke="#B8763E" stroke-width="3" fill="none" marker-end="url(#ar)">
+    <defs>
+      <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="#B8763E"/>
+      </marker>
+    </defs>
+    <path d="M530 505 L572 505"/>
+    <path d="M1020 505 L1062 505"/>
+  </g>
+  <text x="486" y="790" font-family="Helvetica,Arial,sans-serif" font-size="17" fill="#8A5A2E">feeds</text>
+  <text x="976" y="790" font-family="Helvetica,Arial,sans-serif" font-size="17" fill="#8A5A2E">feeds</text>
+
+  <!-- Return path -->
+  <path d="M1290 760 C1290 850, 310 850, 310 760" stroke="#7A93A8" stroke-width="3" fill="none" stroke-dasharray="8 7" marker-end="url(#ar2)"/>
+  <defs>
+    <marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7A93A8"/>
+    </marker>
+  </defs>
+  <text x="640" y="880" font-family="Helvetica,Arial,sans-serif" font-size="19" fill="#5A6B7C">the reset re-points the weekly loop — that is what closes the cycle</text>
+
+  <rect x="90" y="920" width="1420" height="2" fill="#D6DDE4"/>
+  <text x="90" y="960" font-family="Helvetica,Arial,sans-serif" font-size="17" fill="#5A6B7C">© 2026 Value Growth Partners · Founder Network member resource · The Brand Blueprint · Not legal, financial, investment, or tax advice.</text>
+</svg>
