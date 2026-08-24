@@ -25,18 +25,48 @@ This is the same gate documented in [13-shopify-prototype-status.md](13-shopify-
 **To clear:** run the migration from a session where these approvals can be granted, or grant the
 Drive + Shopify connectors standing approval for this project.
 
-## Blocker 2 — there is no gating mechanism installed (independent of Blocker 1)
+## Blocker 2 — CORRECTED 2026-08-24: gating stack exists, but it is not one app
 
-The brief requires confirming the gating mechanism *before building*. Per the repo's verified store
-record ([13](13-shopify-prototype-status.md), [09](09-bb-parking-handoff.md)):
+> **This section originally said "no gating mechanism is installed," citing docs 13 and 09. That was
+> stale.** The current state lives in **docs 34 and 35 on branch `claude/new-session-q4or1d`**
+> (commit `dfd6df2`), which this branch did not have. Docs 09/11/13/17 and `README.md` on this
+> branch still describe the **superseded Appstle architecture** — treat 34/35 as authoritative and
+> do not act on the Appstle references elsewhere in this repo.
 
-- **Appstle Memberships is not installed.** Install is manual, via the App Store.
-- **0 products** — the $99 Founder Network membership product does not exist.
-- No member tier, customer tag, or protected-content rule exists to apply.
+Per the 2026-08-14 platform reset, gating is a **three-part native stack**, not a membership app:
 
-So the answer to "customer accounts + tags, or a membership app?" is currently **neither — nothing is
-configured**. Building the eight pages before gating exists would publish the entire library
-publicly, which is the precise opposite of the requirement. Gating must land first.
+| Part | What it does | State |
+|---|---|---|
+| **Shopify Subscriptions** (first-party) | Bills the $99/mo — product `founder-network-membership`, `SellingPlan/2346582070` | In place. **Billing only — it does no gating.** |
+| **`bb-member-gate.liquid`** (native theme snippet) | The actual gate: renders gated content only when `customer.tags contains "Founder Network"` | In place, in BB Preview theme `154677215286` |
+| **Shopify Flow** | Applies/removes the `Founder Network` tag on subscription activate/cancel | 🔴 **NOT BUILT** |
+
+**Appstle (Subscriptions + Memberships) was uninstalled in the reset. Do not reinstall it.**
+
+**Launch-critical gap (doc 35):** Appstle used to apply the tag; nothing does now. Until Flow A/B
+exist, a paying subscriber gets no tag and `bb-member-gate.liquid` locks them out. This fails
+*closed*, so it is not leaking — but the chain is broken.
+
+## Blocker 3 — the native gate does not satisfy the file-level requirement
+
+This is the half the reset did **not** solve, and it is independent of the Flow gap.
+`bb-member-gate.liquid` is Liquid: it runs at page render and conditionally omits HTML. It has no
+effect on the file URL behind a resource. So under the current stack:
+
+| Request | Result |
+|---|---|
+| Signed-out visitor → a `member-*` page | blocked ✅ |
+| Signed-out visitor → the file URL directly | **file served** ❌ |
+| Cancelled member (tag removed) → any file URL they saved | **still works, permanently** ❌ |
+
+The brief requires that no file or asset URL be reachable without an authenticated member session.
+A tag check in Liquid cannot deliver that, because `cdn.shopify.com` performs no session check.
+
+**Third hole — the Drive links.** Doc 35 records CAP-10 still pointing at the Drive video, and the
+Market Signal videos not yet moved. A Drive link sits entirely outside the Shopify gate — its access
+is governed by Drive sharing, not by `customer.tags`. The same applies to the Google-native items the
+brief says to keep live (GOS-02, GTM-07): their Drive sharing must be tightened to match, or they
+become the way around the wall.
 
 ## Decision Dana owns: how member files are actually protected
 
@@ -52,13 +82,15 @@ Three routes that do satisfy it:
 
 | Route | How it meets the requirement | Cost |
 |---|---|---|
-| **A. Digital-delivery app** (Appstle / SendOwl / equivalent) | App proxies each download behind the customer session; links expire and die with the membership | Another app + subscription; per-file setup |
+| **A. Digital-delivery app** (SendOwl / Sky Pilot / equivalent — **not Appstle**, it is uninstalled by decision) | App ties each download to the customer/order and expires links | Another app + subscription; per-file setup |
 | **B. App proxy + external storage** | Files in S3/R2; a Shopify app proxy checks the session and issues short-lived presigned URLs | Most control, strongest guarantee; needs a small app built and hosted |
-| **C. Unlisted Shopify CDN links behind gated pages** | Page is gated; file URLs are unlisted only | Cheapest, **does not meet the brief as written** |
+| **C. Unlisted Shopify CDN links behind the native gate** | Page is gated; file URLs are unlisted only | Free, **does not meet the brief as written** |
 
-Recommendation: **A** if the Appstle install is happening anyway (one vendor, one bill, one admin
-surface); **B** only if the library is expected to outgrow an app's file handling. **C** should be
-chosen only as a deliberate, recorded relaxation of the requirement — not by default.
+Recommendation given the reset's direction (native, free, fewer vendors): **B** is the only route
+that actually delivers "no asset URL reachable without an authenticated session," and an app proxy
+fits the native/no-extra-vendor posture — at the cost of a small app to build and host. **A** is the
+lower-effort route if adding one vendor is acceptable. **C** should be chosen only as a deliberate,
+recorded relaxation of the requirement — not by default.
 
 The large-video special cases fold into the same decision: Shopify-hosted video is also public-CDN,
 so route A or B has to cover the Market Signal videos and CAP-10 too, or they need a host that
@@ -103,10 +135,31 @@ supports signed playback (e.g. a private Vimeo/Mux-style setup) linked from the 
 - **`BB_Member_Founder-Network-Playbook_v1.docx`** — not listed in START HERE or any README.
   **Awaiting Dana's answer** before it is included or dropped.
 
+## Scope divergence to resolve (found 2026-08-24 in doc 35)
+
+The original brief and the post-reset build describe **different shapes**, and this needs settling
+before collections 02–07 are built:
+
+- **Brief:** 7 Drive folders → 7 gated collection pages + 1 hub, content authored as pages.
+- **Doc 35:** **9** library collections with different names, content as `resource` **metaobjects**
+  rendered by `bb-resource-library` grouped by `collection_name`, with a handle→collection mapping
+  that **splits and merges** the Drive folders (e.g. `member-sales-gtm` *and* `member-brand-messaging`
+  both land in "Marketing, Content + Customer Growth"; `member-operations-forecasting` splits across
+  "Product, Packaging + Operations" and "Growth OS + Founder Systems").
+
+Doc 35 also records **Capital Access already migrated** — 11 metaobjects CAP-01…CAP-11. So the
+resource **codes are being preserved** under the new taxonomy, which is what the brief actually
+requires. Remaining: collections 02–07.
+
+If the 9-collection taxonomy stands, "one gated page per README" is no longer the right target —
+the READMEs still supply the manifest (codes, formats, descriptions, links, Notices), but the
+grouping follows doc 35's mapping.
+
 ## Open questions for Dana
 
-1. **File protection route — A, B, or C above?** Blocks every upload.
+1. **File protection route — A, B, or C above?** Blocks every upload. The native gate does not
+   cover files; see Blocker 3.
 2. **`BB_Member_Founder-Network-Playbook_v1.docx` — include or leave behind?** The brief says ask.
-3. **Appstle, or plain customer accounts + tags?** [09](09-bb-parking-handoff.md) assumes Appstle for
-   the $99 membership; if the library should instead gate on account tags alone, that is a different
-   build and a different billing story.
+3. **Taxonomy — 7 README collections or doc 35's 9?** See the divergence above.
+4. **Who builds Flow A/B?** Doc 35 calls it an owner action, not API-creatable from the content
+   lane. Until it exists, no subscriber can pass the gate.
