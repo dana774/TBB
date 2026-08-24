@@ -1,0 +1,60 @@
+---
+import Base from '../../layouts/Base.astro';
+// Scaffold — funding partner names & details pending from Dana. Add each as a
+// card below (or wire into content.ts as a `fundingPartners` collection) once confirmed.
+const fundingPartners: { name: string; focus: string; blurb: string }[] = [];
+---
+<Base
+  title="Funding Partners"
+  description="Connect with Value Growth Partners' funding partners — warm, context-rich introductions for capital-ready founders."
+>
+  <section class="vgp-section">
+    <div class="vgp-container" style="max-width:820px;">
+      <nav aria-label="Breadcrumb"><a href="/network">Partner Network</a> / Funding Partners</nav>
+      <span class="vgp-eyebrow">For founders</span>
+      <h1>Connect with our funding partners</h1>
+      <p style="font-size:1.15rem; max-width:70ch;">Value Growth Partners maintains relationships with a curated set of funding partners — from non-dilutive and structured lending to equity capital. When a founder is genuinely capital-ready and there's real fit, we make a warm, context-rich introduction so the first conversation starts with signal, not a cold pitch.</p>
+
+      <div class="vgp-card vgp-bg-soft vgp-mt">
+        <h4 style="margin-bottom:.5rem;">How it works</h4>
+        <ol class="fp-steps">
+          <li><strong>Readiness check.</strong> We confirm stage, use of funds, and what the capital actually needs to unlock.</li>
+          <li><strong>Match.</strong> We identify the funding partner whose mandate and stage fit your situation.</li>
+          <li><strong>Warm introduction.</strong> We share your background, objectives and constraints so the conversation is productive from the first call.</li>
+        </ol>
+      </div>
+
+      {fundingPartners.length > 0 ? (
+        <div class="vgp-grid vgp-grid--2 vgp-mt">
+          {fundingPartners.map((f) => (
+            <article class="vgp-card">
+              <h4>{f.name}</h4>
+              <p style="color:var(--vgp-navy); font-weight:600; margin-bottom:.4rem;">{f.focus}</p>
+              <p>{f.blurb}</p>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <p class="vgp-review-flag vgp-mt" style="max-width:74ch;">
+          Our funding partners are being confirmed and will be listed here shortly. In the meantime, founders who are capital-ready can request an introduction below and we'll route you to the right partner.
+        </p>
+      )}
+
+      <div class="vgp-card vgp-bg-pale vgp-center vgp-mt" style="border:none;">
+        <h3>Capital-ready? Let's talk.</h3>
+        <p style="max-width:54ch; margin:0 auto 1.25rem;">Request an introduction and we'll assess fit and connect you with the right funding partner.</p>
+        <p><a class="vgp-btn vgp-btn--primary" href="/institutional-inquiry">Request a funding introduction →</a></p>
+      </div>
+
+      <p style="margin-top:2rem; font-size:.8rem; color:var(--vgp-body-gray); max-width:74ch;">
+        VGP facilitates introductions only and does not provide capital, guarantee funding, or offer investment advice.
+        Funding partners operate independently and evaluate opportunities on their own criteria. This is not an offer
+        of securities or financial advice.
+      </p>
+    </div>
+  </section>
+  <style>
+    .fp-steps { margin: 0; padding-left: 1.2rem; }
+    .fp-steps li { margin-bottom: .5rem; }
+  </style>
+</Base>
