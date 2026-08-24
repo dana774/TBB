@@ -37,13 +37,30 @@ Systems) · `member-brand-messaging` → Marketing, Content + Customer Growth ·
 `member-growth-os-ai` → Growth OS + Founder Systems · `member-partner-directory` →
 Partner Network + Expert Routing.
 
-## Content progress (metaobjects)
-- ✅ **Capital Access migrated** — 11 `resource` metaobjects (CAP-01…CAP-11), `access_level=member`, `status=published`, ACTIVE, `collection_name="Funding + Capital Access"`, each linking to its file. (CAP-10 still points to the Drive video — hosting migration pending.)
-- ✅ **5 pre-existing resources normalized** to the new collection names (retail-readiness-checklist, retail-readiness-blueprint, retail-buyer-outreach-playbook → Retail, Buyers + Distribution; buyer-pitch-deck-template → Funding + Capital Access; governance-blueprint → Growth OS + Founder Systems).
-- ✅ **Parallel page HTML removed** — the four dedicated pages (`founder-network`, `membership`, `member-dashboard`, `resources`) cleared so the theme templates render; the earlier `main-menu` additions reverted.
-- ⏳ **Capital Access page body** — clear the inline resource HTML once render via the `member-collection` template is confirmed (the metaobjects and the old HTML currently coexist).
-- ⏳ **Collections 02–07** — build as `resource` metaobjects from Drive folders 02–07 (Retail, Buyers + Distribution / Marketing, Content + Customer Growth / Product, Packaging + Operations / Growth OS + Founder Systems / Partner Network + Expert Routing), like Capital Access.
-- ⏳ **Videos** — move CAP-10 + the 3 Market Signal videos off Google Drive to real hosting.
+## Library build — COMPLETE (2026-08-15)
+All member resources are now `resource` metaobjects (`access_level=member`, `status=published`,
+`publishable=ACTIVE`), built from the canonical Drive collections 01–07 with each README's
+copy, linked via Drive view URLs (videos via YouTube). **55 resources across 7 populated collections:**
+
+| `collection_name` | Count | Source (Drive) |
+|---|---|---|
+| Funding + Capital Access | 11 | CAP-01…11 (01) |
+| Retail, Buyers + Distribution | 15 | RET-01…15 (02) |
+| Marketing, Content + Customer Growth | 11 | GTM-01/02/03/05/06/07 (03) + BRD-01…04,06 (05) |
+| Product, Packaging + Operations | 3 | OPS-01/02/03 cash-flow (04) |
+| Growth OS + Founder Systems | 9 | OPS-04/05/06 (04) + GOS-01…05 (06) |
+| Partner Network + Expert Routing | 4 | PTR-00 disclosure card + PTR-01…03 (07) |
+| Events, Market Signals + Opportunities | 3 | 3 Market Signal videos → YouTube playlist |
+
+- ✅ **Parallel page HTML removed** — the 4 dedicated pages (`founder-network`, `membership`, `member-dashboard`, `resources`) **and** the `member-capital-access` inline HTML cleared (render via the `member-collection` template confirmed by Dana); the earlier `main-menu` additions reverted.
+- ✅ **Legacy cleanup** — the 2 demo samples + 3 empty draft resources deleted so the library renders consistently.
+- ✅ **Partner disclosure** — `PTR-00` disclosure card added (inclusion-is-not-an-endorsement + referral-fee disclosure) since the metaobject has no notices field and the collection-level themed header is a Preview-theme edit (owner's lane).
+- ✅ **Videos → YouTube** — CAP-10 repointed off Drive, and the 3 Market Signal videos created in *Events, Market Signals + Opportunities* — all pass-through-linked to the playlist `PLt97rjQ0XHUpnaUv1sNC1vTByObU-JT8y` so re-uploads auto-reflect. (Linked to that one playlist as the starting point; repoint to per-video URLs or a dedicated Market-Signals playlist if preferred.)
+- **Not built (no Drive folder / source yet):** *Start Here + Founder Operating Cadence*, *Accelerator + Alumni Continuity* — awaiting source.
+
+## Open items
+- 🔴 **Drive → Viewer** — the member files are shared `anyone: editor`. **I cannot change the public-link role via API** (the Drive `share_file` tool only adds/upgrades named users). Owner must set the "Founder Network — Members" folder → Anyone with the link → **Viewer**. Required before real member access.
+- ⏳ **Partner-page themed disclosure header** — optional polish; owner's theme lane (PTR-00 card covers the requirement in the meantime).
 
 ## Launch checklist — owner actions (not the content lane)
 1. **Build Flow A/B** (or set the interim manual tag) so subscribers actually get `Founder Network`.
