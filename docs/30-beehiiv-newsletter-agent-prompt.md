@@ -286,6 +286,21 @@ build substitutes a button link when no asset is provided.
   setup was archived with 0 redemptions. For Rebuild-program founders,
   create a 5-month Complimentary access grant and apply it per subscriber
   (or via Segment in bulk).
+- **List architecture (audited 2026-08-24)**: HubSpot = CRM system of
+  record — 2,109 contacts. Tracking properties exist but are unpopulated:
+  `vgp_newsletter_status` (Active subscriber / Unsubscribed / Pending /
+  Cleaned-bounced) and `bit_membership_status` (Not started / BIT
+  Sponsored / Direct Paid Member / Not converted) — 0 contacts have
+  either set. Shopify carries the live "Founder Network Membership"
+  product ($99/mo, SKU FOUNDER-NETWORK-MONTHLY). The actual newsletter
+  send list is ONLY the beehiiv Founder Network paid tier (currently
+  Dana's 2 comped addresses). HubSpot contacts never receive the
+  newsletter automatically — members reach beehiiv via Shopify purchase
+  (manual comp until `/api/member-provision` ships) or Dana's comp. When
+  seeding a cohort: verify opt-in consent in HubSpot, import emails to
+  beehiiv, apply the appropriate Complimentary access grant, and set
+  `vgp_newsletter_status`/`bit_membership_status` in HubSpot as the
+  mirror.
 - **Funnel roadmap (beehiiv features available on this plan)**: now — the
   "Inside The Brand Blueprint" episode card in every issue; later —
   From-the-Network partner/sponsor placements (plain disclosure required),
