@@ -279,9 +279,13 @@ build substitutes a button link when no asset is provided.
   set (feeds beehiiv discovery/recommendations); automatic UTM tagging
   already on. Footer mailing address set 2026-08-15 (1565 Benton Blvd,
   Suite 1103, Savannah, GA 31407 — a suite address, so no personal address
-  is exposed; CAN-SPAM satisfied). Still pending: comping Dana's two
-  addresses (dana@valugrowthpartners.com, danaammons26@gmail.com) to
-  Founder Network in the UI.
+  is exposed; CAN-SPAM satisfied). Comping done 2026-08-23: both of Dana's
+  addresses (dana@valugrowthpartners.com, danaammons26@gmail.com) verified
+  on the Founder Network tier via Complimentary access — the gating chain
+  is proven end to end. A stray 30-day free-trial offer created during
+  setup was archived with 0 redemptions. For Rebuild-program founders,
+  create a 5-month Complimentary access grant and apply it per subscriber
+  (or via Segment in bulk).
 - **Funnel roadmap (beehiiv features available on this plan)**: now — the
   "Inside The Brand Blueprint" episode card in every issue; later —
   From-the-Network partner/sponsor placements (plain disclosure required),
