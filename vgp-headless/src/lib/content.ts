@@ -223,7 +223,7 @@ const SEED = {
       type: 'Referral Partner — Financing & Lending',
       focus: 'USDA B&I, SBA and commercial lending navigation for rural growth and acquisitions',
       description: 'Ark-La-Tex Financial Consultants specializes in helping businesses access USDA Business & Industry (B&I) loan guarantees — enabling long-term, lower-equity financing for expansion, acquisition, real estate and equipment — alongside SBA 7(a)/504 and commercial lending and investor-readiness support.',
-      website: 'https://arklatexfinancial.net',
+      website: 'https://www.altfc.net',
       logo: '/assets/partners/ark-la-tex-financial-consultants-logo.png',
       category: 'Capital Advisory / USDA & Structured Lending',
       bestFit: [
