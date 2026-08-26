@@ -8,7 +8,28 @@ Target parent: **Founder Network — Members** (`1ls2sHkPm9f-qtAhEiupuxhLk7TetWE
 | Collection | Drive folder | Folder ID |
 |---|---|---|
 | 08 · Start Here + Founder Operating Cadence | ✅ created | `1gssv1wE14p6FHLFxj7oUcRWGY5x4Iade` |
-| 09 · Accelerator + Alumni Continuity | ❌ not created | — |
+| 09 · Accelerator + Alumni Continuity | ✅ created | `1GNQadWsGtaeDNBhYaBcGqdOIsMcHC1YF` |
+
+### Upload progress (last updated 2026-08-26)
+
+**Uploaded — 3 of 14.** Each returned a byte-count matching the local file exactly.
+
+| File | Collection | Drive file ID | View link |
+|---|---|---|---|
+| `BB_StartHere_Cover_v1.svg` | 08 | `1buNgtIvsEwqC_jApvd9fqcKYoPxS9GaU` | https://drive.google.com/file/d/1buNgtIvsEwqC_jApvd9fqcKYoPxS9GaU/view |
+| `BB_StartHere_Infographic_Operating-Cadence_v1.svg` | 08 | `1KmzmXIK7wUSDRW8doWoJmiuob2zH7qGm` | https://drive.google.com/file/d/1KmzmXIK7wUSDRW8doWoJmiuob2zH7qGm/view |
+| `BB_Accelerator_Cover_v1.svg` | 09 | `11B_rxzFpQZDPqqvLtvCMPCw33n6CQgYL` | https://drive.google.com/file/d/11B_rxzFpQZDPqqvLtvCMPCw33n6CQgYL/view |
+
+**Still to upload — 11 of 14:** all five SH resource files, all five ACC resource files, and
+`BB_Accelerator_Infographic_Accelerator-Arc_v1.svg`. Then the two READMEs as Google Docs.
+
+### Gate behaviour observed (matters for planning the next run)
+The Drive approval gate is **intermittent, not durably granted**. On 2026-08-26 it opened long
+enough for five consecutive writes (2 folders + 3 files) and then closed again mid-batch — the
+sixth write and a subsequent read both returned `requires approval`. Plan the remaining run as
+resumable rather than one pass: upload, record the returned ID here immediately, and expect to
+stop and resume. Nothing is lost on a failure — a blocked call creates nothing, so any file
+missing from the table above simply has not been uploaded and can be retried safely.
 
 ## Numbering note
 Folders 01–07 already use the `NN · Name` pattern, so these took the next free numbers, **08**
