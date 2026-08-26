@@ -344,9 +344,7 @@ const SEED = {
       description: 'C2FO operates the world’s largest working-capital platform, and through Lending Connections it matches businesses with a vetted network of lenders — receivables finance, term loans, asset-based lending and factoring. A strong fit for founders who need capital to fund expansion POs, product innovation or staffing, and for teams working through P&L stabilization and turnaround.',
       website: 'https://c2fo.com/supplier-solutions/lending-connections/',
       category: 'Working Capital / Lender Matchmaking',
-      // Jay Lott (Director, C2FO Lending Connections) is the VGP relationship
-      // contact — kept internal pending his confirmation. Founder intros routed
-      // warmly through VGP; no direct contact published.
+      founderName: 'Jay Lott, Director — C2FO Lending Connections',
       bestFit: [
         'Founders under ~$1MM ARR needing $200k–$600k in working capital',
         'Growth trajectories: expansion POs, product innovation, staffing',
@@ -354,6 +352,7 @@ const SEED = {
       ],
       engagement: ['Working-capital assessment', 'Lender matchmaking across the C2FO network', 'Receivables finance, term loans, ABL and factoring'],
       whyVgp: 'One vetted front door to a network of lenders — so a capital-ready founder gets matched to the right structure instead of cold-applying to a dozen.',
+      contact: { email: 'jay.lott@c2fo.com', phone: '913-709-6792', location: 'C2FO Lending Connections' },
       funding: true,
       fundingBlurb: 'Working-capital platform and lender matchmaking — receivables finance, term loans, asset-based lending and factoring for expansion, innovation, staffing, or P&L stabilization.',
       review: true,

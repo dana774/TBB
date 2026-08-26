@@ -148,16 +148,16 @@ Hi Jay,
 
 Thank you for the conversation — I'm excited to formally add C2FO's Lending Connections as a funding partner
 in the Value Growth Partners ecosystem. As I build out the new website, I want C2FO represented exactly the
-way you'd like it, and I want to keep your direct contact internal to us unless you'd prefer otherwise.
+way you'd like it.
 
 Here's the draft page I've prepared: **[PREVIEW]**
 
 I've framed C2FO as one of our funding partners — working-capital and lender matchmaking for founders funding
-expansion POs, product innovation and staffing, as well as P&L stabilization and turnaround. Founder intros
-would be made warmly through VGP.
+expansion POs, product innovation and staffing, as well as P&L stabilization and turnaround. I've listed you
+as the contact (jay.lott@c2fo.com · 913-709-6792) — let me know if you'd prefer a different number or email.
 
-When you have a few minutes, would you use this short form to confirm or correct anything, add the C2FO logo,
-and tell me how you'd like introductions and contact handled? **[FORM]**
+When you have a few minutes, would you use this short form to confirm or correct anything and add the C2FO
+logo? **[FORM]**
 
 Nothing goes live until you confirm. Thanks again for the partnership.
 
