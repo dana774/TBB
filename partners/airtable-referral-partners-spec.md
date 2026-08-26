@@ -29,18 +29,23 @@ this is the click-to-build spec.
 | Services & Rates | Long text | ✅ (optional) | partner's choice to list |
 | Consent to Publish | Checkbox | ✅ | partner confirms the profile can go live |
 | **Status** | Single select | — (internal) | Draft · Sent for Review · Updated by Partner · Confirmed · Live |
-| Why VGP Recommends | Long text | — (internal) | VGP editorial, not partner-editable |
+| Why VGP Recommends | Long text | — (VGP-editorial) | VGP writes this; not partner-editable, but **shown publicly** on the page |
 | Referral Arrangement | Single select | — (internal) | Standard 15% · Visibility-only · None · Custom |
 | Preview Page URL | URL | — | `https://<staging>/network/<slug>` |
 | Internal Notes | Long text | — (internal) | |
 | Last Modified | Last modified time | — | auto |
 
-Seed rows now: Ark-La-Tex Financial Consultants, Veri-Core Systems, Patrice Malloy (The Affluent CFO),
-Heloise Lanoix, Kaylee McFerson, Sengo, Nudge. (Data already drafted in `vgp-headless/src/lib/content.ts`.)
+Seed rows now (one per `/network/<slug>` page already built): Ark-La-Tex Financial Consultants, Veri-Core
+Systems, Patrice Malloy (The Affluent CFO), Heloise Lanoix, Kaylee McFerson, Sengo, Nudge, Product Society,
+Sarah Horowitz Parfums, C2FO — Lending Connections. (All data already drafted in
+`vgp-headless/src/lib/content.ts`.)
 
-## Table 2 — `Funding Partners` (optional, for /network/funding-partners)
+## Table 2 — `Funding Partners` (for /network/funding-partners)
 Same shape, minus the referral-fee field; add **Capital Type** (Non-dilutive · Debt · Equity · Grant · Mixed)
-and **Stage Focus**. Populate when Dana sends names/details.
+and **Stage Focus**. On the site, funding partners are simply `Partners` rows flagged `funding: true`, so
+this table is optional — either keep funding partners in `Partners` with a **Funding?** checkbox (simplest,
+matches the site), or split them out here. **Currently funding-flagged:** C2FO — Lending Connections
+(Jay Lott, jay.lott@c2fo.com) and Ark-La-Tex Financial Consultants. More funding partners to be added.
 
 ## The partner-facing form
 Create a **Form view** on `Partners` exposing only the "✅ On partner form" fields above. Title it
@@ -75,6 +80,8 @@ submissions.
    `partners` data automatically, so "Confirmed in Airtable" → "live on site" needs no hand-editing.
 
 ## Guardrails
-- Internal fields (Status, Why VGP Recommends, Referral Arrangement, Internal Notes) are **never** on the
-  partner form and never shown on the public page.
+- Truly-internal fields (Status, Referral Arrangement, Internal Notes) are **never** on the partner form and
+  never shown on the public page.
+- "Why VGP Recommends" is VGP-editorial: not on the partner form (partners can't edit it), but it **is**
+  displayed publicly as VGP's endorsement.
 - Nothing goes `Live` without **Consent to Publish** checked.
