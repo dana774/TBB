@@ -56,6 +56,31 @@ no partial or corrupted objects to clean up.
 Throughput is roughly 2–5 writes per window, so the remaining 9 files plus 2 READMEs will take
 several windows from this session type, or one pass from a session that holds approvals.
 
+Windows look **time-based, not attempt-based** — observed windows ran ~5–7 minutes and were hours
+apart. Rapid retries inside a shut window never succeed, so they only burn context.
+
+### Resume procedure — follow exactly
+
+1. **Probe cheaply first.** Run `search_files` on parent `1gssv1wE14p6FHLFxj7oUcRWGY5x4Iade`.
+   If it returns `requires approval`, the window is shut — stop. Do **not** retry by firing large
+   base64 payloads; each blocked attempt costs ~8K tokens and achieves nothing.
+2. **When the probe succeeds**, the window is open and you have roughly 2–5 writes. Work fast.
+3. **⚠ Regenerate base64 in the same turn as the upload.** Run `base64 -w0 <path>` and paste that
+   output straight into `create_file`. **Never reuse a base64 blob from earlier in the
+   conversation** — a one-character transcription error crept in exactly that way
+   (`…cVmQkBJ…` became `…cVmQEBJ…`). Both attempts happened to be refused, so nothing bad reached
+   Drive, but a corrupted upload would have looked successful and produced a PDF that will not open.
+4. `create_file` args: correct `contentMimeType`, `disableConversionToGoogleType: true`, and
+   `parentId` = `1gssv1wE14p6FHLFxj7oUcRWGY5x4Iade` (08) or
+   `1GNQadWsGtaeDNBhYaBcGqdOIsMcHC1YF` (09).
+5. **Verify** the returned `fileSize` equals the local byte count. Mismatch = corrupt, delete and
+   redo.
+6. **Record the returned ID in this file and commit+push immediately** — one file at a time, never
+   batched. Windows close without warning.
+
+Self-scheduling a retry is not available either: `send_later` is behind the same approval gate.
+In practice each new user message is the next chance to probe.
+
 ## Numbering note
 Folders 01–07 already use the `NN · Name` pattern, so these took the next free numbers, **08**
 and **09**. Doc 35's journey order puts "Start Here" first and "Accelerator + Alumni Continuity"
