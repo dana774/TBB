@@ -12,24 +12,49 @@ Target parent: **Founder Network — Members** (`1ls2sHkPm9f-qtAhEiupuxhLk7TetWE
 
 ### Upload progress (last updated 2026-08-26)
 
-**Uploaded — 3 of 14.** Each returned a byte-count matching the local file exactly.
+**Uploaded — 5 of 14.** Each returned a byte-count matching the local file exactly.
 
-| File | Collection | Drive file ID | View link |
-|---|---|---|---|
-| `BB_StartHere_Cover_v1.svg` | 08 | `1buNgtIvsEwqC_jApvd9fqcKYoPxS9GaU` | https://drive.google.com/file/d/1buNgtIvsEwqC_jApvd9fqcKYoPxS9GaU/view |
-| `BB_StartHere_Infographic_Operating-Cadence_v1.svg` | 08 | `1KmzmXIK7wUSDRW8doWoJmiuob2zH7qGm` | https://drive.google.com/file/d/1KmzmXIK7wUSDRW8doWoJmiuob2zH7qGm/view |
-| `BB_Accelerator_Cover_v1.svg` | 09 | `11B_rxzFpQZDPqqvLtvCMPCw33n6CQgYL` | https://drive.google.com/file/d/11B_rxzFpQZDPqqvLtvCMPCw33n6CQgYL/view |
+| File | ID | Collection | Drive file ID | View link |
+|---|---|---|---|---|
+| `BB_StartHere_Cover_v1.svg` | — | 08 | `1buNgtIvsEwqC_jApvd9fqcKYoPxS9GaU` | https://drive.google.com/file/d/1buNgtIvsEwqC_jApvd9fqcKYoPxS9GaU/view |
+| `BB_StartHere_Infographic_Operating-Cadence_v1.svg` | — | 08 | `1KmzmXIK7wUSDRW8doWoJmiuob2zH7qGm` | https://drive.google.com/file/d/1KmzmXIK7wUSDRW8doWoJmiuob2zH7qGm/view |
+| `BB_StartHere_Founder-Operating-System-Map_v1.pdf` | SH-04 | 08 | `1umN46ZUUNQZqeduyhjYZp3820stSvhRq` | https://drive.google.com/file/d/1umN46ZUUNQZqeduyhjYZp3820stSvhRq/view |
+| `BB_StartHere_Member-Quick-Start-Checklist_v1.pdf` | SH-03 | 08 | `1gdXnYvOyjOSQcg0UEe1ZRBeV26uINUFa` | https://drive.google.com/file/d/1gdXnYvOyjOSQcg0UEe1ZRBeV26uINUFa/view |
+| `BB_Accelerator_Cover_v1.svg` | — | 09 | `11B_rxzFpQZDPqqvLtvCMPCw33n6CQgYL` | https://drive.google.com/file/d/11B_rxzFpQZDPqqvLtvCMPCw33n6CQgYL/view |
 
-**Still to upload — 11 of 14:** all five SH resource files, all five ACC resource files, and
-`BB_Accelerator_Infographic_Accelerator-Arc_v1.svg`. Then the two READMEs as Google Docs.
+**Still to upload — 9 of 14:**
+
+| File | ID | Collection |
+|---|---|---|
+| `BB_StartHere_Member-Orientation_v1.pdf` | SH-01 | 08 |
+| `BB_StartHere_Founder-Operating-Cadence_v1.xlsx` | SH-02 | 08 |
+| `BB_StartHere_Goals-and-Priorities-Worksheet_v1.xlsx` | SH-05 | 08 |
+| `BB_Accelerator_Accelerator-Overview-Curriculum-Map_v1.pdf` | ACC-01 | 09 |
+| `BB_Accelerator_Cohort-Workbook-Session-Templates_v1.docx` | ACC-02 | 09 |
+| `BB_Accelerator_Graduation-Readiness-Rubric_v1.xlsx` | ACC-03 | 09 |
+| `BB_Accelerator_Alumni-Continuity-Guide_v1.pdf` | ACC-04 | 09 |
+| `BB_Accelerator_Alumni-Network-Directory-Template_v1.xlsx` | ACC-05 | 09 |
+| `BB_Accelerator_Infographic_Accelerator-Arc_v1.svg` | — | 09 |
+
+Then the two READMEs as Google Docs.
 
 ### Gate behaviour observed (matters for planning the next run)
-The Drive approval gate is **intermittent, not durably granted**. On 2026-08-26 it opened long
-enough for five consecutive writes (2 folders + 3 files) and then closed again mid-batch — the
-sixth write and a subsequent read both returned `requires approval`. Plan the remaining run as
-resumable rather than one pass: upload, record the returned ID here immediately, and expect to
-stop and resume. Nothing is lost on a failure — a blocked call creates nothing, so any file
-missing from the table above simply has not been uploaded and can be retried safely.
+The Drive approval gate is **intermittent, not durably granted** — confirmed across two separate
+days, including after a full system refresh:
+
+| Date | Result |
+|---|---|
+| 2026-08-26 | 5 consecutive writes (2 folders + 3 files), then closed mid-batch; 6th write and a following read both refused |
+| 2026-08-29 | Reads fine, 2 further file writes landed, then closed again; next write and a following read both refused |
+
+So a refresh does not grant standing approval — it produces another window. Plan the remaining run
+as **resumable rather than one pass**: upload, record the returned ID here immediately, and expect
+to stop and resume. Nothing is lost on a failure: a blocked call creates nothing, so any file
+missing from the uploaded table simply has not been uploaded and can be retried safely. There are
+no partial or corrupted objects to clean up.
+
+Throughput is roughly 2–5 writes per window, so the remaining 9 files plus 2 READMEs will take
+several windows from this session type, or one pass from a session that holds approvals.
 
 ## Numbering note
 Folders 01–07 already use the `NN · Name` pattern, so these took the next free numbers, **08**
