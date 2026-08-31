@@ -76,10 +76,17 @@ Produce a PASS/FAIL report with the next action per FAIL.
 
 ## Mode 2 — Weekly intelligence sweep (run every week)
 
+**Scope (revised 2026-08-31): three categories only — `Investor update`,
+`Founder news`, `Market signal`. Funding opportunities are NOT swept here:
+funding discovery belongs to the VGP Funding Operating System and its
+`03_Opportunity_Master` sheet (the single funding source of truth). A
+strong funding opportunity found incidentally goes in the digest under
+"Funding handoffs" with its URL — never into this CSV.**
+
 1. Read the database first and load existing `Source URL`s so you never log
    a duplicate.
 2. Search the open web for items matching `SOURCING_FOCUS` from roughly the
-   last 7–10 days across the three categories plus notable market signals.
+   last 7–10 days across the three in-scope categories.
    Favor primary/reputable sources; capture real, working canonical URLs.
 3. **Verify before logging**: every item must have a real source URL you
    actually found. Never fabricate a headline, number, deadline, fund, or
@@ -98,6 +105,13 @@ Produce a PASS/FAIL report with the next action per FAIL.
 
 1. Pull every row logged since the last issue (`Used in issue` blank). The
    accumulated database is the input — don't ask for content.
+   **Funding Radar sources differently (revised 2026-08-31): pull its
+   items from `03_Opportunity_Master` in the `VGP_Funding_Hotlist_Master`
+   Sheet — statuses Open now / Open now-urgent / Opening soon / Rolling,
+   VERIFIED only (see verification labels below). Feature only the top
+   3–5 by founder usefulness; the full curated funding list belongs to
+   the Founder Funding Hot List (the free semimonthly publication), and
+   the Radar should point members to it.**
 2. Curate: pick the strongest items per section; drop the weak/dated ones
    (leave them in the DB).
 3. Assemble the issue in the house template (below). Fill every section or
@@ -199,6 +213,19 @@ domain fails QA); every stat carries a named source or is dropped; figures
 quoted verbatim from the source; images/QR codes must be delivered as
 separate image files (they cannot be extracted from a PDF) — the beehiiv
 build substitutes a button link when no asset is provided.
+
+## Verification labels (adopted 2026-08-31 from the funding system)
+
+Classify every funding item internally before it can appear in any
+publication: **VERIFIED** (official source confirms the current-cycle
+details) · **PARTIALLY VERIFIED** (program confirmed, a material detail
+unclear — publishable only with the gap plainly disclosed) · **NEEDS
+VERIFICATION** (secondary source only — never publishable as confirmed) ·
+**STALE SIGNAL** (surfaced after its deadline) · **CLOSED**. Use precise
+funding-type language (grant ≠ accelerator ≠ pitch competition ≠
+sweepstakes ≠ loan ≠ equity investment), disclose every material catch
+(fees, revenue minimums, geography, equity, random selection), and link
+to the official application page, never aggregators or alert redirects.
 
 ## Voice & guardrails (non-negotiable)
 

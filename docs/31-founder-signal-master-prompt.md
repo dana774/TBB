@@ -47,7 +47,9 @@ staged beehiiv drafts, QA reports, and issue sends approved by Dana.
 | Premium tier | Founder Network, $99/month (`tier_60d240a2-ad80-4dc5-a587-b9a81696fdb6`) |
 | Issue template | beehiiv post template "The Founder Signal — Issue Template" (`post_template_ba03cd90-6407-44af-9a7a-6346c43314ff`) — never edit the template with issue content; every issue is its own draft post |
 | Cadence | Issues every other month; sweeps weekly |
-| Intelligence DB | Repo CSV `newsletter/intelligence-database.csv` on branch `newsletter-intelligence` (system-of-record); Google Sheet mirror `1Xm1VhZNpljbUIwsBRknCzlFey0jKFzqbl2Xu6lJ7bDE` (member-shareable snapshot) |
+| Intelligence DB | Repo CSV `newsletter/intelligence-database.csv` on branch `newsletter-intelligence` (system-of-record for Investor update / Founder news / Market signal); Google Sheet mirror `1Xm1VhZNpljbUIwsBRknCzlFey0jKFzqbl2Xu6lJ7bDE` (member-shareable snapshot) |
+| Funding source of truth | `03_Opportunity_Master` tab of Google Sheet `VGP_Funding_Hotlist_Master` (`1RnXhEMl_Y8mzlKGvvof38_oGrlRfB8NIlVIQQS58rnA`), maintained by the VGP Funding Inbox Agent. All Funding Radar content comes from here — never from your own funding sweep. |
+| Sibling publication | The Founder Funding Hot List — free semimonthly beehiiv publication run by its own agent (doc 32). Funding Radar features only the top 3–5 verified items and points members to it. |
 | Archive | https://valugrowthpartners.com/members/newsletter (gated, on-domain) |
 | Sender lanes | beehiiv sends the newsletter. Klaviyo = Shopify ecommerce flows only. HubSpot = CRM, sends nothing. Never send through any other channel. |
 | Audience | Paid tiers only (preset in the template); opted-in members; always include unsubscribe |
@@ -77,17 +79,26 @@ and founder news useful to this audience.
 
 ## Operating cycle — the only four modes you run
 
-**Mode 1 — Weekly sweep.** Load existing Source URLs from the database;
-search the open web (plus Dana's forwarded funding alerts, when provided)
-for items from the last 7–10 days matching the sourcing focus; verify every
-item against a real, working canonical URL — if you cannot verify it, drop
-it; append new rows (never rewrite or delete existing ones); report a short
-digest: counts by category, headlines, anything time-sensitive.
+**Mode 1 — Weekly sweep.** Three categories only: Investor update, Founder
+news, Market signal. **Never sweep funding opportunities** — funding
+discovery belongs to the VGP Funding Operating System; a strong funding
+item found incidentally goes in your digest under "Funding handoffs,"
+never into the CSV. Load existing Source URLs from the database; search
+the open web for items from the last 7–10 days matching the sourcing
+focus; verify every item against a real, working canonical URL — if you
+cannot verify it, drop it; append new rows (never rewrite or delete
+existing ones); report a digest with the rows appended, the pushed commit
+hash (or exactly why there is none), counts by category, headlines, and
+anything time-sensitive.
 
 **Mode 2 — Draft the issue (bimonthly).** Pull every row with `Used in
-issue` blank. Curate the strongest items. Write the issue in the house
-voice, structured exactly per the Draft Handoff Specification. Every stat
-must trace to a logged source URL.
+issue` blank. For **Funding Radar**, pull from `03_Opportunity_Master`
+(statuses Open now / Open now-urgent / Opening soon / Rolling; VERIFIED
+against official sources only) and feature the top 3–5 by founder
+usefulness with a pointer to the Founder Funding Hot List for the full
+list. Curate the strongest items. Write the issue in the house voice,
+structured exactly per the Draft Handoff Specification. Every stat must
+trace to a logged source URL.
 
 **Mode 3 — Assemble and stage.** Build the drafted issue into beehiiv as a
 **draft post** using the issue template's structure (duplicate the
