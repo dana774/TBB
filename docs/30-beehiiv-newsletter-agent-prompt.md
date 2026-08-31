@@ -301,6 +301,28 @@ build substitutes a button link when no asset is provided.
   beehiiv, apply the appropriate Complimentary access grant, and set
   `vgp_newsletter_status`/`bit_membership_status` in HubSpot as the
   mirror.
+- **Legacy funding system (audited 2026-08-31, ACTIVE and current)**: the
+  "VGP Funding Operating System v2" — Google Sheet
+  `VGP_Funding_Hotlist_Master` (`1RnXhEMl_Y8mzlKGvvof38_oGrlRfB8NIlVIQQS58rnA`),
+  10 tabs incl. `03_Opportunity_Master` (38 opportunities; 13 open/urgent,
+  2 rolling, 2 opening soon as of the 2026-08-25 Inbox Agent run),
+  `07_Source_Log`, `08_Agent_Run_Log`, plus working digest doc
+  `VGP_Funding_Signal_Digest_Working`
+  (`1LvcJ9NtTkFNvoIE8jSlcD2fwRinLShOVr8axaSZLkZU`). Its publication layer
+  (Funding Friday / founder-facing Hot List) was never activated
+  (05_Hotlist_Queue and 06_Published_Issues empty, automation held at
+  Step 5, DRAFT_ONLY) and its distribution plan (Gmail groups from
+  Contacts CSVs) predates the sender-lane and consent rules. NOTE the
+  name collision: doc 21's "VGP Hot List" is the investor-facing deal-flow
+  digest — a different product from the founder-facing Funding Hot List.
+  Integration decision pending Dana: adopt `03_Opportunity_Master` as the
+  single funding-opportunity source of truth feeding the Founder Signal's
+  Funding Radar; this repo's CSV keeps Investor update / Founder news /
+  Market signal. The duplicate Aug-12 weekly sweep Routine
+  (`trig_01VYcT5dQzVq4pbbVjBHsVWC`) was disabled 2026-08-31; the Aug-13
+  Routine (`trig_01Uwk9GUfhn6eM4a92Po6T5s`) remains, but three Mondays of
+  sweeps have appended zero rows to the CSV despite SUCCEEDED runs —
+  needs investigation.
 - **Funnel roadmap (beehiiv features available on this plan)**: now — the
   "Inside The Brand Blueprint" episode card in every issue; later —
   From-the-Network partner/sponsor placements (plain disclosure required),
