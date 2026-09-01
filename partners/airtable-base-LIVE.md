@@ -8,7 +8,7 @@
 - **10 records seeded**, all `Status = Draft`, `Funding?` checked for Ark-La-Tex and C2FO:
   Ark-La-Tex Financial Consultants · Veri-Core Systems · Patrice Malloy · Heloise Lanoix · Kaylee McFerson ·
   Sengo · Nudge · Product Society · Sarah Horowitz Parfums · C2FO — Lending Connections
-- Each row's **Preview Page URL** = `https://tbb-git-claude-vgp-referral-partners-value-growth-partners.vercel.app/network/<slug>` (live staging host; site is `noindex`). Re-point when the site moves to its production domain.
+- Each row's **Preview Page URL** = `https://tbb-roan.vercel.app/network/<slug>` (live staging host; site is `noindex`). Re-point when the site moves to its production domain.
 
 Open it: https://airtable.com/appXvHjHVMzNmDqdf
 

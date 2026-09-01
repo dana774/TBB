@@ -24,7 +24,7 @@ like — accurate, current, and in your own words.
 3. **We publish once you confirm.** Nothing goes live until you've reviewed it and given the go-ahead.
 
 **Here's an example of what a finished referral partner page looks like:**
-👉 https://tbb-git-claude-vgp-referral-partners-value-growth-partners.vercel.app/network/ark-la-tex-financial
+👉 https://tbb-roan.vercel.app/network/ark-la-tex-financial
 
 Take a look so you know what to expect for yours. Your individual preview link and update form are in the
 follow-up email — it takes about five minutes to complete, and getting it done soon means your page is ready
