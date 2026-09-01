@@ -1,0 +1,44 @@
+{% comment %}
+  Founder Chapter card. Accepts: founder (metaobject entry of type founder_chapter)
+  Renders only populated fields; unconsented records carry the editorial-review badge.
+{% endcomment %}
+{%- liquid
+  assign chapter_url = founder.system.url
+  assign consented = false
+  if founder.consent_story.value and founder.consent_image.value
+    assign consented = true
+  endif
+-%}
+<article class="bb-card bb-card--founder" data-stage="{{ founder.stage.value | handleize }}" data-industry="{{ founder.industry.value | handleize }}">
+  {%- unless consented -%}
+    <p class="bb-editorial-flag">[EDITORIAL REVIEW] Awaiting founder consent — not for publication.</p>
+  {%- endunless -%}
+  {%- if founder.portrait.value and founder.consent_image.value -%}
+    <img
+      src="{{ founder.portrait.value | image_url: width: 600 }}"
+      alt="{{ founder.portrait.value.alt | default: founder.name.value }}"
+      width="600"
+      height="{{ 600 | divided_by: founder.portrait.value.aspect_ratio | default: 600 | round }}"
+      loading="lazy"
+    >
+  {%- endif -%}
+  {%- if founder.stage.value -%}
+    <span class="bb-badge bb-badge--public">{{ founder.stage.value }}</span>
+  {%- endif -%}
+  <h3 class="bb-h3">
+    {%- if chapter_url -%}
+      <a href="{{ chapter_url }}">{{ founder.name.value }}</a>
+    {%- else -%}
+      {{ founder.name.value }}
+    {%- endif -%}
+  </h3>
+  {%- if founder.company.value -%}
+    <p class="bb-card__company">{{ founder.company.value }}</p>
+  {%- endif -%}
+  {%- if founder.lesson.value -%}
+    <p>{{ founder.lesson.value }}</p>
+  {%- endif -%}
+  {%- if chapter_url -%}
+    <a href="{{ chapter_url }}">Read the chapter<span class="bb-visually-hidden">: {{ founder.name.value }}</span></a>
+  {%- endif -%}
+</article>

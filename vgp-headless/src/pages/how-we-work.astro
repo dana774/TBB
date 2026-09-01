@@ -1,0 +1,137 @@
+---
+import Base from '../layouts/Base.astro';
+const process = [
+  { n: '01', h: 'Diagnose', p: 'We start with an honest read on where the business actually is — model, market, operations, readiness — and name the few things that matter most right now.' },
+  { n: '02', h: 'Build', p: 'We install the strategy, systems and Growth OS the business needs: roadmap, dashboards, workflows, forecasts, and the operating cadence that makes progress repeatable.' },
+  { n: '03', h: 'Orchestrate', p: 'We bring the right partners, capital, and introductions at the right time — and stay accountable for the outcome, not just the advice.' },
+];
+// The ascension ladder — levels by role, not price. Pricing is shared in a proposal.
+const tiers = [
+  { n: '01', h: 'Founder Network', role: 'Membership — the front door', p: 'Low-friction access to signal, funding alerts, founder tools, and the referral network. Where founders plug into the ecosystem before they need a full retainer.', d: ['Weekly Hot List & funding alerts', 'Founder tools & partner directory', 'Spotlight consideration'] },
+  { n: '02', h: 'Founder Accelerator', role: 'Post-accelerator advisory', p: 'Structure and accountability for founders who just graduated an accelerator and need momentum, messaging, and visibility.', d: ['Monthly strategy sessions', 'Brand Blueprint podcast feature', 'VGP Hot List inclusion', 'Mid-month accountability check-ins'] },
+  { n: '03', h: 'LaunchPad+', role: 'Brand + growth systems', p: 'Strategy paired with light creative execution — for founders formalizing positioning and preparing materials for retail buyers and investors.', d: ['Strategic + creative sessions', 'Brand narrative & visual refresh', 'Referral Partner Network access', 'Monthly performance reviews'] },
+  { n: '04', h: 'Pinnacle', role: 'Investor & retail readiness', p: 'Higher-level readiness for founders scaling into distribution or preparing a seed or bridge round.', d: ['Financial & operational planning', 'Investor decks & retail sell sheets', 'Creative & packaging oversight', 'Hot List investor amplification', 'Optional advisor-equity hybrid'] },
+  { n: '05', h: 'Apex', role: 'Fractional operating support', p: 'Executive-level continuity for founders managing growth, operations, partnerships, and capital at once — without hiring a full leadership team.', d: ['Weekly strategic leadership', 'Growth & operations oversight', 'Partnership & capital strategy', 'Integrated decision support'] },
+];
+// Real founder scenarios → the level that fits. Outcomes are illustrative examples, not guarantees.
+const scenarios = [
+  {
+    tag: 'Early-stage founder',
+    fit: 'Founder Accelerator',
+    profile: 'Recently graduated an accelerator, running a product-based business with a lean budget but real potential. Ready to sharpen the brand story, improve presentation materials, and start partner outreach.',
+    work: 'A monthly strategy session on sales, marketing, or operations; a Brand Blueprint podcast feature for exposure; inclusion in the VGP Hot List; and mid-month accountability check-ins.',
+    outcome: 'By month three, the founder lands a first small retail placement and begins planning a rebrand — preparing to step up to LaunchPad+.',
+  },
+  {
+    tag: 'Early-growth founder',
+    fit: 'LaunchPad+',
+    profile: 'A beauty or wellness founder seeing consistent DTC or boutique sales, ready to formalize positioning, refresh visuals, and prepare materials for larger retail accounts or small investors.',
+    work: 'Strategic + light-creative sessions, an updated brand narrative and messaging playbook, new visual assets, access to the VGP Referral Partner Network, and monthly performance reviews.',
+    outcome: 'The founder rebrands, updates their site, and signs a regional wholesale agreement — earning warm investor introductions through the Hot List network.',
+  },
+  {
+    tag: 'Scaling / funding founder',
+    fit: 'Pinnacle',
+    profile: 'Established traction, scaling toward national distribution or preparing a seed or bridge round ($250K–$500K). Needs operational, marketing, and investor advisory under one roof.',
+    work: 'Strategic, financial, and operational planning; a full investor-readiness review; investor decks, one-pagers, and sell sheets; integrated creative execution; referral-network access; and Hot List investor amplification.',
+    outcome: 'Within six months the founder finalizes an investor deck, secures funding, and partners with a regional distributor — continuing under VGP advisory into Apex the following year.',
+  },
+];
+---
+<Base title="How We Work" description="How Value Growth Partners works — diagnose, build, orchestrate — and the ascension ladder from a membership to fractional operating support, matched to real founder scenarios.">
+  <!-- Hero -->
+  <section class="vgp-section">
+    <div class="vgp-container" style="max-width:820px;">
+      <span class="vgp-eyebrow">How We Work</span>
+      <h1>Advisory that becomes infrastructure.</h1>
+      <p style="font-size:1.25rem; max-width:64ch;">We don’t hand over a deck and walk away. We diagnose what’s real, build the systems that make growth repeatable, and orchestrate the partners and capital around it. Systems over services. From traction to structure.</p>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="vgp-section vgp-bg-soft">
+    <div class="vgp-container">
+      <span class="vgp-eyebrow">The engagement</span>
+      <h2>Three moves, every time.</h2>
+      <div class="vgp-grid vgp-grid--3 vgp-mt">
+        {process.map((s) => (
+          <article class="vgp-card">
+            <span class="hw-num">{s.n}</span>
+            <h4>{s.h}</h4>
+            <p style="margin-bottom:0;">{s.p}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- The ascension ladder -->
+  <section class="vgp-section">
+    <div class="vgp-container">
+      <span class="vgp-eyebrow">The ladder</span>
+      <h2>Start where you are. Ascend as you’re ready.</h2>
+      <p style="max-width:66ch;">Founders graduate through value — from membership, to advisory, to executive-level operating support. Each level has a clear job, and you only move up when the next level is genuinely the right support. We share pricing in a proposal, matched to your stage and scope.</p>
+      <div class="hw-ladder vgp-mt">
+        {tiers.map((t) => (
+          <article class="vgp-card hw-tier">
+            <span class="hw-num">{t.n}</span>
+            <h4 style="margin-bottom:.15rem;">{t.h}</h4>
+            <span class="hw-role">{t.role}</span>
+            <p style="margin:.6rem 0 .9rem;">{t.p}</p>
+            <ul class="hw-list">
+              {t.d.map((item) => (<li>{item}</li>))}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Which founder are you? -->
+  <section class="vgp-section vgp-bg-soft">
+    <div class="vgp-container">
+      <span class="vgp-eyebrow">Which founder are you?</span>
+      <h2>Real scenarios, matched to the right level.</h2>
+      <p style="max-width:66ch;">A few examples of how founders engage VGP at different stages — the situation, what we do, and the kind of outcome it drives. Outcomes shown are illustrative examples, not guarantees.</p>
+      <div class="vgp-grid vgp-grid--3 vgp-mt">
+        {scenarios.map((s) => (
+          <article class="vgp-card hw-scn">
+            <span class="hw-scn-tag">{s.tag}</span>
+            <p class="hw-scn-label">The situation</p>
+            <p>{s.profile}</p>
+            <p class="hw-scn-label">What we do</p>
+            <p>{s.work}</p>
+            <p class="hw-scn-label">Illustrative outcome</p>
+            <p style="margin-bottom:1rem;">{s.outcome}</p>
+            <p class="hw-scn-fit">Best fit: <strong>{s.fit}</strong></p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="vgp-section vgp-bg-navy vgp-center">
+    <div class="vgp-container" style="max-width:640px;">
+      <h2 style="font-size:var(--vgp-h3);">Not sure which level fits?</h2>
+      <p style="max-width:52ch; margin:0 auto 1.75rem;">Start the Advisory Pathway and we’ll point you to the right starting point — and share pricing matched to your stage and scope.</p>
+      <p>
+        <a class="vgp-btn vgp-btn--primary" href="/advisory-pathway" style="margin-right:.5rem;">Start the Advisory Pathway</a>
+        <a class="vgp-btn vgp-btn--secondary" href="/membership">Join the Founder Network</a>
+      </p>
+    </div>
+  </section>
+
+  <style>
+    .hw-num { font-family: var(--font-serif); font-size: 2rem; color: var(--vgp-warm-gold); display: block; margin-bottom: .25rem; }
+    .hw-ladder { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.25rem; }
+    .hw-tier { display: flex; flex-direction: column; }
+    .hw-role { font-size: .8rem; letter-spacing: .04em; text-transform: uppercase; color: var(--vgp-warm-gold); font-weight: 600; }
+    .hw-list { margin: 0; padding-left: 1.1rem; }
+    .hw-list li { margin-bottom: .3rem; font-size: .95rem; }
+    .hw-scn { display: flex; flex-direction: column; }
+    .hw-scn-tag { display: inline-block; align-self: flex-start; background: var(--vgp-warm-gold); color: #1a1a1a; font-size: .78rem; font-weight: 700; letter-spacing: .03em; text-transform: uppercase; padding: .25rem .6rem; border-radius: 999px; margin-bottom: .9rem; }
+    .hw-scn-label { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--vgp-warm-gold); font-weight: 700; margin: .5rem 0 .15rem; }
+    .hw-scn-fit { margin: auto 0 0; padding-top: .75rem; border-top: 1px solid rgba(0,0,0,.1); }
+  </style>
+</Base>

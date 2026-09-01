@@ -1,0 +1,41 @@
+{
+  "sections": {
+    "bb_start": {
+      "type": "bb-start-gateway",
+      "blocks": {
+        "r1": {
+          "type": "route",
+          "settings": {
+            "title": "I'm a founder",
+            "body": "Complete the Founder Intake to find your pathway.",
+            "link": "/pages/founder-intake"
+          }
+        },
+        "r2": {
+          "type": "route",
+          "settings": {
+            "title": "I'm an institution or partner",
+            "body": "Programs, partnership and contributor pathways.",
+            "link": "/pages/partners"
+          }
+        },
+        "r3": {
+          "type": "route",
+          "settings": {
+            "title": "I want to be on the podcast",
+            "body": "Apply to join Dana on The Brand Blueprint Podcast.",
+            "link": "/pages/guest-application"
+          }
+        }
+      },
+      "block_order": [
+        "r1",
+        "r2",
+        "r3"
+      ]
+    }
+  },
+  "order": [
+    "bb_start"
+  ]
+}

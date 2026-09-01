@@ -1,0 +1,44 @@
+---
+import Base from '../layouts/Base.astro';
+// Member area entry point. The VGP site does NOT host gated content or passwords —
+// it links to the member hub (Google Drive hub for launch, or a Shopify-gated area
+// later). Set MEMBER_PORTAL_URL to that hub link and the sign-in goes live.
+// Defaults to the Google Drive "Founder Network — Members" hub built for Path A.
+// Override with MEMBER_PORTAL_URL (e.g. a Shopify-gated area) when you graduate.
+// Access is gated by the folder's Drive sharing (Google Group of active members).
+const PORTAL_URL = import.meta.env.MEMBER_PORTAL_URL || 'https://drive.google.com/drive/folders/1ls2sHkPm9f-qtAhEiupuxhLk7TetWE0m';
+const library = [
+  { h: 'Resource Library', p: 'Playbooks, worksheets, dashboards and templates — organized by founder need.' },
+  { h: 'Funding Opportunities', p: 'Funding Friday, Hot List eligibility, and curated capital opportunities as they open.' },
+  { h: 'Accelerator Toolkit', p: 'Curriculum, tools and playbooks from the Brand Blueprint accelerator.' },
+  { h: 'Partner Directory', p: 'The vetted referral network — with member-only discounts on select partners.' },
+];
+---
+<Base title="Member Sign-In" description="The Founder Network member area — resources, funding, tools, and the partner network.">
+  <section class="vgp-section">
+    <div class="vgp-container" style="max-width:900px;">
+      <span class="vgp-eyebrow">Founder Network Members</span>
+      <h1>Member sign-in.</h1>
+      <p style="font-size:1.25rem; max-width:60ch;">Your Founder Network membership gives you the resource library, funding opportunities, the accelerator toolkit, and the partner network — all in one place.</p>
+
+      <div class="mem-actions vgp-mt">
+        {PORTAL_URL ? (
+          <a class="vgp-btn vgp-btn--primary" href={PORTAL_URL}>Enter the member area</a>
+        ) : (
+          <>
+            <span class="vgp-btn vgp-btn--primary" style="opacity:.6; cursor:default;">Member area — opening at launch</span>
+            <p class="vgp-review-flag" style="margin-top:1rem; max-width:60ch;">The member hub link isn't wired yet. Set <code>MEMBER_PORTAL_URL</code> (a Google Drive hub for launch, or a Shopify-gated member area) and this button goes live — no code change needed.</p>
+          </>
+        )}
+        <p style="margin-top:1rem;"><a href="/membership">Not a member yet? Join the Founder Network — $99/mo →</a></p>
+      </div>
+
+      <h3 class="vgp-mt" style="margin-top:3rem;">What's inside</h3>
+      <div class="vgp-grid vgp-grid--2 vgp-mt">
+        {library.map((l) => <article class="vgp-card"><h4>{l.h}</h4><p style="margin-bottom:0;">{l.p}</p></article>)}
+      </div>
+
+      <p class="vgp-mt" style="font-size:.9rem; color:var(--vgp-body-gray); margin-top:2rem;">Active advisory clients: scheduling and your engagement workspace are arranged directly with your VGP contact — never through a public link.</p>
+    </div>
+  </section>
+</Base>

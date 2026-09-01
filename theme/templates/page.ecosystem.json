@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "bb_eco": {
+      "type": "bb-ecosystem"
+    },
+    "bb_final": {
+      "type": "bb-final-cta"
+    }
+  },
+  "order": [
+    "bb_eco",
+    "bb_final"
+  ]
+}

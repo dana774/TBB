@@ -1,0 +1,89 @@
+{% comment %}
+  Founder Intake prototype (doc 08 §5, intake rule from the Phase 1 prompt).
+
+  Capture: native Shopify contact form (no app dependency) — answers arrive as
+  contact[...] fields. A Shopify Forms app block can replace it later via the
+  @app block slot without changing this section's routing behavior.
+
+  Routing: bb-intake.js evaluates the two qualifying answers on submit and
+  stores the outcome branch. After a successful post, the visitor continues to
+  the results page. Without JavaScript the flow degrades to the SAFEST branch
+  (human review — no Calendly), never to the fit-call.
+{% endcomment %}
+<section class="bb-section">
+  <div class="bb-container" style="max-width: 720px;">
+    <h1 class="bb-h1">{{ section.settings.heading }}</h1>
+    <p>{{ section.settings.intro }}</p>
+
+    {%- for block in section.blocks -%}
+      {%- if block.type == '@app' -%}
+        {% render block %}
+      {%- endif -%}
+    {%- endfor -%}
+
+    {%- if section.blocks.size == 0 -%}
+      {%- form 'contact', id: 'bb-intake-form', class: 'bb-intake', data-bb-intake: '' -%}
+        {%- if form.posted_successfully? -%}
+          <div class="bb-callout" role="status">
+            <h2 class="bb-h3">Thank you — your intake is in.</h2>
+            <p>Based on your answers, here is your recommended next step.</p>
+            <p class="bb-mt-2">
+              <a class="bb-btn bb-btn--primary" id="bb-intake-continue" href="{{ section.settings.results_url | default: '/pages/intake-next-steps' }}">
+                See your next step
+              </a>
+            </p>
+          </div>
+        {%- else -%}
+          {%- if form.errors -%}
+            <p class="bb-field-error" role="alert">Please correct your email address and try again.</p>
+          {%- endif -%}
+
+          <fieldset>
+            <legend>About you</legend>
+            <label for="bb-intake-name">Full name</label><br>
+            <input type="text" id="bb-intake-name" name="contact[name]" autocomplete="name" required style="width:100%; padding:0.8rem; border:1px solid var(--bb-card-border); border-radius:var(--bb-radius); margin:0.25rem 0 1rem;"><br>
+            <label for="bb-intake-email">Email</label><br>
+            <input type="email" id="bb-intake-email" name="contact[email]" autocomplete="email" required style="width:100%; padding:0.8rem; border:1px solid var(--bb-card-border); border-radius:var(--bb-radius); margin:0.25rem 0 1rem;"><br>
+            <label for="bb-intake-company">Company or brand (optional)</label><br>
+            <input type="text" id="bb-intake-company" name="contact[company]" autocomplete="organization" style="width:100%; padding:0.8rem; border:1px solid var(--bb-card-border); border-radius:var(--bb-radius); margin:0.25rem 0;">
+          </fieldset>
+
+          <fieldset data-bb-question="is_founder">
+            <legend>Are you a founder or business owner?</legend>
+            <label class="bb-option"><input type="radio" name="contact[Founder or business owner]" value="Yes" required> <span>Yes — I own or co-own a business or consumer brand</span></label>
+            <label class="bb-option"><input type="radio" name="contact[Founder or business owner]" value="No"> <span>No — I'm here in another capacity (investor, partner, media, institution)</span></label>
+          </fieldset>
+
+          <fieldset data-bb-question="met_dana">
+            <legend>Have you previously met with Dana formally to discuss potential services?</legend>
+            <label class="bb-option"><input type="radio" name="contact[Previously met Dana formally]" value="Yes" required> <span>Yes — we've had a formal conversation about working together</span></label>
+            <label class="bb-option"><input type="radio" name="contact[Previously met Dana formally]" value="No"> <span>No — this is my first formal contact</span></label>
+          </fieldset>
+
+          <fieldset>
+            <legend>What are you building? (optional)</legend>
+            <label class="bb-visually-hidden" for="bb-intake-context">Tell us about your brand and where you are</label>
+            <textarea id="bb-intake-context" name="contact[body]" rows="4" style="width:100%; padding:0.8rem; border:1px solid var(--bb-card-border); border-radius:var(--bb-radius);"></textarea>
+          </fieldset>
+
+          <input type="hidden" name="contact[Intake outcome branch]" value="dana_review" data-bb-branch-field>
+          <button type="submit" class="bb-btn bb-btn--primary">Submit the Founder Intake</button>
+        {%- endif -%}
+      {%- endform -%}
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "BB Founder Intake",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "The Founder Intake" },
+    { "type": "textarea", "id": "intro", "label": "Intro", "default": "A few questions so we can point you to the right pathway. It takes about two minutes, and you'll see your recommended next step immediately." },
+    { "type": "url", "id": "results_url", "label": "Results page URL" }
+  ],
+  "blocks": [{ "type": "@app" }],
+  "presets": [{ "name": "BB Founder Intake" }]
+}
+{% endschema %}

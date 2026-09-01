@@ -1,0 +1,10 @@
+{
+  "sections": {
+    "bb_compare": {
+      "type": "bb-membership-compare"
+    }
+  },
+  "order": [
+    "bb_compare"
+  ]
+}

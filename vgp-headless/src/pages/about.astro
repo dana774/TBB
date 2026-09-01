@@ -1,0 +1,63 @@
+---
+import Base from '../layouts/Base.astro';
+import { getDanaProfile } from '../lib/content';
+const dana = await getDanaProfile();
+// The $115M PepsiCo figure renders ONLY when pepsico_claim_status === 'approved' (doc 07 §2).
+const showPepsico = dana.pepsico_claim_status === 'approved' && dana.pepsico_claim;
+const BB_URL = import.meta.env.BB_URL || 'https://the-brand-blueprint.myshopify.com';
+// Placeholder monogram below. To use a real headshot, drop the image in
+// public/assets/ and swap the `.about-photo` div for an <img>.
+---
+<Base title="About Dana Ammons" description="Founder & principal, Value Growth Partners.">
+  <section class="vgp-section">
+    <div class="vgp-container" style="max-width:900px;">
+      <span class="vgp-eyebrow">About</span>
+      <div class="about-hero">
+        <img class="about-portrait" src="/assets/img/vgp-about-portrait.jpg" alt="Dana Ammons, founder & principal of Value Growth Partners" width="1100" height="1374" />
+        <div>
+          <h1 style="margin-bottom:.75rem;">Dana Ammons</h1>
+          <p style="font-size:1.25rem;margin-bottom:0;">{dana.positioning}</p>
+        </div>
+      </div>
+
+      {dana.sourced && (
+        <p class="vgp-review-flag" style="max-width:70ch;">Biography drafted from public sources — pending Dana's confirmation before launch.</p>
+      )}
+      {showPepsico && <p>{dana.pepsico_claim}</p>}
+
+      <h4 class="vgp-mt">Operating philosophy</h4>
+      <p style="max-width:68ch;">{dana.philosophy}</p>
+
+      <h4>Experience</h4>
+      <p style="max-width:68ch;">{dana.experience_timeline}</p>
+
+      {Array.isArray(dana.credentials) && dana.credentials.length > 0 && (
+        <>
+          <h4>Background</h4>
+          <ul class="about-creds">
+            {dana.credentials.map((c: string) => <li>{c}</li>)}
+          </ul>
+        </>
+      )}
+
+      <div class="vgp-grid vgp-grid--2 vgp-mt">
+        <a class="vgp-card" href="/advisory-pathway"><h4>Work with VGP</h4><p>Start the Advisory Pathway.</p></a>
+        <a class="vgp-card" href={BB_URL} data-evt="cross_domain_route"><h4>The Brand Blueprint</h4><p>The founder ecosystem side.</p></a>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .about-hero { display: flex; gap: 2rem; align-items: center; margin-bottom: 1.5rem; }
+    .about-portrait {
+      flex: 0 0 auto; width: 280px; height: 340px; object-fit: cover;
+      object-position: top center; border-radius: var(--vgp-radius);
+    }
+    .about-creds { max-width: 68ch; padding-left: 1.1rem; }
+    .about-creds li { margin-bottom: .5rem; }
+    @media (max-width: 680px) {
+      .about-hero { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
+      .about-portrait { width: 100%; height: auto; max-height: 420px; }
+    }
+  </style>
+</Base>

@@ -1,0 +1,62 @@
+{% comment %}
+  Intake results — the four approved outcome branches (doc 02 CTAs #20–23).
+  bb-intake.js reveals the branch matching the stored/query outcome.
+  Server default (no JS, no param): dana_review — the acknowledgement branch.
+  ONLY the qualified branch may render a Calendly link, and only from
+  settings.bb_fit_call_url. All branches are public copy; nothing here is secret.
+{% endcomment %}
+<section class="bb-section" data-bb-results>
+  <div class="bb-container" style="max-width: 720px;">
+    <span class="bb-eyebrow">Your next step</span>
+
+    <div data-bb-branch="qualified_first_time_founder" hidden>
+      <h1 class="bb-h1">Let's talk about your brand.</h1>
+      <p>Based on your answers, you're a fit for a <strong>30-minute Brand Blueprint fit call</strong> — a fit, pathway and initial-scoping conversation with Dana.</p>
+      {%- if settings.bb_fit_call_url != blank -%}
+        <p class="bb-mt-2">
+          <a class="bb-btn bb-btn--primary" href="{{ settings.bb_fit_call_url }}" data-bb-event="brand_blueprint_fit_call_click">
+            Schedule Your Brand Blueprint Fit Call
+          </a>
+        </p>
+      {%- else -%}
+        <p class="bb-editorial-flag">Set the fit-call URL in Theme settings → Brand Blueprint to enable scheduling.</p>
+      {%- endif -%}
+    </div>
+
+    <div data-bb-branch="prior_dana_relationship" hidden>
+      <h1 class="bb-h1">Welcome back.</h1>
+      <p>Since you've already spoken with Dana about working together, your intake goes straight to her for a personal follow-up — you don't need to re-qualify. If you have a member account, sign in to pick up where you left off.</p>
+      <p class="bb-mt-2">
+        <a class="bb-btn bb-btn--primary" href="{{ routes.account_login_url }}">Sign in</a>
+      </p>
+      <p>Dana will follow up directly within two business days.</p>
+    </div>
+
+    <div data-bb-branch="non_founder_pathway" hidden>
+      <h1 class="bb-h1">There's a pathway for you.</h1>
+      <p>The Founder Intake is for founders and business owners — but the ecosystem has room for investors, partners, institutions and media.</p>
+      <div class="bb-grid bb-grid--2 bb-mt-2">
+        <a class="bb-card" href="/pages/partners"><h2 class="bb-h3">Investors, partners & contributors</h2><p>Partnership pathways</p></a>
+        {%- if settings.bb_vgp_url != blank -%}
+          <a class="bb-card" href="{{ settings.bb_vgp_url }}" data-bb-event="cross_domain_route" data-bb-route="vgp-institutional"><h2 class="bb-h3">Institutions & ESOs</h2><p>Institutional programs at Value Growth Partners</p></a>
+        {%- endif -%}
+        <a class="bb-card" href="/pages/guest-application"><h2 class="bb-h3">Podcast guests, sponsors & media</h2><p>Apply to be a guest</p></a>
+      </div>
+    </div>
+
+    <div data-bb-branch="dana_review">
+      <h1 class="bb-h1">Thank you — we're on it.</h1>
+      <p>Your intake needs a quick human look before we point you to the right pathway. Dana reviews every submission personally and you'll hear back <strong>within two business days</strong>.</p>
+      <p class="bb-mt-2"><a class="bb-btn bb-btn--secondary" href="/pages/founders">Explore Founder Chapters while you wait</a></p>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "BB Intake Results",
+  "tag": "section",
+  "settings": [],
+  "presets": [{ "name": "BB Intake Results" }]
+}
+{% endschema %}

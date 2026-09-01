@@ -1,0 +1,24 @@
+{
+  "sections": {
+    "bb_form": {
+      "type": "bb-application-form",
+      "settings": {
+        "eyebrow": "Partnership Pathways",
+        "heading": "Introduce Yourself",
+        "intro": "Investors, partners and contributors \u2014 tell us who you are and how you'd like to build with the founder ecosystem.",
+        "form_key": "partner-intro",
+        "show_company": true,
+        "show_link": true,
+        "link_label": "Organization website",
+        "message_label": "How would you like to work with the ecosystem?",
+        "cta": "Send introduction",
+        "analytics_event": "partner_intro_submit",
+        "success_heading": "Introduction received.",
+        "success_body": "We respond to every serious introduction within two business days."
+      }
+    }
+  },
+  "order": [
+    "bb_form"
+  ]
+}

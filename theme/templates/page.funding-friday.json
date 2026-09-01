@@ -1,0 +1,18 @@
+{
+  "sections": {
+    "bb_hub": {
+      "type": "bb-signals-hub",
+      "settings": {
+        "type_filter": "Funding Friday",
+        "heading": "Funding Friday"
+      }
+    },
+    "bb_final": {
+      "type": "bb-final-cta"
+    }
+  },
+  "order": [
+    "bb_hub",
+    "bb_final"
+  ]
+}

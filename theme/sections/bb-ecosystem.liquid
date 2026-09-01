@@ -1,0 +1,48 @@
+{% comment %}
+  Ecosystem Hub (Phase 2). The two-brand architecture: BB (founder ecosystem)
+  leads; VGP (strategic advisory) is the institutional side. One cross-domain
+  link per audience; fires cross_domain_route.
+{% endcomment %}
+<section class="bb-section">
+  <div class="bb-container">
+    <span class="bb-eyebrow">The Ecosystem</span>
+    <h1 class="bb-h1">{{ section.settings.heading }}</h1>
+    <p>{{ section.settings.intro }}</p>
+
+    <div class="bb-grid bb-grid--2 bb-mt-2">
+      <article class="bb-card">
+        <span class="bb-eyebrow">You are here</span>
+        <h2 class="bb-h3">The Brand Blueprint</h2>
+        <p>The founder ecosystem: Founder Chapters, the eight-stage framework, Signals, resources, the podcast and the Founder Network.</p>
+        <a class="bb-btn bb-btn--primary" href="/pages/founder-intake">Complete the Founder Intake</a>
+      </article>
+      <article class="bb-card">
+        <span class="bb-eyebrow">The advisory side</span>
+        <h2 class="bb-h3">Value Growth Partners</h2>
+        <p>Strategic advisory, operating systems and institutional programs — helping entrepreneurship support organizations move founders from access to commercial readiness.</p>
+        {%- if settings.bb_vgp_url != blank -%}
+          <a class="bb-btn bb-btn--secondary" href="{{ settings.bb_vgp_url }}" data-bb-event="cross_domain_route" data-bb-route="vgp-ecosystem">Explore Value Growth Partners</a>
+        {%- endif -%}
+      </article>
+    </div>
+
+    <h2 class="bb-h2 bb-mt-2">How the two connect</h2>
+    <ol class="bb-framework">
+      <li><div><h3 class="bb-h3">Founders start with the Intake</h3><p>The Brand Blueprint qualifies and routes every founder to the right pathway.</p></div></li>
+      <li><div><h3 class="bb-h3">The ecosystem builds capability</h3><p>Chapters, Signals, resources and the Founder Network grow brands stage by stage.</p></div></li>
+      <li><div><h3 class="bb-h3">VGP deepens the engagement</h3><p>When a founder or institution needs hands-on advisory, the pathway crosses to Value Growth Partners.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "BB Ecosystem Hub",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "One ecosystem, two engines" },
+    { "type": "textarea", "id": "intro", "label": "Intro", "default": "The Brand Blueprint and Value Growth Partners work as one ecosystem — the founder side and the advisory side. [EDITORIAL REVIEW]" }
+  ],
+  "presets": [{ "name": "BB Ecosystem Hub" }]
+}
+{% endschema %}

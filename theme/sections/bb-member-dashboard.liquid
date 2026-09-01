@@ -1,0 +1,32 @@
+{% comment %}
+  Member dashboard shell (Phase 1 deliverable 10). Gated by the member tag;
+  Appstle app block slot reserved for subscription status. Shell only —
+  member programming lands in later phases.
+{% endcomment %}
+{%- capture dashboard -%}
+  <span class="bb-eyebrow">Founder Network</span>
+  <h1 class="bb-h1">Welcome back{% if customer.first_name %}, {{ customer.first_name }}{% endif %}.</h1>
+  <div class="bb-grid bb-grid--3 bb-mt-2">
+    <a class="bb-card" href="/pages/resources"><h2 class="bb-h3">Member resources</h2><p>Templates, guides and playbooks.</p></a>
+    <a class="bb-card" href="/pages/signals"><h2 class="bb-h3">Signals Hub</h2><p>Market signals and funding windows.</p></a>
+    <a class="bb-card" href="/pages/podcast"><h2 class="bb-h3">Podcast archive</h2><p>Every episode with transcripts.</p></a>
+  </div>
+  {%- for block in section.blocks -%}
+    {%- if block.type == '@app' -%}{% render block %}{%- endif -%}
+  {%- endfor -%}
+{%- endcapture -%}
+<section class="bb-section">
+  <div class="bb-container">
+    {% render 'bb-member-gate', gated_content: dashboard %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "BB Member Dashboard",
+  "tag": "section",
+  "settings": [],
+  "blocks": [{ "type": "@app" }],
+  "presets": [{ "name": "BB Member Dashboard" }]
+}
+{% endschema %}

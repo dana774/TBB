@@ -1,0 +1,10 @@
+{
+  "sections": {
+    "bb_library": {
+      "type": "bb-resource-library"
+    }
+  },
+  "order": [
+    "bb_library"
+  ]
+}

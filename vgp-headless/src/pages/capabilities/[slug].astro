@@ -1,0 +1,53 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCapabilities } from '../../lib/content';
+export async function getStaticPaths() {
+  const items = await getCapabilities();
+  return items.map((c) => ({ params: { slug: c.slug }, props: { item: c } }));
+}
+const { item } = Astro.props;
+---
+<Base title={item.title} description={item.outcome}>
+  <article class="vgp-section">
+    <div class="vgp-container" style="max-width:760px;">
+      <nav aria-label="Breadcrumb"><a href="/capabilities">Capabilities</a> / {item.title}</nav>
+      <h1>{item.title}</h1>
+      <p style="font-size:1.25rem;">{item.outcome}</p>
+      {item.definition && (
+        <div class="vgp-card vgp-bg-pale" style="border:none; margin: 1.5rem 0;">
+          <h4 style="margin-bottom:.5rem;">What it is</h4>
+          <p style="margin-bottom:0;">{item.definition}</p>
+        </div>
+      )}
+      {Array.isArray(item.includes) && (
+        <>
+          <h4 class="vgp-mt">What it includes</h4>
+          <ul>{item.includes.map((i: string) => <li>{i}</li>)}</ul>
+        </>
+      )}
+      {item.bestFor && (
+        <>
+          <h4>Best for</h4>
+          <p>{item.bestFor}</p>
+        </>
+      )}
+      {Array.isArray(item.sequence) && (
+        <>
+          <h4 class="vgp-mt">{item.sequenceTitle ?? 'How it works'}</h4>
+          <ol class="cap-sequence">
+            {item.sequence.map((s: string) => <li>{s}</li>)}
+          </ol>
+          <style>
+            .cap-sequence { max-width: 64ch; padding-left: 1.3rem; }
+            .cap-sequence li { margin-bottom: .6rem; padding-left: .3rem; }
+            .cap-sequence li::marker { color: var(--vgp-warm-gold); font-weight: 700; }
+          </style>
+        </>
+      )}
+      <div class="vgp-card vgp-bg-pale vgp-center vgp-mt" style="border:none;">
+        <h3>Map this into your growth path</h3>
+        <p class="vgp-mt"><a class="vgp-btn vgp-btn--primary" href="/advisory-pathway">Start the Advisory Pathway</a></p>
+      </div>
+    </div>
+  </article>
+</Base>

@@ -1,0 +1,35 @@
+{% comment %}
+  Resource article body (Phase 1 deliverables 11–12). One section, two templates:
+  page.resource-public.json renders openly; page.resource-protected.json sets
+  "protected" true and wraps the page content in the member gate.
+{% endcomment %}
+{%- capture body -%}
+  <div class="bb-resource-content">{{ page.content }}</div>
+{%- endcapture -%}
+<article class="bb-section">
+  <div class="bb-container" style="max-width: 780px;">
+    {%- if section.settings.protected -%}
+      <span class="bb-badge bb-badge--member">Member</span>
+    {%- else -%}
+      <span class="bb-badge bb-badge--public">Public</span>
+    {%- endif -%}
+    <h1 class="bb-h1">{{ page.title }}</h1>
+    {%- if section.settings.protected -%}
+      {% render 'bb-member-gate', gated_content: body %}
+    {%- else -%}
+      {{ body }}
+    {%- endif -%}
+    <p class="bb-mt-2"><a href="/pages/resources">← Back to the Resource Library</a></p>
+  </div>
+</article>
+
+{% schema %}
+{
+  "name": "BB Resource Body",
+  "tag": "section",
+  "settings": [
+    { "type": "checkbox", "id": "protected", "label": "Member-protected resource", "default": false }
+  ],
+  "presets": [{ "name": "BB Resource Body" }]
+}
+{% endschema %}

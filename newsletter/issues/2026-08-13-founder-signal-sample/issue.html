@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  :root{
+    --bb-blue:#3978D7; --bb-blue-d:#2b62b8; --navy:#071E41; --navy2:#0B2D57;
+    --panel:#EFF5FF; --panel2:#F5F8FC; --gold:#C89B2C; --gray:#4B5563;
+    --line:#d7e3f5; --ink:#1b2430;
+  }
+  *{box-sizing:border-box; -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+  @page{ size:letter; margin:0.45in 0.55in 0.6in; }
+  html,body{margin:0;padding:0;background:#fff;}
+  body{ font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; color:var(--ink); font-size:11px; line-height:1.5; }
+  a{ color:var(--bb-blue); text-decoration:none; }
+  svg{ display:inline-block; }
+
+  .mast{ position:relative; overflow:hidden; padding-bottom:6px; }
+  .bmark{ position:absolute; top:-42px; right:-26px; height:190px; opacity:.09; z-index:0; }
+  .mast-row{ position:relative; z-index:1; display:flex; justify-content:space-between; align-items:center; gap:16px; }
+  .mast-row img.logo{ height:66px; width:auto; }
+  .issue{ text-align:right; font-size:10px; color:var(--gray); line-height:1.45; }
+  .issue b{ color:var(--navy); font-size:12px; display:block; }
+  .issue .badge{ display:inline-block; margin-top:4px; background:var(--gold); color:#3a2c07; font-weight:800; font-size:8.5px; letter-spacing:.06em; text-transform:uppercase; padding:2px 7px; border-radius:999px; }
+
+  .titleband{ position:relative; z-index:1; background:linear-gradient(100deg,var(--bb-blue) 0%, var(--bb-blue-d) 100%); border-radius:11px; padding:15px 20px; margin-top:12px; box-shadow:0 6px 18px rgba(57,120,215,.28); }
+  .titleband .kick{ font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:#dbe8ff; font-weight:800; }
+  .titleband h1{ color:#fff; font-size:25px; line-height:1.12; margin:5px 0 5px; letter-spacing:-.015em; font-weight:800; }
+  .titleband p{ color:#eaf1ff; font-size:10.6px; margin:0; max-width:80ch; }
+  .hero{ position:relative; z-index:1; display:block; width:100%; height:150px; object-fit:cover; object-position:center 32%; border-radius:11px; margin-top:10px; box-shadow:0 4px 14px rgba(7,30,65,.18); }
+
+  /* Market signal hero */
+  .signal{ background:var(--navy); color:#fff; border-radius:12px; padding:18px 20px; margin:14px 0 10px; border-left:6px solid var(--gold); }
+  .sig-head{ display:flex; align-items:center; gap:9px; }
+  .sig-badge{ width:30px; height:30px; border-radius:50%; border:1.5px solid var(--gold); display:inline-flex; align-items:center; justify-content:center; color:var(--gold); flex:0 0 auto; }
+  .signal .ey{ font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); font-weight:800; }
+  .signal h2{ color:#fff; font-size:19px; margin:7px 0 8px; font-weight:800; letter-spacing:-.01em; }
+  .signal p{ margin:0 0 6px; color:#e7eefb; font-size:11.4px; }
+  .signal .move b{ color:var(--gold); }
+  .signal .byline{ margin-top:9px; font-size:10px; color:#9db8e6; font-weight:700; }
+
+  /* Stat row */
+  .stats{ display:flex; gap:9px; margin:10px 0 6px; }
+  .stat{ flex:1; background:#fff; border:1px solid var(--line); border-top:3px solid var(--bb-blue); border-radius:8px; padding:9px 11px; }
+  .stat .num{ font-size:21px; font-weight:800; color:var(--bb-blue); line-height:1; }
+  .stat .lbl{ font-size:9px; color:var(--gray); margin-top:3px; }
+
+  /* Process flow */
+  .flow{ display:flex; align-items:stretch; gap:0; margin:8px 0 4px; }
+  .fstep{ flex:1; background:var(--panel); border:1px solid var(--bb-blue); border-radius:7px; padding:7px 8px; font-size:9.4px; color:var(--navy); font-weight:600; text-align:center; display:flex; flex-direction:column; justify-content:center; }
+  .fstep b{ display:block; color:var(--bb-blue); font-size:11px; margin-bottom:2px; }
+  .farrow{ display:flex; align-items:center; color:var(--bb-blue); font-weight:800; padding:0 5px; }
+  .flow-cap{ font-size:9px; color:var(--gray); font-style:italic; margin:3px 0 0; text-align:center; }
+
+  .summary{ background:var(--panel); border:1px solid var(--line); border-radius:9px; padding:10px 14px; margin:12px 0 14px; font-size:10.6px; color:var(--navy2); }
+  .counts{ display:flex; gap:8px; flex-wrap:wrap; margin-top:6px; }
+  .pill{ background:#fff; border:1px solid var(--line); border-radius:999px; padding:3px 11px; font-size:9.8px; color:var(--navy); font-weight:700; display:inline-flex; align-items:center; gap:5px; }
+  .pill span{ color:var(--bb-blue); }
+  .pill .pi{ color:var(--bb-blue); display:inline-flex; }
+  .filtered{ font-size:9.6px; color:var(--gray); font-style:italic; margin:5px 0 0; }
+
+  /* Category header with icon */
+  h2.cat{ font-size:14px; font-weight:800; text-transform:uppercase; letter-spacing:.06em; color:#fff; background:var(--bb-blue); margin:16px 0 10px; padding:7px 13px; border-radius:6px; display:flex; align-items:center; gap:9px; }
+  h2.cat .cicon{ color:#fff; display:inline-flex; }
+
+  /* Timeline (SVG) */
+  .tl-wrap{ border:1px solid var(--line); border-radius:9px; padding:8px 10px 4px; margin:0 0 12px; background:var(--panel2); }
+  .tl-title{ font-size:9.5px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--bb-blue); margin:0 0 2px; }
+  .tl-wrap svg{ width:100%; height:auto; }
+
+  .item{ padding:0 0 10px; margin:0 0 10px; border-bottom:1px solid var(--line); break-inside:avoid; }
+  .item:last-of-type{ border-bottom:none; }
+  .item h3{ font-size:12.5px; margin:0 0 3px; color:var(--navy); font-weight:800; }
+  .item p{ margin:0 0 4px; }
+  .why b{ color:var(--bb-blue); }
+  .fields{ display:flex; flex-wrap:wrap; gap:4px 14px; font-size:9.6px; color:var(--gray); margin-top:3px; }
+  .fields .lbl{ color:var(--navy); font-weight:800; }
+  .src{ font-size:9px; color:var(--gray); word-break:break-all; }
+  .flag{ display:inline-block; background:var(--panel); border:1px solid var(--bb-blue); color:var(--bb-blue); font-size:8.5px; font-weight:800; text-transform:uppercase; letter-spacing:.03em; padding:1px 6px; border-radius:4px; margin-left:5px; vertical-align:middle;}
+
+  .callout{ background:var(--panel2); border-left:4px solid var(--gold); padding:11px 14px; margin:14px 0 6px; border-radius:0 7px 7px 0; font-size:10.6px; }
+  .callout h4{ margin:0 0 5px; color:var(--navy); font-size:11.5px; font-weight:800; }
+  .callout ul{ margin:4px 0 0; padding-left:17px; }
+
+  .foot{ margin-top:16px; background:var(--navy); color:#cdddf7; border-radius:12px; padding:15px 20px; }
+  .foot-grid{ display:flex; gap:16px; align-items:center; justify-content:space-between; }
+  .qr-box{ text-align:center; flex:0 0 auto; }
+  .qr-box img{ width:80px; height:80px; background:#fff; border-radius:8px; padding:5px; display:block; }
+  .qr-box span{ display:block; margin-top:4px; font-size:8.5px; color:#9db8e6; font-weight:800; letter-spacing:.05em; text-transform:uppercase; }
+  .foot .cta{ color:#fff; font-size:13.5px; font-weight:800; margin:0 0 3px; }
+  .foot .pw{ color:var(--gold); font-weight:800; font-size:10.5px; letter-spacing:.03em; margin:9px 0 2px; }
+  .foot .fine{ font-size:8.8px; color:#9db8e6; margin:6px 0 0; }
+</style>
+</head>
+<body>
+  <div class="mast">
+    <img class="bmark" src="assets/b-mark.png" alt="">
+    <div class="mast-row">
+      <img class="logo" src="assets/tbb-logo.png" alt="The Brand Blueprint">
+      <div class="issue"><b>The Founder Signal</b>Bimonthly · Issue sample<br>Aug 13, 2026<br><span class="badge">Format review</span></div>
+    </div>
+    <div class="titleband">
+      <div class="kick">Founder Network · Ecosystem Intelligence</div>
+      <h1>Funding, capital moves &amp; founder news</h1>
+      <p>Sourced and verified for the Brand Blueprint ecosystem — consumer / CPG, retail &amp; DTC, pre-seed–Series A, US. Aug 4–13, 2026.</p>
+    </div>
+    <img class="hero" src="assets/hero.jpg" alt="Founders reviewing a product and a growth dashboard with an advisor">
+  </div>
+
+  <!-- MARKET SIGNAL -->
+  <div class="signal">
+    <div class="sig-head">
+      <span class="sig-badge">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="2"/><path d="M8.5 8.5a5 5 0 0 0 0 7M15.5 8.5a5 5 0 0 1 0 7"/><path d="M6 6a9 9 0 0 0 0 12M18 6a9 9 0 0 1 0 12"/></svg>
+      </span>
+      <span class="ey">The Market Signal · from Dana</span>
+    </div>
+    <h2>Your barcode is becoming a data system</h2>
+    <p>GS1’s <b style="color:#fff">Sunrise 2027</b> push means retail point-of-sale systems will be able to read data-rich 2D barcodes — not just the old UPC — by the end of 2027. This isn’t a QR-code trend; it’s a packaging, product-data, and retail-readiness decision. The richer code can carry lot, batch, expiration, recall, and authenticity data.</p>
+    <p class="move"><b>The move:</b> Pull your SKU and GTIN list, find your next packaging refresh, and pick <em>one</em> use case to pilot. Upgrade on your schedule, not under a buyer’s deadline — the expensive path is redesigning packaging twice.</p>
+    <p class="byline">— Dana Ammons · Founder &amp; Principal Strategist, The Brand Blueprint | Value Growth Partners</p>
+  </div>
+
+  <!-- Stat row (GS1 consumer signal) -->
+  <div class="stats">
+    <div class="stat"><div class="num">79%</div><div class="lbl">more likely to buy a product with a useful scannable code</div></div>
+    <div class="stat"><div class="num">77%</div><div class="lbl">say product information matters when they buy</div></div>
+    <div class="stat"><div class="num">62%</div><div class="lbl">would spend more for detailed product information</div></div>
+  </div>
+
+  <!-- Process flow (barcode transition) -->
+  <div class="flow">
+    <div class="fstep"><b>1</b> Pull SKU + GTIN list</div>
+    <div class="farrow">→</div>
+    <div class="fstep"><b>2</b> Pick one use case</div>
+    <div class="farrow">→</div>
+    <div class="fstep"><b>3</b> Dual-mark: UPC + 2D</div>
+    <div class="farrow">→</div>
+    <div class="fstep"><b>4</b> Test both paths</div>
+  </div>
+  <p class="flow-cap">The founder’s four-step path to a Sunrise-2027-ready package (source: GS1 US · FDA traceability guidance).</p>
+
+  <div class="summary">
+    <b>This issue’s sweep:</b> 9 verified opportunities &amp; moves — web-sourced and cross-checked against your Gmail funding alerts (heavily filtered for relevance).
+    <div class="counts">
+      <span class="pill"><span class="pi"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><path d="M12 12 18.5 8.5"/></svg></span> Funding Radar <span>5</span></span>
+      <span class="pill"><span class="pi"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16 10 10 13 13 20 6"/><path d="M15 6 H20 V11"/></svg></span> Capital Moves <span>2</span></span>
+      <span class="pill"><span class="pi"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4h3l8 4V6l-8 4H4z"/><path d="M18 9a3 3 0 0 1 0 6"/></svg></span> Founder News <span>2</span></span>
+    </div>
+    <p class="filtered">Filtered out 2 expired opportunities (CalNutri, Made for Retail Chicago) and ~90 days of off-target Gmail alerts (overseas fellowships, food-assistance and retail-staffing notices) that don’t fit the founder audience.</p>
+  </div>
+
+  <h2 class="cat"><span class="cicon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><path d="M12 12 18.5 8.5"/></svg></span> Funding Radar</h2>
+
+  <!-- Deadline timeline diagram -->
+  <div class="tl-wrap">
+    <p class="tl-title">Funding deadline radar</p>
+    <svg viewBox="0 0 720 92" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+      <line x1="45" y1="46" x2="675" y2="46" stroke="#3978D7" stroke-width="2"/>
+      <!-- nodes -->
+      <g font-family="Helvetica, Arial, sans-serif" text-anchor="middle">
+        <!-- 1 -->
+        <text x="70" y="26" font-size="12" font-weight="bold" fill="#071E41">Open now</text>
+        <circle cx="70" cy="46" r="6.5" fill="#3978D7"/>
+        <text x="70" y="70" font-size="10.5" fill="#4B5563">WF LEAP · Nasdaq</text>
+        <!-- 2 -->
+        <text x="215" y="26" font-size="12" font-weight="bold" fill="#071E41">Sep 13</text>
+        <circle cx="215" cy="46" r="6.5" fill="#3978D7"/>
+        <text x="215" y="70" font-size="10.5" fill="#4B5563">SXSW early-bird</text>
+        <!-- 3 -->
+        <text x="360" y="26" font-size="12" font-weight="bold" fill="#071E41">Sep 18</text>
+        <circle cx="360" cy="46" r="6.5" fill="#3978D7"/>
+        <text x="360" y="70" font-size="10.5" fill="#4B5563">Her Agenda $5K</text>
+        <!-- 4 -->
+        <text x="505" y="26" font-size="12" font-weight="bold" fill="#071E41">Nov 13</text>
+        <circle cx="505" cy="46" r="6.5" fill="#C89B2C"/>
+        <text x="505" y="70" font-size="10.5" fill="#4B5563">SXSW final</text>
+        <!-- 5 -->
+        <text x="650" y="26" font-size="12" font-weight="bold" fill="#071E41">Nov 2026</text>
+        <circle cx="650" cy="46" r="6.5" fill="#3978D7"/>
+        <text x="650" y="70" font-size="10.5" fill="#4B5563">Makers Mindset</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="item">
+    <h3>Whole Foods Market — 2026 Local &amp; Emerging Accelerator (LEAP) <span class="flag">Open now</span></h3>
+    <p>Applications opened June 2026. Mentorship, expert coaching, programming, and potential direct financial support for emerging brands not yet on Whole Foods shelves.</p>
+    <p class="why"><b>Why it matters:</b> A direct on-ramp to the leading natural-channel retailer for early CPG brands.</p>
+    <div class="fields"><span><span class="lbl">Deadline:</span> Applications open</span><span><span class="lbl">Fit:</span> US · CPG food &amp; beverage · early-stage</span></div>
+    <p class="src">Source: Whole Foods Market Newsroom — wholefoodsmarket.com/company-info/newsroom</p>
+  </div>
+
+  <div class="item">
+    <h3>Her Agenda — Breakthrough Grant ($5,000 cash) <span class="flag">From your alerts</span></h3>
+    <p>$5,000 cash award for a woman entrepreneur with an operating business and a specific growth milestone. Requires an active Her Agenda newsletter subscription; $25 application fee.</p>
+    <p class="why"><b>Why it matters:</b> Direct, milestone-focused cash for revenue-stage women founders.</p>
+    <div class="fields"><span><span class="lbl">Deadline:</span> Sept 18, 2026</span><span><span class="lbl">Fit:</span> US · women-led · operating business</span></div>
+    <p class="src">Source: Her Agenda — grant.heragenda.com</p>
+  </div>
+
+  <div class="item">
+    <h3>SXSW Pitch 2026 — CPG &amp; food-supply categories <span class="flag">Early-bird open</span></h3>
+    <p>Early-bird entry June 23–Sept 13, 2026; final deadline Nov 13, 2026. Categories include CPG innovation and food supply systems.</p>
+    <p class="why"><b>Why it matters:</b> National stage and investor audience; the early-bird window is open now.</p>
+    <div class="fields"><span><span class="lbl">Deadline:</span> Early-bird Sept 13; final Nov 13, 2026</span><span><span class="lbl">Fit:</span> US · CPG/food innovation</span></div>
+    <p class="src">Source: SXSW — sxsw.com/pitch</p>
+  </div>
+
+  <div class="item">
+    <h3>The Makers Mindset Grant — women-led CPG (equity-free)</h3>
+    <p>Equity-free grant for women-led CPG brands (beauty, food, beverage, pet, home). US-based, 1+ year, $50K–$1M revenue. Three founders receive $10,000 each, plus mentorship.</p>
+    <p class="why"><b>Why it matters:</b> True non-dilutive capital and mentorship for revenue-stage women founders.</p>
+    <div class="fields"><span><span class="lbl">Deadline:</span> Award notifications Nov 2026</span><span><span class="lbl">Fit:</span> US · women-led CPG · $50K–$1M</span></div>
+    <p class="src">Source: Inc. Magazine — inc.com</p>
+  </div>
+
+  <div class="item">
+    <h3>Nasdaq Milestone Circles — Northwest Arkansas <span class="flag">From your alerts</span></h3>
+    <p>Free 12-week milestone coaching, a peer cohort, and a paid student-internship pipeline for founders based in or operating in Northwest Arkansas (past idea stage, generally first 5 years).</p>
+    <p class="why"><b>Why it matters:</b> Non-cash but high-value — execution capacity and a paid intern that reduce real operating costs.</p>
+    <div class="fields"><span><span class="lbl">Deadline:</span> Rolling</span><span><span class="lbl">Fit:</span> NW Arkansas · early revenue</span></div>
+    <p class="src">Source: Nasdaq Entrepreneurial Center — nasdaqcenter.org/milestone-circles-ar</p>
+  </div>
+
+  <h2 class="cat"><span class="cicon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16 10 10 13 13 20 6"/><path d="M15 6 H20 V11"/></svg></span> Capital Moves</h2>
+
+  <div class="item">
+    <h3>Great Circle Ventures launches first growth-stage CPG fund <span class="flag">Review: $ figure</span></h3>
+    <p>Founder Jacob Afriat (formerly Danone Manifesto Ventures) is closing a ~$20M follow-on fund for food &amp; beverage brands impacting human and planetary health; early deployments include MOSH bars and Croots.</p>
+    <p class="why"><b>Why it matters:</b> New growth-stage follow-on capital for better-for-you F&amp;B — a fit for ecosystem brands raising after early traction.</p>
+    <div class="fields"><span><span class="lbl">Fit:</span> US · food &amp; beverage · growth-stage</span></div>
+    <p class="src">Source: Forbes (Feb 23, 2026) — forbes.com/sites/andrewwatman</p>
+  </div>
+
+  <div class="item">
+    <h3>Paperboy Ventures launches CPG VC fund (media + funding)</h3>
+    <p>Paperboy Ventures launched its first fund as a follow-on investor in early-stage consumer, expanding into a joint media-funding enterprise.</p>
+    <p class="why"><b>Why it matters:</b> A media-plus-capital model relevant to founders building brand and distribution together.</p>
+    <div class="fields"><span><span class="lbl">Fit:</span> US · consumer · early-stage</span></div>
+    <p class="src">Source: Forbes (Nov 10, 2025) — forbes.com/sites/andrewwatman</p>
+  </div>
+
+  <h2 class="cat"><span class="cicon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4h3l8 4V6l-8 4H4z"/><path d="M18 9a3 3 0 0 1 0 6"/></svg></span> Founder News</h2>
+
+  <div class="item">
+    <h3>The Lucky Ox scales from Whole Foods Northeast to ~1,300 doors</h3>
+    <p>The emerging beverage brand launched in Whole Foods’ Northeast region and is now in roughly 1,300 doors nationwide.</p>
+    <p class="why"><b>Why it matters:</b> A concrete example of the regional-to-national Whole Foods path early brands can model.</p>
+    <div class="fields"><span><span class="lbl">Fit:</span> US · beverage · emerging</span></div>
+    <p class="src">Source: Startup CPG Newswire — startupcpg.com/newswire</p>
+  </div>
+
+  <div class="item">
+    <h3>Ripi (frozen pasta) raises $2.4M, rolls out at Target <span class="flag">Review: $ figure</span></h3>
+    <p>Frozen pasta brand Ripi closed a $2.4M round and is rolling out at Target — after landing both Whole Foods and Target within its first 15 months.</p>
+    <p class="why"><b>Why it matters:</b> A fresh proof point on speed-to-retail and raising alongside distribution wins.</p>
+    <div class="fields"><span><span class="lbl">Fit:</span> US · frozen food · early-stage</span></div>
+    <p class="src">Source: Taste Radio (Ep. 829) — tasteradio.com</p>
+  </div>
+
+  <div class="callout">
+    <h4>Flagged for your sign-off before send</h4>
+    Every capital figure needs your OK before it appears in a sent issue:
+    <ul>
+      <li>Great Circle Ventures ~$20M fund size · Ripi $2.4M raise</li>
+    </ul>
+  </div>
+
+  <div class="foot">
+    <div class="foot-grid">
+      <div>
+        <p class="cta">Members: browse the full opportunity database →</p>
+        <p style="margin:0;color:#cdddf7;">Every item logged here lives in the Founder Network intelligence database, updated weekly, so members who miss an issue can still catch every open opportunity.</p>
+      </div>
+      <div class="qr-box">
+        <img src="assets/qr.png" alt="Scan to save Dana Ammons' digital business card">
+        <span>Scan to save Dana's contact</span>
+      </div>
+    </div>
+    <p class="pw">Powered by Value Growth Partners | Strategic Advisory &amp; Operating Firm</p>
+    <p class="fine">The Founder Signal — automated weekly sweep + your Gmail funding alerts, filtered and verified. Items sourced from the open web, de-duplicated by link, and checked against a live source before logging. Third-party figures are reported as found and are not endorsements or guarantees. Sample for format review; nothing here has been sent.</p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,217 @@
+---
+import Base from '../layouts/Base.astro';
+import { ECOSYSTEM_LAYERS, ECOSYSTEM_OPERATING_LAYERS } from '../lib/content';
+const BB_URL = import.meta.env.BB_URL || 'https://the-brand-blueprint.myshopify.com';
+
+// The founder journey through the ecosystem (Growth OS Manual v2.0 — "The Ecosystem Promise").
+const JOURNEY = [
+  { stage: 'Discover', how: 'Content + referrals', body: 'A founder finds the ecosystem through the podcast, the newsletter, market signals, or a trusted referral.' },
+  { stage: 'Join', how: 'Founder Network', body: 'They join the $99/month Founder Network — funding signal, tools, the resource library, and the partner network.' },
+  { stage: 'Assess', how: 'Readiness + data', body: 'Readiness scorecards and founder data surface where they actually are — and what the next real move is.' },
+  { stage: 'Build', how: 'Advisory + projects', body: 'Value Growth Partners steps in with strategy and scoped execution — retail readiness, funding readiness, growth architecture.' },
+  { stage: 'Scale', how: 'Growth OS + Apex', body: 'Growth OS turns the strategy into durable operating infrastructure, with fractional leadership for founders ready for it.' },
+];
+// Public-safe view of the six operating portfolios (Ecosystem Consolidation, doc 32).
+const PORTFOLIOS = [
+  { name: 'Founder Network & Resources', body: 'Membership, the resource library, onboarding, and alumni continuity — the founder’s home base.' },
+  { name: 'Signal, Media & Opportunity', body: 'The podcast, Market Signal, Funding Friday, the Hot List, and events — how founders and opportunities get discovered.' },
+  { name: 'Readiness & Market Access', body: 'Capital, retail, distribution, sourcing, and operating readiness — getting founders ready for the room.' },
+  { name: 'Advisory & Growth OS', body: 'Diagnostics, sprints, dashboards, automation, and managed or fractional support — strategy turned into infrastructure.' },
+  { name: 'Programs & Learning', body: 'Curriculum, workshops, mentorship, office hours, and speaking — for accelerators, institutions, and cohorts.' },
+  { name: 'Partner, Investor & Expert Network', body: 'Investor pipeline, referral partners, specialists, and sponsors — the relationships around every founder.' },
+];
+---
+<Base
+  title="The Ecosystem"
+  description="How The Brand Blueprint, Value Growth Partners and Growth OS work together — one ecosystem, three layers."
+>
+  <!-- Hero -->
+  <section class="vgp-section">
+    <div class="vgp-container" style="max-width:820px;">
+      <span class="vgp-eyebrow">The Ecosystem</span>
+      <h1>One ecosystem, three layers.</h1>
+      <p style="font-size:1.3rem; max-width:64ch;">The market should never have to guess whether this is a podcast, a newsletter, an accelerator, or a consulting firm. It's an operating ecosystem — and each layer has a clear job. Together they take a founder from first signal to fully built.</p>
+    </div>
+  </section>
+
+  <!-- Three layers -->
+  <section class="vgp-section vgp-bg-soft" style="padding-top:2rem;">
+    <div class="vgp-container">
+      <div class="eco-stack">
+        {ECOSYSTEM_LAYERS.map((l, i) => (
+          <article class={`eco-layer${l.anchor ? ' eco-layer--anchor' : ''}`}>
+            <div class="eco-layer__head">
+              <span class="eco-num">{String(i + 1).padStart(2, '0')}</span>
+              <div>
+                <span class="vgp-eyebrow" style="margin-bottom:.35rem;">{l.role}</span>
+                <h3 style="margin-bottom:.25rem;">{l.name}</h3>
+                <p class="eco-tag">{l.tagline}</p>
+              </div>
+            </div>
+            <p>{l.body}</p>
+            <ul class="eco-gets">
+              {l.gets.map((g) => <li>{g}</li>)}
+            </ul>
+            {l.anchor && <span class="eco-badge">You are here</span>}
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Two front doors + six portfolios -->
+  <section class="vgp-section">
+    <div class="vgp-container">
+      <span class="vgp-eyebrow">How the ecosystem is organized</span>
+      <h2>Two front doors. Six portfolios.</h2>
+      <p style="max-width:70ch;">Two clear front doors: <strong>The Brand Blueprint</strong> for founder-facing signal, tools, membership, and opportunity flow — and <strong>Value Growth Partners</strong> for diagnostics, advisory, Growth OS, programs, and fractional support. Behind them, the work is organized into six portfolios, so every founder resource traces to one source and nothing is duplicated.</p>
+      <div class="vgp-grid vgp-grid--3 vgp-mt">
+        {PORTFOLIOS.map((p, i) => (
+          <article class="vgp-card eco-port">
+            <span class="eco-port__num">{String(i + 1).padStart(2, '0')}</span>
+            <h4 style="margin-bottom:.35rem;">{p.name}</h4>
+            <p style="margin-bottom:0;">{p.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Five-layer operating model / ascension -->
+  <section class="vgp-section">
+    <div class="vgp-container">
+      <span class="vgp-eyebrow">The full operating model</span>
+      <h2>Five layers of ascension.</h2>
+      <p style="max-width:66ch;">Beneath the three-brand architecture is a five-layer operating model — the path a founder climbs, from first signal to fractional operating leadership. Start anywhere; ascend as you're ready.</p>
+      <div class="eco-ladder vgp-mt">
+        {ECOSYSTEM_OPERATING_LAYERS.map((l, i) => (
+          <article class="eco-rung" style={`--rung:${i + 1}`}>
+            <div class="eco-rung__bar" aria-hidden="true"></div>
+            <span class="eco-rung__num">{String(i + 1).padStart(2, '0')}</span>
+            <span class="vgp-eyebrow" style="margin-bottom:.25rem;">{l.role}</span>
+            <h4 style="margin-bottom:.4rem;">{l.name}</h4>
+            <p style="font-size:.9375rem;">{l.body}</p>
+            {l.href && <a href={l.href} class="eco-rung__link">Explore →</a>}
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- The founder journey -->
+  <section class="vgp-section vgp-bg-soft">
+    <div class="vgp-container">
+      <span class="vgp-eyebrow">The founder journey</span>
+      <h2>From first signal to fully scaled.</h2>
+      <p style="max-width:68ch;">The Brand Blueprint helps founders move from visibility to strategy to scale — with the right intelligence, relationships, systems, and level of support at each stage of growth.</p>
+      <ol class="eco-journey vgp-mt">
+        {JOURNEY.map((s, i) => (
+          <li class="eco-step">
+            <span class="eco-step__num">{String(i + 1).padStart(2, '0')}</span>
+            <h4 class="eco-step__stage">{s.stage}</h4>
+            <span class="eco-step__how">{s.how}</span>
+            <p>{s.body}</p>
+          </li>
+        ))}
+      </ol>
+      <figure class="eco-quote vgp-mt">
+        <blockquote>“We create better founder outcomes when the right partners enter at the right time.”</blockquote>
+        <figcaption>— Dana Ammons, Founder &amp; Principal Strategist</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Intro video -->
+  <section class="vgp-section">
+    <div class="vgp-container" style="max-width:860px;">
+      <span class="vgp-eyebrow vgp-center" style="display:block; text-align:center;">Watch</span>
+      <h2 class="vgp-center">See the ecosystem in action.</h2>
+      <video class="eco-video vgp-mt" controls preload="metadata" playsinline>
+        <source src="/assets/media/bb-intro.mp4" type="video/mp4" />
+        Your browser doesn’t support embedded video.
+      </video>
+    </div>
+  </section>
+
+  <!-- How they work together -->
+  <section class="vgp-section vgp-bg-soft">
+    <div class="vgp-container" style="max-width:900px;">
+      <span class="vgp-eyebrow">How it works together</span>
+      <h2>One relationship, tuned to who you are.</h2>
+      <div class="vgp-grid vgp-grid--2 vgp-mt">
+        <article class="vgp-card">
+          <h4>For founders</h4>
+          <p>You enter through The Brand Blueprint — the community, the content, and the tools that build visibility and momentum. When you're ready for deeper strategy or hands-on execution, Value Growth Partners steps in with advisory and Growth OS builds. Access on one side, real implementation on the other.</p>
+        </article>
+        <article class="vgp-card">
+          <h4>For investors &amp; referral partners</h4>
+          <p>The ecosystem creates visibility and curated deal flow — founders you'd actually want to meet. Value Growth Partners provides the strategic and operational diligence behind the scenes, so the founders you engage are readiness-checked, not just introduced.</p>
+        </article>
+      </div>
+      <p class="vgp-mt" style="max-width:60ch;">The through-line across all three layers: <strong>founder operating infrastructure, not just consulting.</strong> Clarity, readiness, visibility, pipeline, execution, accountability — built to last, not just advised on.</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="vgp-section vgp-bg-navy vgp-center">
+    <div class="vgp-container" style="max-width:640px;">
+      <h2 style="font-size:var(--vgp-h3);">Find your starting point.</h2>
+      <p style="max-width:52ch; margin:0 auto 1.75rem;">Not sure which layer you need? Start the Advisory Pathway and we'll point you to the right one — or explore the founder ecosystem directly.</p>
+      <p>
+        <a class="vgp-btn vgp-btn--primary" href="/advisory-pathway" style="margin-right:.5rem;">Start the Advisory Pathway</a>
+        <a class="vgp-btn vgp-btn--secondary" href={BB_URL}>Explore The Brand Blueprint</a>
+      </p>
+    </div>
+  </section>
+
+  <style>
+    .eco-video { width: 100%; border-radius: var(--vgp-radius); display: block; box-shadow: 0 10px 30px rgba(7,30,65,.14); background: #000; }
+    .eco-journey { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; counter-reset: none; }
+    .eco-step {
+      background: #fff; border: 1px solid var(--vgp-card-border); border-radius: var(--vgp-radius);
+      padding: 1.5rem 1.35rem; position: relative;
+      box-shadow: 0 1px 2px rgba(7,30,65,.05), 0 10px 30px rgba(7,30,65,.06);
+    }
+    .eco-step__num { font-family: var(--font-serif); color: var(--vgp-warm-gold); font-size: 1.25rem; line-height: 1; display: block; margin-bottom: .5rem; }
+    .eco-step__stage { margin: 0 0 .15rem; }
+    .eco-step__how { display: block; color: var(--vgp-blueprint-blue); font-weight: 600; font-size: .85rem; margin-bottom: .5rem; }
+    .eco-step p { font-size: .9rem; margin: 0; }
+    @media (max-width: 1024px) { .eco-journey { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 620px) { .eco-journey { grid-template-columns: 1fr; } }
+    .eco-quote { max-width: 60ch; margin-left: 0; border-left: 3px solid var(--vgp-warm-gold); padding-left: 1.5rem; }
+    .eco-quote blockquote { font-family: var(--font-serif); font-size: 1.5rem; line-height: 1.35; margin: 0 0 .5rem; color: var(--vgp-navy); }
+    .eco-quote figcaption { color: var(--vgp-body-gray); font-weight: 600; }
+    .eco-ladder { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; }
+    .eco-rung {
+      background: #fff; border: 1px solid var(--vgp-card-border); border-radius: var(--vgp-radius);
+      padding: 1.5rem; display: flex; flex-direction: column;
+      box-shadow: 0 1px 2px rgba(7,30,65,.05), 0 10px 30px rgba(7,30,65,.06);
+    }
+    .eco-rung__bar { height: calc(6px + (var(--rung) - 1) * 9px); background: var(--vgp-blueprint-blue); border-radius: 3px; margin-bottom: 1rem; }
+    .eco-rung:last-child .eco-rung__bar { background: var(--vgp-warm-gold); }
+    .eco-rung__num { font-family: var(--font-serif); color: var(--vgp-warm-gold); font-size: 1.25rem; line-height: 1; margin-bottom: .5rem; }
+    .eco-rung__link { margin-top: auto; padding-top: .85rem; font-weight: 600; text-decoration: none; }
+    @media (max-width: 1024px) { .eco-ladder { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 620px) { .eco-ladder { grid-template-columns: 1fr; } }
+    .eco-port { position: relative; }
+    .eco-port__num { font-family: var(--font-serif); color: var(--vgp-warm-gold); font-size: 1.25rem; line-height: 1; display: block; margin-bottom: .5rem; }
+    .eco-stack { display: grid; gap: 1.25rem; }
+    .eco-layer {
+      background: #fff; border: 1px solid var(--vgp-card-border); border-radius: var(--vgp-radius);
+      padding: 2rem; position: relative;
+      box-shadow: 0 1px 2px rgba(7,30,65,.05), 0 10px 30px rgba(7,30,65,.06);
+    }
+    .eco-layer--anchor { border-color: var(--vgp-blueprint-blue); border-width: 2px; box-shadow: 0 8px 30px rgba(57,120,215,.14); }
+    .eco-layer__head { display: flex; gap: 1.25rem; align-items: flex-start; margin-bottom: 1rem; }
+    .eco-num { font-family: var(--font-serif); font-size: 2.5rem; line-height: 1; color: var(--vgp-warm-gold); flex: 0 0 auto; }
+    .eco-tag { color: var(--vgp-blueprint-blue); font-weight: 600; margin: 0; }
+    .eco-gets { columns: 2; gap: 1.5rem; margin: 1rem 0 0; padding-left: 1.1rem; }
+    .eco-gets li { margin-bottom: .4rem; break-inside: avoid; }
+    .eco-badge {
+      position: absolute; top: 1.25rem; right: 1.25rem; background: var(--vgp-blueprint-blue); color: #fff;
+      font-size: .75rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+      padding: .3rem .7rem; border-radius: 999px;
+    }
+    @media (max-width: 620px) { .eco-gets { columns: 1; } .eco-layer__head { flex-direction: column; gap: .5rem; } }
+  </style>
+</Base>

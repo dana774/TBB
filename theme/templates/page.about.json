@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "bb_about": {
+      "type": "bb-about-dana"
+    },
+    "bb_final": {
+      "type": "bb-final-cta"
+    }
+  },
+  "order": [
+    "bb_about",
+    "bb_final"
+  ]
+}

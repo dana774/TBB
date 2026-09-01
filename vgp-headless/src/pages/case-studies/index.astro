@@ -1,0 +1,24 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCaseStudies } from '../../lib/content';
+const caseStudies = await getCaseStudies();
+---
+<Base title="Case Studies" description="Outcomes Value Growth Partners helps create.">
+  <section class="vgp-section">
+    <div class="vgp-container">
+      <span class="vgp-eyebrow">Execute and Measure</span>
+      <h1>Case studies</h1>
+      <p style="max-width:60ch;">Start with a workshop case below. Client-specific outcomes are published only once the client approves the specifics — and we never show numbers we can't verify.</p>
+      <div class="vgp-grid vgp-grid--2 vgp-mt">
+        {caseStudies.map((c) => (
+          <article class="vgp-card">
+            {c.image && <img class="vgp-card-thumb" src={c.image} alt="" width="1536" height="1024" loading="lazy" />}
+            <h4>{c.title}</h4>
+            <p>{c.outcome}</p>
+            <a href={`/case-studies/${c.slug}`}>Read the case →</a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>

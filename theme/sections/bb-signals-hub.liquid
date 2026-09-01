@@ -1,0 +1,73 @@
+{% comment %}
+  Signals Hub (Phase 2). Full listing of signal metaobjects.
+  type_filter setting scopes the page: 'all' for the hub, or one signal_type
+  for the dedicated Market Signal / Funding Friday views.
+{% endcomment %}
+{%- liquid
+  assign signals = shop.metaobjects.signal.values
+  assign type_filter = section.settings.type_filter | default: 'all'
+-%}
+<section class="bb-section">
+  <div class="bb-container">
+    <span class="bb-eyebrow">Signals Hub</span>
+    <h1 class="bb-h1">{{ section.settings.heading }}</h1>
+    {%- if section.settings.intro != blank -%}<p>{{ section.settings.intro }}</p>{%- endif -%}
+
+    {%- if type_filter == 'all' -%}
+      <nav class="bb-chips" aria-label="Signal types">
+        <a class="bb-chip" aria-pressed="true" href="/pages/signals">All signals</a>
+        <a class="bb-chip" aria-pressed="false" href="/pages/market-signal">Market Signal</a>
+        <a class="bb-chip" aria-pressed="false" href="/pages/funding-friday">Funding Friday</a>
+      </nav>
+    {%- endif -%}
+
+    {%- assign shown = 0 -%}
+    <div class="bb-grid bb-grid--3 bb-mt-2">
+      {%- for signal in signals -%}
+        {%- if type_filter == 'all' or signal.signal_type.value == type_filter -%}
+          {%- assign shown = shown | plus: 1 -%}
+          <article class="bb-card">
+            {%- if signal.signal_type.value != blank -%}<span class="bb-eyebrow">{{ signal.signal_type.value }}</span>{%- endif -%}
+            <h2 class="bb-h3">{{ signal.title.value }}</h2>
+            {%- if signal.summary.value != blank -%}<p>{{ signal.summary.value }}</p>{%- endif -%}
+            {%- if signal.implication.value != blank -%}<p><strong>Why it matters:</strong> {{ signal.implication.value }}</p>{%- endif -%}
+            {%- if signal.founder_actions.value != blank -%}<p><strong>Founder actions:</strong> {{ signal.founder_actions.value }}</p>{%- endif -%}
+            {%- if signal.verification_source.value != blank -%}<p class="bb-eyebrow">Source: {{ signal.verification_source.value }}</p>{%- endif -%}
+          </article>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+    {%- if shown == 0 -%}
+      <div class="bb-callout"><p>No signals in this view yet. Entries appear automatically as <code>signal</code> metaobjects are added.</p></div>
+    {%- endif -%}
+
+    <div class="bb-callout bb-center bb-mt-2">
+      <h2 class="bb-h3">Get the next signal in your inbox</h2>
+      <p class="bb-mt-2"><a class="bb-btn bb-btn--primary" href="/#shopify-section-bb_newsletter">Subscribe to The Signal</a></p>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "BB Signals Hub",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Signals founders can act on" },
+    { "type": "textarea", "id": "intro", "label": "Intro" },
+    {
+      "type": "select",
+      "id": "type_filter",
+      "label": "Show",
+      "default": "all",
+      "options": [
+        { "value": "all", "label": "All signals" },
+        { "value": "Market Signal", "label": "Market Signal only" },
+        { "value": "Funding Friday", "label": "Funding Friday only" },
+        { "value": "Opportunity", "label": "Opportunities only" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "BB Signals Hub" }]
+}
+{% endschema %}

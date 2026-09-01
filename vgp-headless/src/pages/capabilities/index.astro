@@ -1,0 +1,25 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCapabilities } from '../../lib/content';
+const capabilities = await getCapabilities();
+---
+<Base title="Capabilities" description="How Value Growth Partners builds commercial readiness.">
+  <section class="vgp-section">
+    <div class="vgp-container">
+      <span class="vgp-eyebrow">Capabilities</span>
+      <h1>How we build commercial readiness</h1>
+      <p style="max-width:70ch;">Every engagement is a build, not a deck. We start by diagnosing where the business actually is, then install the strategy, systems and relationships it needs to move from opportunity to execution. Seven core capability areas — drawn on individually or combined into a Growth OS — meet a business exactly where it stands.</p>
+      <img class="vgp-hero-img vgp-mt" src="/assets/img/vgp-capabilities-advisory.jpg" alt="Dana Ammons reviewing a growth dashboard with founders" width="1376" height="768" />
+      <div class="vgp-grid vgp-grid--2 vgp-mt">
+        {capabilities.map((c) => (
+          <article class="vgp-card">
+            <h4>{c.title}</h4>
+            <p>{c.outcome}</p>
+            <a href={`/capabilities/${c.slug}`}>Explore this capability →</a>
+          </article>
+        ))}
+      </div>
+      <p class="vgp-mt"><a class="vgp-btn vgp-btn--primary" href="/advisory-pathway">Start the Advisory Pathway</a></p>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,35 @@
+{% comment %}
+  Member gate. Renders `gated_content` capture only for customers carrying the
+  member tag (settings.bb_member_tag, applied by Appstle Memberships).
+  Logged-out visitors get a sign-in prompt; logged-in non-members get the
+  membership comparison pathway. Presentation-level gating only — nothing
+  confidential ships in Phase 1 fixtures.
+  Accepts: gated_content (string, required)
+{% endcomment %}
+{%- liquid
+  assign member_tag = settings.bb_member_tag | default: 'member'
+  assign is_member = false
+  if customer and customer.tags contains member_tag
+    assign is_member = true
+  endif
+-%}
+{%- if is_member -%}
+  {{ gated_content }}
+{%- elsif customer -%}
+  <div class="bb-callout bb-center">
+    <span class="bb-eyebrow">Member resource</span>
+    <h2 class="bb-h3">This resource is part of the Founder Network</h2>
+    <p>Your account doesn't include Founder Network membership yet. Compare what's included and join when you're ready.</p>
+    <p class="bb-mt-2"><a class="bb-btn bb-btn--primary" href="/pages/membership">Compare memberships</a></p>
+  </div>
+{%- else -%}
+  <div class="bb-callout bb-center">
+    <span class="bb-eyebrow">Member resource</span>
+    <h2 class="bb-h3">Sign in to view this resource</h2>
+    <p>This resource is reserved for Founder Network members.</p>
+    <p class="bb-mt-2">
+      <a class="bb-btn bb-btn--primary" href="{{ routes.account_login_url }}">Sign in</a>
+      <a class="bb-btn bb-btn--secondary" href="/pages/membership">Compare memberships</a>
+    </p>
+  </div>
+{%- endif -%}

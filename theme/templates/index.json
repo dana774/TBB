@@ -1,0 +1,200 @@
+{
+  "sections": {
+    "bb_hero": {
+      "type": "bb-hero-editorial"
+    },
+    "bb_proof": {
+      "type": "bb-proof-strip",
+      "blocks": {
+        "o1": {
+          "type": "outcome",
+          "settings": {
+            "value": "47",
+            "label": "Podcast episodes"
+          }
+        },
+        "o2": {
+          "type": "outcome",
+          "settings": {
+            "value": "8-stage",
+            "label": "Brand-building framework"
+          }
+        },
+        "o3": {
+          "type": "outcome",
+          "settings": {
+            "value": "Chapters + Signals",
+            "label": "Founder resources in one ecosystem"
+          }
+        }
+      },
+      "block_order": [
+        "o1",
+        "o2",
+        "o3"
+      ]
+    },
+    "bb_paths": {
+      "type": "bb-choose-path",
+      "blocks": {
+        "p1": {
+          "type": "path",
+          "settings": {
+            "title": "Founders",
+            "body": "Consumer-brand founders ready to grow with structure.",
+            "cta": "Start the Founder Intake",
+            "link": "/pages/founder-intake"
+          }
+        },
+        "p2": {
+          "type": "path",
+          "settings": {
+            "title": "Investors, partners & contributors",
+            "body": "Back and build alongside the founder ecosystem.",
+            "cta": "Explore partnership pathways",
+            "link": "/pages/partners"
+          }
+        },
+        "p3": {
+          "type": "path",
+          "settings": {
+            "title": "Institutions & ESOs",
+            "body": "Programs that move founders to commercial readiness.",
+            "cta": "See institutional programs",
+            "link": "/pages/partners",
+            "cross_domain": true
+          }
+        },
+        "p4": {
+          "type": "path",
+          "settings": {
+            "title": "Podcast guests, sponsors & media",
+            "body": "Join the conversation on The Brand Blueprint Podcast.",
+            "cta": "Apply to be a guest",
+            "link": "/pages/guest-application"
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3",
+        "p4"
+      ]
+    },
+    "bb_framework": {
+      "type": "bb-framework",
+      "blocks": {
+        "s1": {
+          "type": "stage",
+          "settings": {
+            "stage": "Vision"
+          }
+        },
+        "s2": {
+          "type": "stage",
+          "settings": {
+            "stage": "Research"
+          }
+        },
+        "s3": {
+          "type": "stage",
+          "settings": {
+            "stage": "Identity"
+          }
+        },
+        "s4": {
+          "type": "stage",
+          "settings": {
+            "stage": "Development"
+          }
+        },
+        "s5": {
+          "type": "stage",
+          "settings": {
+            "stage": "Marketing"
+          }
+        },
+        "s6": {
+          "type": "stage",
+          "settings": {
+            "stage": "Distribution"
+          }
+        },
+        "s7": {
+          "type": "stage",
+          "settings": {
+            "stage": "Funding"
+          }
+        },
+        "s8": {
+          "type": "stage",
+          "settings": {
+            "stage": "Scaling"
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "s5",
+        "s6",
+        "s7",
+        "s8"
+      ]
+    },
+    "bb_founders": {
+      "type": "bb-founder-grid",
+      "settings": {
+        "limit": 3,
+        "link_label": "Explore all Founder Chapters",
+        "link": "/pages/founders"
+      }
+    },
+    "bb_signals": {
+      "type": "bb-signals-preview"
+    },
+    "bb_resources": {
+      "type": "bb-resources-preview"
+    },
+    "bb_network": {
+      "type": "bb-founder-network"
+    },
+    "bb_podcast": {
+      "type": "bb-podcast-preview"
+    },
+    "bb_events": {
+      "type": "bb-events-preview"
+    },
+    "bb_dana": {
+      "type": "bb-dana-authority"
+    },
+    "bb_vgp": {
+      "type": "bb-vgp-pathway"
+    },
+    "bb_newsletter": {
+      "type": "bb-newsletter"
+    },
+    "bb_final": {
+      "type": "bb-final-cta"
+    }
+  },
+  "order": [
+    "bb_hero",
+    "bb_proof",
+    "bb_paths",
+    "bb_framework",
+    "bb_founders",
+    "bb_signals",
+    "bb_resources",
+    "bb_network",
+    "bb_podcast",
+    "bb_events",
+    "bb_dana",
+    "bb_vgp",
+    "bb_newsletter",
+    "bb_final"
+  ]
+}

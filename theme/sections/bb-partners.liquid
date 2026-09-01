@@ -1,0 +1,71 @@
+{% comment %}
+  Partners / Investors / Contributors (Phase 2). Pathway cards + partner
+  metaobject grid with disclosure. Placeholder partner records stay
+  hidden unless marked published (doc 07 §7: real approved partners only).
+{% endcomment %}
+{%- assign partners = shop.metaobjects.partner.values -%}
+<section class="bb-section">
+  <div class="bb-container">
+    <span class="bb-eyebrow">{{ section.settings.eyebrow }}</span>
+    <h1 class="bb-h1">{{ section.settings.heading }}</h1>
+    <p>{{ section.settings.intro }}</p>
+
+    <div class="bb-grid bb-grid--3 bb-mt-2">
+      <article class="bb-card">
+        <h2 class="bb-h3">Investors</h2>
+        <p>Back consumer-brand founders with verified traction and structured growth plans.</p>
+      </article>
+      <article class="bb-card">
+        <h2 class="bb-h3">Partners</h2>
+        <p>Bring services, distribution or platforms that move founders forward.</p>
+      </article>
+      <article class="bb-card">
+        <h2 class="bb-h3">Contributors</h2>
+        <p>Share expertise through Signals, resources or the podcast.</p>
+      </article>
+    </div>
+
+    {%- liquid
+      assign published_count = 0
+      for partner in partners
+        if partner.status.value == 'published'
+          assign published_count = published_count | plus: 1
+        endif
+      endfor
+    -%}
+    {%- if published_count > 0 -%}
+      <h2 class="bb-h2 bb-mt-2">Ecosystem partners</h2>
+      <div class="bb-grid bb-grid--3">
+        {%- for partner in partners -%}
+          {%- if partner.status.value == 'published' -%}
+            <article class="bb-card">
+              {%- if partner.partner_type.value != blank -%}<span class="bb-eyebrow">{{ partner.partner_type.value }}</span>{%- endif -%}
+              <h3 class="bb-h3">{{ partner.name.value }}</h3>
+              {%- if partner.summary.value != blank -%}<p>{{ partner.summary.value }}</p>{%- endif -%}
+              {%- if partner.disclosure.value != blank -%}<p class="bb-eyebrow">{{ partner.disclosure.value }}</p>{%- endif -%}
+            </article>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    <div class="bb-callout bb-center bb-mt-2">
+      <h2 class="bb-h3">Start the conversation</h2>
+      <p>Tell us who you are and how you'd like to build with the ecosystem.</p>
+      <p class="bb-mt-2"><a class="bb-btn bb-btn--primary" href="/pages/partner-intro" data-bb-event="partner_intro_click">Introduce yourself</a></p>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "BB Partners",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Partnership Pathways" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Build with the founder ecosystem" },
+    { "type": "textarea", "id": "intro", "label": "Intro", "default": "Investors, partners and contributors strengthen what founders can reach. [EDITORIAL REVIEW]" }
+  ],
+  "presets": [{ "name": "BB Partners" }]
+}
+{% endschema %}

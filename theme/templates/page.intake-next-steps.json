@@ -1,0 +1,10 @@
+{
+  "sections": {
+    "bb_results": {
+      "type": "bb-intake-results"
+    }
+  },
+  "order": [
+    "bb_results"
+  ]
+}

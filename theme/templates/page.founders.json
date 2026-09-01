@@ -1,0 +1,21 @@
+{
+  "sections": {
+    "bb_directory": {
+      "type": "bb-founder-grid",
+      "settings": {
+        "eyebrow": "Founder Chapters",
+        "heading": "Founders building real consumer brands",
+        "limit": 24,
+        "show_filters": true,
+        "link_label": ""
+      }
+    },
+    "bb_final": {
+      "type": "bb-final-cta"
+    }
+  },
+  "order": [
+    "bb_directory",
+    "bb_final"
+  ]
+}

@@ -1,0 +1,40 @@
+{% comment %} Signals Hub preview — signal metaobjects (doc 08 §2.8). {% endcomment %}
+{%- assign signals = shop.metaobjects.signal.values -%}
+<section class="bb-section bb-bg-soft">
+  <div class="bb-container">
+    <span class="bb-eyebrow">Signals Hub</span>
+    <h2 class="bb-h2">{{ section.settings.heading }}</h2>
+    {%- if signals.size > 0 -%}
+      <div class="bb-grid bb-grid--3">
+        {%- for signal in signals limit: section.settings.limit -%}
+          <article class="bb-card">
+            {%- if signal.signal_type.value != blank -%}
+              <span class="bb-eyebrow">{{ signal.signal_type.value }}</span>
+            {%- endif -%}
+            <h3 class="bb-h3">{{ signal.title.value }}</h3>
+            {%- if signal.summary.value != blank -%}<p>{{ signal.summary.value }}</p>{%- endif -%}
+            {%- if signal.implication.value != blank -%}
+              <p><strong>Why it matters:</strong> {{ signal.implication.value }}</p>
+            {%- endif -%}
+          </article>
+        {%- endfor -%}
+      </div>
+    {%- else -%}
+      <div class="bb-callout"><p>No signals yet. Create <code>signal</code> metaobject entries — this preview fills automatically.</p></div>
+    {%- endif -%}
+    <p class="bb-mt-2"><a href="{{ section.settings.link | default: '/pages/signals' }}">Visit the Signals Hub</a></p>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "BB Signals Preview",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Market signals founders can act on" },
+    { "type": "range", "id": "limit", "label": "Signals shown", "min": 1, "max": 6, "step": 1, "default": 3 },
+    { "type": "url", "id": "link", "label": "Signals Hub link" }
+  ],
+  "presets": [{ "name": "BB Signals Preview" }]
+}
+{% endschema %}

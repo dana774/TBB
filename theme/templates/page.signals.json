@@ -1,0 +1,17 @@
+{
+  "sections": {
+    "bb_hub": {
+      "type": "bb-signals-hub",
+      "settings": {
+        "type_filter": "all"
+      }
+    },
+    "bb_final": {
+      "type": "bb-final-cta"
+    }
+  },
+  "order": [
+    "bb_hub",
+    "bb_final"
+  ]
+}

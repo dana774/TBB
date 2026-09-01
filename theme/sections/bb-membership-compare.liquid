@@ -1,0 +1,55 @@
+{% comment %}
+  Membership comparison (Phase 1 deliverable 9). Staging pricing language only
+  ("starts at $99/month", doc 08 §2.10). The Appstle Memberships app block slot
+  is reserved below; NO live recurring billing in Phase 1.
+{% endcomment %}
+<section class="bb-section">
+  <div class="bb-container">
+    <span class="bb-eyebrow">Founder Network</span>
+    <h1 class="bb-h1">{{ section.settings.heading }}</h1>
+    <p>{{ section.settings.intro }}</p>
+
+    <div class="bb-grid bb-grid--2 bb-mt-2">
+      <article class="bb-card">
+        <h2 class="bb-h3">Free — the open ecosystem</h2>
+        <ul>
+          <li>Founder Chapters</li>
+          <li>Public Signals and the podcast archive</li>
+          <li>Public resource library items</li>
+          <li>The Signal newsletter</li>
+        </ul>
+        <a class="bb-btn bb-btn--secondary" href="/pages/founder-intake">Complete the Founder Intake</a>
+      </article>
+      <article class="bb-card">
+        <span class="bb-badge bb-badge--member">Member</span>
+        <h2 class="bb-h3">Founder Network — starts at $99/month</h2>
+        <p class="bb-editorial-flag">[EDITORIAL REVIEW] Staging pricing language. Checkout activates only after Dana approves billing.</p>
+        <ul>
+          <li>Everything in the open ecosystem</li>
+          <li>Member-only resources and templates</li>
+          <li>Member dashboard and community sessions</li>
+          <li>Priority pathways into VGP advisory</li>
+        </ul>
+        {%- for block in section.blocks -%}
+          {%- if block.type == '@app' -%}{% render block %}{%- endif -%}
+        {%- endfor -%}
+        {%- if section.blocks.size == 0 -%}
+          <button type="button" class="bb-btn bb-btn--primary" disabled aria-disabled="true">Joining opens soon</button>
+        {%- endif -%}
+      </article>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "BB Membership Compare",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Choose how you build with us" },
+    { "type": "textarea", "id": "intro", "label": "Intro", "default": "Start free in the open ecosystem, or go deeper with the Founder Network." }
+  ],
+  "blocks": [{ "type": "@app" }],
+  "presets": [{ "name": "BB Membership Compare" }]
+}
+{% endschema %}

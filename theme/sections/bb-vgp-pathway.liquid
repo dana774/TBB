@@ -1,0 +1,33 @@
+{% comment %}
+  VGP cross-brand pathway — Navy band, BB leads, single link (doc 08 §2.14).
+  Destination comes from theme settings (VGP staging until go-live approval).
+  Fires cross_domain_route via bb-intake.js delegation.
+{% endcomment %}
+<section class="bb-section bb-bg-navy">
+  <div class="bb-container bb-center">
+    <h2 class="bb-h2 bb-display">{{ section.settings.heading }}</h2>
+    <p>{{ section.settings.body }}</p>
+    {%- if settings.bb_vgp_url != blank -%}
+      <p class="bb-mt-2">
+        <a class="bb-btn bb-btn--secondary" href="{{ settings.bb_vgp_url }}" data-bb-event="cross_domain_route" data-bb-route="vgp">
+          {{- section.settings.cta -}}
+        </a>
+      </p>
+    {%- else -%}
+      <p class="bb-mt-2"><em>Set the VGP URL in Theme settings → Brand Blueprint.</em></p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "BB VGP Pathway",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Need hands-on advisory or operating systems?" },
+    { "type": "textarea", "id": "body", "label": "Body", "default": "Value Growth Partners is the strategic advisory side of this ecosystem — capability building, operating systems and institutional programs." },
+    { "type": "text", "id": "cta", "label": "CTA label", "default": "Explore Value Growth Partners" }
+  ],
+  "presets": [{ "name": "BB VGP Pathway" }]
+}
+{% endschema %}

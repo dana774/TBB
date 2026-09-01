@@ -1,0 +1,10 @@
+{
+  "sections": {
+    "bb_intake": {
+      "type": "bb-intake-form"
+    }
+  },
+  "order": [
+    "bb_intake"
+  ]
+}

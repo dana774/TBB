@@ -1,0 +1,23 @@
+{% comment %} Founder Network homepage band (doc 08 §2.10). Staging pricing language; no checkout. {% endcomment %}
+<section class="bb-section bb-bg-soft">
+  <div class="bb-container bb-center" style="max-width: 720px;">
+    <span class="bb-eyebrow">Founder Network</span>
+    <h2 class="bb-h2">{{ section.settings.heading }}</h2>
+    <p>{{ section.settings.body }}</p>
+    <p class="bb-mt-2"><a class="bb-btn bb-btn--primary" href="{{ section.settings.link | default: '/pages/membership' }}">{{ section.settings.cta }}</a></p>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "BB Founder Network Band",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Go deeper with the Founder Network" },
+    { "type": "textarea", "id": "body", "label": "Body", "default": "Member resources, community sessions and priority pathways — starts at $99/month. [EDITORIAL REVIEW — staging language, no live billing]" },
+    { "type": "text", "id": "cta", "label": "CTA label", "default": "Join the Founder Network" },
+    { "type": "url", "id": "link", "label": "CTA link" }
+  ],
+  "presets": [{ "name": "BB Founder Network Band" }]
+}
+{% endschema %}

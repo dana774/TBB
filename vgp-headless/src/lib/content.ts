@@ -1,0 +1,455 @@
+// Content layer. Source of truth is the in-repo content below (Wix is being
+// retired). The Wix reader is kept as a dormant, optional hook only for a
+// transition period — set PUBLIC_WIX_CLIENT_ID to temporarily read Wix CMS.
+// Long term, replace the seed with real approved content here, or swap in a
+// no-code CMS (HubSpot HubDB / Sanity) at the queryCollection() seam.
+
+export type Item = Record<string, any>;
+
+const CLIENT_ID = import.meta.env.PUBLIC_WIX_CLIENT_ID as string | undefined;
+
+/** Live query against a Wix data collection; returns [] if not configured. */
+export async function queryCollection(collectionId: string, limit = 50): Promise<Item[]> {
+  if (!CLIENT_ID) return [];
+  try {
+    // Lazy import so the site builds without the optional deps present.
+    // @vite-ignore keeps Vite from trying to resolve/bundle them at build time.
+    const { createClient, OAuthStrategy } = await import(/* @vite-ignore */ '@wix/sdk');
+    const { items } = await import(/* @vite-ignore */ '@wix/data');
+    const client = createClient({
+      modules: { items },
+      auth: OAuthStrategy({ clientId: CLIENT_ID }),
+    });
+    const res = await client.items
+      .queryDataItems({ dataCollectionId: collectionId })
+      .limit(limit)
+      .find();
+    return res.items.map((i: any) => i.data);
+  } catch (err) {
+    console.warn(`[content] live query failed for ${collectionId}, using seed`, err);
+    return [];
+  }
+}
+
+const R = '[EDITORIAL REVIEW]';
+
+/** Seed content. Replaced by live CMS when configured. Capability & program
+ *  copy describes the VGP offering in first-person-plural ("we") — no invented
+ *  client numbers, no asserted personal pronouns. Partners & insights carry a
+ *  `review` flag so their pages show a "pending confirmation" banner while the
+ *  site is in staging. */
+const SEED = {
+  // VGP capability areas — sourced from the VGP Client-Facing Messaging &
+  // Capability Content Pack. `includes` = what the engagement covers; `bestFor`
+  // = the client it fits. `outcome` is the one-line promise.
+  capabilities: [
+    {
+      slug: 'strategic-growth-architecture',
+      title: 'Strategic Growth Architecture',
+      outcome: 'Turn a promising business into a clear model, market path and roadmap you can actually run.',
+      includes: ['Business model clarity', 'Market path', 'Pricing logic', 'Operating priorities', 'Growth roadmap', 'Founder decision cadence'],
+      bestFor: 'Founders needing structure and strategic focus.',
+      definition: 'Before you build anything, you need a clear model. Strategic Growth Architecture is the foundation — business-model clarity, market path, pricing logic, and the growth roadmap and decision cadence a founder actually runs the business by.',
+    },
+    {
+      slug: 'growth-os-diagnostic-build',
+      title: 'Growth OS Diagnostic & Build',
+      outcome: 'Install the operating system — dashboards, workflows and automation — that makes growth repeatable.',
+      includes: ['Tool audit', 'Workflow map', 'Dashboards', 'Forecast workbook', 'Meeting intelligence', 'Action trackers', 'Automation roadmap'],
+      bestFor: 'Founders or programs ready to systematize operations.',
+      definition: 'Growth OS is not generic software consulting. It is the implementation system that turns strategy into durable operating infrastructure — making the advisory work repeatable, measurable, and scalable. Strategy becomes the dashboards, workflows, and accountability you actually run.',
+      sequenceTitle: 'How a Growth OS gets built',
+      sequence: [
+        'Confirm the client archetype, commercial objective, operating pain, and decision owner.',
+        'Inventory current tools, data sources, access levels, reporting gaps, and recurring handoffs.',
+        'Choose one system of record — never build logic across competing sources of truth.',
+        'Stand up the AI workspace, naming conventions, folder structure, and export standards.',
+        'Launch one to three revenue-critical or time-saving workflows before secondary automations.',
+        'Build dashboard v1, data definitions, and an adoption-ready operating cadence.',
+        'Train only the people who will use the workflows; publish SOPs and a change log.',
+        'Move into managed optimization once the foundation is stable and owners are clear.',
+      ],
+    },
+    {
+      slug: 'funding-forecast-readiness',
+      title: 'Funding & Forecast Readiness',
+      outcome: 'Walk into funding conversations with a forecast, a gap analysis and the assets to back them.',
+      includes: ['Forecast model', 'Funding gap analysis', 'Grant and investor readiness', 'Opportunity matching', 'Pitch assets', 'Funder preparation'],
+      bestFor: 'Capital-seeking founders and nonprofit / program partners.',
+      definition: 'Do not go to investors too early. Funding readiness means the story, the numbers, and the gaps are all in place first — so when an introduction comes, it is warm, credible, and worth the investor\'s time.',
+      sequenceTitle: 'Before an investor introduction',
+      sequence: [
+        'A current one-pager with a specific, clear ask.',
+        'Traction numbers that are accurate and source-backed.',
+        'A clear use of funds and a 12–24 month milestone roadmap.',
+        'Known gaps understood and disclosed — never hidden.',
+        'An investor thesis, stage, category, and check size that actually fit.',
+        'A concise, context-rich introduction.',
+      ],
+    },
+    {
+      slug: 'retail-distribution-strategy',
+      title: 'Retail & Distribution Strategy',
+      outcome: 'Get shelf-ready — buyer materials, channel strategy and the trade math to win at retail.',
+      includes: ['Retail readiness', 'Buyer materials', 'Distributor / broker strategy', 'Wholesale approach', 'Retail trial activation', 'Channel planning'],
+      bestFor: 'Consumer products — CPG, beauty, wellness, food & beverage, and retail-enabled brands.',
+      definition: 'Small tests should produce serious evidence. Retail trials become buyer proof, sell-through becomes strategy, and traction becomes investor signal — so a founder walks into buyer conversations with more than a pitch.',
+      sequenceTitle: 'The retail activation sequence',
+      sequence: [
+        'Plan a small, disciplined retail trial designed to produce real evidence.',
+        'Score retail readiness — confirm what must be in place before buyer outreach.',
+        'Prepare buyer materials, pricing and trade architecture, and a specific ask.',
+        'Run the trial; capture sell-through, sample conversion, and buyer feedback.',
+        'Convert the trial into a buyer-ready recap and the next retail action.',
+      ],
+    },
+    {
+      slug: 'digital-growth-ai',
+      title: 'Digital Growth & AI Optimization',
+      outcome: 'Build scalable demand — email, paid media, marketplace and AI-search visibility that compounds.',
+      includes: ['Klaviyo / email', 'Paid media strategy', 'Amazon / marketplace readiness', 'AI search & answer-engine optimization', 'Content systems'],
+      bestFor: 'Brands needing scalable digital demand generation.',
+      definition: 'Demand should compound, not restart every month. This is the system for scalable digital growth — email, paid media, marketplace readiness, and AI-search visibility built to work together instead of as one-off campaigns.',
+    },
+    {
+      slug: 'operations-sourcing',
+      title: 'Operations Sourcing',
+      outcome: 'Move from small-batch to scalable — the right manufacturing, 3PL and distribution partners.',
+      includes: ['Contract manufacturing', '3PL, storage & fulfillment', 'Distributor sourcing', 'Wholesaler sourcing', 'Broker sourcing'],
+      bestFor: 'Brands moving from handmade / small-batch to scalable operations.',
+      definition: 'Growth breaks on the supply side first. Operations Sourcing connects a brand to the right manufacturing, 3PL, and distribution partners — so scaling up production and fulfillment doesn\'t turn into a scramble.',
+    },
+    {
+      slug: 'partner-investor-orchestration',
+      title: 'Partner & Investor Orchestration',
+      outcome: 'The right introductions at the right time — partners, investors and ecosystem visibility.',
+      includes: ['Referral partner matching', 'Investor-readiness signal', 'Warm introductions', 'Ecosystem visibility'],
+      bestFor: 'Founders ready for external relationships.',
+      definition: 'The right introduction at the right time can change a company\'s trajectory. Partner & Investor Orchestration surfaces founders to aligned partners and investors — with context, readiness, and warm intros, never cold noise.',
+    },
+  ],
+  programs: [
+    {
+      slug: 'eso-cohort',
+      title: 'ESO Cohort Program',
+      summary: 'Move a whole cohort of founders from access to commercial readiness — together, on a shared timeline.',
+      detail: 'A structured program for entrepreneurship support organizations that run cohorts. VGP works alongside your founders across the cohort arc — diagnosing where each business really is, teaching the commercial fundamentals most programs skip, and leaving founders with a concrete readiness plan rather than another certificate. Format and depth are scoped to your cohort size, stage and goals.',
+      image: '/assets/img/vgp-speaking-event.jpg',
+    },
+    {
+      slug: 'accelerator-track',
+      title: 'Accelerator Advisory Track',
+      summary: 'Embedded commercial advisory for an accelerator portfolio, matched to each company\'s stage.',
+      detail: 'For accelerators that want more than a guest lecture. VGP embeds as a commercial advisor across the portfolio — office hours, readiness reviews, and buyer- and investor-facing preparation — so promising companies convert access into distribution and revenue. Engagement can run per-cohort or as an ongoing track.',
+      image: '/assets/img/vgp-capabilities-advisory.jpg',
+    },
+    {
+      slug: 'institution-partnership',
+      title: 'Institutional Partnership',
+      summary: 'A long-term partnership that builds durable commercial capability inside your institution.',
+      detail: 'For universities, economic-development bodies and investor networks investing in founder outcomes over years, not weeks. VGP partners to build repeatable commercial-readiness capability into how your institution supports founders — curriculum, advisory model, and measurement — so the impact compounds after any single engagement ends.',
+      image: '/assets/img/vgp-operations.jpg',
+    },
+  ],
+  // Real, in-preparation engagements. No fabricated metrics: case studies stay
+  // in preparation until Dana supplies (and each client approves) the specifics.
+  caseStudies: [
+    {
+      slug: 'inventory-and-3pls',
+      title: 'From Chaos to Clarity: Mastering Inventory & 3PLs',
+      outcome: 'A Brand Blueprint workshop for CPG founders — built around Visionary Hydroponics’ 3PL wake-up call, and the inventory and fulfillment discipline that keeps growth from breaking operations.',
+      image: '/assets/img/vgp-operations.jpg',
+      subject: 'Visionary Hydroponics, a hydroponic-system startup, scaled too quickly with the wrong 3PL partner — facing hidden fees, poor service, and inventory errors. Their story shows what CPG founders must do to vet logistics partners, protect cash flow, and make sure fulfillment supports growth instead of breaking it.',
+      challenge: [
+        'Hidden fees & vague contracts → cash-flow strain and eroded margins',
+        'Unresponsive 3PL support → fulfillment delays and missed SLAs',
+        'Inventory syncing failures → stockouts, overselling, and lost customer trust',
+        'No startup-level prioritization → orders deprioritized during peak times',
+      ],
+      lessons: [
+        { h: 'Vet 3PLs like you’d vet a co-founder', p: 'Know the contract, test their tech, and ask for startup-specific references before you sign.' },
+        { h: 'Know your inventory — and your cash flow', p: 'Set clear reorder points for every SKU, segment inventory by velocity (ABC analysis), and audit dead stock monthly to free up cash and warehouse space.' },
+        { h: 'Forecasting is strategy, not guesswork', p: 'Build a rolling forecast and align it with supplier lead times and sales velocity to reduce panic orders.' },
+      ],
+      takeaway: 'Fulfillment and inventory decisions shape margin, customer trust, and the ability to scale. VGP works 1:1 with founders to install these systems before growth outpaces operations.',
+    },
+    { slug: 'case-one', title: 'Commercial-readiness engagement', outcome: 'In preparation — full details published once the client approves specifics. No numbers are shown until they can be verified.', image: '/assets/img/vgp-capabilities-advisory.jpg', review: true },
+    { slug: 'case-two', title: 'Go-to-market & retail readiness', outcome: 'In preparation — full details published once the client approves specifics. No numbers are shown until they can be verified.', image: '/assets/img/vgp-operations.jpg', review: true },
+    { slug: 'case-three', title: 'ESO cohort program', outcome: 'In preparation — full details published once the institution approves specifics. No numbers are shown until they can be verified.', image: '/assets/img/vgp-programs-cohort.jpg', review: true },
+  ],
+  insights: [
+    {
+      slug: 'access-is-not-readiness',
+      title: 'Access is not commercial readiness',
+      image: '/assets/img/vgp-capabilities-advisory.jpg',
+      summary: 'The programs, capital and introductions are more available than ever — and most founders still are not ready to sell. The gap is commercial, not access.',
+      body: [
+        'The ecosystem has gotten very good at access. There are more accelerators, more grants, more pitch nights and more warm introductions than at any point in the last decade. And yet the failure rate at the shelf has barely moved. That is the tell: access was never the binding constraint.',
+        'Commercial readiness is. A founder can have a funded round, a beautiful product and a buyer\'s email address and still not be ready — because being ready means the unit economics survive a real trade calendar, the supply chain can hold a promotion, and the story lands with a category buyer who has ninety seconds and a spreadsheet.',
+        'For the organizations that support founders, the implication is direct: the highest-leverage thing you can add is not one more introduction. It is closing the commercial gap before the introduction is spent.',
+      ],
+    },
+    {
+      slug: 'what-esos-miss',
+      title: 'What ESOs miss about growth',
+      image: '/assets/img/vgp-programs-cohort.jpg',
+      summary: 'Support organizations optimize for what is easy to measure — sessions delivered, founders served. The commercial outcomes that matter show up later, and elsewhere.',
+      body: [
+        'Most entrepreneurship support is measured by activity: workshops run, founders enrolled, demo days held. Those numbers are real, but they are inputs. The outcome that actually justifies the work — a business that can sell and scale — often shows up months later, in a distribution win or a second purchase order, where the program never sees it.',
+        'The result is a quiet misalignment. Curricula fill with fundraising and storytelling because those are teachable in a room, while the things that decide whether a brand survives — trade math, buyer readiness, operating cadence — get one guest session, if that.',
+        'Fixing it does not require more programming. It requires putting commercial readiness at the center of the cohort arc and measuring founders against it, so the program is optimizing for the outcome instead of the activity.',
+      ],
+    },
+    {
+      slug: 'operating-systems-for-founders',
+      title: 'Operating systems for founders',
+      image: '/assets/img/vgp-operations.jpg',
+      summary: 'Early growth runs on heroics. The businesses that last replace the scramble with a few boring systems — before they have to.',
+      body: [
+        'In the early days, everything works because a few people will it to work. That is a feature, not a bug — until it becomes the ceiling. The scramble that got a brand its first thousand customers is exactly what breaks at its first real retail order.',
+        'The fix is unglamorous: a planning cadence, clear decision rights, and a short list of metrics that tell the truth early enough to act on. Not a binder of process for its own sake — the minimum operating system that lets growth repeat without a hero on every deal.',
+        'The founders who install this before they need it look slower for a quarter and faster for years. The ones who wait usually install it during a crisis, which is the most expensive possible time.',
+      ],
+    },
+  ],
+  // Referral & delivery partners — sourced from Dana's own partner files. Each
+  // record stays at editorial-review (review:true) until that partner confirms
+  // their public listing. No internal tier/pricing detail; personal contact
+  // details deliberately excluded (privacy).
+  partners: [
+    {
+      slug: 'ark-la-tex-financial',
+      name: 'Ark-La-Tex Financial Consultants',
+      type: 'Referral Partner — Financing & Lending',
+      focus: 'USDA B&I, SBA and commercial lending navigation for rural growth and acquisitions',
+      description: 'Ark-La-Tex Financial Consultants specializes in helping businesses access USDA Business & Industry (B&I) loan guarantees — enabling long-term, lower-equity financing for expansion, acquisition, real estate and equipment — alongside SBA 7(a)/504 and commercial lending and investor-readiness support.',
+      website: 'https://www.altfc.net',
+      logo: '/assets/partners/ark-la-tex-financial-consultants-logo.png',
+      category: 'Capital Advisory / USDA & Structured Lending',
+      bestFit: [
+        'Manufacturing, healthcare, hospitality, energy and storage businesses',
+        'Founders operating in rural or rural-adjacent markets',
+        'Capital-intensive expansion or refinance scenarios',
+      ],
+      engagement: ['Capital structuring and advisory', 'USDA B&I loan packaging', 'Lender coordination and documentation support'],
+      whyVgp: 'Deep program knowledge and a strong track record executing complex USDA-backed financings that many founders don’t realize they qualify for.',
+      contact: { email: 'nthompson@altfc.net', phone: '318-256-9796', location: 'Many, Louisiana' },
+      funding: true,
+      fundingBlurb: 'Capital advisory and structured lending — USDA B&I guarantees, SBA 7(a)/504 and commercial lending for expansion, acquisition, real estate and equipment, with a focus on rural and rural-adjacent markets.',
+      review: true,
+    },
+    {
+      slug: 'veri-core-systems',
+      name: 'Veri-Core Systems',
+      type: 'Referral Partner — Enterprise Tech & Automation',
+      focus: 'Automated user-acceptance and regression testing for regulated industries',
+      description: 'Veri-Core Systems helps regulated organizations eliminate costly deployment errors by automating user-acceptance and regression testing. Its flagship product, BOLT, reduces testing cycles from weeks to days while catching defects before production.',
+      website: 'https://www.vericoresystems.com',
+      linkedin: 'https://www.linkedin.com/company/veri-core-systems',
+      founderName: 'Monique Shuler, Founder & CEO',
+      category: 'Enterprise Tech / Automation (FinTech, Mortgage, Regulated Industries)',
+      bestFit: [
+        'B2B SaaS founders in regulated industries',
+        'FinTech, mortgage and financial-services platforms',
+        'Teams scaling complex systems with compliance requirements',
+      ],
+      engagement: ['Subscription-based SaaS', 'Enterprise implementations', 'Ongoing platform optimization'],
+      whyVgp: 'Deep domain expertise with measurable ROI — helping teams avoid costly defects and wasted labor while accelerating deployment timelines.',
+      contact: { email: 'hello@vericoresystems.com' },
+      review: true,
+    },
+    {
+      slug: 'patrice-malloy',
+      name: 'Patrice Malloy — The Affluent CFO',
+      type: 'Referral Partner — Financial & Tax Strategy',
+      focus: 'Tax strategy and financial advisory for founders',
+      description: 'Patrice Malloy, known as The Affluent CFO, is a master tax strategist and financial advisor who helps entrepreneurs pursue financial freedom through her Unapologetic Affluence platform, and collaborates on the Finance Blueprint for Founders series.',
+      review: true,
+    },
+    {
+      slug: 'heloise-lanoix',
+      name: 'Heloise Lanoix',
+      type: 'Creative & Digital Partner',
+      focus: 'Digital product & app design and creative direction',
+      description: 'Heloise Lanoix is Value Growth Partners’ lead digital design and creative director — a creative and digital contractor specializing in digital product and app design, from app-flow diagrams and wireframes through visual design and coordination with development.',
+      review: true,
+    },
+    {
+      slug: 'kaylee-mcferson',
+      name: 'Kaylee McFerson',
+      type: 'Paid Media & Digital Partner',
+      focus: 'Paid Search, Paid Social and Programmatic strategy and execution',
+      description: 'Kaylee McFerson is a paid-media strategist specializing in Paid Search, Paid Social and Programmatic — driving full-funnel campaign strategy, audience-first planning, and performance optimization against KPIs like CPA and ROAS across verticals including CPG, e-commerce, healthcare and tourism.',
+      review: true,
+    },
+    {
+      slug: 'sengo',
+      name: 'Sengo',
+      type: 'Capital Intelligence Platform',
+      focus: 'Capital intelligence and fractional-finance support for founders',
+      description: 'Sengo is a capital-intelligence and fractional-finance platform in the Value Growth Partners network. It helps founders assess whether capital is the right tool for their next stage and use it well, with founders owning their Sengo account directly.',
+      review: true,
+    },
+    {
+      slug: 'nudge',
+      name: 'Nudge',
+      type: 'Commerce Intelligence Platform',
+      focus: 'Shopify-native commerce intelligence and paid-media visibility',
+      description: 'Nudge is a Shopify-native commerce-intelligence platform in the Value Growth Partners network. It turns Shopify performance, channel behavior and paid-media data into a clear weekly briefing so founders can make decision-grade retail, inventory, channel and promotional calls.',
+      review: true,
+    },
+    {
+      slug: 'product-society',
+      name: 'Product Society',
+      type: 'Operations & Sourcing — Contract Manufacturing',
+      focus: 'Turnkey private-label manufacturing for beauty, personal care and fragrance',
+      description: 'Product Society is a North Hollywood, USA-made brand-development and turnkey manufacturer for personal care and cosmetics — formulation, compounding, filling, packaging and development across skincare, sun care, haircare, color cosmetics, bath & body, home care and fine fragrance. Concierge-level service with production runs from 5,000 units.',
+      website: 'https://www.productsociety.com',
+      category: 'Contract Manufacturing / Private Label (Beauty, Personal Care, Fragrance)',
+      founderName: 'Philip Miller',
+      bestFit: [
+        'Beauty, personal-care and fragrance founders moving from lab to scaled production',
+        'Brands needing formulation, filling, packaging and compliance under one roof',
+        'Founders preparing for retail (Ulta, Sephora, Whole Foods) or Amazon scale',
+      ],
+      engagement: ['Formulation & product development', 'Turnkey filling, compounding & packaging (from 5,000 units)', 'Brand development & launch support'],
+      whyVgp: 'A concierge, USA-made turnkey manufacturer that has helped 100+ brands launch and scale — the kind of production partner that de-risks a founder’s move into retail.',
+      contact: { email: 'philip@productsociety.com', phone: '(323) 248-9623', location: 'North Hollywood, CA' },
+      review: true,
+    },
+    {
+      slug: 'sarah-horowitz-parfums',
+      name: 'Sarah Horowitz Parfums',
+      type: 'Operations & Sourcing — Fragrance Contract Manufacturing',
+      focus: 'Custom fragrance creation, private label and contract manufacturing',
+      description: 'Sarah Horowitz Parfums is a fragrance house and contract manufacturer led by perfumer Sarah Horowitz — specializing in custom hand-crafted fragrance, private label, and full contract manufacturing from scent creation through bottling and production, for niche and emerging brands.',
+      website: 'https://sarahhorowitz.com',
+      category: 'Contract Manufacturing / Private Label (Fragrance & Personal Care)',
+      founderName: 'Sarah Horowitz, Perfumer',
+      bestFit: [
+        'Founders launching a fragrance, home-scent or scented personal-care line',
+        'Brands needing custom scent development plus production under one partner',
+        'Emerging beauty/wellness brands adding a signature fragrance',
+      ],
+      engagement: ['Custom fragrance & scent development', 'Private-label fragrance', 'Contract manufacturing — creation through bottling & production'],
+      whyVgp: 'Decades of perfumery and hands-on contract manufacturing — a rare partner who can take a founder from scent concept to a finished, production-ready product.',
+      contact: { email: 'sarah@sarahhorowitz.com', location: 'Westlake Village, CA' },
+      review: true,
+    },
+    {
+      slug: 'c2fo',
+      name: 'C2FO — Lending Connections',
+      type: 'Funding Partner — Working Capital & Lender Matchmaking',
+      focus: 'Working-capital platform and vetted lender network for growth-stage founders',
+      description: 'C2FO operates the world’s largest working-capital platform, and through Lending Connections it matches businesses with a vetted network of lenders — receivables finance, term loans, asset-based lending and factoring. A strong fit for founders who need capital to fund expansion POs, product innovation or staffing, and for teams working through P&L stabilization and turnaround.',
+      website: 'https://c2fo.com/supplier-solutions/lending-connections/',
+      category: 'Working Capital / Lender Matchmaking',
+      founderName: 'Jay Lott, Director — C2FO Lending Connections',
+      bestFit: [
+        'Founders under ~$1MM ARR needing $200k–$600k in working capital',
+        'Growth trajectories: expansion POs, product innovation, staffing',
+        'Teams working through P&L stabilization and turnaround',
+      ],
+      engagement: ['Working-capital assessment', 'Lender matchmaking across the C2FO network', 'Receivables finance, term loans, ABL and factoring'],
+      whyVgp: 'One vetted front door to a network of lenders — so a capital-ready founder gets matched to the right structure instead of cold-applying to a dozen.',
+      contact: { email: 'jay.lott@c2fo.com', phone: '913-709-6792', location: 'C2FO Lending Connections' },
+      funding: true,
+      fundingBlurb: 'Working-capital platform and lender matchmaking — receivables finance, term loans, asset-based lending and factoring for expansion, innovation, staffing, or P&L stabilization.',
+      review: true,
+    },
+  ],
+  // Real engagements from Dana. Carrington years pending her confirmation
+  // (~2017–2018). Venture Café entry sourced from public info — confirm.
+  speaking: [
+    { title: 'CIC Demo Day — Host & Moderator', detail: 'Hosted and moderated the retail cohort Demo Day, May 2025.' },
+    { title: 'Carrington College — Commencement Speaker', detail: 'Delivered the graduation keynote two consecutive years. [Years pending confirmation]' },
+    { title: 'Venture Café Cambridge — Speaker', detail: 'Founder-readiness and go-to-market for emerging CPG brands. [Sourced — confirm]' },
+  ] as Item[],
+  // Bio drafted from public sources (LinkedIn, VGP site, podcast listings, Venture Café)
+  // 2026-08-04 — PENDING Dana's confirmation. Sole-host rule applied (no co-host language).
+  // The $115M PepsiCo figure is deliberately excluded (gated, doc 07 §2).
+  danaProfile: {
+    name: 'Dana Ammons',
+    // Drafted from public sources (LinkedIn, VGP site, podcast/Venture Café listings),
+    // 2026-08-04. `sourced:true` renders a "pending confirmation" banner. Written in
+    // name-based / third-person voice (no asserted pronouns). The $115M PepsiCo figure
+    // is gated (doc 07 §2) and shown only when pepsico_claim_status === 'approved'.
+    // 2026-08-12 — Replaced with Dana's own executive summary (author-provided,
+    // authoritative). `sourced:false` removes the pending-confirmation banner.
+    sourced: false,
+    positioning:
+      'Dana Ammons is the founder and principal of Value Growth Partners — a sales, marketing and brand strategist with more than 25 years of leadership across consumer-goods companies including Procter & Gamble, PepsiCo, S.C. Johnson and Colgate-Palmolive. He translates corporate rigor into entrepreneurial success, giving founders and the organizations that support them the strategy and hands-on execution to build brands that sell, scale and last.',
+    philosophy:
+      'Access is not the same as commercial readiness. VGP helps founders — and the organizations that support them — close that gap, turning promising ideas into brands that can actually sell, scale and hold their place on the shelf.',
+    experience_timeline:
+      'At Procter & Gamble, Dana served as Director of Sales — leading key accounts including Target and Sam\'s Club and earning the Triple Crown Award for top-line, bottom-line and market-share growth — with brand and commercial leadership following across PepsiCo, S.C. Johnson and Colgate-Palmolive. He later brought that Fortune 100 discipline to the startup world as a consultant with NJOY, launching and scaling pioneering products, and with Crave Chips, developing healthier kettle-cooked snacks and securing regional retail distribution. As CEO of Urban Therapy (Twisted Sista), he led the early phases of a turnaround focused on cost optimization, operational efficiency and personnel restructuring ahead of the company\'s transition to new ownership. At VGP he provides fractional representation and hands-on support across sales strategy, marketing, social media and digital optimization — for clients ranging from high-growth startups to mission-driven nonprofits such as R.E.D. Academy.',
+    credentials: [
+      'Procter & Gamble — Director of Sales (Target, Sam\'s Club); Triple Crown Award',
+      '25+ years across PepsiCo, S.C. Johnson and Colgate-Palmolive',
+      'Startup consultant — NJOY (launch & scale) and Crave Chips (retail distribution)',
+      'Former CEO, Urban Therapy (Twisted Sista) — led initial turnaround phases',
+      'Creator & host, The Brand Blueprint — semi-weekly episodes reaching thousands',
+      'Founder mentor — CIC (Cambridge Innovation Center) and Seed Spot',
+      'Founder & principal, Value Growth Partners',
+    ],
+    pepsico_claim_status: 'pending-proof',
+  },
+};
+
+async function withFallback(collectionId: keyof typeof SEED, live: () => Promise<Item[]>): Promise<Item[]> {
+  const items = await live();
+  return items.length ? items : (SEED[collectionId] as Item[]);
+}
+
+export const getCapabilities = () => withFallback('capabilities', () => queryCollection('Capabilities'));
+export const getPrograms = () => withFallback('programs', () => queryCollection('Programs'));
+export const getCaseStudies = () => withFallback('caseStudies', () => queryCollection('CaseStudies'));
+export const getInsights = () => withFallback('insights', () => queryCollection('Insights'));
+export const getSpeaking = () => withFallback('speaking', () => queryCollection('Speaking'));
+export const getPartners = () => withFallback('partners', () => queryCollection('Partners'));
+
+export async function getDanaProfile(): Promise<Item> {
+  const live = await queryCollection('DanaProfile', 1);
+  return live[0] ?? SEED.danaProfile;
+}
+
+export const POSITIONING_LINE =
+  'VGP helps entrepreneurship support organizations move founders from access to commercial readiness.';
+
+// The five-layer operating model / ascension ladder (Growth OS Manual v2).
+// Signal Engine → Founder Network → VGP Advisory → Growth OS → Apex.
+export const ECOSYSTEM_OPERATING_LAYERS = [
+  { name: 'Signal Engine', role: 'Media + Intelligence', body: 'Content, podcast, newsletter and market intelligence create visibility and signal — how founders and opportunities get discovered.', href: null },
+  { name: 'Founder Network', role: 'Membership + Community', body: 'The $99/month entry membership — signal, funding access, tools, and the referral network. The front door.', href: '/membership' },
+  { name: 'VGP Advisory', role: 'Strategy + Execution', body: 'Senior strategic advisory and hands-on execution — retainers, diagnostics, strategy sprints, and scoped implementation.', href: '/how-we-work' },
+  { name: 'Growth OS', role: 'Systems + Automation', body: 'The implementation layer — dashboards, workflows, forecasts and automation that turn strategy into durable operating infrastructure.', href: '/capabilities/growth-os-diagnostic-build' },
+  { name: 'Apex', role: 'Fractional Leadership', body: 'Fractional strategic operating support — weekly decision cadence, complex workstream oversight, and senior operator leadership for founders ready for it.', href: '/how-we-work' },
+];
+
+// The three-layer ecosystem architecture (Brand Architecture Bible v5.2).
+// Voice: VGP = "strategic advisory and operating firm"; Brand Blueprint =
+// "founder-facing ecosystem"; Growth OS = "implementation layer". No guarantees.
+export const ECOSYSTEM_LAYERS = [
+  {
+    name: 'The Brand Blueprint',
+    role: 'The founder-facing ecosystem',
+    tagline: 'The front door.',
+    body: 'The Brand Blueprint is where founders find community, content, and momentum — a content platform, newsletter, podcast, Founder Network, and opportunity engine that builds visibility and signal.',
+    gets: ['Community & Founder Network', 'Content, newsletter & podcast', 'Visibility & investor signal', 'Partner access & opportunity flow'],
+  },
+  {
+    name: 'Value Growth Partners',
+    role: 'The strategic advisory & operating firm',
+    tagline: 'The advisory and execution engine.',
+    body: 'Value Growth Partners is the senior expertise and execution discipline behind the ecosystem. Where a founder needs real strategy and hands-on implementation, VGP carries the advisory, the build, and the accountability.',
+    gets: ['Strategic advisory & diagnostics', 'Strategy sprints & implementation scopes', 'Managed systems & fractional support', 'Retail, funding & partner orchestration'],
+    anchor: true,
+  },
+  {
+    name: 'Growth OS',
+    role: 'The implementation layer',
+    tagline: 'Where guidance becomes infrastructure.',
+    body: 'Growth OS is not generic software consulting — it is the implementation system that makes the advisory repeatable, measurable, and scalable. It turns strategy into operating infrastructure: the dashboards, workflows, forecasts, routines, and accountability that make growth repeatable instead of heroic.',
+    gets: ['Dashboards & forecast workbooks', 'Workflows & automation', 'Operating routines & cadence', 'Action trackers & accountability'],
+  },
+];

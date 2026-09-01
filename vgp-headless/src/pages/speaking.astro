@@ -1,0 +1,44 @@
+---
+import Base from '../layouts/Base.astro';
+import { getSpeaking } from '../lib/content';
+const engagements = await getSpeaking(); // empty until verified (doc 07 §6) => list hidden
+---
+<Base title="Speaking" description="Book Dana Ammons to speak.">
+  <section class="vgp-section">
+    <div class="vgp-container" style="max-width:760px;">
+      <span class="vgp-eyebrow">Speaking &amp; Workshops</span>
+      <h1>Bring Dana to your team or event</h1>
+      <p style="font-size:1.25rem; max-width:64ch;">Dana Ammons speaks to founders, accelerators and institutions on what it actually takes to turn a promising idea into a brand that sells and scales — drawing on commercial leadership across Procter &amp; Gamble, PepsiCo, Colgate-Palmolive and SC Johnson, and years building the systems behind founder growth.</p>
+      <img class="vgp-hero-img vgp-mt" src="/assets/img/vgp-speaking-event.jpg" alt="Dana Ammons speaking to a founder audience" width="1536" height="1024" style="margin-bottom:1.5rem;" />
+
+      <h4 class="vgp-mt">Talks &amp; workshops</h4>
+      <ul>
+        <li><strong>From access to commercial readiness</strong> — why the ecosystem's access problem is solved, and the commercial gap that isn't.</li>
+        <li><strong>Operating systems for founder growth</strong> — replacing early-stage heroics with systems that make growth repeatable.</li>
+        <li><strong>Building brands that earn shelf space</strong> — positioning, buyer readiness and the trade math behind winning at retail.</li>
+      </ul>
+
+      {engagements.length > 0 && (
+        <>
+          <h4 class="vgp-mt">Recent engagements</h4>
+          <ul class="spk-list">
+            {engagements.map((e) => (
+              <li><strong>{e.title}</strong>{e.detail && <span> — {e.detail}</span>}</li>
+            ))}
+          </ul>
+        </>
+      )}
+      <style>
+        .spk-list { max-width: 64ch; padding-left: 1.1rem; }
+        .spk-list li { margin-bottom: .6rem; }
+        .spk-list strong { color: var(--vgp-navy); }
+      </style>
+
+      <div class="vgp-card vgp-bg-pale vgp-center vgp-mt" style="border:none;">
+        <h3>Invite Dana to speak</h3>
+        <p>Tell us about your event — every inquiry is reviewed personally. No public booking link.</p>
+        <p class="vgp-mt"><a class="vgp-btn vgp-btn--primary" href="/institutional-inquiry">Send a speaking inquiry</a></p>
+      </div>
+    </div>
+  </section>
+</Base>

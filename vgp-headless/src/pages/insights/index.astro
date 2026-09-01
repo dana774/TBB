@@ -1,0 +1,23 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getInsights } from '../../lib/content';
+const insights = await getInsights();
+---
+<Base title="Insights" description="Field notes for people who build founder ecosystems.">
+  <section class="vgp-section">
+    <div class="vgp-container">
+      <span class="vgp-eyebrow">Insights</span>
+      <h1>Field notes for people who build founder ecosystems</h1>
+      <div class="vgp-grid vgp-grid--3 vgp-mt">
+        {insights.map((i) => (
+          <article class="vgp-card">
+            {i.image && <img class="vgp-card-thumb" src={i.image} alt="" width="1536" height="1024" loading="lazy" />}
+            <h4>{i.title}</h4>
+            <p>{i.summary}</p>
+            <a href={`/insights/${i.slug}`}>Read →</a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>

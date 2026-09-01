@@ -1,0 +1,22 @@
+{% comment %}
+  Resource card with visible Public/Member badge from access_level.
+  Accepts: resource (metaobject entry of type resource)
+{% endcomment %}
+<article class="bb-card">
+  {% render 'bb-badge-access', level: resource.access_level.value, status: resource.status.value %}
+  <h3 class="bb-h3">{{ resource.title.value }}</h3>
+  {%- if resource.collection_name.value -%}
+    <p class="bb-eyebrow">{{ resource.collection_name.value }}</p>
+  {%- endif -%}
+  {%- if resource.summary.value -%}
+    <p>{{ resource.summary.value }}</p>
+  {%- endif -%}
+  {%- liquid
+    assign target = resource.page.value.url | default: resource.link.value
+  -%}
+  {%- if resource.access_level.value == 'member' and customer == null -%}
+    <a href="{{ routes.account_login_url }}">Sign in to view</a>
+  {%- elsif target -%}
+    <a href="{{ target }}">View resource<span class="bb-visually-hidden">: {{ resource.title.value }}</span></a>
+  {%- endif -%}
+</article>

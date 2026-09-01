@@ -1,0 +1,60 @@
+{% comment %}
+  About Dana (doc 08 §6). Bound to dana_profile metaobject singleton.
+  The $115M PepsiCo figure renders ONLY when pepsico_claim_status = 'approved' (doc 07 §2).
+{% endcomment %}
+{%- assign profile = shop.metaobjects.dana_profile.values | first -%}
+<article class="bb-section">
+  <div class="bb-container" style="max-width: 880px;">
+    <span class="bb-eyebrow">About</span>
+    <h1 class="bb-h1">Dana Ammons</h1>
+
+    <div class="bb-grid bb-grid--2">
+      <div>
+        {%- if section.settings.portrait -%}
+          <img src="{{ section.settings.portrait | image_url: width: 800 }}" alt="{{ section.settings.portrait.alt | default: 'Dana Ammons' }}" width="800" height="{{ 800 | divided_by: section.settings.portrait.aspect_ratio | round }}">
+        {%- else -%}
+          <div class="bb-callout" style="aspect-ratio: 4 / 5;" role="img" aria-label="Placeholder — Dana Ammons portrait pending (doc 05)"></div>
+        {%- endif -%}
+      </div>
+      <div>
+        {%- if profile.bio.value != blank -%}
+          <div>{{ profile.bio.value | metafield_tag }}</div>
+        {%- else -%}
+          <p>{{ section.settings.fallback_bio }}</p>
+        {%- endif -%}
+        {%- if profile.pepsico_claim_status.value == 'approved' and profile.pepsico_claim.value != blank -%}
+          <p>{{ profile.pepsico_claim.value }}</p>
+        {%- endif -%}
+      </div>
+    </div>
+
+    {%- if profile.philosophy.value != blank -%}
+      <h2 class="bb-h2">Operating philosophy</h2>
+      <div>{{ profile.philosophy.value | metafield_tag }}</div>
+    {%- endif -%}
+
+    {%- if profile.experience_timeline.value != blank -%}
+      <h2 class="bb-h2">Experience</h2>
+      <div>{{ profile.experience_timeline.value | metafield_tag }}</div>
+    {%- endif -%}
+
+    <div class="bb-grid bb-grid--2 bb-mt-2">
+      <a class="bb-card" href="/pages/founder-intake"><h2 class="bb-h3">Work with the Brand Blueprint</h2><p>Complete the Founder Intake.</p></a>
+      {%- if settings.bb_vgp_url != blank -%}
+        <a class="bb-card" href="{{ settings.bb_vgp_url }}" data-bb-event="cross_domain_route" data-bb-route="vgp-about"><h2 class="bb-h3">Value Growth Partners</h2><p>Strategic advisory and institutional programs.</p></a>
+      {%- endif -%}
+    </div>
+  </div>
+</article>
+
+{% schema %}
+{
+  "name": "BB About Dana",
+  "tag": "section",
+  "settings": [
+    { "type": "image_picker", "id": "portrait", "label": "Portrait" },
+    { "type": "textarea", "id": "fallback_bio", "label": "Fallback bio", "default": "Dana Ammons is the founder and host of The Brand Blueprint, with verified brand and commercial leadership experience at P&G, PepsiCo and Colgate-Palmolive. [EDITORIAL REVIEW]" }
+  ],
+  "presets": [{ "name": "BB About Dana" }]
+}
+{% endschema %}

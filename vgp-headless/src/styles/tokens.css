@@ -1,0 +1,54 @@
+/* VGP design tokens — shared Brand Blueprint <-> VGP system (doc 08 §1 / doc 19),
+   institutional (calmer) rhythm. Single source of truth. */
+:root {
+  /* Color */
+  --vgp-blueprint-blue: #3978d7;
+  --vgp-navy: #071e41;
+  --vgp-deep-blue: #0b2d57;
+  --vgp-warm-gold: #c89b2c;
+  --vgp-pale-blue: #eff5ff;
+  --vgp-soft-gray-blue: #f5f8fc;
+  --vgp-body-gray: #4b5563;
+  --vgp-white: #ffffff;
+  --vgp-card-border: #e5eaf2;
+
+  /* Type scale — VGP calmer (one step below BB) */
+  --vgp-h1: 3.75rem;   /* 60px */
+  --vgp-h2: 2.5rem;    /* 40px */
+  --vgp-h3: 1.75rem;   /* 28px */
+  --vgp-h4: 1.375rem;  /* 22px */
+  --vgp-body: 1.125rem;/* 18px */
+  --vgp-small: 0.9375rem;
+  --vgp-eyebrow: 0.9375rem;
+
+  /* Layout */
+  --vgp-max: 1240px;
+  --vgp-gutter: 24px;
+  --vgp-section-pad: 124px; /* airier than BB */
+  --vgp-radius: 8px;
+  --vgp-transition: 180ms ease-out;
+
+  --font-serif: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-sans: Inter, "Helvetica Neue", Arial, sans-serif;
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --vgp-h1: 2.75rem;
+    --vgp-h2: 2rem;
+    --vgp-h3: 1.5rem;
+    --vgp-section-pad: 84px;
+  }
+}
+@media (max-width: 749px) {
+  :root {
+    --vgp-h1: 2.125rem;
+    --vgp-h2: 1.75rem;
+    --vgp-h3: 1.375rem;
+    --vgp-body: 1.0625rem;
+    --vgp-section-pad: 60px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  :root { --vgp-transition: 0ms; }
+}

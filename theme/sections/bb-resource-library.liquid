@@ -1,0 +1,57 @@
+{% comment %}
+  Resource Library (Phase 2). Groups resource metaobjects by their library
+  collection (the nine collections, doc 03) with Public/Member badges.
+  Member items link to sign-in when logged out; gating happens on the
+  resource page itself (bb-resource-body).
+{% endcomment %}
+{%- liquid
+  assign resources = shop.metaobjects.resource.values
+  assign collection_blob = ''
+  for resource in resources
+    assign cname = resource.collection_name.value | default: 'General'
+    assign collection_blob = collection_blob | append: cname | append: '|'
+  endfor
+  assign collection_names = collection_blob | split: '|' | uniq
+-%}
+<section class="bb-section">
+  <div class="bb-container">
+    <span class="bb-eyebrow">Resource Library</span>
+    <h1 class="bb-h1">{{ section.settings.heading }}</h1>
+    {%- if section.settings.intro != blank -%}<p>{{ section.settings.intro }}</p>{%- endif -%}
+
+    {%- if resources.size > 0 -%}
+      {%- for cname in collection_names -%}
+        {%- if cname != blank -%}
+          <h2 class="bb-h2 bb-mt-2">{{ cname }}</h2>
+          <div class="bb-grid bb-grid--3">
+            {%- for resource in resources -%}
+              {%- assign rcname = resource.collection_name.value | default: 'General' -%}
+              {%- if rcname == cname -%}
+                {% render 'bb-card-resource', resource: resource %}
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    {%- else -%}
+      <div class="bb-callout"><p>The library fills automatically as <code>resource</code> metaobjects are added.</p></div>
+    {%- endif -%}
+
+    <div class="bb-callout bb-center bb-mt-2">
+      <h2 class="bb-h3">Can't find what you need?</h2>
+      <p class="bb-mt-2"><a class="bb-btn bb-btn--secondary" href="/pages/resource-request">Request a resource</a></p>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "BB Resource Library",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Templates, guides and playbooks" },
+    { "type": "textarea", "id": "intro", "label": "Intro", "default": "Public resources are open to every founder. Member items are part of the Founder Network. [EDITORIAL REVIEW]" }
+  ],
+  "presets": [{ "name": "BB Resource Library" }]
+}
+{% endschema %}

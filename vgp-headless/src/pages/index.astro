@@ -1,0 +1,138 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCapabilities, getCaseStudies, getInsights, POSITIONING_LINE } from '../lib/content';
+
+const capabilities = await getCapabilities();
+const caseStudies = await getCaseStudies();
+const insights = await getInsights();
+const BB_URL = import.meta.env.BB_URL || 'https://the-brand-blueprint.myshopify.com';
+
+const audiences = [
+  { title: 'Founders', body: 'Advisory, tools and systems for founders ready to scale.', cta: 'For Founders', href: '/founders' },
+  { title: 'Active clients', body: 'Pick up where we left off.', cta: 'Client sign-in', href: '/members' },
+  { title: 'Institutions & ESOs', body: 'Programs that move cohorts to commercial readiness.', cta: 'Submit an Institutional Inquiry', href: '/institutional-inquiry' },
+  { title: 'Investors & partners', body: 'Curated deal flow and warm introductions.', cta: 'For Investors & Partners', href: '/investors-partners' },
+  { title: 'Brand Blueprint founders', body: 'The founder ecosystem.', cta: 'The Brand Blueprint', href: BB_URL, cross: true },
+];
+---
+<Base title="Value Growth Partners" description="VGP helps entrepreneurship support organizations move founders from access to commercial readiness.">
+  <!-- Intake: audience router hero -->
+  <section class="vgp-section">
+    <div class="vgp-container">
+      <span class="vgp-eyebrow">Strategic Advisory</span>
+      <h1>Move founders from access to commercial readiness.</h1>
+      <p style="max-width: 64ch;">Value Growth Partners is a strategic advisory and operating-systems firm. We help founder-led brands, accelerators and ecosystem organizations build the infrastructure required for scalable growth — grounded in commercial leadership from Procter &amp; Gamble, PepsiCo, Colgate-Palmolive and SC Johnson. <strong>Founder operating infrastructure, not just consulting.</strong></p>
+      <img class="vgp-hero-img vgp-mt" src="/assets/img/vgp-about-strategy.jpg" alt="Dana Ammons — Value Growth Partners" width="1672" height="941" />
+      <div class="vgp-grid vgp-grid--3 vgp-mt" style="margin-top:2.5rem;">
+        {audiences.map((a) => (
+          <a class="vgp-card" href={a.href} data-evt="route_select" data-route={a.title}>
+            <h4>{a.title}</h4>
+            <p>{a.body}</p>
+            <span class="vgp-btn vgp-btn--secondary" style="margin-top:.5rem;">{a.cta}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Positioning band -->
+  <section class="vgp-section vgp-bg-navy vgp-center">
+    <div class="vgp-container">
+      <h2 style="font-size:var(--vgp-h3); max-width:34ch; margin:0 auto;">{POSITIONING_LINE}</h2>
+    </div>
+  </section>
+
+  <!-- Diagnose -->
+  <section class="vgp-section vgp-bg-pale">
+    <div class="vgp-container">
+      <span class="vgp-eyebrow">Diagnose</span>
+      <h2>Start with a clear read on where the business actually is.</h2>
+      <ul style="max-width:60ch;">
+        <li><strong>Commercial readiness</strong> — is the business truly built to sell and scale, or only built to launch?</li>
+        <li><strong>Operating systems</strong> — what is genuinely repeatable, and what still depends on a few people improvising?</li>
+        <li><strong>Growth constraints</strong> — what is actually holding growth back, versus what merely feels urgent?</li>
+      </ul>
+      <p class="vgp-mt"><a href="/advisory-pathway">See the advisory pathway →</a></p>
+    </div>
+  </section>
+
+  <!-- Map the Growth Path -->
+  <section class="vgp-section">
+    <div class="vgp-container">
+      <span class="vgp-eyebrow">Map the Growth Path</span>
+      <h2>Capabilities that build commercial readiness</h2>
+      <div class="vgp-grid vgp-grid--2 vgp-mt">
+        {capabilities.slice(0, 4).map((c) => (
+          <article class="vgp-card">
+            <h4>{c.title}</h4>
+            <p>{c.outcome}</p>
+            <a href={`/capabilities/${c.slug}`}>Explore →</a>
+          </article>
+        ))}
+      </div>
+      <p class="vgp-mt"><a href="/capabilities">See all capabilities →</a></p>
+    </div>
+  </section>
+
+  <!-- Select the Engagement -->
+  <section class="vgp-section vgp-bg-soft">
+    <div class="vgp-container">
+      <span class="vgp-eyebrow">Select the Engagement</span>
+      <h2>Ways to work together</h2>
+      <div class="vgp-grid vgp-grid--3 vgp-mt">
+        <article class="vgp-card"><h4>Advisory retainer</h4><p>Ongoing strategic advisory.</p><a href="/advisory-pathway">Start the pathway →</a></article>
+        <article class="vgp-card"><h4>Institutional program</h4><p>For ESOs and accelerators.</p><a href="/institutional-inquiry">Institutional inquiry →</a></article>
+        <article class="vgp-card"><h4>Speaking & workshops</h4><p>Bring Dana to your team or event.</p><a href="/speaking">Speaking →</a></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Execute and Measure -->
+  <section class="vgp-section">
+    <div class="vgp-container">
+      <span class="vgp-eyebrow">Execute and Measure</span>
+      <h2>Outcomes we help create</h2>
+      <img class="vgp-hero-img vgp-mt" src="/assets/img/vgp-operations.jpg" alt="Dana Ammons reviewing fulfillment operations with a client" width="1536" height="1024" />
+      <div class="vgp-grid vgp-grid--2 vgp-mt">
+        {caseStudies.slice(0, 2).map((c) => (
+          <article class="vgp-card"><h4>{c.title}</h4><p>{c.outcome}</p><a href={`/case-studies/${c.slug}`}>Read →</a></article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Insights preview -->
+  <section class="vgp-section vgp-bg-pale">
+    <div class="vgp-container">
+      <span class="vgp-eyebrow">Insights</span>
+      <h2>Field notes for people who build founder ecosystems</h2>
+      <div class="vgp-grid vgp-grid--3 vgp-mt">
+        {insights.slice(0, 3).map((i) => (
+          <article class="vgp-card"><h4>{i.title}</h4><p>{i.summary}</p><a href={`/insights/${i.slug}`}>Read →</a></article>
+        ))}
+      </div>
+      <p class="vgp-mt"><a href="/insights">Read all insights →</a></p>
+    </div>
+  </section>
+
+  <!-- Ecosystem teaser -->
+  <section class="vgp-section vgp-bg-navy vgp-center">
+    <div class="vgp-container" style="max-width:760px;">
+      <span class="vgp-eyebrow">One ecosystem, three layers</span>
+      <h2 style="font-size:var(--vgp-h3);">VGP is the engine behind The Brand Blueprint.</h2>
+      <p style="max-width:60ch; margin:0 auto 1.75rem;">The Brand Blueprint is the founder-facing ecosystem — content, community, and opportunity flow. Value Growth Partners is the strategic advisory and operating firm that powers the strategy and execution. Growth OS is the implementation layer that turns guidance into operating infrastructure. Founder operating infrastructure, not just consulting.</p>
+      <p>
+        <a class="vgp-btn vgp-btn--primary" href="/ecosystem" style="margin-right:.5rem;">See how the ecosystem works</a>
+        <a class="vgp-btn vgp-btn--secondary" href={BB_URL} data-evt="cross_domain_route" data-route="bb">Explore The Brand Blueprint</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="vgp-section vgp-center">
+    <div class="vgp-container">
+      <h2>Ready to map the growth path?</h2>
+      <p class="vgp-mt"><a class="vgp-btn vgp-btn--primary" href="/advisory-pathway">Start the Advisory Pathway</a></p>
+    </div>
+  </section>
+</Base>

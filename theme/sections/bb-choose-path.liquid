@@ -1,0 +1,61 @@
+{% comment %}
+  Choose Your Path — 4 audience cards (doc 08 §2.5, CTA map #4–7).
+  Emits route_select dataLayer event via bb-intake.js delegation.
+{% endcomment %}
+<section class="bb-section">
+  <div class="bb-container">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="bb-h2">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+    <div class="bb-grid bb-grid--4">
+      {%- for block in section.blocks -%}
+        <article class="bb-card" {{ block.shopify_attributes }}>
+          <h3 class="bb-h3">{{ block.settings.title }}</h3>
+          <p>{{ block.settings.body }}</p>
+          <a
+            class="bb-btn bb-btn--secondary"
+            href="{{ block.settings.link }}"
+            data-bb-event="route_select"
+            data-bb-route="{{ block.settings.title | handleize }}"
+            {% if block.settings.cross_domain %}data-bb-cross-domain="true"{% endif %}
+          >{{ block.settings.cta }}</a>
+        </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "BB Choose Your Path",
+  "tag": "section",
+  "max_blocks": 4,
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Choose your path" }
+  ],
+  "blocks": [
+    {
+      "type": "path",
+      "name": "Path",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Audience", "default": "Founders" },
+        { "type": "textarea", "id": "body", "label": "Body" },
+        { "type": "text", "id": "cta", "label": "CTA label", "default": "Start the Founder Intake" },
+        { "type": "url", "id": "link", "label": "Destination" },
+        { "type": "checkbox", "id": "cross_domain", "label": "Cross-domain route (fires cross_domain_route)", "default": false }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "BB Choose Your Path",
+      "blocks": [
+        { "type": "path", "settings": { "title": "Founders", "body": "Consumer-brand founders ready to grow with structure.", "cta": "Start the Founder Intake" } },
+        { "type": "path", "settings": { "title": "Investors, partners & contributors", "body": "Back and build alongside the founder ecosystem.", "cta": "Explore partnership pathways" } },
+        { "type": "path", "settings": { "title": "Institutions & ESOs", "body": "Programs that move founders to commercial readiness.", "cta": "See institutional programs", "cross_domain": true } },
+        { "type": "path", "settings": { "title": "Podcast guests, sponsors & media", "body": "Join the conversation on The Brand Blueprint Podcast.", "cta": "Apply to be a guest" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
