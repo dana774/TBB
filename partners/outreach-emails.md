@@ -2,8 +2,9 @@
 
 Ready to send. Each includes the partner's **preview link** (their live draft page) and a link to the
 **update form** (Airtable form once built; the intake form `https://forms.gle/fG38XuGXYYeYcEUd6` works in
-the meantime). Preview links follow the pattern `https://<staging-domain>/network/<slug>` — swap in the real
-staging/production host once the branch deploys.
+the meantime). Preview links use the live staging host
+`https://tbb-git-claude-vgp-referral-partners-value-growth-partners.vercel.app` (the whole site is `noindex`).
+When the site moves to its production domain, re-point these links.
 
 Placeholders: `[PREVIEW]` = the partner's page URL · `[FORM]` = the update-form URL.
 
@@ -17,7 +18,7 @@ Hi [First name / Ark-La-Tex team],
 I'm finalizing the new Value Growth Partners website and I'd like to feature Ark-La-Tex Financial Consultants
 as our financing & lending partner. I want you represented exactly the way you'd like.
 
-Here's your draft page — please take a look: **[PREVIEW]**
+Here's your draft page — please take a look: **https://tbb-git-claude-vgp-referral-partners-value-growth-partners.vercel.app/network/ark-la-tex-financial**
 
 When you have a minute, use this short form to confirm or correct anything and add your logo and any images:
 **[FORM]**. I've noted your contact as nthompson@altfc.net · 318-256-9796 · Many, LA, and your site as
@@ -37,7 +38,7 @@ Hi Heloise,
 As I finish the new Value Growth Partners website, I want to formally feature you as our lead digital design
 and creative director — you've been central to the creative and digital work.
 
-Here's your draft page: **[PREVIEW]**
+Here's your draft page: **https://tbb-git-claude-vgp-referral-partners-value-growth-partners.vercel.app/network/heloise-lanoix**
 
 Would you review it and use this quick form to send any edits plus a headshot and a few work images you'd
 like included? **[FORM]**
@@ -56,7 +57,7 @@ Hi [First name / Sengo team],
 I'm building the new Value Growth Partners website and would like to feature Sengo as our capital-intelligence
 partner. I want to represent you accurately.
 
-Here's your draft page: **[PREVIEW]**
+Here's your draft page: **https://tbb-git-claude-vgp-referral-partners-value-growth-partners.vercel.app/network/sengo**
 
 Please review and use this form to confirm or edit the copy and send your logo and any images: **[FORM]**.
 
@@ -74,7 +75,7 @@ Hi [First name / Nudge team],
 I'm finalizing the new Value Growth Partners website and would like to feature Nudge as our commerce-
 intelligence partner.
 
-Here's your draft page: **[PREVIEW]**
+Here's your draft page: **https://tbb-git-claude-vgp-referral-partners-value-growth-partners.vercel.app/network/nudge**
 
 Could you review it and use this form to reply with any edits plus your logo and any images? **[FORM]**
 
@@ -92,7 +93,7 @@ Hi Kaylee,
 As I finish the new Value Growth Partners website, I'd like to formally feature you as our paid-media and
 digital partner. I want to describe your work the way you'd prefer.
 
-Here's your draft page: **[PREVIEW]**
+Here's your draft page: **https://tbb-git-claude-vgp-referral-partners-value-growth-partners.vercel.app/network/kaylee-mcferson**
 
 Would you review it and use this form to send any edits, a headshot and logo, and any work images? If you'd
 like your services or rates listed, there's a spot for that too. **[FORM]**
@@ -111,7 +112,7 @@ Hi Patrice,
 As I build the new Value Growth Partners website, I'd like to formally feature you as a referral partner and
 collaborator — The Affluent CFO — alongside our Finance Blueprint for Founders series.
 
-Here's your draft page: **[PREVIEW]**
+Here's your draft page: **https://tbb-git-claude-vgp-referral-partners-value-growth-partners.vercel.app/network/patrice-malloy**
 
 Would you review it and use this form to reply with any edits plus a headshot, logo, and any images? **[FORM]**
 
@@ -130,7 +131,7 @@ I'm finalizing the new Value Growth Partners website and would like to feature V
 referral partner in enterprise tech & automation — your work automating user-acceptance and regression
 testing for regulated industries is exactly the kind of capability our founders need.
 
-Here's your draft page: **[PREVIEW]**
+Here's your draft page: **https://tbb-git-claude-vgp-referral-partners-value-growth-partners.vercel.app/network/veri-core-systems**
 
 Please review and use this short form to confirm or correct anything and add your logo and any images:
 **[FORM]**. I have your contact as hello@vericoresystems.com — let me know if there's a better one.
@@ -150,7 +151,7 @@ Thank you for the conversation — I'm excited to formally add C2FO's Lending Co
 in the Value Growth Partners ecosystem. As I build out the new website, I want C2FO represented exactly the
 way you'd like it.
 
-Here's the draft page I've prepared: **[PREVIEW]**
+Here's the draft page I've prepared: **https://tbb-git-claude-vgp-referral-partners-value-growth-partners.vercel.app/network/c2fo**
 
 I've framed C2FO as one of our funding partners — working-capital and lender matchmaking for founders funding
 expansion POs, product innovation and staffing, as well as P&L stabilization and turnaround. I've listed you
@@ -174,7 +175,7 @@ Following our work together on the Moodeaux introduction, I'd like to formally f
 contract-manufacturing partner in the Value Growth Partners ecosystem — the turnkey, USA-made production
 partner our beauty, personal-care and fragrance founders need as they move from lab to scaled production.
 
-Here's your draft page: **[PREVIEW]**
+Here's your draft page: **https://tbb-git-claude-vgp-referral-partners-value-growth-partners.vercel.app/network/product-society**
 
 Would you review it and use this short form to confirm or correct the details, add your logo, and send any
 capability or facility images you'd like featured? **[FORM]** I have your contact as philip@productsociety.com ·
@@ -195,7 +196,7 @@ After connecting you with Moodeaux, I'd like to formally feature Sarah Horowitz 
 contract-manufacturing partner in the Value Growth Partners ecosystem — the partner who can take a founder
 from custom scent concept through bottling and production.
 
-Here's your draft page: **[PREVIEW]**
+Here's your draft page: **https://tbb-git-claude-vgp-referral-partners-value-growth-partners.vercel.app/network/sarah-horowitz-parfums**
 
 Would you review it and use this short form to confirm or correct anything, add your logo, and send any images
 you'd like included? **[FORM]** I have your contact as sarah@sarahhorowitz.com · Westlake Village, CA — let me
