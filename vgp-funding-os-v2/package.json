@@ -1,0 +1,13 @@
+{
+  "name": "vgp-funding-os-v2",
+  "version": "2.0.0",
+  "private": true,
+  "description": "VGP Funding Operating System v2 — spreadsheet-bound Google Apps Script for VGP_Funding_Hotlist_Master.",
+  "scripts": {
+    "test": "node --test",
+    "validate": "node scripts/validate-schema.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

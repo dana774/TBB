@@ -1,0 +1,5 @@
+{
+  "_comment": "Copy to .clasp.json (git-ignored) after `clasp clone <scriptId>` or `clasp create`. The scriptId is the ID of the spreadsheet-BOUND Apps Script project inside VGP_Funding_Hotlist_Master (Extensions > Apps Script > Project Settings > Script ID). Do NOT paste OAuth secrets here.",
+  "scriptId": "PASTE_BOUND_SCRIPT_ID_HERE",
+  "rootDir": "."
+}
