@@ -47,23 +47,24 @@ Per partner (drop into the `[FORM]` slot of each outreach email):
 | Sarah Horowitz Parfums | `?prefill_Partner+Name=Sarah+Horowitz+Parfums&prefill_Email=sarah@sarahhorowitz.com&hide_Partner+Name=true` |
 | C2FO — Lending Connections | `?prefill_Partner+Name=C2FO+—+Lending+Connections&prefill_Email=jay.lott@c2fo.com&hide_Partner+Name=true` |
 
-## Step C — Dedup automation ("partner updated their profile")
-A native Airtable form **creates a new row** per submission; this automation folds that submission back into
-the partner's existing draft row (matched by email) instead of leaving a duplicate.
+## Step C — "Partner updated their profile" automation — BUILT (draft, needs turning on)
+Automation: `wflRyKwRt4pHyZ8g6` — https://airtable.com/appXvHjHVMzNmDqdf/wflRyKwRt4pHyZ8g6
+Built via API and validated; it is **off** until you review and toggle it **On** in the Airtable UI.
 
-Build in **Automations → Create automation**:
-1. **Trigger:** *When form submitted* → form = "Update your VGP partner profile."
-2. **Action — Find records:** table `Partners`, condition **Email is** = the trigger's Email, AND
-   **Record ID is not** the trigger's record ID (so it finds the *old* draft, not the new submission).
-3. **Action — Update record:** the found record → copy each submitted field over, and set
-   **Status → "Updated by Partner."**
-4. **Action — Delete record** (optional but recommended): the newly-created submission row, so only the
-   updated original remains.
-5. **Action — Send email** to Dana: "‹Partner› updated their profile — ready to review."
-6. Turn the automation **On**.
+What it does: on any new row (which is what a form submission creates) it (1) sets that row's
+**Status → "Updated by Partner"** and (2) emails Dana with the partner's name + email to review and merge
+the submission into that partner's draft row, then set Status → Confirmed.
 
-> Claude can build this automation via the API once the form view exists — just send the form view's `viw…`
-> ID and confirm Airtable is connected. (It's saved as a draft you'd still review + enable.)
+> Note: it triggers on `recordCreated` (fires on every new row, so avoid adding manual rows while it's on, or
+> it'll flag them too). This is deliberately the simple, robust version — a native Airtable form always
+> creates a *new* row, and a reliable auto-dedup (find the old draft by email and merge into it) needs the
+> form view's `viw…` ID and dynamic filters that can't be built blind. If you want that fuller auto-merge,
+> send the form view ID once Step A is done and it can be wired in.
+
+**Optional fuller auto-merge (manual build in the UI, if you want zero-dedup):** Trigger *When form submitted*
+→ Find records where **Email =** the submission's Email **and Status is one of** Draft/Sent for Review (this
+isolates the original draft, since form rows have no Status) → Update that record with the submitted values +
+Status "Updated by Partner" → Delete the submission row → email Dana.
 
 ## Step D — Pull confirmed data to the site
 When a partner's `Status = Confirmed`: copy their fields into `vgp-headless/src/lib/content.ts`, drop their
