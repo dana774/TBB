@@ -122,21 +122,20 @@ Base: **Founder Network — Hot List & Directory** (`app7t9MsEK8ESGRsG`).
   post-event follow-up on "The Brand Blueprint | Guest Interview" that sends the permission-form link.
 - **Legal read** of the consent language before external send (Dana-approved wording, pending counsel).
 
-## D. Theme-owner snippets to place (large section files — handed off, not hand-edited)
-Small settings edits were made directly; these two need edits inside larger section liquids and are
-provided for the theme owner to paste (keeps the risk on the owner's side):
+## D. Theme section copy — PLACED (2026-09-01, preview theme, Dana said "take over")
+Applied directly via `themeFilesUpsert` on the unpublished BB Preview theme (both upserts returned
+success; a post-write re-read to eyeball them was blocked by the session's auto-mode classifier, so
+verification is by the mutation's success response, not a second read — changes are text-level only,
+no liquid logic touched):
 
-1. **Hot List routing notice** — in `sections/bb-hot-list.liquid`, immediately after the intro `<p>`
-   block, add:
-   ```liquid
-   <p class="bb-fineprint bb-measure">Information reflects founder-approved updates as of the date shown. Please route introductions and support through the designated Brand Blueprint pathway rather than using or distributing private founder information.</p>
-   ```
-2. **Events empty-state copy** — in `sections/bb-events-index.liquid`, replace the events empty-state
-   callout paragraph (the `{%- else -%}` branch under "Where founders show up next") with:
-   ```liquid
-   <p>New Brand Blueprint events and founder sessions are being scheduled. Join the Founder Network or subscribe for verified announcements as dates are confirmed.</p>
-   ```
-   and remove the `Date TBA` fallback in the event card so no "Date TBA" appears in the active grid.
+1. **Hot List routing notice** — DONE. Added after the intro in `sections/bb-hot-list.liquid`:
+   "Information reflects founder-approved updates as of the date shown. Please route introductions and
+   support through the designated Brand Blueprint pathway rather than using or distributing private
+   founder information." (with a `.bb-hotlist-notice` fine-print style).
+2. **Events empty-state + Date TBA** — DONE in `sections/bb-events-index.liquid`: the no-events callout
+   now reads "New Brand Blueprint events and founder sessions are being scheduled. Join the Founder
+   Network or subscribe for verified announcements as dates are confirmed." (+ a Join button), and the
+   `{% else %}Date TBA{% endif %}` fallback was removed so no "Date TBA" can appear in the active grid.
 3. **Hot List card fields (future).** `bb-hot-list.liquid` renders stage/sector/headline/traction/
    current_ask/website/updated. To surface the new approved fields, extend the card to show `image`
    (approved photo/logo), `requested_intro`, `opportunity_tags`, `geo_market`, and to respect `expires`
