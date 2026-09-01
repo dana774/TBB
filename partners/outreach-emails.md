@@ -14,9 +14,7 @@ initial partners**; (4) links their **draft page** + the **update form**.
   founders, investors, and referral partners. As one of my initial partners, your access is complimentary;
   you won't be charged."*
 
-**Gmail draft status:** drafts already created for **ALT Finance (Nnamdi), Veri-Core (Monique), Product
-Society (Philip), C2FO (Jay), Sarah Horowitz, Christina David, and Remote CFO Services (Randy — no `To`
-yet)**. Still need email addresses to draft: **Heloise, Sengo, Nudge, Kaylee, Patrice.**
+**Gmail draft status:** all 12 drafts created in Gmail (nothing sent) — addresses filled in per section below.
 
 ---
 
@@ -45,7 +43,7 @@ Dana Ammons — Founder & CEO, Value Growth Partners
 
 ---
 
-## 2 — Heloise Lanoix → /network/heloise-lanoix · ⚠️ need email
+## 2 — Heloise Lanoix → /network/heloise-lanoix · hlanoix@gmail.com ✅ draft created
 **Subject:** Reconnecting — featuring you in my referral partner network
 
 Hi Heloise,
@@ -69,10 +67,10 @@ Dana — Value Growth Partners
 
 ---
 
-## 3 — Sengo → /network/sengo · ⚠️ need email
+## 3 — Sengo → /network/sengo · ila@bysengo.com ✅ draft created
 **Subject:** Adding Sengo to my referral partner network
 
-Hi [First name / Sengo team],
+Hi Ila,
 
 It's been a while since I first reached out about Sengo joining my founder referral partner network — thank
 you for your patience. I'm now nearing completion, and I'd like to feature Sengo as my capital-intelligence
@@ -93,10 +91,10 @@ Dana Ammons — Founder & CEO, Value Growth Partners
 
 ---
 
-## 4 — Nudge → /network/nudge · ⚠️ need email
+## 4 — Nudge → /network/nudge · michelledalzon@katapulte.io, ambar@katapulte.io ✅ draft created
 **Subject:** Adding Nudge to my referral partner network
 
-Hi [First name / Nudge team],
+Hi Michelle and Ambar,
 
 It's been a while since I first reached out about Nudge joining my founder referral partner network — thank
 you for your patience. I'm now nearing completion, and I'd like to feature Nudge as my commerce-intelligence
@@ -117,7 +115,7 @@ Dana Ammons — Founder & CEO, Value Growth Partners
 
 ---
 
-## 5 — Kaylee McFerson → /network/kaylee-mcferson · ⚠️ need email
+## 5 — Kaylee McFerson → /network/kaylee-mcferson · kaylee.mcferson@gmail.com ✅ draft created
 **Subject:** Reconnecting — featuring you in my referral partner network
 
 Hi Kaylee,
@@ -141,7 +139,7 @@ Dana — Value Growth Partners
 
 ---
 
-## 6 — Patrice Malloy (The Affluent CFO) → /network/patrice-malloy · ⚠️ need email
+## 6 — Patrice Malloy (The Affluent CFO) → /network/patrice-malloy · pmalloy@themalloygroupinc.com ✅ draft created
 **Subject:** Adding you to my referral partner network
 
 Hi Patrice,
@@ -270,7 +268,7 @@ Dana Ammons — Founder & CEO, Value Growth Partners
 
 ---
 
-## 11 — Remote CFO Services / Randy Clinkscale → /network/remote-cfo-services · ⚠️ need email ✅ draft created (no To)
+## 11 — Remote CFO Services / Randy Clinkscale → /network/remote-cfo-services · rclinksc@yahoo.com ✅ draft created
 **Subject:** Making it official — you're in my referral partner network
 
 Hey Randy,
