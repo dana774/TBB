@@ -29,8 +29,10 @@ copy, images, and governance are all prepared; this is the "press go" sequence.
 7. **QA gates:** WCAG 2.2 AA, SEO/structured data, Core Web Vitals, and the private-link audit (grep the
    build: `calendly.com` appears only as `vgp-insight-session` in the gated view; no private route in
    source/CMS/sitemap/analytics).
-8. **Deliver to a preview URL** for Dana's review. **Nothing goes to `valugrowthpartners.com` without
-   Dana's explicit approval.**
+8. **Deploy on Vercel** (the host). Import the Codex-generated Next.js repo into Vercel; set env vars
+   `WIX_CLIENT_ID` / `WIX_META_SITE_ID` / `WIX_API_KEY` (server-side) for Preview + Production; review the
+   **Preview URL** first. Add `valugrowthpartners.com` under Vercel → Domains only at go-live. **Nothing
+   goes to the live domain without Dana's explicit approval.** (Full step-by-step: doc 25.)
 
 ## Split of responsibilities
 - **VGP** → Wix Managed Headless (this repo/docs).
