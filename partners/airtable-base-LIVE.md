@@ -5,8 +5,8 @@
 ## What's built (via API, done)
 - **Base:** `VGP Referral Partners` — `appXvHjHVMzNmDqdf` (workspace: TBB Ecosystem)
 - **Table:** `Partners` — `tbl8EuTmDHztzZrj3`, 25 fields (partner-facing + internal, per the spec)
-- **10 records seeded**, all `Status = Draft`, `Funding?` checked for Ark-La-Tex and C2FO:
-  Ark-La-Tex Financial Consultants · Veri-Core Systems · Patrice Malloy · Heloise Lanoix · Kaylee McFerson ·
+- **10 records seeded**, all `Status = Draft`, `Funding?` checked for ALT Finance and C2FO:
+  ALT Finance · Veri-Core Systems · Patrice Malloy · Heloise Lanoix · Kaylee McFerson ·
   Sengo · Nudge · Product Society · Sarah Horowitz Parfums · C2FO — Lending Connections
 - Each row's **Preview Page URL** = `https://tbb-roan.vercel.app/network/<slug>` (live staging host; site is `noindex`). Re-point when the site moves to its production domain.
 
@@ -36,7 +36,7 @@ Airtable prefill syntax: append to the form share URL. Pattern (URL-encode space
 Per partner (drop into the `[FORM]` slot of each outreach email):
 | Partner | suffix to append to the form share URL |
 |---|---|
-| Ark-La-Tex Financial Consultants | `?prefill_Partner+Name=Ark-La-Tex+Financial+Consultants&prefill_Email=nthompson@altfc.net&hide_Partner+Name=true` |
+| ALT Finance | `?prefill_Partner+Name=ALT+Finance&prefill_Email=nthompson@altfc.net&hide_Partner+Name=true` |
 | Veri-Core Systems | `?prefill_Partner+Name=Veri-Core+Systems&prefill_Email=hello@vericoresystems.com&hide_Partner+Name=true` |
 | Patrice Malloy | `?prefill_Partner+Name=Patrice+Malloy+—+The+Affluent+CFO&hide_Partner+Name=true` |
 | Heloise Lanoix | `?prefill_Partner+Name=Heloise+Lanoix&hide_Partner+Name=true` |

@@ -10,12 +10,12 @@ Placeholders: `[PREVIEW]` = the partner's page URL · `[FORM]` = the update-form
 
 ---
 
-## 1 — Ark-La-Tex Financial Consultants → /network/ark-la-tex-financial
+## 1 — ALT Finance → /network/ark-la-tex-financial
 **Subject:** Your Value Growth Partners partner page — a quick review
 
-Hi [First name / Ark-La-Tex team],
+Hi [First name / ALT Finance team],
 
-I'm finalizing the new Value Growth Partners website and I'd like to feature Ark-La-Tex Financial Consultants
+I'm finalizing the new Value Growth Partners website and I'd like to feature ALT Finance
 as our financing & lending partner. I want you represented exactly the way you'd like.
 
 Here's your draft page — please take a look: **https://tbb-roan.vercel.app/network/ark-la-tex-financial**

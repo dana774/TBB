@@ -35,7 +35,7 @@ this is the click-to-build spec.
 | Internal Notes | Long text | — (internal) | |
 | Last Modified | Last modified time | — | auto |
 
-Seed rows now (one per `/network/<slug>` page already built): Ark-La-Tex Financial Consultants, Veri-Core
+Seed rows now (one per `/network/<slug>` page already built): ALT Finance, Veri-Core
 Systems, Patrice Malloy (The Affluent CFO), Heloise Lanoix, Kaylee McFerson, Sengo, Nudge, Product Society,
 Sarah Horowitz Parfums, C2FO — Lending Connections. (All data already drafted in
 `vgp-headless/src/lib/content.ts`.)
@@ -45,7 +45,7 @@ Same shape, minus the referral-fee field; add **Capital Type** (Non-dilutive · 
 and **Stage Focus**. On the site, funding partners are simply `Partners` rows flagged `funding: true`, so
 this table is optional — either keep funding partners in `Partners` with a **Funding?** checkbox (simplest,
 matches the site), or split them out here. **Currently funding-flagged:** C2FO — Lending Connections
-(Jay Lott, jay.lott@c2fo.com) and Ark-La-Tex Financial Consultants. More funding partners to be added.
+(Jay Lott, jay.lott@c2fo.com) and ALT Finance. More funding partners to be added.
 
 ## The partner-facing form
 Create a **Form view** on `Partners` exposing only the "✅ On partner form" fields above. Title it

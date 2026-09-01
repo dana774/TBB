@@ -26,7 +26,7 @@ data current from a single source of truth.
 - `outreach-emails.md` — the 7 individual partner emails (with preview + form links).
 
 ## Preview links (staging host TBD from the branch deploy)
-- Ark-La-Tex — `/network/ark-la-tex-financial`  ← **example page** (most complete)
+- ALT Finance — `/network/ark-la-tex-financial`  ← **example page** (most complete)
 - Veri-Core Systems — `/network/veri-core-systems`
 - Patrice Malloy — `/network/patrice-malloy`
 - Heloise Lanoix — `/network/heloise-lanoix`
@@ -36,16 +36,16 @@ data current from a single source of truth.
 - Product Society (contract manufacturing) — `/network/product-society`
 - Sarah Horowitz Parfums (fragrance contract manufacturing) — `/network/sarah-horowitz-parfums`
 - C2FO — Lending Connections (funding) — `/network/c2fo`
-- Funding partners (roster page) — `/network/funding-partners` (lists **C2FO** and **Ark-La-Tex**; growing)
+- Funding partners (roster page) — `/network/funding-partners` (lists **C2FO** and **ALT Finance**; growing)
 
 ## Funding & sourcing partners added (researched)
 - **C2FO — Lending Connections** (Jay Lott, Director) — working-capital platform + lender matchmaking (receivables finance, term loans, ABL, factoring). Has its own reviewable page `/network/c2fo` and appears on the funding-partners roster. **One of several** funding partners — more will be added on the funding side; C2FO is not framed as "the main" partner. **Jay's direct contact is published** on the page (jay.lott@c2fo.com · 913-709-6792) per Dana's confirmation.
-- **Ark-La-Tex Financial Consultants** — also in the **funding category** (USDA B&I, SBA, commercial lending). Appears on both the referral directory and the funding-partners roster (`funding: true`).
+- **ALT Finance** — also in the **funding category** (USDA B&I, SBA, commercial lending). Appears on both the referral directory and the funding-partners roster (`funding: true`).
 - **Product Society** (Philip Miller) — USA-made turnkey contract manufacturer (beauty/personal care/fragrance), North Hollywood.
 - **Sarah Horowitz Parfums** (Sarah Horowitz) — fragrance contract manufacturer (custom scent → bottling/production).
 All three added in editorial-review state; run them through the same announcement + form loop before publishing.
 
 ## Confirmed data notes
-- **Ark-La-Tex** website = `altfc.net` (arklatexfinancial.net is dead). Contact nthompson@altfc.net · 318-256-9796 · Many, LA.
+- **ALT Finance** website = `altfc.net` (arklatexfinancial.net is dead). Contact nthompson@altfc.net · 318-256-9796 · Many, LA.
 - **Heloise Lanoix** — spelling confirmed (not "Louise Lenoir").
 - Headshots (Patrice / Heloise / Kaylee) on hold; partners will send via the form.
