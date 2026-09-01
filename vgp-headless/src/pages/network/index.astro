@@ -1,6 +1,6 @@
 ---
-import Base from '../layouts/Base.astro';
-import { getPartners } from '../lib/content';
+import Base from '../../layouts/Base.astro';
+import { getPartners } from '../../lib/content';
 const partners = await getPartners();
 const anyPending = partners.some((p) => p.review);
 // Branded monogram fallback for partners without a logo/headshot yet.
@@ -25,7 +25,7 @@ const initials = (name: string) =>
 
       <div class="vgp-grid vgp-grid--2 vgp-mt">
         {partners.map((p) => (
-          <article class="vgp-card">
+          <article class="vgp-card pn-card">
             {p.logo
               ? <img src={p.logo} alt={`${p.name} logo`} class="partner-logo" loading="lazy" />
               : p.headshot
@@ -35,9 +35,10 @@ const initials = (name: string) =>
             <h4 style="margin-bottom:.35rem;">{p.name}</h4>
             {p.focus && <p style="color:var(--vgp-navy);font-weight:600;margin-bottom:.5rem;">{p.focus}</p>}
             <p>{p.description}</p>
-            {p.website && (
-              <a href={p.website} target="_blank" rel="noopener">Visit website →</a>
-            )}
+            <p class="pn-links">
+              <a href={`/network/${p.slug}`}>View profile →</a>
+              {p.website && (<a href={p.website} target="_blank" rel="noopener">Website ↗</a>)}
+            </p>
           </article>
         ))}
       </div>
@@ -52,7 +53,17 @@ const initials = (name: string) =>
           font-family: var(--font-serif); font-weight: 700; font-size: 1.3rem;
           letter-spacing: .02em; margin-bottom: .85rem;
         }
+        .pn-card { display: flex; flex-direction: column; }
+        .pn-links { margin-top: auto; padding-top: .6rem; display: flex; gap: 1.25rem; }
       </style>
+
+      <!-- Funding partners callout -->
+      <div class="vgp-card vgp-bg-soft vgp-mt" style="margin-top:2.5rem;">
+        <span class="vgp-eyebrow">For founders</span>
+        <h3 style="margin-bottom:.4rem;">Connect with our funding partners</h3>
+        <p style="margin-bottom:1rem;">Beyond service partners, VGP maintains relationships with a set of funding partners for founders who are capital-ready. We make warm, context-rich introductions when there's genuine fit.</p>
+        <a class="vgp-btn vgp-btn--secondary" href="/network/funding-partners">See funding partners →</a>
+      </div>
 
       <div class="vgp-card vgp-bg-pale vgp-center vgp-mt" style="border:none;">
         <h3>Want to partner with VGP?</h3>
