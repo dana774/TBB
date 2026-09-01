@@ -93,9 +93,34 @@ Audience variants: podcast guests → guest release (above) via Calendly + Airta
 Hot List updates → the Weekly Update form's "Reaffirm consent" restates scope; referral partners /
 investors → Referral Partners form variant (name/logo use on the Partners page).
 
-**Not done without Dana's go:** no emails sent, no Calendly workflow or Airtable form/automation
-created yet (they touch live scheduling/email). Ready to build on confirmation. **The language itself
-is Dana-approved but should still get a final legal read before external send.**
+### BUILT (2026-09-01) — Dana approved "build now"
+Base: **Founder Network — Hot List & Directory** (`app7t9MsEK8ESGRsG`).
+
+1. **Airtable no-chase reminder automation** — created and **saved OFF** (Airtable saves all
+   API-created automations disabled until reviewed/enabled). ID `wflHKWjS2VCL6wRuS` ·
+   https://airtable.com/app7t9MsEK8ESGRsG/wflHKWjS2VCL6wRuS
+   - Trigger: a **Founders** record matches **Status = Approved AND Consent date is empty**.
+   - Action: emails the founder (their `Email`) the approved permission request (fromName "The Brand
+     Blueprint", reply-to dana@valugrowthpartners.com), containing the approved consent language and a
+     **`[PASTE PERMISSION FORM LINK HERE]`** placeholder.
+2. **Consent-capture fields** added to **Founders** and **Referral Partners** (so the permission form
+   has somewhere to write): `Feature permission signed` (checkbox), `Signature (typed name)`,
+   `Consent language version`. (Existing `Consent to feature` / `Consent scope` / `Consent date` retained.)
+3. **Calendly event descriptions** updated (only API-editable field; questions/duration preserved):
+   - **The Brand Blueprint | Guest Interview** — added the Founder Chapter feature-permission paragraph.
+   - **VGP | Partner & Institutional Introduction** — added the partner/investor feature-permission paragraph.
+
+### Remaining manual steps (Dana / not API-possible)
+- **Create the permission Form view** on the Founders table (and a Referral Partners variant) exposing:
+  Founder Name(s), Brand/Client Name, Email, the approved consent language with an "I agree" checkbox,
+  Signature (typed name), Consent scope (Website / Newsletter / Social & marketing), Consent date,
+  Feature permission signed, Consent language version (default `BB-2026-09`), and asset-rights
+  confirmation. (Airtable form-view creation isn't exposed to the API.)
+- **Paste the form's URL** into the automation email (replace the placeholder) and into the two
+  Calendly descriptions, then **turn the automation ON**.
+- **Calendly Workflow** (follow-up email) — not API-manageable: in Calendly → Workflows, add a
+  post-event follow-up on "The Brand Blueprint | Guest Interview" that sends the permission-form link.
+- **Legal read** of the consent language before external send (Dana-approved wording, pending counsel).
 
 ## D. Theme-owner snippets to place (large section files — handed off, not hand-edited)
 Small settings edits were made directly; these two need edits inside larger section liquids and are
