@@ -13,7 +13,7 @@ Placeholders: `[PREVIEW]` = the partner's page URL · `[FORM]` = the update-form
 ## 1 — ALT Finance → /network/ark-la-tex-financial
 **Subject:** Your Value Growth Partners partner page — a quick review
 
-Hi [First name / ALT Finance team],
+Hi Nnamdi,
 
 I'm finalizing the new Value Growth Partners website and I'd like to feature ALT Finance
 as our financing & lending partner. I want you represented exactly the way you'd like.
