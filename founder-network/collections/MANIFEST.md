@@ -12,31 +12,43 @@ Target parent: **Founder Network — Members** (`1ls2sHkPm9f-qtAhEiupuxhLk7TetWE
 
 ### Upload progress (last updated 2026-08-26)
 
-**Uploaded — 5 of 14.** Each returned a byte-count matching the local file exactly.
+**Uploaded — 11 of 14.** Each verified: returned `fileSize` matches the local byte count exactly.
 
-| File | ID | Collection | Drive file ID | View link |
-|---|---|---|---|---|
-| `BB_StartHere_Cover_v1.svg` | — | 08 | `1buNgtIvsEwqC_jApvd9fqcKYoPxS9GaU` | https://drive.google.com/file/d/1buNgtIvsEwqC_jApvd9fqcKYoPxS9GaU/view |
-| `BB_StartHere_Infographic_Operating-Cadence_v1.svg` | — | 08 | `1KmzmXIK7wUSDRW8doWoJmiuob2zH7qGm` | https://drive.google.com/file/d/1KmzmXIK7wUSDRW8doWoJmiuob2zH7qGm/view |
-| `BB_StartHere_Founder-Operating-System-Map_v1.pdf` | SH-04 | 08 | `1umN46ZUUNQZqeduyhjYZp3820stSvhRq` | https://drive.google.com/file/d/1umN46ZUUNQZqeduyhjYZp3820stSvhRq/view |
-| `BB_StartHere_Member-Quick-Start-Checklist_v1.pdf` | SH-03 | 08 | `1gdXnYvOyjOSQcg0UEe1ZRBeV26uINUFa` | https://drive.google.com/file/d/1gdXnYvOyjOSQcg0UEe1ZRBeV26uINUFa/view |
-| `BB_Accelerator_Cover_v1.svg` | — | 09 | `11B_rxzFpQZDPqqvLtvCMPCw33n6CQgYL` | https://drive.google.com/file/d/11B_rxzFpQZDPqqvLtvCMPCw33n6CQgYL/view |
+### 08 · Start Here + Founder Operating Cadence — COMPLETE (7/7)
 
-**Still to upload — 9 of 14:**
-
-| File | ID | Collection |
+| File | ID | Drive file ID |
 |---|---|---|
-| `BB_StartHere_Member-Orientation_v1.pdf` | SH-01 | 08 |
-| `BB_StartHere_Founder-Operating-Cadence_v1.xlsx` | SH-02 | 08 |
-| `BB_StartHere_Goals-and-Priorities-Worksheet_v1.xlsx` | SH-05 | 08 |
-| `BB_Accelerator_Accelerator-Overview-Curriculum-Map_v1.pdf` | ACC-01 | 09 |
-| `BB_Accelerator_Cohort-Workbook-Session-Templates_v1.docx` | ACC-02 | 09 |
-| `BB_Accelerator_Graduation-Readiness-Rubric_v1.xlsx` | ACC-03 | 09 |
-| `BB_Accelerator_Alumni-Continuity-Guide_v1.pdf` | ACC-04 | 09 |
-| `BB_Accelerator_Alumni-Network-Directory-Template_v1.xlsx` | ACC-05 | 09 |
-| `BB_Accelerator_Infographic_Accelerator-Arc_v1.svg` | — | 09 |
+| `BB_StartHere_Member-Orientation_v1.pdf` | SH-01 | `15SC1VRzxUVj_BAoYcIa4go5u9PEtRyPM` |
+| `BB_StartHere_Founder-Operating-Cadence_v1.xlsx` | SH-02 | `1vhfFlHrV2nSXdM9xFkBK0jsAfdQSlohB` |
+| `BB_StartHere_Member-Quick-Start-Checklist_v1.pdf` | SH-03 | `1gdXnYvOyjOSQcg0UEe1ZRBeV26uINUFa` |
+| `BB_StartHere_Founder-Operating-System-Map_v1.pdf` | SH-04 | `1umN46ZUUNQZqeduyhjYZp3820stSvhRq` |
+| `BB_StartHere_Goals-and-Priorities-Worksheet_v1.xlsx` | SH-05 | `1zPf5jZDJlip5-V9b71xliRHUKU-Hw07q` |
+| `BB_StartHere_Cover_v1.svg` | — | `1buNgtIvsEwqC_jApvd9fqcKYoPxS9GaU` |
+| `BB_StartHere_Infographic_Operating-Cadence_v1.svg` | — | `1KmzmXIK7wUSDRW8doWoJmiuob2zH7qGm` |
+
+### 09 · Accelerator + Alumni Continuity — 4 of 7
+
+| File | ID | Drive file ID |
+|---|---|---|
+| `BB_Accelerator_Accelerator-Overview-Curriculum-Map_v1.pdf` | ACC-01 | `1CId_ZqW9CQYtV66vy2tB0owGQxU2POZj` |
+| `BB_Accelerator_Alumni-Continuity-Guide_v1.pdf` | ACC-04 | `1zlZUSkY9O3Dl1JyjTyzKOv76ZWk3vwsS` |
+| `BB_Accelerator_Cover_v1.svg` | — | `11B_rxzFpQZDPqqvLtvCMPCw33n6CQgYL` |
+| `BB_Accelerator_Infographic_Accelerator-Arc_v1.svg` | — | `1rcDgoz0Uwbkk98VUV0SCtGUSWcUTC1FM` |
+
+View link for any file: `https://drive.google.com/file/d/<id>/view`
+
+**Still to upload — 3 of 14:** `BB_Accelerator_Cohort-Workbook-Session-Templates_v1.docx` (ACC-02),
+`BB_Accelerator_Graduation-Readiness-Rubric_v1.xlsx` (ACC-03),
+`BB_Accelerator_Alumni-Network-Directory-Template_v1.xlsx` (ACC-05).
 
 Then the two READMEs as Google Docs.
+
+### Corruption caught twice — the size check is doing real work
+Two uploads arrived with the wrong byte count (SH-02 at 9679 vs 9670; ACC-03 at 9098 vs 9091),
+both from base64 transcription drift on the long `.xlsx` strings. Both were trashed and SH-02
+re-uploaded clean on the retry. **Every upload must be size-verified; a wrong-size file opens as
+corrupt but reports success.** Long xlsx/docx payloads are the risky ones — PDFs and SVGs have
+landed first-try every time.
 
 ### Gate behaviour observed (matters for planning the next run)
 The Drive approval gate is **intermittent, not durably granted** — confirmed across two separate
