@@ -193,14 +193,18 @@ The send is a human action — you stage, Dana presses Send in beehiiv.
    `07_Source_Log` verification activity, `08_Agent_Run_Log` run entry,
    and the working doc. State exactly what changed; never just
    "trackers updated."
-   **Write-back mechanism (until a Sheets-write path exists):** the
-   connected Drive tooling can create files but cannot edit existing
-   ones. Deposit write-backs as a `WRITEBACK-<YYYYMMDD>` Sheet in the
+   **Write-back mechanism:** primary — POST the write-back JSON to the
+   VGP Writeback Automation web app (URL in Project config as
+   `VGP_WRITEBACK_URL`, token as `VGP_WRITEBACK_TOKEN`; payload shape in
+   doc 33), which applies it instantly to the whitelisted tabs and the
+   working doc, idempotently, with a run-log entry. Fallback (network
+   path unavailable) — deposit a `WRITEBACK-<YYYYMMDD>` Sheet in the
    funding system's data folder (`1IKJ5VhnBkJEf-fQbzALfBwPxmBLZMYB1`)
-   containing paste-ready blocks per target tab, plus an
-   `APPEND-<YYYYMMDD>` doc beside the working doc for its recap, and
-   tell Dana exactly which blocks to paste where. First applied
-   2026-09-01 (`WRITEBACK-20260901`).
+   with paste-ready blocks per target tab, plus an `APPEND-<YYYYMMDD>`
+   doc beside the working doc; the hourly poller ingests both and
+   renames them `APPLIED-…`. Until the automation is activated (doc 33
+   runbook), tell Dana which blocks to paste where. First package:
+   `WRITEBACK-20260901`.
 
 ## Tone
 
