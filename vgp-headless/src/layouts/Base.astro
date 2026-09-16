@@ -13,6 +13,13 @@ const fullTitle = title === 'Value Growth Partners' ? title : `${title} | Value 
 // HubSpot analytics/attribution — loads only when the portal is set at deploy
 // (set PUBLIC_HUBSPOT_PORTAL_ID=246956537 in prod; left off in staging).
 const hsPortal = import.meta.env.PUBLIC_HUBSPOT_PORTAL_ID;
+// Search indexing is OFF by default (every preview/staging deploy stays noindex).
+// To go live: set PUBLIC_ALLOW_INDEX=true on the production Vercel environment and
+// redeploy — only then does the site become indexable.
+const allowIndex = import.meta.env.PUBLIC_ALLOW_INDEX === 'true';
+// Canonical always points at the real domain (astro.config `site`), so even if the
+// *.vercel.app URL is reachable, search consolidates to www.valugrowthpartners.com.
+const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : undefined;
 ---
 <!doctype html>
 <html lang="en">
@@ -21,7 +28,8 @@ const hsPortal = import.meta.env.PUBLIC_HUBSPOT_PORTAL_ID;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
-    <meta name="robots" content="noindex" /> <!-- staging: keep out of indexes -->
+    {!allowIndex && <meta name="robots" content="noindex" />}
+    {canonical && <link rel="canonical" href={canonical} />}
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/vgp-favicon-32.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="/assets/brand/vgp-favicon-192.png" />
     <link rel="apple-touch-icon" href="/assets/brand/vgp-favicon-192.png" />
