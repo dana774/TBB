@@ -49,6 +49,7 @@ Live domains (`thebrandblueprint.biz`, `valugrowthpartners.com`) were **not modi
 | [docs/16-asset-sync-log.md](docs/16-asset-sync-log.md) | Logo / podcast / portrait asset sync (2026-07-24) |
 | [docs/17-photo-batch-sync-log.md](docs/17-photo-batch-sync-log.md) | **Website photo batch QC + sync** — 5-image batch; BB-10 portrait wired to Shopify, BB-09 staged; 3 rejected/revise |
 | [assets/website/](assets/website/) | Production-ready website JPGs (exact dimensions, sRGB) as QC'd finals pass |
+| [docs/16-hubspot-marketing-stack-and-tracking.md](docs/16-hubspot-marketing-stack-and-tracking.md) | Marketing/ops stack: HubSpot/Klaviyo/Airtable/Asana roles & boundaries, stage-based email split, tracking-code install + headless (Vercel/Next.js) pageview spec, **BB consolidated-billing amendment** |
 
 ## Platform decision (2026-07-20 handoff)
 
