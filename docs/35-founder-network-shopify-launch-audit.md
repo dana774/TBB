@@ -37,13 +37,14 @@ Systems) · `member-brand-messaging` → Marketing, Content + Customer Growth ·
 `member-growth-os-ai` → Growth OS + Founder Systems · `member-partner-directory` →
 Partner Network + Expert Routing.
 
-## Library build — COMPLETE (2026-08-15)
+## Library build — COMPLETE (2026-08-24)
 All member resources are now `resource` metaobjects (`access_level=member`, `status=published`,
 `publishable=ACTIVE`), built from the canonical Drive collections 01–07 with each README's
-copy, linked via Drive view URLs (videos via YouTube). **55 resources across 7 populated collections:**
+copy, linked via Drive view URLs (videos via YouTube). **65 resources across all 9 collections:**
 
-| `collection_name` | Count | Source (Drive) |
+| `collection_name` | Count | Source |
 |---|---|---|
+| Start Here + Founder Operating Cadence | 5 | SH-01…05 (08) — hosted on Shopify Files |
 | Funding + Capital Access | 11 | CAP-01…11 (01) |
 | Retail, Buyers + Distribution | 15 | RET-01…15 (02) |
 | Marketing, Content + Customer Growth | 11 | GTM-01/02/03/05/06/07 (03) + BRD-01…04,06 (05) |
@@ -51,15 +52,16 @@ copy, linked via Drive view URLs (videos via YouTube). **55 resources across 7 p
 | Growth OS + Founder Systems | 9 | OPS-04/05/06 (04) + GOS-01…05 (06) |
 | Partner Network + Expert Routing | 4 | PTR-00 disclosure card + PTR-01…03 (07) |
 | Events, Market Signals + Opportunities | 3 | 3 Market Signal videos → YouTube playlist |
+| Accelerator + Alumni Continuity | 5 | ACC-01…05 (09) — hosted on Shopify Files |
 
 - ✅ **Parallel page HTML removed** — the 4 dedicated pages (`founder-network`, `membership`, `member-dashboard`, `resources`) **and** the `member-capital-access` inline HTML cleared (render via the `member-collection` template confirmed by Dana); the earlier `main-menu` additions reverted.
 - ✅ **Legacy cleanup** — the 2 demo samples + 3 empty draft resources deleted so the library renders consistently.
 - ✅ **Partner disclosure** — `PTR-00` disclosure card added (inclusion-is-not-an-endorsement + referral-fee disclosure) since the metaobject has no notices field and the collection-level themed header is a Preview-theme edit (owner's lane).
 - ✅ **Videos → YouTube** — CAP-10 repointed off Drive, and the 3 Market Signal videos created in *Events, Market Signals + Opportunities* — all pass-through-linked to the playlist `PLt97rjQ0XHUpnaUv1sNC1vTByObU-JT8y` so re-uploads auto-reflect. (Linked to that one playlist as the starting point; repoint to per-video URLs or a dedicated Market-Signals playlist if preferred.)
-- **Not built (no Drive folder / source yet):** *Start Here + Founder Operating Cadence*, *Accelerator + Alumni Continuity* — awaiting source.
+- ✅ **Collections 08 + 09 built (2026-08-24)** — *Start Here + Founder Operating Cadence* (SH-01…05) and *Accelerator + Alumni Continuity* (ACC-01…05) were the two empty collections. The Founder Resource agent produced the 10 source files (PDF/DOCX/XLSX) on branch `claude/founder-network-shopify-migration-d0xyzb` under `founder-network/collections/08-start-here` + `09-accelerator`. To avoid the Drive write-gate and the "anyone-with-link" sharing hole, they were **hosted on Shopify Files** (the same pattern as Capital Access) rather than Drive: `stagedUploadsCreate` → GCS POST → `fileCreate` → 10 `GenericFile` CDN URLs, then 10 `resource` metaobjects (member / published / publishable ACTIVE), summaries taken from each README's who/when/what copy. All 10 verified live.
 
 ## Open items
-- 🔴 **Drive → Viewer** — the member files are shared `anyone: editor`. **I cannot change the public-link role via API** (the Drive `share_file` tool only adds/upgrades named users). Owner must set the "Founder Network — Members" folder → Anyone with the link → **Viewer**. Required before real member access.
+- 🔴 **Drive → Viewer** — the **55 Drive-hosted** member files (collections 01–07) are shared `anyone: editor`. **I cannot change the public-link role via API** (the Drive `share_file` tool only adds/upgrades named users). Owner must set the "Founder Network — Members" folder → Anyone with the link → **Viewer**. Required before real member access. *(Collections 08 + 09 are hosted on Shopify Files, not Drive, so they are unaffected by this item.)*
 - ⏳ **Partner-page themed disclosure header** — optional polish; owner's theme lane (PTR-00 card covers the requirement in the meantime).
 
 ## Launch checklist — owner actions (not the content lane)

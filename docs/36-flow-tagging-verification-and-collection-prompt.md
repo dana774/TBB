@@ -45,6 +45,14 @@ Shopify Flow workflows can't be created through the Admin API, so this is a manu
 5. **Keep the store password ON** until 1–4 pass.
 
 ## D. Build prompt — hand to the Founder Resource agent for the two missing collections
+> ✅ **DONE (2026-08-24).** Both collections are built and live — 5 resources each,
+> `member` / `published` / publishable ACTIVE. The agent returned 10 source files on branch
+> `claude/founder-network-shopify-migration-d0xyzb` (`founder-network/collections/08-start-here`
+> + `09-accelerator`). Rather than Drive (write-gated for the agent, and the "anyone-with-link"
+> role can't be downgraded via API), the files were **hosted on Shopify Files** — the same
+> pattern as Capital Access — and linked from the metaobjects via Shopify CDN URLs. The prompt
+> below is retained as a record; no further action is needed on these two collections.
+
 Two library collections have no Drive source folder and render empty on the site:
 **"Start Here + Founder Operating Cadence"** and **"Accelerator + Alumni Continuity"**.
 Give the agent the prompt in the section below; when it returns the folder IDs + file list,
