@@ -44,12 +44,14 @@ Live domains (`thebrandblueprint.biz`, `valugrowthpartners.com`) were **not modi
 | [docs/34-founder-resource-directory-exposure.md](docs/34-founder-resource-directory-exposure.md) | **Founder Resource Directory exposure decision** — stays gated on Brand Blueprint (Shopify); not public on VGP; verification + data-preservation record |
 | [docs/35-founder-network-shopify-launch-audit.md](docs/35-founder-network-shopify-launch-audit.md) | **Founder Network Shopify member-delivery audit + launch checklist** — gating verified, 6 collections still to populate, Dana's test list |
 | [shopify-migration/](shopify-migration/README.md) | Migration package: episodes + founders + signals/resources/events/funding + Dana profile payloads |
-
-> **Note:** the `docs/` index above carries two overlapping numbering schemes (09–21 appear twice) after consolidating the staging-rebuild and referral-partner branches. All files are preserved; the numbering can be reconciled in a later cleanup pass.
 | [docs/16-asset-sync-log.md](docs/16-asset-sync-log.md) | Logo / podcast / portrait asset sync (2026-07-24) |
 | [docs/17-photo-batch-sync-log.md](docs/17-photo-batch-sync-log.md) | **Website photo batch QC + sync** — 5-image batch; BB-10 portrait wired to Shopify, BB-09 staged; 3 rejected/revise |
 | [assets/website/](assets/website/) | Production-ready website JPGs (exact dimensions, sRGB) as QC'd finals pass |
 | [docs/16-hubspot-marketing-stack-and-tracking.md](docs/16-hubspot-marketing-stack-and-tracking.md) | Marketing/ops stack: HubSpot/Klaviyo/Airtable/Asana roles & boundaries, stage-based email split, tracking-code install + headless (Vercel/Next.js) pageview spec, **BB consolidated-billing amendment** |
+
+> **Prompts:** every copy-paste agent prompt is listed in [AGENTS.md](AGENTS.md). All work branches were consolidated onto `main` on 2026-09-22.
+
+> **Note:** the `docs/` index above carries two overlapping numbering schemes (09–21 appear twice) after consolidating the staging-rebuild and referral-partner branches. All files are preserved; the numbering can be reconciled in a later cleanup pass.
 
 ## Platform decision (2026-07-20 handoff)
 
