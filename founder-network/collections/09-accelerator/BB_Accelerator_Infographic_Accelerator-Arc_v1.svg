@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000" role="img" aria-label="The Accelerator Arc — seven modules build to graduation, after which operating gains decay unless four continuity mechanisms replace the cohort's rhythm">
+  <title>The Accelerator Arc</title>
+  <rect width="1600" height="1000" fill="#FFFFFF"/>
+  <defs>
+    <marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#B8763E"/>
+    </marker>
+  </defs>
+
+  <text x="90" y="88" font-family="Helvetica,Arial,sans-serif" font-size="21" font-weight="bold" letter-spacing="4" fill="#B8763E">ACC-01 / ACC-04 · ACCELERATOR</text>
+  <text x="90" y="150" font-family="Georgia,'Times New Roman',serif" font-size="52" font-weight="bold" fill="#1A2B3C">The Accelerator Arc</text>
+  <text x="90" y="196" font-family="Helvetica,Arial,sans-serif" font-size="23" fill="#5A6B7C">The cohort supplies the rhythm. Graduation removes it. That is the risk to plan for.</text>
+  <rect x="90" y="222" width="1420" height="2" fill="#D6DDE4"/>
+
+  <!-- Module track -->
+  <text x="90" y="290" font-family="Helvetica,Arial,sans-serif" font-size="19" font-weight="bold" letter-spacing="3" fill="#1A2B3C">SEVEN MODULES · EACH LEAVES AN ARTIFACT</text>
+  <line x1="112" y1="360" x2="1290" y2="360" stroke="#D6DDE4" stroke-width="4"/>
+  <g font-family="Helvetica,Arial,sans-serif" text-anchor="middle">
+    <g>
+      <circle cx="140" cy="360" r="26" fill="#1A2B3C"/><text x="140" y="368" font-size="20" font-weight="bold" fill="#FFFFFF">01</text>
+      <text x="140" y="418" font-size="19" fill="#1A2B3C" font-weight="bold">Position</text>
+    </g>
+    <g>
+      <circle cx="332" cy="360" r="26" fill="#1A2B3C"/><text x="332" y="368" font-size="20" font-weight="bold" fill="#FFFFFF">02</text>
+      <text x="332" y="418" font-size="19" fill="#1A2B3C" font-weight="bold">Demand</text>
+    </g>
+    <g>
+      <circle cx="524" cy="360" r="26" fill="#1A2B3C"/><text x="524" y="368" font-size="20" font-weight="bold" fill="#FFFFFF">03</text>
+      <text x="524" y="418" font-size="19" fill="#1A2B3C" font-weight="bold">Channel</text>
+    </g>
+    <g>
+      <circle cx="716" cy="360" r="26" fill="#1A2B3C"/><text x="716" y="368" font-size="20" font-weight="bold" fill="#FFFFFF">04</text>
+      <text x="716" y="418" font-size="19" fill="#1A2B3C" font-weight="bold">Operations</text>
+    </g>
+    <g>
+      <circle cx="908" cy="360" r="26" fill="#1A2B3C"/><text x="908" y="368" font-size="20" font-weight="bold" fill="#FFFFFF">05</text>
+      <text x="908" y="418" font-size="19" fill="#1A2B3C" font-weight="bold">Money</text>
+    </g>
+    <g>
+      <circle cx="1100" cy="360" r="26" fill="#1A2B3C"/><text x="1100" y="368" font-size="20" font-weight="bold" fill="#FFFFFF">06</text>
+      <text x="1100" y="418" font-size="19" fill="#1A2B3C" font-weight="bold">Systems</text>
+    </g>
+    <g>
+      <circle cx="1292" cy="360" r="32" fill="#B8763E"/><text x="1292" y="369" font-size="21" font-weight="bold" fill="#FFFFFF">07</text>
+      <text x="1292" y="424" font-size="19" fill="#B8763E" font-weight="bold">Readiness</text>
+      <text x="1292" y="450" font-size="17" fill="#8A5A2E">rubric scored</text>
+    </g>
+  </g>
+
+  <!-- Graduation marker -->
+  <line x1="1400" y1="300" x2="1400" y2="700" stroke="#B8763E" stroke-width="3" stroke-dasharray="9 7"/>
+  <text x="1416" y="330" font-family="Helvetica,Arial,sans-serif" font-size="20" font-weight="bold" fill="#B8763E">GRADUATION</text>
+
+  <!-- Decay curve -->
+  <rect x="90" y="510" width="1240" height="300" rx="10" fill="#F2F5F8" stroke="#D6DDE4" stroke-width="2"/>
+  <text x="126" y="560" font-family="Helvetica,Arial,sans-serif" font-size="19" font-weight="bold" letter-spacing="3" fill="#8A5A2E">THE DECAY PATTERN — WHAT HAPPENS IF NOTHING REPLACES THE RHYTHM</text>
+  <path d="M150 620 C330 620, 420 640, 520 672 C640 710, 800 744, 1090 756" stroke="#B8763E" stroke-width="4" fill="none"/>
+  <g font-family="Helvetica,Arial,sans-serif" font-size="18" fill="#5A6B7C">
+    <circle cx="150" cy="620" r="7" fill="#B8763E"/><text x="150" y="606" text-anchor="middle" fill="#1A2B3C" font-weight="bold">Month 1</text>
+    <text x="150" y="790" text-anchor="middle">strong</text>
+    <circle cx="520" cy="672" r="7" fill="#B8763E"/><text x="520" y="654" text-anchor="middle" fill="#1A2B3C" font-weight="bold">Month 2</text>
+    <text x="520" y="790" text-anchor="middle">quiet</text>
+    <circle cx="1090" cy="756" r="7" fill="#B8763E"/><text x="1090" y="736" text-anchor="middle" fill="#1A2B3C" font-weight="bold">Month 4</text>
+    <text x="1090" y="790" text-anchor="middle">back to pre-cohort operating</text>
+  </g>
+  <text x="126" y="742" font-family="Helvetica,Arial,sans-serif" font-size="18" fill="#5A6B7C">The cause is</text>
+  <text x="126" y="766" font-family="Helvetica,Arial,sans-serif" font-size="18" fill="#5A6B7C">rarely motivation.</text>
+
+  <!-- Continuity mechanisms -->
+  <text x="90" y="866" font-family="Helvetica,Arial,sans-serif" font-size="19" font-weight="bold" letter-spacing="3" fill="#1A2B3C">FOUR MECHANISMS THAT REPLACE IT — SET UP WITHIN ONE WEEK OF GRADUATING</text>
+  <g font-family="Helvetica,Arial,sans-serif">
+    <rect x="90" y="886" width="340" height="62" rx="8" fill="#FFFFFF" stroke="#B8763E" stroke-width="2"/>
+    <text x="112" y="914" font-size="19" font-weight="bold" fill="#1A2B3C">Calendar holds</text>
+    <text x="112" y="938" font-size="17" fill="#5A6B7C">weekly + monthly, recurring · SH-02</text>
+
+    <rect x="452" y="886" width="340" height="62" rx="8" fill="#FFFFFF" stroke="#B8763E" stroke-width="2"/>
+    <text x="474" y="914" font-size="19" font-weight="bold" fill="#1A2B3C">Peer pairing</text>
+    <text x="474" y="938" font-size="17" fill="#5A6B7C">one alumnus, 30 min monthly · ACC-05</text>
+
+    <rect x="814" y="886" width="340" height="62" rx="8" fill="#FFFFFF" stroke="#B8763E" stroke-width="2"/>
+    <text x="836" y="914" font-size="19" font-weight="bold" fill="#1A2B3C">Re-score the rubric</text>
+    <text x="836" y="938" font-size="17" fill="#5A6B7C">same instrument, quarterly · ACC-03</text>
+
+    <rect x="1176" y="886" width="334" height="62" rx="8" fill="#FFFFFF" stroke="#B8763E" stroke-width="2"/>
+    <text x="1198" y="914" font-size="19" font-weight="bold" fill="#1A2B3C">One layer per quarter</text>
+    <text x="1198" y="938" font-size="17" fill="#5A6B7C">move it off the founder · SH-04</text>
+  </g>
+
+  <text x="90" y="984" font-family="Helvetica,Arial,sans-serif" font-size="16" fill="#5A6B7C">© 2026 Value Growth Partners · Founder Network member resource · The Brand Blueprint · Educational only — participation does not guarantee any commercial result.</text>
+</svg>
