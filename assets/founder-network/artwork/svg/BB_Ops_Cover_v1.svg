@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<rect width="1600" height="900" fill="#071E41"/><defs><pattern id="gr" width="80" height="80" patternUnits="userSpaceOnUse"><path d="M 80 0 L 0 0 0 80" fill="none" stroke="#12315E" stroke-width="1"/></pattern></defs><rect width="1600" height="900" fill="url(#gr)" opacity="0.35"/>
+<rect x="0" y="0" width="10" height="900" fill="#C89B2C"/>
+<circle cx="1370" cy="180" r="230" fill="none" stroke="#3978D7" stroke-width="2" opacity="0.5"/>
+<circle cx="1370" cy="180" r="150" fill="none" stroke="#C89B2C" stroke-width="1.5" opacity="0.6"/>
+<circle cx="1370" cy="180" r="70" fill="#3978D7" opacity="0.25"/>
+<text x="120" y="180" font-family="Inter, Arial, sans-serif" font-size="26" letter-spacing="6" fill="#C89B2C" font-weight="700">FOUNDER NETWORK · MEMBER LIBRARY</text>
+<text x="120" y="330" font-family="Georgia, 'Playfair Display', serif" font-size="150" fill="#EFF5FF" opacity="0.35" font-weight="700">04</text>
+<text x="120" y="480" font-family="Georgia, 'Playfair Display', serif" font-size="76" fill="#FFFFFF" font-weight="700">Operations &amp;</text>
+<text x="120" y="570" font-family="Georgia, 'Playfair Display', serif" font-size="76" fill="#FFFFFF" font-weight="700">Forecasting</text>
+<text x="122" y="640" font-family="Inter, Arial, sans-serif" font-size="30" fill="#B9CCE8">Forecasts, cash flow, and the systems behind repeatable growth.</text>
+<line x1="120" y1="760" x2="640" y2="760" stroke="#C89B2C" stroke-width="3"/>
+<text x="120" y="820" font-family="Inter, Arial, sans-serif" font-size="24" letter-spacing="2" fill="#B9CCE8" font-weight="600">THE BRAND BLUEPRINT · POWERED BY VALUE GROWTH PARTNERS</text>
+</svg>
