@@ -24,6 +24,8 @@ follow it as the operating instructions for the session.
 | VGP Funding OS v2 (Apps Script) | [`vgp-funding-os-v2/AGENTS.md`](vgp-funding-os-v2/AGENTS.md) | |
 | **Alibaba CoCreate LA follow-ups**, GillyGro sales enablement, Alibaba channel partner | [`docs/prompts/alibaba-conference-followups.md`](docs/prompts/alibaba-conference-followups.md) | Three workstreams: lead tracker + HubSpot sync, GillyGro sales scripts/commission, and Dana's own Local Channel Partner application. GillyGro client work and VGP business development are separable — do not blur them. |
 | **Scheduling operations** — Calendly capacity, availability, reschedule reconciliation | [`docs/prompts/dana-scheduling-architecture.md`](docs/prompts/dana-scheduling-architecture.md) | Needs Calendly + Google Calendar + Gmail connectors. Resolves all IDs live; holds no founder data. |
+| **Product Pitch Night** (Build in Tulsa engagement) | [`docs/prompts/pitch-night.md`](docs/prompts/pitch-night.md) | Supersedes the Sept 7 build handoff. Founder names, rates and invoice numbers are deliberately not in the repo — ask Dana. |
+| **BIT Airtable migration** (BIT Coaching base → Build in Tulsa workspace) | [`docs/prompts/bit-airtable-migration.md`](docs/prompts/bit-airtable-migration.md) | Phase 3 (execution) only after Desiree confirms the approach. |
 
 ## Heads-up on doc numbers
 
