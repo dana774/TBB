@@ -23,6 +23,7 @@ follow it as the operating instructions for the session.
 | HubSpot → Asana delivery handoff | [`docs/25-hubspot-asana-delivery-handoff.md`](docs/25-hubspot-asana-delivery-handoff.md) | |
 | VGP Funding OS v2 (Apps Script) | [`vgp-funding-os-v2/AGENTS.md`](vgp-funding-os-v2/AGENTS.md) | |
 | **Alibaba CoCreate LA follow-ups**, GillyGro sales enablement, Alibaba channel partner | [`docs/prompts/alibaba-conference-followups.md`](docs/prompts/alibaba-conference-followups.md) | Three workstreams: lead tracker + HubSpot sync, GillyGro sales scripts/commission, and Dana's own Local Channel Partner application. GillyGro client work and VGP business development are separable — do not blur them. |
+| **Scheduling operations** — Calendly capacity, availability, reschedule reconciliation | [`docs/prompts/dana-scheduling-architecture.md`](docs/prompts/dana-scheduling-architecture.md) | Needs Calendly + Google Calendar + Gmail connectors. Resolves all IDs live; holds no founder data. |
 
 ## Heads-up on doc numbers
 
