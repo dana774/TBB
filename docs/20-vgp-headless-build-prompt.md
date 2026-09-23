@@ -1,5 +1,7 @@
 # 20 — VGP Website Build Prompt (Wix Headless / Codex)
 
+> **Prompt standard:** this document has not yet been brought up to [`docs/prompts/_prompt-standard.md`](prompts/_prompt-standard.md). If you are **revising** it, follow that standard. If you are **executing** it, be aware that sections the standard requires — the people table, hard facts, known caveats, tooling gotchas — may be missing or stale here.
+
 **Paste this whole document into the headless build pipeline** (same method used for the Brand
 Blueprint site). It is self-contained: tech target, data source, design system, page-by-page specs,
 exact CMS field keys, routing, governance guardrails, and acceptance criteria.

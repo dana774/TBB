@@ -22,6 +22,7 @@ follow it as the operating instructions for the session.
 | Website + Shopify agents ↔ HubSpot alignment | [`docs/22-website-and-shopify-agent-handoff-prompts.md`](docs/22-website-and-shopify-agent-handoff-prompts.md) | CRM structure: [`docs/21-hubspot-crm-structure-and-integration-runbook.md`](docs/21-hubspot-crm-structure-and-integration-runbook.md) |
 | HubSpot → Asana delivery handoff | [`docs/25-hubspot-asana-delivery-handoff.md`](docs/25-hubspot-asana-delivery-handoff.md) | |
 | VGP Funding OS v2 (Apps Script) | [`vgp-funding-os-v2/AGENTS.md`](vgp-funding-os-v2/AGENTS.md) | |
+| **Alibaba CoCreate LA follow-ups**, GillyGro sales enablement, Alibaba channel partner | [`docs/prompts/alibaba-conference-followups.md`](docs/prompts/alibaba-conference-followups.md) | Three workstreams: lead tracker + HubSpot sync, GillyGro sales scripts/commission, and Dana's own Local Channel Partner application. GillyGro client work and VGP business development are separable — do not blur them. |
 
 ## Heads-up on doc numbers
 
@@ -29,9 +30,27 @@ Several doc numbers are used twice (for example two `21-`, `22-`, `24-`, `26-`, 
 separate work streams numbered docs independently before consolidation. Always go by the **full file
 name** in the table above, not the number alone.
 
+## Writing or revising a prompt
+
+Every prompt document in this repo is held to
+[`docs/prompts/_prompt-standard.md`](docs/prompts/_prompt-standard.md). That file contains a
+paste-able upgrade instruction — hand it to an agent, name the document, and it will audit and
+rewrite one doc at a time. The reference implementation is
+[`docs/prompts/alibaba-conference-followups.md`](docs/prompts/alibaba-conference-followups.md).
+
+The test: **a competent agent can execute the job from that file alone**, with no other context and
+no access to the conversation that produced it.
+
+Docs still carrying a "not yet brought up to the standard" banner have not been through that pass.
+Executing them is fine; just expect the people table, hard facts, known caveats and tooling gotchas
+to be missing or stale.
+
 ## Guardrails (apply to every prompt)
 
 - Never publish to a live domain (`valugrowthpartners.com`, `thebrandblueprint.biz`) or send email
   without Dana's explicit approval.
+- Never invent a fact. No figure, ID, URL, price or date goes into a deliverable unless it came from
+  a source you can name; unknown values are labelled as placeholders **inside the document**, not
+  just in chat.
 - Never commit secrets (API keys, tokens). Reference secret *names* only.
 - Where a prompt and a later doc disagree, the doc the prompt names as authoritative wins.

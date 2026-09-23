@@ -1,5 +1,7 @@
 # 27 — Member Hub Population Prompt (for a separate Codex project)
 
+> **Prompt standard:** this document has not yet been brought up to [`docs/prompts/_prompt-standard.md`](prompts/_prompt-standard.md). If you are **revising** it, follow that standard. If you are **executing** it, be aware that sections the standard requires — the people table, hard facts, known caveats, tooling gotchas — may be missing or stale here.
+
 Copy the block below into a **new Codex project that has Google Drive access** (create/copy/search).
 It populates the seven "Founder Network — Members" folders with your existing, reusable content.
 

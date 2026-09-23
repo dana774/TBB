@@ -1,5 +1,7 @@
 # 36 — Founder Network: gating verification, Flow tag runbook, and the two-collection build prompt (2026-08-15)
 
+> **Prompt standard:** this document has not yet been brought up to [`docs/prompts/_prompt-standard.md`](prompts/_prompt-standard.md). If you are **revising** it, follow that standard. If you are **executing** it, be aware that sections the standard requires — the people table, hard facts, known caveats, tooling gotchas — may be missing or stale here.
+
 Store: the-brand-blueprint.myshopify.com · Preview theme `154677215286` (UNPUBLISHED, "BB Preview (Phase 1-2) — DO NOT PUBLISH").
 
 ## A. Gating verification — what's confirmed via API

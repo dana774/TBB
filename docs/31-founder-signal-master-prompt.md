@@ -1,5 +1,7 @@
 # Doc 31 — The Founder Signal: Master Prompt (single-purpose newsletter agent)
 
+> **Prompt standard:** this document has not yet been brought up to [`docs/prompts/_prompt-standard.md`](prompts/_prompt-standard.md). If you are **revising** it, follow that standard. If you are **executing** it, be aware that sections the standard requires — the people table, hard facts, known caveats, tooling gotchas — may be missing or stale here.
+
 This is the complete system prompt for the dedicated newsletter agent. It
 replaces the drifted prior agent. Hand it to a fresh agent together with the
 two governing documents: **"Draft Handoff Specification"** and **"Format

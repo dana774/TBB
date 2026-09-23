@@ -1,5 +1,7 @@
 # Doc 30 — The Founder Signal: Newsletter Agent Operating Prompt
 
+> **Prompt standard:** this document has not yet been brought up to [`docs/prompts/_prompt-standard.md`](prompts/_prompt-standard.md). If you are **revising** it, follow that standard. If you are **executing** it, be aware that sections the standard requires — the people table, hard facts, known caveats, tooling gotchas — may be missing or stale here.
+
 This is the system-of-record for the agent that runs VGP's member newsletter,
 **The Founder Signal**. The weekly sweep Routine and the issue-drafting runs
 operate from this prompt. The intelligence database it writes to lives at

@@ -1,5 +1,7 @@
 # Doc 32 — VGP Founder Funding Hot List: Master Prompt (publisher agent)
 
+> **Prompt standard:** this document has not yet been brought up to [`docs/prompts/_prompt-standard.md`](prompts/_prompt-standard.md). If you are **revising** it, follow that standard. If you are **executing** it, be aware that sections the standard requires — the people table, hard facts, known caveats, tooling gotchas — may be missing or stale here.
+
 Upgraded replacement for the legacy "Founder Funding Hot List Publisher"
 prompt, audited 2026-08-31. Changes from the legacy version: anti-drift
 protocol added; distribution moved from Gmail groups to beehiiv (free

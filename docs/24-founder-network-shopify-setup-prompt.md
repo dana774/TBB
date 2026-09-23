@@ -1,5 +1,7 @@
 # 24 — Founder Network ($99/mo) — Shopify Setup Prompt & Wiring
 
+> **Prompt standard:** this document has not yet been brought up to [`docs/prompts/_prompt-standard.md`](prompts/_prompt-standard.md). If you are **revising** it, follow that standard. If you are **executing** it, be aware that sections the standard requires — the people table, hard facts, known caveats, tooling gotchas — may be missing or stale here.
+
 The VGP site has a **Membership** page (`/membership`) that sells the $99/month Founder Network. Its "Join" button goes live the moment you set one env var — `MEMBERSHIP_CHECKOUT_URL` — to the Shopify checkout/product link. The subscription itself is sold through **The Brand Blueprint (Shopify)**, so the product needs to exist there first.
 
 Below is a ready-to-paste prompt for the agent working on the Brand Blueprint Shopify store, plus the exact wiring step for this site.
