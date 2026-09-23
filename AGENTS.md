@@ -22,6 +22,7 @@ follow it as the operating instructions for the session.
 | Website + Shopify agents ↔ HubSpot alignment | [`docs/22-website-and-shopify-agent-handoff-prompts.md`](docs/22-website-and-shopify-agent-handoff-prompts.md) | CRM structure: [`docs/21-hubspot-crm-structure-and-integration-runbook.md`](docs/21-hubspot-crm-structure-and-integration-runbook.md) |
 | HubSpot → Asana delivery handoff | [`docs/25-hubspot-asana-delivery-handoff.md`](docs/25-hubspot-asana-delivery-handoff.md) | |
 | VGP Funding OS v2 (Apps Script) | [`vgp-funding-os-v2/AGENTS.md`](vgp-funding-os-v2/AGENTS.md) | |
+| **Alibaba CoCreate LA follow-ups**, GillyGro sales enablement, Alibaba channel partner | [`docs/prompts/alibaba-conference-followups.md`](docs/prompts/alibaba-conference-followups.md) | Three workstreams: lead tracker + HubSpot sync, GillyGro sales scripts/commission, and Dana's own Local Channel Partner application. GillyGro client work and VGP business development are separable — do not blur them. |
 
 ## Heads-up on doc numbers
 
