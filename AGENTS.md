@@ -21,6 +21,7 @@ follow it as the operating instructions for the session.
 | **Founder Funding Hot List** publisher | [`docs/32-founder-funding-hotlist-master-prompt.md`](docs/32-founder-funding-hotlist-master-prompt.md) | Write-back automation: [`docs/33-writeback-automation-runbook.md`](docs/33-writeback-automation-runbook.md) |
 | Website + Shopify agents ↔ HubSpot alignment | [`docs/22-website-and-shopify-agent-handoff-prompts.md`](docs/22-website-and-shopify-agent-handoff-prompts.md) | CRM structure: [`docs/21-hubspot-crm-structure-and-integration-runbook.md`](docs/21-hubspot-crm-structure-and-integration-runbook.md) |
 | HubSpot → Asana delivery handoff | [`docs/25-hubspot-asana-delivery-handoff.md`](docs/25-hubspot-asana-delivery-handoff.md) | |
+| **R.E.D. Academy contract operations** | [`docs/prompts/red-academy-contract.md`](docs/prompts/red-academy-contract.md) | Client engagement, not a build. Pilot Sept 1 – Dec 31 2026, executed 2026-09-16. Activation already run — pick up the existing trackers. |
 | VGP Funding OS v2 (Apps Script) | [`vgp-funding-os-v2/AGENTS.md`](vgp-funding-os-v2/AGENTS.md) | |
 
 ## Heads-up on doc numbers
