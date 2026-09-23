@@ -22,6 +22,7 @@ follow it as the operating instructions for the session.
 | Website + Shopify agents ↔ HubSpot alignment | [`docs/22-website-and-shopify-agent-handoff-prompts.md`](docs/22-website-and-shopify-agent-handoff-prompts.md) | CRM structure: [`docs/21-hubspot-crm-structure-and-integration-runbook.md`](docs/21-hubspot-crm-structure-and-integration-runbook.md) |
 | HubSpot → Asana delivery handoff | [`docs/25-hubspot-asana-delivery-handoff.md`](docs/25-hubspot-asana-delivery-handoff.md) | |
 | VGP Funding OS v2 (Apps Script) | [`vgp-funding-os-v2/AGENTS.md`](vgp-funding-os-v2/AGENTS.md) | |
+| **Scheduling operations** — Calendly capacity, availability, reschedule reconciliation | [`docs/prompts/dana-scheduling-architecture.md`](docs/prompts/dana-scheduling-architecture.md) | Needs Calendly + Google Calendar + Gmail connectors. Resolves all IDs live; holds no founder data. |
 
 ## Heads-up on doc numbers
 
