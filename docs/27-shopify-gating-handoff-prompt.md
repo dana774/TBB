@@ -1,5 +1,7 @@
 # Doc 27 — Handoff prompt: gate the Founder Network Resource Library on the Shopify site
 
+> **Prompt standard:** this document has not yet been brought up to [`docs/prompts/_prompt-standard.md`](prompts/_prompt-standard.md). If you are **revising** it, follow that standard. If you are **executing** it, be aware that sections the standard requires — the people table, hard facts, known caveats, tooling gotchas — may be missing or stale here.
+
 The prompt below is written to be handed verbatim to the agent moving the member library
 onto the Brand Blueprint Shopify site. It reflects the library state as of 2026-08-14
 (after the doc-26 standards pass, rights resolutions, and dedup audit).

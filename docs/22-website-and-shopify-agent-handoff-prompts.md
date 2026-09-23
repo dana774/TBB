@@ -1,5 +1,7 @@
 # 22 — Handoff prompts: website + Shopify agents ↔ HubSpot alignment
 
+> **Prompt standard:** this document has not yet been brought up to [`docs/prompts/_prompt-standard.md`](prompts/_prompt-standard.md). If you are **revising** it, follow that standard. If you are **executing** it, be aware that sections the standard requires — the people table, hard facts, known caveats, tooling gotchas — may be missing or stale here.
+
 Context: VGP is moving off Wix to a new front-end host. That host will wire intake forms + CMS
 contact capture **directly to HubSpot** (not Wix). Payments/invoicing move to the **Shopify**
 "The Brand Blueprint" store. This doc (a) records the updated system ownership and (b) contains two

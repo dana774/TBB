@@ -30,9 +30,27 @@ Several doc numbers are used twice (for example two `21-`, `22-`, `24-`, `26-`, 
 separate work streams numbered docs independently before consolidation. Always go by the **full file
 name** in the table above, not the number alone.
 
+## Writing or revising a prompt
+
+Every prompt document in this repo is held to
+[`docs/prompts/_prompt-standard.md`](docs/prompts/_prompt-standard.md). That file contains a
+paste-able upgrade instruction — hand it to an agent, name the document, and it will audit and
+rewrite one doc at a time. The reference implementation is
+[`docs/prompts/alibaba-conference-followups.md`](docs/prompts/alibaba-conference-followups.md).
+
+The test: **a competent agent can execute the job from that file alone**, with no other context and
+no access to the conversation that produced it.
+
+Docs still carrying a "not yet brought up to the standard" banner have not been through that pass.
+Executing them is fine; just expect the people table, hard facts, known caveats and tooling gotchas
+to be missing or stale.
+
 ## Guardrails (apply to every prompt)
 
 - Never publish to a live domain (`valugrowthpartners.com`, `thebrandblueprint.biz`) or send email
   without Dana's explicit approval.
+- Never invent a fact. No figure, ID, URL, price or date goes into a deliverable unless it came from
+  a source you can name; unknown values are labelled as placeholders **inside the document**, not
+  just in chat.
 - Never commit secrets (API keys, tokens). Reference secret *names* only.
 - Where a prompt and a later doc disagree, the doc the prompt names as authoritative wins.
