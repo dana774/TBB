@@ -20,6 +20,11 @@ data current from a single source of truth.
 4. **Pull to site** — when a partner is `Confirmed` in Airtable, update `content.ts` + drop their assets in
    `public/assets/partners/`, set `review:false`, rebuild, deploy. (Automatable later — see the spec.)
 
+## Partner folders
+- `intelligent-deals/` — Intelligent Deals (Kyle Benus): TV / subscription box / e-commerce discount
+  channel partner. Call recap, the proposed reciprocal fee structure, and the builder for the
+  partner-facing `.docx`. Terms not yet agreed.
+
 ## Files here
 - `airtable-referral-partners-spec.md` — the Airtable base, form, automation, and pull process (click-to-build).
 - `process-announcement-email.md` — the "new process" announcement + example page.

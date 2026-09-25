@@ -1,0 +1,7 @@
+{
+  "name": "intelligent-deals-referral-doc",
+  "private": true,
+  "description": "Builds the Intelligent Deals referral partnership structure document.",
+  "scripts": { "build": "node doc-referral-structure.js" },
+  "dependencies": { "docx": "^9.7.2" }
+}
