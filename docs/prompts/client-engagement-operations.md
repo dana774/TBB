@@ -143,6 +143,37 @@ Dana has referred to a past client as the format model whose folder could not be
 found in the client drive, Google Drive or Gmail. If he names a template client,
 confirm which engagement he means rather than guessing.
 
+### Recurring rounds on an ad hoc client
+
+Ad hoc clients — advisory relationships with no program contract behind them —
+generate the same round of work after every session, not just at intake. The
+round is: **recap email draft → revise the existing document set → one
+client-facing summary and one internal brief.** Produce it as a versioned
+revision of the existing files (`v3`, dated) rather than a parallel set, and say
+in each document which earlier file it supersedes. Numbered filenames from the
+original set are the anchor; keep the numbers stable across versions so the
+folder stays legible.
+
+Two rules that only bite on repeat rounds:
+
+- **Verify the meeting date and the attendee list against the calendar before
+  writing a recap.** Dana dictates these from memory, days later, between
+  flights, and the day of the week is the detail he most often gets wrong —
+  including when he corrects himself mid-sentence. The Calendly-generated
+  calendar entry is authoritative for date, duration and who was actually on the
+  invitation. Who attended changes the recap: a session that was one-to-one
+  produces a working direction the rest of the team has not agreed to, and the
+  recap has to say so.
+- **Check whether the previous round's pre-work landed** before treating any
+  decision as closed. A decision that has stayed open across two sessions is
+  usually a decision the founder does not want to make; name that in the
+  internal brief rather than re-listing it as an open item.
+
+Where no recording or transcript exists, say so **inside** both documents, and
+put a line in the client-facing one asking the client to correct anything
+mis-recorded. That line is the safeguard that makes a memory-sourced recap safe
+to send.
+
 ### Pricing ladder (v5.2 — quote exactly, do not improvise)
 
 These prices are published on the Brand Blueprint membership page and are safe
@@ -328,6 +359,26 @@ machine. Python is a Microsoft Store stub that fails on invocation.
   invisible repair prompt.** Omit the element entirely when there are no borders.
 - **Validate before handing over:** unzip the docx and parse every `.xml` and
   `.rels` with `[xml]`. Takes seconds, catches corruption.
+
+**Document generation from a cloud or Linux session — the builder above will not
+run.** Claude Code on the web has no PowerShell, no Word and no COM, so
+`md2docx.ps1` and every Word COM note below are unavailable. Use
+[`_build/vgpdoc.py`](_build/vgpdoc.py) instead: a python-docx port of the same
+house style (Segoe UI, navy `0F1E2E` headings with a pale-blue rule, mint and
+pale-blue accents, navy header row with zebra body rows) accepting the same
+Markdown subset.
+
+- `pip install python-docx` first — it is not preinstalled. `lxml` comes with it.
+- `python3 vgpdoc.py <in.md> <out.docx> "<eyebrow>" "<classification>"`, or
+  import `build()` to batch several documents in one pass.
+- Validate the same way, with `zipfile` and `xml.etree` in place of `[xml]`, and
+  assert `empty tblBorders == 0` — the trap is identical.
+- It produces `.docx` only. There is no PDF path in a cloud session; hand Dana
+  the `.docx` and let him export.
+- Write deliverables to the **scratchpad**, never into this repo — the repo is
+  public and the Claude app can open scratchpad files, so `SendUserFile` from
+  there is the handoff. Then Dana drops them into the client folder himself,
+  since the iCloud path is not reachable from a cloud session.
 
 **Word COM — three distinct traps.**
 
