@@ -85,6 +85,19 @@ This repo is public. Dana's founders and partners are private individuals.
 - When a deliverable needs real names and numbers, hand it to Dana as a file or
   a draft — never as a repo commit.
 
+> **Open issue — client deliverables are already committed here.** `main`
+> carries a `client-deliverables/` tree with finished engagement documents,
+> including at least one marked VGP-internal that carries a candid founder
+> assessment of a named private individual. The repository is **public**
+> (confirmed against the GitHub API, not inferred), so that material is
+> world-readable and is in the git history, which means deleting the files does
+> not by itself un-publish them. This contradicts the rules above. Do **not**
+> add to that tree, and raise it with Dana rather than resolving it — whether to
+> rewrite history, strip the tree, or make the repository private is his call,
+> and each option has consequences for the Vercel deployment and for anyone who
+> has already cloned. Until he decides, new client deliverables go to the
+> scratchpad and are handed over as files.
+
 ## The people
 
 Names and addresses are deliberately **not** in this file. Resolve them live.
@@ -240,9 +253,29 @@ that document owns the scheduling system and this one defers to it.
 
 ### House document style
 
-Segoe UI, US Letter, 1" margins, body 11pt. H1 15pt / H2 13pt navy `0F1E2E`
-with a pale-blue rule; accents mint `7FD4C4` and pale blue `B9CBDD`. Tables get
-a navy header row and zebra body rows.
+**The authoritative palette is the VGP/BB design contract in
+[`docs/08-studio-build-spec.md`](../08-studio-build-spec.md) §1**, and the
+implementation of it for Word documents is
+[`client-deliverables/ascend-family-vault/build/theme.js`](../../client-deliverables/ascend-family-vault/build/theme.js).
+Read the theme before styling anything; do not restyle from scratch and do not
+work from this section's summary where the two disagree.
+
+Navy `071E41` · Deep Blue `0B2D57` · Blueprint Blue `3978D7` (the single primary
+accent) · Warm Gold `C89B2C` (eyebrow labels only, one accent per view) · Pale
+Blue `EFF5FF` (callouts) · Soft Gray-Blue `F5F8FC` (form-capture cells) · Body
+Gray `4B5563` · Border `E5EAF2`.
+
+Editorial serif for display over neutral sans for everything else — **Cambria and
+Arial** in Word, standing in for the Playfair/Inter pairing the contract names,
+because both ship with every Office install and so render identically on any
+machine. US Letter, 0.75" side margins, body 10pt at 1.5 line spacing.
+**Hairline tables with a navy header band and no zebra fill.** Callouts are
+tinted blocks with a gold label. No gradients, no rounded corners, no decorative
+rules.
+
+> An earlier revision of this section specified Segoe UI with a mint accent and
+> zebra table rows. That conflicts with the design contract and with every
+> document actually delivered to a client. It is superseded by the above.
 
 Dana wants deliverables in **Word or PDF, never raw Markdown.**
 
@@ -360,25 +393,40 @@ machine. Python is a Microsoft Store stub that fails on invocation.
 - **Validate before handing over:** unzip the docx and parse every `.xml` and
   `.rels` with `[xml]`. Takes seconds, catches corruption.
 
-**Document generation from a cloud or Linux session — the builder above will not
-run.** Claude Code on the web has no PowerShell, no Word and no COM, so
-`md2docx.ps1` and every Word COM note below are unavailable. Use
-[`_build/vgpdoc.py`](_build/vgpdoc.py) instead: a python-docx port of the same
-house style (Segoe UI, navy `0F1E2E` headings with a pale-blue rule, mint and
-pale-blue accents, navy header row with zebra body rows) accepting the same
-Markdown subset.
+**Document generation from a cloud or Linux session — `md2docx.ps1` will not
+run.** Claude Code on the web has no PowerShell, no Word and no COM, so that
+builder and every Word COM note below are unavailable. **Use the Node builder
+instead**, which is in this repo and is the real house implementation:
+[`client-deliverables/ascend-family-vault/build/theme.js`](../../client-deliverables/ascend-family-vault/build/theme.js),
+built on the `docx` npm package. Its `README.md` says to reuse it rather than
+restyle, and that instruction is correct — a document built on any other style
+will not match the set already in the client folder.
 
-- `pip install python-docx` first — it is not preinstalled. `lxml` comes with it.
-- `python3 vgpdoc.py <in.md> <out.docx> "<eyebrow>" "<classification>"`, or
-  import `build()` to batch several documents in one pass.
-- Validate the same way, with `zipfile` and `xml.etree` in place of `[xml]`, and
-  assert `empty tblBorders == 0` — the trap is identical.
-- It produces `.docx` only. There is no PDF path in a cloud session; hand Dana
-  the `.docx` and let him export.
-- Write deliverables to the **scratchpad**, never into this repo — the repo is
-  public and the Claude app can open scratchpad files, so `SendUserFile` from
-  there is the handoff. Then Dana drops them into the client folder himself,
-  since the iCloud path is not reachable from a cloud session.
+- `theme.js` exports the primitives: `coverBand`, `eyebrow`, `h1`–`h3`, `body`,
+  `lead`, `bullets`, `dataTable`, `callout`, `statStrip`, `rule`, `spacer`, plus
+  `styles` and `numbering` for the `Document` constructor. The existing
+  `doc-0*.js` generators are the worked examples — read one before writing a new
+  one.
+- `npm install docx` inside that `build/` directory first; it is not committed.
+  A generator run from anywhere else needs
+  `NODE_PATH=<repo>/client-deliverables/ascend-family-vault/build/node_modules`,
+  or `require` will not resolve `docx`.
+- Keep `dataTable` to about six columns, and pass explicit column fractions —
+  the helper does not measure content.
+- Form-capture cells are `{ text: '', fill: C.softGray }`, not runs of
+  underscores.
+- **`build/render.sh` does not work in a cloud session.** LibreOffice is present
+  but its Writer import filter fails — every `.docx` including the ones already
+  committed returns "source file could not be loaded" — so there is no
+  rasterised visual QA and no PDF. Validate structurally instead: read the output
+  back with `python-docx`, and assert the cover band is present, no `**`/`|`/`#`
+  survived into paragraph text, and column counts are sane. Then hand Dana the
+  `.docx` and let him export the PDF.
+- Write deliverables to the **scratchpad**, not into this repo, and hand them
+  over with `SendUserFile` — the Claude app can open scratchpad files. Then Dana
+  drops them into the client folder himself, since the iCloud path is not
+  reachable from a cloud session. See the warning below about client material
+  already committed here.
 
 **Word COM — three distinct traps.**
 
