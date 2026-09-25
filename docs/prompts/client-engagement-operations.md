@@ -119,6 +119,16 @@ clients live flat under `Clients\`; new ad hoc engagements go under
 Transcripts are saved to the client folder as
 `<Full Name> and Value Growth Partners_otter.ai <M.D>.txt`.
 
+### Reusable deliverable templates
+
+Packages that recur across engagements live in [`docs/templates/`](../templates/)
+and are de-identified by design. Build from the template, fill it from the client
+folder, and never commit the filled version.
+
+| Template | Use it when |
+|---|---|
+| [`contract-manufacturer-outreach-package.md`](../templates/contract-manufacturer-outreach-package.md) | A founder is moving from hand or small-batch production into contract manufacturing and has real demand evidence. Covers the outreach email, the follow-up, the first-call guide, the weighted scorecard and the product brief. |
+
 ### The standard initial document set
 
 Modelled on the two most complete existing client folders — ask Dana which to
@@ -357,9 +367,16 @@ machine. Python is a Microsoft Store stub that fails on invocation.
   Dana to delete it by hand — do not work around it.
 
 **Airtable connector.** Reads work (`list_bases`, `list_tables_for_base`,
-`list_records_for_table`). **Writes fail** — any array parameter is serialised as
-a string and rejected. Produce a paste-ready table for Dana instead, and never
-claim a record was created.
+`list_records_for_table`, `search_records`). **Writes now work too** —
+`create_records_for_table` and `update_records_for_table` both succeed, including
+linked-record fields, which take a plain array of record IDs. Verified 2026-09-25
+against the BIT Post-Program Executive Coaching base. This supersedes the earlier
+note that writes fail; array parameters are no longer mangled. Two things still
+hold: write `singleSelect` and `multipleSelects` values as plain option-name
+strings (not the object form a read returns), and pass field IDs rather than
+field names. If a write is ever refused, fall back to a paste-ready table — but
+check first rather than assuming, and never claim a record was created without a
+returned record ID.
 
 **Calendly connector.** Tool schemas come back empty (`{"type":"object"}`) but
 named parameters work. `list_event_type_available_times` accepts a **maximum
@@ -376,6 +393,15 @@ click rather than pretending to have scraped listings.
 **Bash.** Large HTML or Markdown through a heredoc gets mangled ("unexpected
 EOF"). Use the file-write tool for anything substantial. PowerShell here is
 **5.1** — no `&&`, no ternary, no null-coalescing; use `;` and `if ($?)`.
+
+**Linux/cloud sessions (Claude Code on the web).** The Windows builder above does
+not exist there. `python-docx` installs and produces house-style Word files
+directly, which is the fastest path. **PDF export is not available** — the image
+ships `libreoffice-core` without `libreoffice-writer`, so `soffice --convert-to
+pdf` fails with "source file could not be loaded" on every input, including plain
+text. Deliver `.docx` and say plainly that Dana exports the PDF himself. Validate
+every generated file by reopening it with `python-docx` and parsing each `.xml`
+and `.rels` in the package before handing it over.
 
 ## Working defaults
 

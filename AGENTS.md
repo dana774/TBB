@@ -29,6 +29,16 @@ follow it as the operating instructions for the session.
 | **BIT Airtable migration** (BIT Coaching base → Build in Tulsa workspace) | [`docs/prompts/bit-airtable-migration.md`](docs/prompts/bit-airtable-migration.md) | Phase 3 (execution) only after Desiree confirms the approach. |
 | **Client engagement operations** — transcripts → client/partner folders, house-style document sets, drafted correspondence | [`docs/prompts/client-engagement-operations.md`](docs/prompts/client-engagement-operations.md) | The intake-to-deliverable pipeline for ad hoc advisory clients and referral partners. Carries the v5.2 pricing ladder, Calendly routing, the house document builder, and connector gotchas. Defers to the scheduling prompt for capacity work. Holds no founder data. |
 
+## Reusable deliverable templates
+
+De-identified, client-safe templates for deliverable packages that recur across engagements live in
+[`docs/templates/`](docs/templates/). Build from the template, fill it from the client folder, and
+never commit the filled version.
+
+| Template | Use it when |
+|---|---|
+| [`contract-manufacturer-outreach-package.md`](docs/templates/contract-manufacturer-outreach-package.md) | A founder is moving from hand or small-batch production into contract manufacturing. Outreach email, follow-up, first-call guide, weighted scorecard and product brief. |
+
 ## Heads-up on doc numbers
 
 Several doc numbers are used twice (for example two `21-`, `22-`, `24-`, `26-`, `27-` files), because
