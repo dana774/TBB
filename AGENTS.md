@@ -58,4 +58,23 @@ to be missing or stale.
   a source you can name; unknown values are labelled as placeholders **inside the document**, not
   just in chat.
 - Never commit secrets (API keys, tokens). Reference secret *names* only.
+- **Never commit client deliverables or client-confidential material to this repo** — founder and
+  partner names, email addresses, phone numbers, margins, landed costs, rates tied to a named
+  person, or any candid internal assessment of a named individual. Write them to your scratchpad
+  and hand them to Dana as files; he files them in the client folder himself, and the iCloud client
+  path is not reachable from a cloud session. This applies whatever the repo's visibility is: a
+  private repo still has collaborators, integrations and tokens attached, and anything committed
+  stays in the git history.
+- `client-deliverables/` **already breaches the rule above** and is the reason it is now stated
+  here. It carries finished engagement documents including a VGP-internal one with a candid founder
+  read on a named private individual. Do not add to that tree. Dana made the repo private on
+  2026-09-25 to limit the exposure; that does not un-publish what is already in the history.
+  Agents cannot change repository visibility — the egress proxy refuses repository settings writes —
+  so never assume the current state: resolve it live with `GET /repos/dana774/TBB` and read
+  `visibility`.
+- The **authoritative document design contract** is [`docs/08-studio-build-spec.md`](docs/08-studio-build-spec.md)
+  §1, implemented for Word in
+  [`client-deliverables/ascend-family-vault/build/theme.js`](client-deliverables/ascend-family-vault/build/theme.js).
+  Build on that theme rather than restyling. Where a prompt's own house-style summary disagrees with
+  §1, §1 wins.
 - Where a prompt and a later doc disagree, the doc the prompt names as authoritative wins.
