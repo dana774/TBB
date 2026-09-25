@@ -3,7 +3,9 @@
 Captured 2026-09-22 from the working session that ran 2026-09-14 through
 2026-09-22, covering four live threads: two new ad hoc advisory intakes, one
 referral-partner evaluation, and an inbound partnership enquiry handled over
-LinkedIn. Revised 2026-09-23 to meet the repo's public-data rules.
+LinkedIn. Revised 2026-09-23 to meet the repo's public-data rules. Gmail
+connector notes corrected 2026-09-25 against the live connector — multi-recipient
+and CC/BCC support, attachment behaviour, and how to read a draft back.
 
 Written as self-contained operating instructions — hand this to an agent
 together with nothing else.
@@ -346,15 +348,35 @@ machine. Python is a Microsoft Store stub that fails on invocation.
 
 **Gmail connector.**
 
-- `create_draft` takes **one recipient only**. No CC. No attachments. Always
-  tell Dana who he still has to add and what he has to attach.
+- `create_draft` **does** accept multiple `to` recipients plus `cc` and `bcc` —
+  an earlier note here claimed one recipient and no CC, which is wrong.
+  Re-verified 2026-09-25 by creating a draft with two `to`, one `cc` and one
+  `bcc` and reading it back: all four stuck. **Set a contractually required CC
+  on the draft itself** rather than asking Dana to add it — a program
+  administrator who must be copied on every founder email is exactly the case
+  this exists for, and leaving it to a manual step is how it gets missed.
+- **Attachments silently do not stick.** `create_draft` accepts an
+  `attachments` array and returns success, but the draft reads back with no
+  attachment and no `attachmentIds` (verified 2026-09-25). Build the draft, then
+  tell Dana precisely what he has to attach by hand. Never report a file as
+  attached without reading the draft back.
 - **`update_draft` detaches a draft from its thread.** A threaded reply updated
   this way becomes a standalone draft and loses its recipient. **Never update a
   threaded reply** — delete it and create a fresh one with `replyToMessageId`.
 - Pass **raw HTML** in `htmlBody`. HTML-escaped entities render as visible
   literal tags in the sent mail.
-- `trash_message` on a draft may be refused by the permission layer. If so, tell
-  Dana to delete it by hand — do not work around it.
+- **Read the draft back before reporting it.** `get_draft` with
+  `messageFormat: MINIMAL` omits `cc`/`bcc` even when they are set — use
+  `METADATA_ONLY` to confirm recipients, or `FULL_CONTENT` to confirm recipients
+  and body together. A missing field in `MINIMAL` is not evidence of a missing
+  CC.
+- `delete_draft` works and is the right way to remove a draft you created.
+  `trash_message` on a draft may be refused by the permission layer; if it is,
+  tell Dana to delete it by hand — do not work around it.
+- The connector has **no attachment-download tool**, so you cannot read a PDF
+  that arrived by email (a countersigned SOW, for example). Say so plainly and
+  ask Dana for the file rather than reasoning from an older version of the
+  document.
 
 **Airtable connector.** Reads work (`list_bases`, `list_tables_for_base`,
 `list_records_for_table`). **Writes fail** — any array parameter is serialised as
