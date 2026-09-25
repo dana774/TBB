@@ -88,15 +88,23 @@ This repo is public. Dana's founders and partners are private individuals.
 > **Open issue — client deliverables are already committed here.** `main`
 > carries a `client-deliverables/` tree with finished engagement documents,
 > including at least one marked VGP-internal that carries a candid founder
-> assessment of a named private individual. The repository is **public**
-> (confirmed against the GitHub API, not inferred), so that material is
-> world-readable and is in the git history, which means deleting the files does
-> not by itself un-publish them. This contradicts the rules above. Do **not**
-> add to that tree, and raise it with Dana rather than resolving it — whether to
-> rewrite history, strip the tree, or make the repository private is his call,
-> and each option has consequences for the Vercel deployment and for anyone who
-> has already cloned. Until he decides, new client deliverables go to the
-> scratchpad and are handed over as files.
+> assessment of a named private individual. This contradicts the rules above.
+> **Do not add to that tree**; new client deliverables go to the scratchpad and
+> are handed over as files.
+>
+> Dana decided on 2026-09-25 to make the repository **private**, because this
+> kept recurring across sessions. Changing repository visibility is blocked for
+> agents by the egress proxy ("Repository settings writes are not permitted
+> through this proxy"), so he does it himself in GitHub settings — do not attempt
+> the API call.
+>
+> **Never assume the current visibility; resolve it live** with
+> `GET /repos/dana774/TBB` and read `visibility`. And note what private does not
+> fix: the material is in the git history, so anything already cloned, forked or
+> cached stays out, and going private does not retroactively un-publish it.
+> Private also is not a licence to start committing client-confidential material
+> — the rules above still hold, because a private repo is still a repo with
+> collaborators, integrations and tokens attached to it.
 
 ## The people
 
